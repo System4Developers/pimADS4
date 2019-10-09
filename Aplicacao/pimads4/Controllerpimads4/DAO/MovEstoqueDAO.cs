@@ -12,7 +12,6 @@ namespace Controllerpimads4.DAO
 
         private MovEstoqueDAO()
         {
-
         }
 
         public static MovEstoqueDAO GetInstance(MovEstoqueDAO instance)

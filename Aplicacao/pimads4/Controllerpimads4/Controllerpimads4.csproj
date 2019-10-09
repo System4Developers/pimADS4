@@ -47,6 +47,9 @@
     <Compile Include="DAO\FabricanteDAO.cs" />
     <Compile Include="DAO\LogradouroDAO.cs" />
     <Compile Include="DAO\MovEstoqueDAO.cs" />
+    <Compile Include="DAO\PedidoDAO.cs" />
+    <Compile Include="DAO\PedProdutoDAO.cs" />
+    <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
