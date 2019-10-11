@@ -10,8 +10,7 @@ namespace Controllerpimads4.DAO
     {
         public static PedidoDAO instance;
 
-        private PedidoDAO()
-        { }
+        private PedidoDAO() { }
 
         public static PedidoDAO GetInstance()
         {

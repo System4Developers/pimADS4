@@ -10,11 +10,9 @@ namespace Controllerpimads4.DAO
     {
         private static EstadoDAO instance;
 
-        private EstadoDAO()
-        {
-        }
+        private EstadoDAO() { }
 
-        public static EstadoDAO GetInstance(EstadoDAO instance)
+        public static EstadoDAO GetInstance()
         {
             if (instance == null)
             {

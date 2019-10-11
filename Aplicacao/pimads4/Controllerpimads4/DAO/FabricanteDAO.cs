@@ -10,11 +10,9 @@ namespace Controllerpimads4.DAO
     {
         private static FabricanteDAO instance;
 
-        private FabricanteDAO()
-        {
-        }
+        private FabricanteDAO() { }
 
-        public static FabricanteDAO GetInstance(FabricanteDAO instance)
+        public static FabricanteDAO GetInstance()
         {
             if(instance == null)
             {

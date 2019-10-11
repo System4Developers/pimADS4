@@ -10,10 +10,9 @@ namespace Controllerpimads4.DAO
     {
         private static LogradouroDAO instance;
 
-        private LogradouroDAO()
-        { }
+        private LogradouroDAO() { }
 
-        public static LogradouroDAO GetInstance(LogradouroDAO instance)
+        public static LogradouroDAO GetInstance()
         {
             if (instance==null)
             {

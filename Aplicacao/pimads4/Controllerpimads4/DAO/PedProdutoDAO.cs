@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.DAO
 {
-    class PedProdutoDAO
+    public class PedProdutoDAO
     {
+        private static PedProdutoDAO instance;
+
+        private PedProdutoDAO() { }
+
+        public static PedProdutoDAO GetInstance()
+        {
+            if (instance==null)
+            {
+                instance = new PedProdutoDAO();
+            }
+            return instance;
+        }
+
+
     }
 }

@@ -10,11 +10,9 @@ namespace Controllerpimads4.DAO
     {
         private static ClienteDAO instance;
 
-        private ClienteDAO()
-        {
-        }
+        private ClienteDAO() { }
 
-        public static ClienteDAO GetInstance(ClienteDAO instance)
+        public static ClienteDAO GetInstance()
         {
             if(instance == null)
             {

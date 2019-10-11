@@ -8,13 +8,11 @@ namespace Controllerpimads4.DAO
 {
     public class MovEstoqueDAO
     {
-        private static string instance;
+        private static MovEstoqueDAO instance;
 
-        private MovEstoqueDAO()
-        {
-        }
+        private MovEstoqueDAO() { }
 
-        public static MovEstoqueDAO GetInstance(MovEstoqueDAO instance)
+        public static MovEstoqueDAO GetInstance()
         {
             if (instance==null)
             {

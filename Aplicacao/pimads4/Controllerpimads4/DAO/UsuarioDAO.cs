@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.DAO
 {
-    public class CidadeDAO
+    public class UsuarioDAO
     {
-        private static CidadeDAO instance;
+        private static UsuarioDAO instance;
 
-        private CidadeDAO() { }
+        private UsuarioDAO() { }
 
-        public static CidadeDAO GetInstance()
+        public static UsuarioDAO GetInstance()
         {
-            if (instance == null)
+            if (instance==null)
             {
-                return instance = new CidadeDAO();
+                instance = new UsuarioDAO();
             }
             return instance;
         }
+
 
     }
 }
