@@ -6,10 +6,10 @@ GO
 
 CREATE TABLE Usuario (
 	idUsuario INT PRIMARY KEY IDENTITY(1,1),
-	tipoUsuario VARCHAR(6) not null,
+	tpUsuario VARCHAR(6) not null,
 	dsLogin VARCHAR(50) not null,
-	senha VARCHAR(40) not null,
-	tipoStatus VARCHAR(1) not null
+	dsSenha VARCHAR(40) not null,
+	toStatus VARCHAR(1) not null
 )
 GO
 
@@ -22,7 +22,7 @@ CREATE TABLE Cliente (
 	rg VARCHAR(12),
 	dsObs VARCHAR(200),
 	razaoSocial VARCHAR(120),
-	tipoStatus VARCHAR(1) not null,
+	tpStatus VARCHAR(1) not null,
 	email VARCHAR(100),
 	tipo VARCHAR(10) not null
 )
@@ -60,7 +60,7 @@ CREATE TABLE Produto (
 	idProduto INT PRIMARY KEY IDENTITY(1,1),
 	codAlter VARCHAR(12),
 	dsProduto VARCHAR(100) not null,
-	valorEntrada FLOAT not null,
+	valorCusto FLOAT not null,
 	fk_idFabricante_fabricante INT,
 	fk_idUnidade_unidade INT
 )
@@ -73,7 +73,7 @@ CREATE TABLE MovEstoque (
 	dtMov DATETIME not null,
 	quantidade INT not null,
 	operacao INT not null,
-	Obs VARCHAR(200),
+	obs VARCHAR(200),
 	fk_idProduto_produto INT,
 	fk_idUsuario_usuario INT
 )
@@ -85,7 +85,7 @@ CREATE TABLE Pedido (
 	idPedido INT PRIMARY KEY IDENTITY(1,1),
 	numPedido INT not null,
 	formaPagamento VARCHAR(12) not null,
-	tipoStatus VARCHAR(10) not null,
+	tpStatus VARCHAR(10) not null,
 	dtDigitacao DATETIME not null,
 	valorTotal FLOAT,
 	fk_idCliente_cliente INT,
