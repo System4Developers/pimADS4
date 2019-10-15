@@ -4,8 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Imperador das Telhas" Height="450" Width="800">
+        Title="Imperador das Telhas" 
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="800" WindowStyle="ThreeDBorderWindow">
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="grdFormContentArea" Grid.Row="1" Grid.Column="1"></Grid>
+
+        <Button Name="btnUsuarios" Content="Usuários" Grid.Row="1" Grid.Column="0" Height="20" HorizontalContentAlignment="Center" VerticalAlignment="Top" Click="BtnUsuarios_Click" ></Button>
+        
+
+
+
+    </Grid>
     
-    <Grid/>
 
 </Window>

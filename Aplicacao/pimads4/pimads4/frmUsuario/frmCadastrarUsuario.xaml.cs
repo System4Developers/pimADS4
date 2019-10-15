@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace pimads4
+namespace pimads4.frmUsuario
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interação lógica para frmCadastrarUsuario.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class frmCadastrarUsuario : UserControl
     {
-        public MainWindow()
+        public frmCadastrarUsuario()
         {
             InitializeComponent();
-        }
-
-        private void BtnUsuarios_Click(object sender, RoutedEventArgs e)
-        {
-            grdFormContentArea.Children.Add( new frmUsuario.frmCadastrarUsuario());
         }
     }
 }
