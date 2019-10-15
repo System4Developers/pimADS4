@@ -25,12 +25,6 @@ namespace pimads4
             InitializeComponent();
         }
 
-        private void BtnOK_Click(object sender, RoutedEventArgs e)
-        {
-            frmForms.NavigationService.Navigate(new altLogin());
-            
-
-
-        }
+        
     }
 }

@@ -41,6 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\CidadeBL.cs" />
+    <Compile Include="BL\ClienteBL.cs" />
+    <Compile Include="BL\EstadoBL.cs" />
+    <Compile Include="BL\FabricanteBL.cs" />
+    <Compile Include="BL\LogradouroBL.cs" />
+    <Compile Include="BL\MovEstoqueBL.cs" />
+    <Compile Include="BL\PedidoBL.cs" />
+    <Compile Include="BL\PedProdutoBL.cs" />
+    <Compile Include="BL\ProdutoBL.cs" />
+    <Compile Include="BL\UnidadeBL.cs" />
+    <Compile Include="BL\UsuarioBL.cs" />
+    <Compile Include="Controller\Controller.cs" />
     <Compile Include="DAO\CidadeDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\EstadoDAO.cs" />
@@ -50,12 +62,10 @@
     <Compile Include="DAO\PedidoDAO.cs" />
     <Compile Include="DAO\PedProdutoDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
+    <Compile Include="DAO\UnidadeDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL\" />
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
