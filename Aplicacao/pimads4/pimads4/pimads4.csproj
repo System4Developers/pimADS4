@@ -101,6 +101,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Controllerpimads4\Controllerpimads4.csproj">
+      <Project>{2600324d-8716-4c43-ac1a-691ae4ba42f1}</Project>
+      <Name>Controllerpimads4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelpimads4\Modelpimads4.csproj">
+      <Project>{7a0b63ae-0822-49b8-92d0-79bb66937405}</Project>
+      <Name>Modelpimads4</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

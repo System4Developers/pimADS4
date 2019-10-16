@@ -9,15 +9,15 @@ namespace Modelpimads4.DTO
     public class UsuarioDTO
     {
         private int idUsuario;
-        private string tpUsuairo;
+        private string tpUsuario;
         private string dsLogin;
-        private String senha;
+        private String dsSenha;
         private string tpStatus;
 
         public int IdUsuario { get => idUsuario; set => idUsuario = value; }
-        public string TpUsuairo { get => tpUsuairo; set => tpUsuairo = value; }
+        public string TpUsuario { get => tpUsuario; set => tpUsuario = value; }
         public string DsLogin { get => dsLogin; set => dsLogin = value; }
-        public string Senha { get => senha; set => senha = value; }
+        public string DsSenha { get => dsSenha; set => dsSenha = value; }
         public string TpStatus { get => tpStatus; set => tpStatus = value; }
 
 

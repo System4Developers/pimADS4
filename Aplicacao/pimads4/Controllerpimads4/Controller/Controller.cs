@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelpimads4.DTO;
+using Controllerpimads4.BL;
 
 namespace Controllerpimads4.Controller
 {
@@ -22,8 +24,11 @@ namespace Controllerpimads4.Controller
             return instance;
         }
        
-
-
+        public void CadastrarUsuario(UsuarioDTO usuario)
+        {
+            UsuarioBL.GetInstance().CadastrarUsuario(usuario);
+            
+        }
         
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
 
 namespace Controllerpimads4.BL
 {
@@ -22,6 +24,14 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
+        internal void CadastrarUsuario(UsuarioDTO usuario)
+        {
 
+            if (usuario.DsLogin !="" && usuario.DsSenha !="")
+            {
+                UsuarioDAO.GetInstance().CadastrarUsuario(usuario);
+            }
+
+        }
     }
 }

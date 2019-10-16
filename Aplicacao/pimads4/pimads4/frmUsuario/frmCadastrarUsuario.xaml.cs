@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,20 @@ namespace pimads4.frmUsuario
         public frmCadastrarUsuario()
         {
             InitializeComponent();
+        }
+
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            UsuarioDTO usuario = new UsuarioDTO();
+
+            usuario.TpUsuario = cmbTpUsuario.SelectedValue.ToString();
+            usuario.DsLogin = txtDsLogin.Text;
+            usuario.DsSenha = txtDsSenha.Text;          
+            usuario.TpStatus = cmbTpStatus.SelectedValue.ToString();
+            
+
+            Controller.GetInstance().CadastrarUsuario(usuario);
+
         }
     }
 }
