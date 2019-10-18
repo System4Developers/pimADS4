@@ -33,5 +33,12 @@ namespace Controllerpimads4.BL
             }
 
         }
+
+        internal List<UsuarioDTO> ConsultarUsuarios()
+        {
+            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
+            lstUsuarios = UsuarioDAO.GetInstance().ConsultarUsuarioTodos();
+            return lstUsuarios;
+        }
     }
 }

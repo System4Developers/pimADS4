@@ -33,12 +33,17 @@ namespace pimads4.frmUsuario
 
             usuario.TpUsuario = cmbTpUsuario.SelectedValue.ToString();
             usuario.DsLogin = txtDsLogin.Text;
-            usuario.DsSenha = txtDsSenha.Text;          
+            usuario.DsSenha = txtDsSenha.Password;          
             usuario.TpStatus = cmbTpStatus.SelectedValue.ToString();
             
 
             Controller.GetInstance().CadastrarUsuario(usuario);
 
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
         }
     }
 }

@@ -53,5 +53,43 @@ namespace Controllerpimads4.DAO
 
         }
 
+        internal List<UsuarioDTO> ConsultarUsuarioTodos()
+        {
+            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String sqlText = "SELECT * FROM Usuario";
+            SqlCommand cmd = new SqlCommand(sqlText, conn);
+
+            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
+            UsuarioDTO usuario = null;
+
+            try
+            {
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    usuario = new UsuarioDTO();
+                    usuario.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+                    usuario.DsLogin = dr["dsLogin"].ToString();
+                    usuario.TpStatus = dr["tpStatus"].ToString();
+                    usuario.TpUsuario = dr["tpUsuario"].ToString();
+
+                    lstUsuarios.Add(usuario);
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+            return lstUsuarios;
+        }
+
     }
 }

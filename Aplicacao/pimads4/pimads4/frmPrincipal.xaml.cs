@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using pimads4.frmUsuario;
 
 namespace pimads4
 {
@@ -25,9 +26,15 @@ namespace pimads4
             InitializeComponent();
         }
 
-        private void BtnUsuarios_Click(object sender, RoutedEventArgs e)
+        private void BtnUsuariosConsultar_Click(object sender, RoutedEventArgs e)
         {
-            grdFormContentArea.Children.Add( new frmUsuario.frmCadastrarUsuario());
+            grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterUsuarios());
+        }
+
+        private void BtnFechar_Click(object sender, RoutedEventArgs e)
+        {
+            grdFormContentArea.Children.Clear();
         }
     }
 }

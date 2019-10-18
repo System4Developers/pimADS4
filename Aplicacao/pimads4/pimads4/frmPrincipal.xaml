@@ -6,28 +6,30 @@
         mc:Ignorable="d"
         Title="Imperador das Telhas" 
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="800" WindowStyle="ThreeDBorderWindow">
+        Height="450" Width="900" WindowStyle="ThreeDBorderWindow">
     <Grid>
-       
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="grdFormContentArea" Grid.Row="1" Grid.Column="1"></Grid>
+        <Grid x:Name="grdFormContentArea" Grid.Row="1" Grid.Column="2"></Grid>
+        <Button x:Name="btnUsuariosConsultar" Content="Consultar Usuarios" Grid.Row="1" Grid.Column="0" Height="20" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="0,28.4,0.4,0" Click="BtnUsuariosConsultar_Click" />
+        <Button x:Name="btnFechar" Content="Fechar" Grid.Column="2" HorizontalAlignment="Left" Margin="570,15,0,0" Width="75" Click="BtnFechar_Click" Height="19" VerticalAlignment="Top"/>
 
-        <Button Name="btnUsuarios" Content="Usuários" Grid.Row="1" Grid.Column="0" Height="20" HorizontalContentAlignment="Center" VerticalAlignment="Top" Click="BtnUsuarios_Click" ></Button>
-        
 
 
 
     </Grid>
-    
+
 
 </Window>

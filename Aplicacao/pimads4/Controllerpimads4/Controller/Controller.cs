@@ -29,6 +29,13 @@ namespace Controllerpimads4.Controller
             UsuarioBL.GetInstance().CadastrarUsuario(usuario);
             
         }
-        
+
+        public List<UsuarioDTO> ConsultarUsuarios()
+        {
+            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
+            lstUsuarios = UsuarioBL.GetInstance().ConsultarUsuarios();
+            return lstUsuarios;
+        }
+
     }
 }
