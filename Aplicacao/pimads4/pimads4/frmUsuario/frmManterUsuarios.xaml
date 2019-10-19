@@ -6,40 +6,30 @@
              xmlns:local="clr-namespace:pimads4.frmUsuario"
              mc:Ignorable="d" 
              d:DesignHeight="320" d:DesignWidth="673" Width="660" Height="320">
-    
+
     <Grid Margin="0,0,-1.8,0" Width="660" Height="320">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="445*"/>
             <ColumnDefinition Width="228*"/>
         </Grid.ColumnDefinitions>
-        
-        <DataGrid x:Name="dtgUsuarios" HorizontalAlignment="Left" Height="251" Margin="0,70,0,0" VerticalAlignment="Top" Width="660"
+
+        <DataGrid x:Name="dtgUsuarios"  ColumnWidth="*" HorizontalAlignment="Left" Height="251" Margin="0,70,0,0" VerticalAlignment="Top" Width="660"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
-            AutoGenerateColumns="False" 
-            Grid.ColumnSpan="2"
-            >
-
-
+            AutoGenerateColumns="False"
+            Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Binding="{Binding IdUsuario}" Header="ID"/>
-                <DataGridTextColumn Width="*" Binding="{Binding DsLogin}" Header="Login"/>
-                <DataGridTextColumn Width="*" Binding="{Binding TpUsuario}" Header="Tipo Usuario"/>
-                <DataGridTextColumn Width="*" Binding="{Binding TpStatus}" Header="Ativo"/>
-
-                <DataGridTemplateColumn Header="Cadastro">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="btnEditar" Content="Editar" Click="BtnEditar_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
+                <DataGridTextColumn Binding="{Binding IdUsuario}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding DsLogin}" Header="Login" />
+                <DataGridTextColumn Binding="{Binding TpUsuario}" Header="Tipo de Usuario"/>
+                <DataGridTextColumn Binding="{Binding TpStatus}" Header="Ativo"/>
             </DataGrid.Columns>
-
         </DataGrid>
+
         <Button x:Name="btnNovo" Content="Novo" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="75" Click="BtnNovo_Click"/>
+
+        <Button x:Name="btnTeste" Content="Teste " Margin="180,15,109.8,280" Click="BtnTeste_Click" />
 
     </Grid>
 </UserControl>

@@ -51,14 +51,14 @@ namespace pimads4.frmUsuario
             
         }
 
-        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+
+        private void BtnTeste_Click(object sender, RoutedEventArgs e)
         {
             int idUsuario;
-            //idUsuario = dtgUsuarios.SelectedItem;
+            UsuarioDTO dtv = (UsuarioDTO)dtgUsuarios.SelectedItem;
+            MessageBox.Show(dtv.IdUsuario.ToString());
 
-        
 
         }
-    
     }
 }
