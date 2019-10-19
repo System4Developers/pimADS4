@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,17 @@ namespace pimads4.frmLogin
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void BtnAcessar_Click(object sender, RoutedEventArgs e)
+        {
+            UsuarioDTO usuario = new UsuarioDTO();
+
+            usuario.DsLogin = txtDsLogin.Text;
+            usuario.DsSenha = txtDsSenha.Password;
+
+
+            Controller.GetInstance().ConsultaLogin(usuario);
         }
     }
 }

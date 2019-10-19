@@ -30,6 +30,12 @@ namespace Controllerpimads4.Controller
             
         }
 
+        public void ConsultaLogin(UsuarioDTO usuario)
+        {
+            UsuarioBL.GetInstance().ConsultaLogin(usuario);
+            
+        }
+
         public List<UsuarioDTO> ConsultarUsuarios()
         {
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();

@@ -34,6 +34,16 @@ namespace Controllerpimads4.BL
 
         }
 
+        internal void ConsultaLogin(UsuarioDTO usuario)
+        {
+
+            if (usuario.DsLogin != "" && usuario.DsSenha != "")
+            {
+                UsuarioDAO.GetInstance().ConsultaLogin(usuario);
+            }
+
+        }
+
         internal List<UsuarioDTO> ConsultarUsuarios()
         {
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
