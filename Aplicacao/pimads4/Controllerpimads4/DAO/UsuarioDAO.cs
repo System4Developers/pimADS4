@@ -87,9 +87,9 @@ namespace Controllerpimads4.DAO
         {
             String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            String sqlText = "SELECT idUsuario,tpUsuario,dsLogin,tpStatus FROM Usuario where dsLogin=@dsLogin and dsSenha=@dsSenha";
+            String sqlText = "SELECT idUsuario,tpUsuario,dsLogin,tpStatus FROM Usuario";
             SqlCommand cmd = new SqlCommand(sqlText, conn);
-
+            
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             UsuarioDTO usuario = null;
 
