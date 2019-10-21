@@ -59,6 +59,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmPedido\frmCadastrarPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmPedido\frmManterPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +77,12 @@
     </Compile>
     <Compile Include="frmLogin\frmLogin.xaml.cs">
       <DependentUpon>frmLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedido\frmCadastrarPedido.xaml.cs">
+      <DependentUpon>frmCadastrarPedido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedido\frmManterPedido.xaml.cs">
+      <DependentUpon>frmManterPedido.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.xaml.cs">
       <DependentUpon>frmPrincipal.xaml</DependentUpon>

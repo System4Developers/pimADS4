@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using pimads4.frmUsuario;
+using pimads4.frmPedido;
 
 namespace pimads4
 {
@@ -34,7 +35,13 @@ namespace pimads4
 
         private void BtnFechar_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void BtnPedidoConsultar_Click(object sender, RoutedEventArgs e)
+        {
             grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterPedido());
         }
     }
 }

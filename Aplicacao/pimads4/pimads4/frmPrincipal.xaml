@@ -41,8 +41,8 @@
         </Grid>
         <Button x:Name="btnUsuariosConsultar" Content="Consultar Usuarios" Grid.Row="1" Grid.Column="0" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,28,10,0" Click="BtnUsuariosConsultar_Click" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
         <Button x:Name="btnFechar" Content="Fechar" Grid.Column="2" HorizontalAlignment="Left" Margin="566,5,0,0" Width="83" Click="BtnFechar_Click" Height="35" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" RenderTransformOrigin="0.477,0.889"/>
-        <Button x:Name="btnPedidoConsultar" Content="Consultar Pedidos" Grid.Row="1" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,92,10,0" Click="BtnUsuariosConsultar_Click" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
-        <Button x:Name="btnEstoqueConsultar" Content="Consultar Estoque" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,155,10,0" Click="BtnUsuariosConsultar_Click" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+        <Button x:Name="btnPedidoConsultar" Content="Consultar Pedidos" Grid.Row="1" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,92,10,0" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" Click="BtnPedidoConsultar_Click" />
+        <Button x:Name="btnEstoqueConsultar" Content="Consultar Estoque" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,155,10,0" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
         <Label x:Name="lblPIM" Content="PIM ADS4" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" FontFamily="Viner Hand ITC" Foreground="White"/>
 
 
