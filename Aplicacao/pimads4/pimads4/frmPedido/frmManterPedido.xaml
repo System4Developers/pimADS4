@@ -4,11 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.frmPedido"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="337" Margin="56,71,0,0" VerticalAlignment="Top" Width="657"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="324,158,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="232,189,0,0" VerticalAlignment="Top" Width="75"/>
+             mc:Ignorable="d" d:DesignWidth="800" Height="543">
+    <Grid Height="533" VerticalAlignment="Top">
+        <Button x:Name="btnFinalizarPedido" Content="FINALIZAR PEDIDO" HorizontalAlignment="Left" Margin="58,485,0,0" VerticalAlignment="Top" Width="107" Height="25"/>
+        <Button x:Name="btnNovoPedido" Content="+ NOVO PEDIDO" HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" Width="107" Height="25"/>
+        <DataGrid HorizontalAlignment="Left" Height="296" Margin="58,142,0,0" VerticalAlignment="Top" Width="599"/>
+        <Label x:Name="lblCod" Content="CÓDIGO" HorizontalAlignment="Left" Margin="58,64,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.516,0.485"/>
+        <Label x:Name="lblDes" Content="DESCRIÇÃO" HorizontalAlignment="Left" Margin="183,64,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblQtd" Content="QTDE." HorizontalAlignment="Left" Margin="398,59,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.132,0.444"/>
+        <TextBox x:Name="txbCod" HorizontalAlignment="Left" Height="23" Margin="58,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.15,0.1"/>
+        <TextBox x:Name="txbDs" HorizontalAlignment="Left" Height="23" Margin="186,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204"/>
+        <TextBox x:Name="txbQtde" HorizontalAlignment="Left" Height="23" Margin="398,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
+        <Button x:Name="lblAdd" Content="+" HorizontalAlignment="Left" Margin="464,90,0,0" VerticalAlignment="Top" Width="36" Height="23"/>
+        <Button x:Name="btnQtdeMais" Content="+ QTDE" HorizontalAlignment="Left" Margin="683,147,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="btnQtdeMenos" Content="- QTDE" HorizontalAlignment="Left" Margin="683,182,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="btnRemover" Content="REMOVER ITEM" HorizontalAlignment="Left" Margin="683,218,0,0" VerticalAlignment="Top" Width="96"/>
+        <TextBox x:Name="txbValorTotal" HorizontalAlignment="Left" Height="23" Margin="537,487,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblValorTotal" Content="VALOR TOTAL" HorizontalAlignment="Left" Margin="537,461,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.158,-0.346"/>
     </Grid>
 </UserControl>
