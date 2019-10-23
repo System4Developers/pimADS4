@@ -24,5 +24,19 @@ namespace pimads4.frmPedido
         {
             InitializeComponent();
         }
+
+        private void BtnNovoPedido_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window
+            {
+                Title = "Teste Tela",
+                Height = 620,
+                Width = 620,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStyle = WindowStyle.None,
+                Content = new frmCadastrarPedido()
+            };
+            window.ShowDialog();
+        }
     }
 }

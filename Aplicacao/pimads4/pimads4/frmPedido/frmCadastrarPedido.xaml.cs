@@ -10,14 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace pimads4.frmPedido
 {
     /// <summary>
-    /// Lógica interna para frmCadastrarPedido.xaml
+    /// Interação lógica para frmCadastrarPedido.xam
     /// </summary>
-    public partial class frmCadastrarPedido : Window
+    public partial class frmCadastrarPedido : UserControl
     {
         public frmCadastrarPedido()
         {
