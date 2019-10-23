@@ -1,108 +1,114 @@
--- Geração de Modelo físico
--- Sql ANSI 2003 - brModelo.
 
-
-
-CREATE TABLE Cidade (
-nome VARCHAR(40),
-idCidade VARCHAR(10) PRIMARY KEY,
-codIbge VARCHAR(7),
-idEstado INT
+CREATE TABLE Usuarios 
+(
+    idUsuario INT PRIMARY KEY IDENTITY(1,1),
+    dsLogin VARCHAR(15),
+    dsSenha VARCHAR(15),
+    tpStatus VARCHAR(10),
+    nmUsuario VARCHAR(40),
+    tpUsuario VARCHAR(10)
 )
 
-CREATE TABLE Estado (
-nome VARCHAR(40),
-sigla VARCHAR(2),
-codIbge VARCHAR(7),
-idEstado INT PRIMARY KEY
+CREATE TABLE Estoque 
+(
+    idProduto INT PRIMARY KEY IDENTITY(1,1),
+    qtdDisponivel INT
 )
 
-CREATE TABLE Fabricante (
-idFabricante INT PRIMARY KEY,
-nome VARCHAR(50)
+CREATE TABLE Bairros 
+(
+    idBairro INT PRIMARY KEY IDENTITY(1,1),
+    dsBairro VARCHAR(40),
+    fk_idCidade_Cidades INT
 )
 
-CREATE TABLE MovEstoque (
-idMovimentacao INT PRIMARY KEY,
-dtMov DATETIME,
-quantidade INT,
-operacao INT,
-Obs VARCHAR(200),
-idProduto INT,
-idUsuario INT
+
+CREATE TABLE Estados 
+(
+    idEstado INT PRIMARY KEY IDENTITY(1,1),
+    dsSigla VARCHAR(2),
+    codIBGE VARCHAR(7),
+    nmEstado VARCHAR(40)
 )
 
-CREATE TABLE Produto (
-unidade VARCHAR(4),
-codAlter VARCHAR(12),
-dsProduto VARCHAR(100),
-idProduto INT PRIMARY KEY,
-valorEntrada DOUBLE,
-idFabricante INT,
-FOREIGN KEY(idFabricante) REFERENCES Fabricante (idFabricante)
+CREATE TABLE Cidades 
+(
+    idCidade INT PRIMARY KEY IDENTITY(1,1),
+    nmCidade VARCHAR(40),
+    codIBGE VARCHAR(7),
+    fk_idEstado_estados INT,
 )
 
-CREATE TABLE Pedido (
-idPedido INT PRIMARY KEY,
-numPedido INT,
-formaPagamento VARCHAR(12),
-status VARCHAR(1),
-dtDigitacao DATETIME,
-valorTotal DOUBLE,
-idCliente INT,
-idUsuario INT
+CREATE TABLE Pessoas 
+(
+    idPessoa INT PRIMARY KEY IDENTITY(1,1),
+    nmPessoa VARCHAR(100),
+    tpPessoa VARCHAR(10),
+    CPF VARCHAR(15),
+    RG VARCHAR(12),
+    nmRazaoSocial VARCHAR(120),
+    dsObs VARCHAR(10),
+    dsEstadoCivil VARCHAR(10),
+    tpStatus VARCHAR(1),
+    CNPJ VARCHAR(15),
+    dsEmail VARCHAR(100),
+    dtNascimento DATETIME,
+    complemento VARCHAR(10),
+    endereco VARCHAR(10),
+    numEnd VARCHAR(10),
+    fk_idBairro_bairros INT,
 )
 
-CREATE TABLE Usuario (
-tipo VARCHAR(6),
-login VARCHAR(50),
-senha VARCHAR(40),
-idUsuario INT PRIMARY KEY,
-status VARCHAR(1)
+CREATE TABLE Pedidos 
+(
+    idPedido INT PRIMARY KEY IDENTITY(1,1),
+    dtDigitacao DATETIME,
+    valorTotal FLOAT,
+    formaPagamento VARCHAR(12),
+    tpStatus VARCHAR(1),
+    formaAquisicao VARCHAR(10),
+    tpPedido VARCHAR(10),
+    fk_idPessoa_pessoas INT,
+    fk_idUsuario_usuarios INT,
 )
 
-CREATE TABLE Cliente (
-idCliente INT PRIMARY KEY,
-nome VARCHAR(100),
-cpf VARCHAR(15),
-dtNascimento DATETIME,
-estadoCivil VARCHAR(10),
-rg VARCHAR(12),
-sexo VARCHAR(1),
-dsObs VARCHAR(200),
-razaoSocial VARCHAR(120),
-status VARCHAR(1),
-email VARCHAR(100),
-tipo VARCHAR(10)
+CREATE TABLE Produtos 
+(
+    idProduto INT PRIMARY KEY IDENTITY(1,1),
+    dsProduto VARCHAR(100),
+    valorVenda FLOAT,
+    valorCusto FLOAT,
+    fk_idUnidade_unidades INT,
+    fk_idFabricante_fabricantes INT
 )
 
-CREATE TABLE Logradouro (
-idLogradouro INT PRIMARY KEY,
-endereco VARCHAR(120),
-numero VARCHAR(5),
-bairro VARCHAR(40),
-cep VARCHAR(10),
-complemento VARCHAR(20),
-idCidade VARCHAR(10),
-idCliente INT,
-FOREIGN KEY(idCidade) REFERENCES Cidade (idCidade),
-FOREIGN KEY(idCliente) REFERENCES Cliente (idCliente)
+CREATE TABLE unidades 
+(
+    idUnidade INT PRIMARY KEY IDENTITY(1,1),
+    dsUnidade VARCHAR(5)
 )
 
-CREATE TABLE Relacao2_PedProduto (
-idPedido INT,
-idProduto INT,
-quantidade INT,
-idPedItem INT PRIMARY KEY,
-vlrUnit DOUBLE,
-dsObs VARCHAR(200),
-subTotal DOUBLE,
-FOREIGN KEY(idPedido) REFERENCES Pedido (idPedido),
-FOREIGN KEY(idProduto) REFERENCES Produto (idProduto)
+CREATE TABLE fabricantes 
+(
+    idFabricante INT PRIMARY KEY IDENTITY(1,1),
+    nmFabricante VARCHAR(50)
 )
 
-ALTER TABLE Cidade ADD FOREIGN KEY(idEstado) REFERENCES Estado (idEstado)
-ALTER TABLE MovEstoque ADD FOREIGN KEY(idProduto) REFERENCES Produto (idProduto)
-ALTER TABLE MovEstoque ADD FOREIGN KEY(idUsuario) REFERENCES Usuario (idUsuario)
-ALTER TABLE Pedido ADD FOREIGN KEY(idCliente) REFERENCES Cliente (idCliente)
-ALTER TABLE Pedido ADD FOREIGN KEY(idUsuario) REFERENCES Usuario (idUsuario)
+CREATE TABLE PedProduto 
+(
+    idPedProd INT PRIMARY KEY IDENTITY(1,1),
+    vlrUnit FLOAT,
+    quantidade INT,
+    fk_idProduto_produtos INT,
+    fk_idPedido_Pedidos INT
+)
+
+ALTER TABLE Bairros ADD FOREIGN KEY (fk_idCidade_Cidades) REFERENCES Cidades(idCidade)
+ALTER TABLE Cidades ADD FOREIGN KEY(fk_idEstado_estados) REFERENCES Estados (idEstado)
+ALTER TABLE Pessoas ADD FOREIGN KEY(idBairro) REFERENCES Bairros (idBairro)
+ALTER TABLE Produtos ADD FOREIGN KEY (fk_idUnidade_unidades) REFERENCES unidades (idUnidade)
+ALTER TABLE Produtos ADD FOREIGN KEY (fk_idFabricante_fabricantes) REFERENCES fabricantes (idFabricante)
+ALTER TABLE Pedidos ADD FOREIGN KEY(fk_idPessoa_pessoas) REFERENCES Pessoas (idPessoa)
+ALTER TABLE Pedidos ADD FOREIGN KEY(fk_idUsuario_usuarios) REFERENCES Usuarios (idUsuario)
+ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idProduto_produtos) REFERENCES Produtos (idProduto)
+ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idPedido_Pedidos) REFERENCES Pedidos (idPedido)
