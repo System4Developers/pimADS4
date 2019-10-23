@@ -4,122 +4,130 @@ GO
 USE pimads4
 GO
 
-CREATE TABLE Usuario (
-	idUsuario INT PRIMARY KEY IDENTITY(1,1),
-	tpUsuario VARCHAR(6) not null,
-	dsLogin VARCHAR(50) not null,
-	dsSenha VARCHAR(40) not null,
-	toStatus VARCHAR(1) not null
+CREATE TABLE Usuarios 
+(
+    idUsuario INT PRIMARY KEY IDENTITY(1,1),
+    dsLogin VARCHAR(15) NOT NULL,
+    dsSenha VARCHAR(15) NOT NULL,
+    tpStatus VARCHAR(10) NOT NULL,
+    nmUsuario VARCHAR(40) NOT NULL,
+    tpUsuario VARCHAR(10) NOT NULL
 )
 GO
 
-CREATE TABLE Cliente (
-	idCliente INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(100) not null,
-	cpf VARCHAR(15) not null,
-	dtNascimento DATETIME not null,
-	estadoCivil VARCHAR(10) not null,
-	rg VARCHAR(12),
-	dsObs VARCHAR(200),
-	razaoSocial VARCHAR(120),
-	tpStatus VARCHAR(1) not null,
-	email VARCHAR(100),
-	tipo VARCHAR(10) not null
+CREATE TABLE Estoque 
+(
+    idProduto INT PRIMARY KEY IDENTITY(1,1),
+    qtdDisponivel INT NOT NULL
 )
 GO
 
-CREATE TABLE Fabricante (
-	idFabricante INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50) not null
+CREATE TABLE Bairros 
+(
+    idBairro INT PRIMARY KEY IDENTITY(1,1),
+    dsBairro VARCHAR(70)  NOT NULL,
+    fk_idCidade_Cidades INT
 )
 GO
 
-CREATE TABLE Unidade(
-	idUnidade INT PRIMARY KEY IDENTITY(1,1),
-	dsUnidade varchar(4) not null
-)	
-
-CREATE TABLE Estado (
-	idEstado INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(40) not null,
-	sigla VARCHAR(2) not null,
-	codIbge VARCHAR(7) not null	
+CREATE TABLE Estados 
+(
+    idEstado INT PRIMARY KEY IDENTITY(1,1),
+    dsSigla VARCHAR(2)  NOT NULL,
+    codIBGE VARCHAR(7),
+    nmEstado VARCHAR(40)  NOT NULL
 )
 GO
 
-CREATE TABLE Cidade (
-	idCidade INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(40) not null,
-	codIbge VARCHAR(7) not null,
-	fk_idEstado_estado INT
+CREATE TABLE Cidades 
+(
+    idCidade INT PRIMARY KEY IDENTITY(1,1),
+    nmCidade VARCHAR(40)  NOT NULL,
+    codIBGE VARCHAR(7),
+    fk_idEstado_estados INT,
 )
-ALTER TABLE Cidade ADD FOREIGN KEY(fk_idEstado_estado) REFERENCES Estado (idEstado)
 GO
 
-CREATE TABLE Produto (
-	idProduto INT PRIMARY KEY IDENTITY(1,1),
-	codAlter VARCHAR(12),
-	dsProduto VARCHAR(100) not null,
-	valorCusto FLOAT not null,
-	fk_idFabricante_fabricante INT,
-	fk_idUnidade_unidade INT
+CREATE TABLE Pessoas 
+(
+    idPessoa INT PRIMARY KEY IDENTITY(1,1),
+    nmPessoa VARCHAR(100),
+    tpPessoa VARCHAR(10)  NOT NULL,
+    CPF VARCHAR(15),
+    RG VARCHAR(12),
+    nmRazaoSocial VARCHAR(120),
+    dsObs VARCHAR(10),
+    dsEstadoCivil VARCHAR(10),
+    tpStatus VARCHAR(1)  NOT NULL,
+    CNPJ VARCHAR(15),
+    dsEmail VARCHAR(100),
+    dtNascimento DATETIME,
+    complemento VARCHAR(10),
+    endereco VARCHAR(10)  NOT NULL,
+    numEnd VARCHAR(10)  NOT NULL,
+    fk_idBairro_bairros INT,
 )
-ALTER TABLE Produto ADD FOREIGN KEY(fk_idFabricante_fabricante) REFERENCES Fabricante(idFabricante)
-ALTER TABLE Produto ADD FOREIGN KEY(fk_idUnidade_unidade) REFERENCES Unidade(idUnidade)
 GO
 
-CREATE TABLE MovEstoque (
-	idMovimentacao INT PRIMARY KEY IDENTITY(1,1),
-	dtMov DATETIME not null,
-	quantidade INT not null,
-	operacao INT not null,
-	obs VARCHAR(200),
-	fk_idProduto_produto INT,
-	fk_idUsuario_usuario INT
+CREATE TABLE Pedidos 
+(
+    idPedido INT PRIMARY KEY IDENTITY(1,1),
+    dtDigitacao DATETIME  NOT NULL,
+    valorTotal FLOAT,
+    formaPagamento VARCHAR(12),
+    tpStatus VARCHAR(1)  NOT NULL,
+    formaAquisicao VARCHAR(10),
+    tpPedido VARCHAR(10)  NOT NULL,
+    fk_idPessoa_pessoas INT,
+    fk_idUsuario_usuarios INT,
 )
-ALTER TABLE MovEstoque ADD FOREIGN KEY(fk_idProduto_produto) REFERENCES Produto(idProduto)
-ALTER TABLE MovEstoque ADD FOREIGN KEY(fk_idUsuario_usuario) REFERENCES Usuario(idUsuario)
 GO
 
-CREATE TABLE Pedido (
-	idPedido INT PRIMARY KEY IDENTITY(1,1),
-	numPedido INT not null,
-	formaPagamento VARCHAR(12) not null,
-	tpStatus VARCHAR(10) not null,
-	dtDigitacao DATETIME not null,
-	valorTotal FLOAT,
-	fk_idCliente_cliente INT,
-	fk_idUsuario_usuario INT
+CREATE TABLE Produtos 
+(
+    idProduto INT PRIMARY KEY IDENTITY(1,1),
+    dsProduto VARCHAR(100)  NOT NULL,
+    valorVenda FLOAT  NOT NULL,
+    valorCusto FLOAT  NOT NULL,
+    fk_idUnidade_unidades INT,
+    fk_idFabricante_fabricantes INT
 )
-ALTER TABLE Pedido ADD FOREIGN KEY(fk_idCliente_cliente) REFERENCES Cliente(idCliente)
-ALTER TABLE Pedido ADD FOREIGN KEY(fk_idUsuario_usuario) REFERENCES Usuario(idUsuario)
 GO
 
-CREATE TABLE Logradouro (
-	idLogradouro INT PRIMARY KEY IDENTITY(1,1),
-	endereco VARCHAR(120) not null,
-	numero VARCHAR(5),
-	bairro VARCHAR(40) not null,
-	cep VARCHAR(10) not null,
-	complemento VARCHAR(20),
-	fk_idCidade_cidade INT,
-	fk_idCliente_cliente INT,
+CREATE TABLE unidades 
+(
+    idUnidade INT PRIMARY KEY IDENTITY(1,1),
+    dsUnidade VARCHAR(5)  NOT NULL
 )
-ALTER TABLE Logradouro ADD FOREIGN KEY(fk_idCidade_cidade) REFERENCES Cidade(idCidade)
-ALTER TABLE Logradouro ADD FOREIGN KEY(fk_idCliente_cliente) REFERENCES Cliente(idCliente)
 GO
 
-CREATE TABLE PedProduto (
-	idPedItem INT PRIMARY KEY IDENTITY(1,1),
-	quantidade INT not null,
-	vlrUnit FLOAT not null,
-	dsObs VARCHAR(200),
-	subTotal FLOAT,
-	fk_idPedido_pedido INT,
-	fk_idProduto_produto INT,
+CREATE TABLE fabricantes 
+(
+    idFabricante INT PRIMARY KEY IDENTITY(1,1),
+    nmFabricante VARCHAR(50)  NOT NULL
 )
-ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idPedido_pedido) REFERENCES Pedido(idPedido)
-ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idProduto_produto) REFERENCES Produto(idProduto)
 GO
 
+CREATE TABLE PedProduto 
+(
+    idPedProd INT PRIMARY KEY IDENTITY(1,1),
+    vlrUnit FLOAT NOT NULL,
+    quantidade INT  NOT NULL,
+    fk_idProduto_produtos INT,
+    fk_idPedido_Pedidos INT
+)
+GO
 
+ALTER TABLE Bairros ADD FOREIGN KEY (fk_idCidade_Cidades) REFERENCES Cidades(idCidade)
+ALTER TABLE Cidades ADD FOREIGN KEY(fk_idEstado_estados) REFERENCES Estados (idEstado)
+ALTER TABLE Pessoas ADD FOREIGN KEY(fk_idBairro_bairros) REFERENCES Bairros (idBairro)
+ALTER TABLE Produtos ADD FOREIGN KEY (fk_idUnidade_unidades) REFERENCES unidades (idUnidade)
+ALTER TABLE Produtos ADD FOREIGN KEY (fk_idFabricante_fabricantes) REFERENCES fabricantes (idFabricante)
+ALTER TABLE Pedidos ADD FOREIGN KEY(fk_idPessoa_pessoas) REFERENCES Pessoas (idPessoa)
+ALTER TABLE Pedidos ADD FOREIGN KEY(fk_idUsuario_usuarios) REFERENCES Usuarios (idUsuario)
+ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idProduto_produtos) REFERENCES Produtos (idProduto)
+ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idPedido_Pedidos) REFERENCES Pedidos (idPedido)
+GO
+
+INSERT INTO Usuarios VALUES('admin','admin','ATIVO','ADMINISTRADOR','ADMIN')
+GO
