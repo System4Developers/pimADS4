@@ -35,6 +35,7 @@ namespace pimads4
 
         private void BtnFechar_Click(object sender, RoutedEventArgs e)
         {
+            //fechar a janela principal
             this.Close();
         }
 
