@@ -54,12 +54,12 @@
     <Compile Include="BL\UnidadeBL.cs" />
     <Compile Include="BL\UsuarioBL.cs" />
     <Compile Include="Controller\Controller.cs" />
+    <Compile Include="DAO\BairroDAO.cs" />
     <Compile Include="DAO\CidadeDAO.cs" />
-    <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\EstoqueDAO.cs" />
+    <Compile Include="DAO\PessoaDAO.cs" />
     <Compile Include="DAO\EstadoDAO.cs" />
     <Compile Include="DAO\FabricanteDAO.cs" />
-    <Compile Include="DAO\LogradouroDAO.cs" />
-    <Compile Include="DAO\MovEstoqueDAO.cs" />
     <Compile Include="DAO\PedidoDAO.cs" />
     <Compile Include="DAO\PedProdutoDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />

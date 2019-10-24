@@ -23,36 +23,6 @@ namespace Controllerpimads4.DAO
             }
             return instance;
         }
-        
-
-        internal void ConsultaLogin(UsuarioDTO usuario)
-        {
-            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand("sp_CadastrarUsuario", conn);
-
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@tpUsuario", usuario.TpUsuario);
-            cmd.Parameters.AddWithValue("@dsLogin", usuario.DsLogin);
-            cmd.Parameters.AddWithValue("@dsSenha", usuario.DsSenha);
-            cmd.Parameters.AddWithValue("@tpStatus", usuario.TpStatus);
-
-            try
-            {
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
-            }
-
-        }
 
         internal void CadastrarUsuario(UsuarioDTO usuario)
         {
@@ -61,10 +31,11 @@ namespace Controllerpimads4.DAO
             SqlCommand cmd = new SqlCommand("sp_CadastrarUsuario", conn);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@tpUsuario", usuario.TpUsuario);
             cmd.Parameters.AddWithValue("@dsLogin", usuario.DsLogin);
             cmd.Parameters.AddWithValue("@dsSenha", usuario.DsSenha);
             cmd.Parameters.AddWithValue("@tpStatus", usuario.TpStatus);
+            cmd.Parameters.AddWithValue("@nmUsuario", usuario.NmUsuario);
+            cmd.Parameters.AddWithValue("@tpUsuario", usuario.TpUsuario);
 
             try
             {
@@ -87,7 +58,7 @@ namespace Controllerpimads4.DAO
         {
             String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            String sqlText = "SELECT idUsuario,tpUsuario,dsLogin,tpStatus FROM Usuario";
+            String sqlText = "SELECT * FROM Usuarios";
             SqlCommand cmd = new SqlCommand(sqlText, conn);
             
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();

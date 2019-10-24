@@ -34,7 +34,7 @@ namespace pimads4.frmLogin
             usuario.DsSenha = txtDsSenha.Password;
 
 
-            Controller.GetInstance().ConsultaLogin(usuario);
+            
         }
     }
 }
