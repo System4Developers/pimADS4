@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.BL
 {
-    class BairroBL
+    public class BairroBL
     {
+        private static BairroBL instance;
+           
+        private BairroBL() { }
+
+        public static BairroBL GetInstance()
+        {
+            if (instance==null)
+            {
+                instance = new BairroBL();
+            }
+
+            return instance;
+        }
+
     }
 }

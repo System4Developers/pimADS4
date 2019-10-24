@@ -34,31 +34,28 @@ namespace pimads4.frmUsuario
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
             dtgUsuarios.ItemsSource = lstUsuarios;
+
+            /*  int idUsuario;
+              UsuarioDTO dtv = (UsuarioDTO)dtgUsuarios.SelectedItem;
+              MessageBox.Show(dtv.IdUsuario.ToString());*/
+
         }
 
         private void BtnNovo_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new Window
-            {
-                Title = "Teste Tela",
-                Height= 320,
-                Width = 320,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                WindowStyle = WindowStyle.None,
-                Content = new frmCadastrarUsuario()
-            };
-            window.ShowDialog();
-            
-        }
+            /*
+            UsuarioDTO usuario = new UsuarioDTO();
+
+            usuario.TpUsuario = cmbTpUsuario.SelectedValue.ToString();
+            usuario.DsLogin = txtDsLogin.Text;
+            usuario.DsSenha = txtDsSenha.Password;
+            usuario.TpStatus = cmbTpStatus.SelectedValue.ToString();
 
 
-        private void BtnTeste_Click(object sender, RoutedEventArgs e)
-        {
-            int idUsuario;
-            UsuarioDTO dtv = (UsuarioDTO)dtgUsuarios.SelectedItem;
-            MessageBox.Show(dtv.IdUsuario.ToString());
-
+            Controller.GetInstance().CadastrarUsuario(usuario);*/
 
         }
+
+
     }
 }

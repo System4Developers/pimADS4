@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         Title="Imperador das Telhas" 
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="900" WindowStyle="ThreeDBorderWindow">
+        WindowState="Maximized"
+        Height="720" Width="1280" WindowStyle="ThreeDBorderWindow">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -28,7 +29,7 @@
             <ColumnDefinition Width="20"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="grdFormContentArea" Grid.Row="1" Grid.Column="2" Margin="0,0,10,0">
+        <Grid x:Name="grdFormContentArea" Grid.Row="1" Grid.Column="2" Margin="0,0,3,4">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFDF6F6" Offset="0"/>

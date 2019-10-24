@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\BairroBL.cs" />
     <Compile Include="BL\CidadeBL.cs" />
-    <Compile Include="BL\ClienteBL.cs" />
+    <Compile Include="BL\EstoqueBL.cs" />
+    <Compile Include="BL\PessoaBL.cs" />
     <Compile Include="BL\EstadoBL.cs" />
     <Compile Include="BL\FabricanteBL.cs" />
-    <Compile Include="BL\LogradouroBL.cs" />
-    <Compile Include="BL\MovEstoqueBL.cs" />
     <Compile Include="BL\PedidoBL.cs" />
     <Compile Include="BL\PedProdutoBL.cs" />
     <Compile Include="BL\ProdutoBL.cs" />

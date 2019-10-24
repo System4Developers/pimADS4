@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.BL
 {
-    public class ClienteBL
+    public class PessoaBL
     {
-        private static ClienteBL instance;
+        private static PessoaBL instance;
 
-        private ClienteBL() { }
+        private PessoaBL() { }
 
-        public static ClienteBL GetInstance()
+        public static PessoaBL GetInstance()
         {
             if (instance==null)
             {
-                instance = new ClienteBL();
+                instance = new PessoaBL();
             }
 
             return instance;

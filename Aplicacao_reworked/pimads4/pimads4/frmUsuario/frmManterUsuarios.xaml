@@ -4,21 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.frmUsuario"
-             mc:Ignorable="d" 
-             d:DesignHeight="320" d:DesignWidth="673" Width="660" Height="320">
+             mc:Ignorable="d" Width="1280" Height="720">
 
-    <Grid Margin="0,0,-1.8,0" Width="660" Height="320">
+    <Grid Margin="-2,3,2,-3" Width="1280" Height="720">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="445*"/>
-            <ColumnDefinition Width="228*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dtgUsuarios"  ColumnWidth="*" HorizontalAlignment="Left" Height="251" Margin="0,70,0,0" VerticalAlignment="Top" Width="660"
+        <DataGrid x:Name="dtgUsuarios"  ColumnWidth="*" HorizontalAlignment="Left" Height="315" Margin="80,305,0,0" VerticalAlignment="Top" Width="1015"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
-            AutoGenerateColumns="False"
-            Grid.ColumnSpan="2">
+            AutoGenerateColumns="False" 
+            FontSize="14"
+            IsReadOnly="True">
+
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdUsuario}" Header="ID" />
                 <DataGridTextColumn Binding="{Binding DsLogin}" Header="Login" />
@@ -27,9 +27,37 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btnNovo" Content="Novo" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="75" Click="BtnNovo_Click"/>
+        <Button x:Name="btnNovo" Content="Novo" HorizontalAlignment="Left" Margin="85,260,0,0" VerticalAlignment="Top" Width="90" Click="BtnNovo_Click" FontSize="14"/>
 
-        <Button x:Name="btnTeste" Content="Teste " Margin="180,15,109.8,280" Click="BtnTeste_Click" />
+        <Label  x:Name="lblID" Content="ID:" HorizontalAlignment="Left" Margin="951,9,0,0" VerticalAlignment="Top" Padding="0"/>
+        <TextBox x:Name="txtID" Text="" IsEnabled="False" HorizontalAlignment="Left" Height="24" Margin="980,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Padding="0"/>
+
+        <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="83,41,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtNome" Text="" HorizontalAlignment="Left" Height="24" Margin="80,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
+        
+        <Label x:Name="lblDsLogin" Content="Login:" HorizontalAlignment="Left" Margin="83,92,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDsLogin" Text="" HorizontalAlignment="Left" Height="24" Margin="81,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Padding="0" FontSize="14"/>
+
+        <Label x:Name="lblDsSenha" Content="Senha:" HorizontalAlignment="Left" Margin="81,151,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <PasswordBox x:Name="txtDsSenha" HorizontalAlignment="Left" Height="24" Margin="80,171,0,0" VerticalAlignment="Top" Width="260" Padding="0" FontSize="14"/>
+
+        <Label x:Name="lblTpUsuario" Content="Tipo do Usuário:" HorizontalAlignment="Left" Margin="426,94,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTpUsuario" HorizontalAlignment="Left" Margin="425,115,0,0" VerticalAlignment="Top" Width="245" FontSize="14">
+            <ComboBoxItem IsSelected="True" Tag="local" Content="Local" />
+            <ComboBoxItem Tag="Admin" Content="Administrador"/>
+        </ComboBox>
+
+        <Label x:Name="lblStatus" Content="Status:" HorizontalAlignment="Left" Margin="426,150,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTpStatus" HorizontalAlignment="Left" Margin="425,171,0,0" VerticalAlignment="Top" Width="245" RenderTransformOrigin="0.665,0.438" FontSize="14">
+            <ComboBoxItem IsSelected="True" Tag="S" Content="Ativado"/>
+            <ComboBoxItem Tag="N" Content="Desativado"/>
+        </ComboBox>
+        
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="240,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="995,260,0,0" VerticalAlignment="Top" Width="95" FontSize="14"/>
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="385,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="535,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="705,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
 
     </Grid>
 </UserControl>
