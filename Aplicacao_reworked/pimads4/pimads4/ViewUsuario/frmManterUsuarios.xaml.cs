@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace pimads4.frmUsuario
+namespace pimads4.ViewUsuario
 {
     /// <summary>
     /// Interação lógica para frmManterUsuarios.xam

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using pimads4.frmUsuario;
+using pimads4.ViewUsuario;
 using pimads4.frmPedido;
 
 namespace pimads4

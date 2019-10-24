@@ -88,13 +88,13 @@
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="frmUsuario\frmManterUsuarios.xaml">
+    <Page Include="ViewUsuario\frmManterUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmUsuario\frmManterUsuarios.xaml.cs">
+    <Compile Include="ViewUsuario\frmManterUsuarios.xaml.cs">
       <DependentUpon>frmManterUsuarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
