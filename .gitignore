@@ -8,7 +8,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-Aplicacao/pimads4/pimads4/App.config
+App.config
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
