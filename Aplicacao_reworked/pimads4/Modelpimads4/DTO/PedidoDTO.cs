@@ -15,7 +15,6 @@ namespace Modelpimads4.DTO
         private string tpStatus;
         private string formaAquisicao;
         private string tpPedido;
-        private int numPedido;
         private PessoaDTO pessoa;
         private UsuarioDTO usuario;
 
@@ -26,7 +25,6 @@ namespace Modelpimads4.DTO
         public string TpStatus { get => tpStatus; set => tpStatus = value; }
         public string FormaAquisicao { get => formaAquisicao; set => formaAquisicao = value; }
         public string TpPedido { get => tpPedido; set => tpPedido = value; }
-        public int NumPedido { get => numPedido; set => numPedido = value; }
         public PessoaDTO Pessoa { get => pessoa; set => pessoa = value; }
         public UsuarioDTO Usuario { get => usuario; set => usuario = value; }
 

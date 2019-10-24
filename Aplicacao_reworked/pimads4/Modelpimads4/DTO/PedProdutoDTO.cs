@@ -11,17 +11,20 @@ namespace Modelpimads4.DTO
         private int idPedItem;
         private int quantidade;
         private Double vlrUnit;
-        private string dsObs;
-        private Double subTotal;
-        private int fk_idPedido_pedido;
-        private int fk_idProduto_produto;
+        private ProdutoDTO produto;
+        private PedidoDTO pedido;
 
         public int IdPedItem { get => idPedItem; set => idPedItem = value; }
         public int Quantidade { get => quantidade; set => quantidade = value; }
         public double VlrUnit { get => vlrUnit; set => vlrUnit = value; }
-        public string DsObs { get => dsObs; set => dsObs = value; }
-        public double SubTotal { get => subTotal; set => subTotal = value; }
-        public int Fk_idPedido_pedido { get => fk_idPedido_pedido; set => fk_idPedido_pedido = value; }
-        public int Fk_idProduto_produto { get => fk_idProduto_produto; set => fk_idProduto_produto = value; }
+        public ProdutoDTO Produto { get => produto; set => produto = value; }
+        public PedidoDTO Pedido { get => pedido; set => pedido = value; }
+
+        public PedProdutoDTO()
+        {
+            Produto = new ProdutoDTO();
+            Pedido = new PedidoDTO();
+        }
+
     }
 }
