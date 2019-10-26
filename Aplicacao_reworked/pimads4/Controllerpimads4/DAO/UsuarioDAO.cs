@@ -73,6 +73,7 @@ namespace Controllerpimads4.DAO
                 {
                     usuario = new UsuarioDTO();
                     usuario.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+                    usuario.NmUsuario = dr["nmUsuario"].ToString();
                     usuario.DsLogin = dr["dsLogin"].ToString();
                     usuario.TpStatus = dr["tpStatus"].ToString();
                     usuario.TpUsuario = dr["tpUsuario"].ToString();

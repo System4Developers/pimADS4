@@ -21,20 +21,19 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdUsuario}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding NmUsuario}" Header="Nome" />
                 <DataGridTextColumn Binding="{Binding DsLogin}" Header="Login" />
                 <DataGridTextColumn Binding="{Binding TpUsuario}" Header="Tipo de Usuario"/>
                 <DataGridTextColumn Binding="{Binding TpStatus}" Header="Ativo"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btnNovo" Content="Novo" HorizontalAlignment="Left" Margin="85,260,0,0" VerticalAlignment="Top" Width="90" Click="BtnNovo_Click" FontSize="14"/>
-
         <Label  x:Name="lblID" Content="ID:" HorizontalAlignment="Left" Margin="951,9,0,0" VerticalAlignment="Top" Padding="0"/>
         <TextBox x:Name="txtID" Text="" IsEnabled="False" HorizontalAlignment="Left" Height="24" Margin="980,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Padding="0"/>
 
         <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="83,41,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <TextBox x:Name="txtNome" Text="" HorizontalAlignment="Left" Height="24" Margin="80,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
-        
+
         <Label x:Name="lblDsLogin" Content="Login:" HorizontalAlignment="Left" Margin="83,92,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <TextBox x:Name="txtDsLogin" Text="" HorizontalAlignment="Left" Height="24" Margin="81,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Padding="0" FontSize="14"/>
 
@@ -52,12 +51,11 @@
             <ComboBoxItem IsSelected="True" Tag="S" Content="Ativado"/>
             <ComboBoxItem Tag="N" Content="Desativado"/>
         </ComboBox>
-        
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="240,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="995,260,0,0" VerticalAlignment="Top" Width="95" FontSize="14"/>
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="385,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="535,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="705,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
+
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="85,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="230,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="380,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="525,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
 
     </Grid>
 </UserControl>
