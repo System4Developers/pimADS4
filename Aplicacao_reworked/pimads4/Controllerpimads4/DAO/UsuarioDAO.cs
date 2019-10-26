@@ -165,5 +165,31 @@ namespace Controllerpimads4.DAO
 
         }
 
+        internal void ExlcuirUsuario(int idUsuario)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand("sp_ExcluirUsuario", conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idUsuario",idUsuario);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+
+        }
+
     }
 }

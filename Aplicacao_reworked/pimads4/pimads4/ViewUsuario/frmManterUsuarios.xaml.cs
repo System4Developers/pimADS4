@@ -74,7 +74,6 @@ namespace pimads4.ViewUsuario
             btnLimpar.IsEnabled = true;
             btnExcluir.IsEnabled = true;
 
-    
         }
 
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
@@ -98,6 +97,8 @@ namespace pimads4.ViewUsuario
                 usuario.NmUsuario = txtNome.Text;
 
                 Controller.GetInstance().CadastrarUsuario(usuario);
+                InicializarBotoes();
+                InicializarCampos();
                 InicializarDtg();
 
             }
@@ -117,6 +118,20 @@ namespace pimads4.ViewUsuario
 
             }
 
+
+
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            int idUsuario;
+            idUsuario = Convert.ToInt32(txtID.Text);
+
+            Controller.GetInstance().ExcluirUsuario(idUsuario);
+            InicializarBotoes();
+            InicializarCampos();
+            InicializarDtg();
+            
         }
     }
 }

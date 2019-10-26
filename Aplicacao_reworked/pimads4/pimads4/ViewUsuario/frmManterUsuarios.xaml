@@ -38,7 +38,7 @@
         <TextBox x:Name="txtDsLogin" Text="" HorizontalAlignment="Left" Height="24" Margin="81,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Padding="0" FontSize="14"/>
 
         <Label x:Name="lblDsSenha" Content="Senha:" HorizontalAlignment="Left" Margin="81,151,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <PasswordBox x:Name="txtDsSenha" HorizontalAlignment="Left" Height="24" Margin="80,171,0,0" VerticalAlignment="Top" Width="260" Padding="0" FontSize="14"/>
+        <PasswordBox x:Name="txtDsSenha" HorizontalAlignment="Left" Height="24" Margin="80,171,0,0" VerticalAlignment="Top" Width="180" Padding="0" FontSize="14"/>
 
         <Label x:Name="lblTpUsuario" Content="Tipo do Usuário:" HorizontalAlignment="Left" Margin="426,94,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <ComboBox SelectedValuePath="Tag" x:Name="cmbTpUsuario" HorizontalAlignment="Left" Margin="425,115,0,0" VerticalAlignment="Top" Width="245" FontSize="14">
@@ -54,7 +54,7 @@
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="85,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="230,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="380,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="380,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click" />
         <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="525,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
 
     </Grid>

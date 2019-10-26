@@ -47,5 +47,11 @@ namespace Controllerpimads4.Controller
         {
             UsuarioBL.GetInstance().AtualizarUsuario(usuario);
         }
+
+        public void ExcluirUsuario(int idUsuario)
+        {
+            UsuarioBL.GetInstance().ExcluirUsuario(idUsuario);
+        }
+
     }
 }

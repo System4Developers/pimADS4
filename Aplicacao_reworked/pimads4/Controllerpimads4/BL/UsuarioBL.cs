@@ -53,5 +53,11 @@ namespace Controllerpimads4.BL
 
         }
 
+        internal void ExcluirUsuario(int idUsuario)
+        {
+            UsuarioDAO.GetInstance().ExlcuirUsuario(idUsuario);
+        }
+
+
     }
 }
