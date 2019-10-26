@@ -49,7 +49,6 @@ namespace pimads4.ViewUsuario
 
         private void InicializarBotoes()
         {
-         
             btnSalvar.IsEnabled = true;
             btnConsultar.IsEnabled = true;
             btnExcluir.IsEnabled = false;
@@ -117,9 +116,6 @@ namespace pimads4.ViewUsuario
                 InicializarDtg();
 
             }
-
-
-
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
