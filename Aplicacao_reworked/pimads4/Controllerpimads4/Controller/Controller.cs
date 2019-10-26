@@ -37,5 +37,15 @@ namespace Controllerpimads4.Controller
             return lstUsuarios;
         }
 
+        public UsuarioDTO ConsultarUsuarioById(int idUsuario)
+        {
+            UsuarioDTO usuario = UsuarioBL.GetInstance().ConsultarUsuarioById(idUsuario);
+            return usuario;
+        }
+
+        public void AtualizarUsuario(UsuarioDTO usuario)
+        {
+            UsuarioBL.GetInstance().AtualizarUsuario(usuario);
+        }
     }
 }

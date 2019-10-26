@@ -53,11 +53,11 @@
             <ComboBoxItem Tag="N" Content="Desativado"/>
         </ComboBox>
         
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="240,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="240,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="995,260,0,0" VerticalAlignment="Top" Width="95" FontSize="14"/>
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="385,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="385,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="535,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="705,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="705,260,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
 
     </Grid>
 </UserControl>

@@ -40,5 +40,18 @@ namespace Controllerpimads4.BL
             lstUsuarios = UsuarioDAO.GetInstance().ConsultarUsuarioTodos();
             return lstUsuarios;
         }
+
+        internal UsuarioDTO ConsultarUsuarioById(int idUsuario)
+        {
+            UsuarioDTO usuario = UsuarioDAO.GetInstance().ConsultarUsuarioById(idUsuario);
+            return usuario;
+        }
+
+        internal void AtualizarUsuario(UsuarioDTO usuario)
+        {
+            UsuarioDAO.GetInstance().AtualizarUsuario(usuario);
+
+        }
+
     }
 }

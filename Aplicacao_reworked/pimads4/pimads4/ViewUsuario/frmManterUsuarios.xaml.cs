@@ -27,6 +27,7 @@ namespace pimads4.ViewUsuario
         {
             InitializeComponent();
             InicializarDtg();
+            InicializarBotoes();
         }
 
         private void InicializarDtg()
@@ -35,27 +36,75 @@ namespace pimads4.ViewUsuario
             lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
             dtgUsuarios.ItemsSource = lstUsuarios;
 
-            /*  int idUsuario;
-              UsuarioDTO dtv = (UsuarioDTO)dtgUsuarios.SelectedItem;
-              MessageBox.Show(dtv.IdUsuario.ToString());*/
+        }
+        private void InicializarCampos()
+        {
+            cmbTpUsuario.SelectedValue = "local";
+            txtDsLogin.Text = string.Empty;
+            txtDsSenha.Password = string.Empty;
+            cmbTpStatus.SelectedValue = "S";
+            txtNome.Text = string.Empty;
+            txtID.Text = string.Empty;
+        }
 
+        private void InicializarBotoes()
+        {
+            //btnSalvar.IsEnabled = false;
+            //btnExcluir.IsEnabled = false;
         }
 
         private void BtnNovo_Click(object sender, RoutedEventArgs e)
         {
-            /*
+            
             UsuarioDTO usuario = new UsuarioDTO();
 
             usuario.TpUsuario = cmbTpUsuario.SelectedValue.ToString();
             usuario.DsLogin = txtDsLogin.Text;
             usuario.DsSenha = txtDsSenha.Password;
             usuario.TpStatus = cmbTpStatus.SelectedValue.ToString();
+            usuario.NmUsuario = txtNome.Text;
 
-
-            Controller.GetInstance().CadastrarUsuario(usuario);*/
-
+            Controller.GetInstance().CadastrarUsuario(usuario);
+            InicializarDtg();
         }
 
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+              
+            UsuarioDTO usuarioDtg = (UsuarioDTO)dtgUsuarios.SelectedItem;
 
+            UsuarioDTO usuario = Controller.GetInstance().ConsultarUsuarioById(usuarioDtg.IdUsuario);
+
+            txtID.Text = usuario.IdUsuario.ToString();
+            txtDsSenha.Password = usuario.DsSenha.ToString();
+            cmbTpStatus.SelectedValue = usuario.TpStatus;
+            cmbTpUsuario.SelectedValue = usuario.TpUsuario;
+            txtDsLogin.Text = usuario.DsLogin;
+            txtNome.Text = usuario.NmUsuario;
+    
+        }
+
+        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+
+            InicializarCampos();
+            
+        }
+
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            UsuarioDTO usuario = new UsuarioDTO();
+
+            usuario.TpUsuario = cmbTpUsuario.SelectedValue.ToString();
+            usuario.DsLogin = txtDsLogin.Text;
+            usuario.DsSenha = txtDsSenha.Password;
+            usuario.TpStatus = cmbTpStatus.SelectedValue.ToString();
+            usuario.NmUsuario = txtNome.Text;
+            usuario.IdUsuario = Convert.ToInt32(txtID.Text);
+
+            Controller.GetInstance().AtualizarUsuario(usuario);
+            InicializarDtg();
+
+        }
     }
 }
