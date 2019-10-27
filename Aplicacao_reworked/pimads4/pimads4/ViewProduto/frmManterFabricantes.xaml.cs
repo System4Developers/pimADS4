@@ -16,29 +16,29 @@ using System.Windows.Shapes;
 namespace pimads4.ViewProduto
 {
     /// <summary>
-    /// Interação lógica para frmManterUnidades.xam
+    /// Interação lógica para frmManterFabricantes.xam
     /// </summary>
-    public partial class frmManterUnidades : UserControl
+    public partial class frmManterFabricantes : UserControl
     {
-        public frmManterUnidades()
+        public frmManterFabricantes()
         {
             InitializeComponent();
             InicializarCampos();
             InicializarBotoes();
         }
 
-/*      private void InicializarDtg()
-        {
-            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
-            lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
-            dtgUsuarios.ItemsSource = lstUsuarios;
+        /*      private void InicializarDtg()
+                {
+                    List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
+                    lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
+                    dtgUsuarios.ItemsSource = lstUsuarios;
 
-        }*/
+                }*/
 
         private void InicializarCampos()
         {
             txtId_Unidade.Text = string.Empty;
-            txtDs_Unidade.Text = string.Empty;
+            txtDs_Fabricante.Text = string.Empty;
         }
 
         private void InicializarBotoes()

@@ -88,6 +88,10 @@
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ViewProduto\frmManterFabricantes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewProduto\frmManterUnidades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +106,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewProduto\frmManterFabricantes.xaml.cs">
+      <DependentUpon>frmManterFabricantes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewProduto\frmManterUnidades.xaml.cs">
       <DependentUpon>frmManterUnidades.xaml</DependentUpon>
     </Compile>

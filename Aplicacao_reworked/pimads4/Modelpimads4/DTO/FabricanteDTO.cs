@@ -9,9 +9,9 @@ namespace Modelpimads4.DTO
     public class FabricanteDTO
     {
         private int idFabricante;
-        private string nome;
+        private string dsFabricante;
 
         public int IdFabricante { get => idFabricante; set => idFabricante = value; }
-        public string Nome { get => nome; set => nome = value; }
+        public string DsFabricante { get => dsFabricante; set => dsFabricante = value; }
     }
 }
