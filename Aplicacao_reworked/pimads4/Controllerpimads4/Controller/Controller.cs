@@ -37,6 +37,14 @@ namespace Controllerpimads4.Controller
             return lstUsuarios;
         }
 
+        public List<PedidoDTO> ConsultarPedidos()
+        {
+            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
+            lstPedidos = PedidoBL.GetInstance().ConsultarPedidos();
+            return lstPedidos;
+        }
+
+
         public UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
             UsuarioDTO usuario = UsuarioBL.GetInstance().ConsultarUsuarioById(idUsuario);
