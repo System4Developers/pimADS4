@@ -87,6 +87,7 @@ CREATE TABLE Produtos
 (
     idProduto INT PRIMARY KEY IDENTITY(1,1),
     dsProduto VARCHAR(100)  NOT NULL,
+    codAlter VARCHAR(10),
     valorVenda FLOAT  NOT NULL,
     valorCusto FLOAT  NOT NULL,
     fk_idUnidade_unidades INT,

@@ -37,7 +37,7 @@ namespace pimads4.ViewProduto
 
         private void InicializarCampos()
         {
-            txtId_Unidade.Text = string.Empty;
+            txtId_Fabricante.Text = string.Empty;
             txtDs_Fabricante.Text = string.Empty;
         }
 
@@ -51,7 +51,7 @@ namespace pimads4.ViewProduto
 
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtId_Unidade.Text.Equals(""))
+            if (txtId_Fabricante.Text.Equals(""))
             {
                 InicializarBotoes();
                 InicializarCampos();
