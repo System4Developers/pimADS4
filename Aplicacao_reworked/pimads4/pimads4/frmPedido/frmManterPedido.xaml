@@ -5,8 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" d:DesignWidth="800" Height="543">
     <Grid Height="533" VerticalAlignment="Top">
-        <Button x:Name="btnNovoPedido" Content="+ NOVO PEDIDO" HorizontalAlignment="Left" Margin="58,22,0,0" VerticalAlignment="Top" Width="107" Height="25" Click="BtnNovoPedido_Click"/>
-        <DataGrid x:Name="dtgPedidos" HorizontalAlignment="Left" Height="296" Margin="58,142,0,0" VerticalAlignment="Top" Width="694"/>
+        <Button x:Name="btnNovoPedido" Content="+ NOVO PEDIDO" HorizontalAlignment="Left" Margin="58,34,0,0" VerticalAlignment="Top" Width="106" Height="25" Click="BtnNovoPedido_Click"/>
+
+        <DataGrid x:Name="dtgPedidos"  ColumnWidth="*" HorizontalAlignment="Left" Height="391" Margin="32,132,0,0" VerticalAlignment="Top" Width="743"
+            CanUserReorderColumns="True"                  
+            CanUserResizeColumns="True"
+            AutoGenerateColumns="False" 
+            FontSize="14"
+            IsReadOnly="True">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding IdPedido}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding DtDigitacao}" Header="Data" />
+                <DataGridTextColumn Binding="{Binding ValorTotal}" Header="Valor Total" />
+                <DataGridTextColumn Binding="{Binding FormaPagamento}" Header="Forma de Pagamento"/>
+                <DataGridTextColumn Binding="{Binding TpPedido}" Header="Tipo"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
         <Label x:Name="lblCod" Content="CÓDIGO" HorizontalAlignment="Left" Margin="58,64,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.516,0.485"/>
         <Label x:Name="lblDes" Content="DESCRIÇÃO" HorizontalAlignment="Left" Margin="183,64,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblData" Content="DATA DA VENDA" HorizontalAlignment="Left" Margin="397,64,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.132,0.444"/>

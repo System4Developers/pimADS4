@@ -25,5 +25,24 @@ namespace pimads4.ViewProduto
             InitializeComponent();
         }
 
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
