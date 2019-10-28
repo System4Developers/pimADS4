@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,13 @@ namespace Controllerpimads4.BL
                 instance = new PedidoBL();
             }
             return instance;
+        }
+
+        internal List<PedidoDTO> ConsultarPedidos()
+        {
+            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
+            lstPedidos = PedidoDAO.GetInstance().ConsultarPedidosTodos();
+            return lstPedidos;
         }
 
 

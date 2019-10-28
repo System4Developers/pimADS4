@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,15 @@ namespace pimads4.frmPedido
         public frmManterPedido()
         {
             InitializeComponent();
+            InicializarDtg();
+        }
+
+        private void InicializarDtg()
+        {
+            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
+            lstPedidos = Controller.GetInstance().ConsultarPedidos();
+            dtgPedidos.ItemsSource = lstPedidos;
+
         }
 
         private void BtnNovoPedido_Click(object sender, RoutedEventArgs e)
