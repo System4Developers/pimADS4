@@ -83,5 +83,20 @@ namespace pimads4.ViewProduto
             btnExcluir.IsEnabled = false;
             InicializarCampos();
         }
+
+        private void BtnConsultar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnExcluir_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLimpar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using pimads4.ViewUsuario;
 using pimads4.frmPedido;
 using pimads4.ViewProduto;
+using pimads4.ViewCEP;
 
 namespace pimads4
 {
@@ -61,6 +62,12 @@ namespace pimads4
         {
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterUnidades());
+        }
+
+        private void BtnConsultarCidades_Click(object sender, RoutedEventArgs e)
+        {
+            grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterCidades());
         }
     }
 }

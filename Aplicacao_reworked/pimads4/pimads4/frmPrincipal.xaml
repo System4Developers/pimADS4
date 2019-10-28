@@ -48,6 +48,7 @@
         <Label x:Name="lblPIM" Content="PIM ADS4" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" FontFamily="Viner Hand ITC" Foreground="White"/>
         <Button x:Name="btnConsultarProdutos" Content="Consultar Produtos" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,280,10,0" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" Click="BtnConsultarProdutos_Click" />
         <Button x:Name="btnConsultarUnidades" Content="Consultar Unidades" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,341,10,0" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" Click="BtnConsultarUnidades_Click" />
+        <Button x:Name="btnConsultarCidades" Content="Consultar Cidades" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,402,10,0" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" Click="BtnConsultarCidades_Click" />
 
 
 
