@@ -63,8 +63,8 @@ CREATE TABLE Pessoas
     dsEmail VARCHAR(100),
     dtNascimento DATETIME,
     complemento VARCHAR(10),
-    endereco VARCHAR(10)  NOT NULL,
-    numEnd VARCHAR(10)  NOT NULL,
+    endereco VARCHAR(100)  NOT NULL,
+    numEnd VARCHAR(5)  NOT NULL,
     fk_idBairro_bairros INT,
 )
 GO
