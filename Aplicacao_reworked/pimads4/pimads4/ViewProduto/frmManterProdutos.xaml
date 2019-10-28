@@ -24,7 +24,7 @@
         <TextBox x:Name="txtVl_Venda" HorizontalAlignment="Left" Height="23" Margin="100,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         
         <Label x:Name="lblVl_Custo" Content="Valor de Custo:" HorizontalAlignment="Left" Margin="252,155,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVl_Venda_Copy" HorizontalAlignment="Left" Height="23" Margin="255,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtVl_Custo" HorizontalAlignment="Left" Height="23" Margin="255,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <Label x:Name="lblDs_Unidade" Content="Unidade:" HorizontalAlignment="Left" Margin="440,154,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbDs_Unidade" HorizontalAlignment="Left" Margin="435,185,0,0" VerticalAlignment="Top" Width="120"/>
@@ -42,7 +42,7 @@
         <TextBox x:Name="txtId_Produto" Text="" HorizontalAlignment="Left" Height="24" Margin="1010,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
 
         <Label x:Name="lblDs_Produto" Content="Descrição do Produto:" HorizontalAlignment="Left" Margin="100,84,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Unidade" Text="" HorizontalAlignment="Left" Height="26" Margin="100,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDs_Produto" Text="" HorizontalAlignment="Left" Height="26" Margin="100,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Padding="0" FontSize="14"/>
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="105,305,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="250,305,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
