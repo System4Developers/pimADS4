@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using pimads4.ViewUsuario;
 using pimads4.frmPedido;
+using pimads4.ViewProduto;
 
 namespace pimads4
 {
@@ -42,6 +43,24 @@ namespace pimads4
         {
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterPedido());
+        }
+
+        private void BtnFabricantesConsultar_Click(object sender, RoutedEventArgs e)
+        {
+            grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterFabricantes());
+        }
+
+        private void BtnConsultarProdutos_Click(object sender, RoutedEventArgs e)
+        {
+            grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterProdutos());
+        }
+
+        private void BtnConsultarUnidades_Click(object sender, RoutedEventArgs e)
+        {
+            grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterUnidades());
         }
     }
 }
