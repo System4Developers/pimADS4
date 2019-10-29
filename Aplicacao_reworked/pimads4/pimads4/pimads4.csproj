@@ -76,13 +76,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
+
     <Page Include="ViewUsuario\frmLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-=======
->>>>>>> 74b033c2ad03466695b936bd2f725c4e35117b5b
+
     <Page Include="frmPedido\frmCadastrarPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -99,12 +98,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
+    
     <Compile Include="ViewUsuario\frmLogin.xaml.cs">
       <DependentUpon>frmLogin.xaml</DependentUpon>
     </Compile>
-=======
->>>>>>> 74b033c2ad03466695b936bd2f725c4e35117b5b
+    
     <Compile Include="frmPedido\frmCadastrarPedido.xaml.cs">
       <DependentUpon>frmCadastrarPedido.xaml</DependentUpon>
     </Compile>
