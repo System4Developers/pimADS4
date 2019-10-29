@@ -61,10 +61,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="frmLogin\frmLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="frmPedido\frmCadastrarPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,9 +76,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="frmLogin\frmLogin.xaml.cs">
-      <DependentUpon>frmLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmPedido\frmCadastrarPedido.xaml.cs">
       <DependentUpon>frmCadastrarPedido.xaml</DependentUpon>

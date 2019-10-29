@@ -2,9 +2,9 @@ use pimads4
 go
 
 CREATE PROCEDURE sp_CadastarFabricante
-	@dsFabricante varchar(50)
+	@nmFabricante varchar(50)
 AS 
 BEGIN
 	INSERT INTO fabricantes (nmFabricante) 
-	VALUES(@dsFabricante)
+	VALUES(@nmFabricante)
 END
