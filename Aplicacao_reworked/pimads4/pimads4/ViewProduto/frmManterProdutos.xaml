@@ -6,11 +6,12 @@
              xmlns:local="clr-namespace:pimads4.ViewProduto"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid>
-        <DataGrid x:Name="dtgUnidades"  ColumnWidth="*" HorizontalAlignment="Left" Height="315" Margin="100,348,0,0" VerticalAlignment="Top" Width="1015"
+    <Grid Margin="20,0,-20,0">
+        <DataGrid x:Name="dtgUnidades"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="48,305,0,0" VerticalAlignment="Top" Width="1015"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
+            Background="#DCDCDC"
             FontSize="14"
             IsReadOnly="True">
 
@@ -20,34 +21,35 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="lblVl_Venda" Content="Valor de Venda:" HorizontalAlignment="Left" Margin="97,155,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVl_Venda" HorizontalAlignment="Left" Height="23" Margin="100,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        
-        <Label x:Name="lblVl_Custo" Content="Valor de Custo:" HorizontalAlignment="Left" Margin="252,155,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVl_Custo" HorizontalAlignment="Left" Height="23" Margin="255,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-        <Label x:Name="lblDs_Unidade" Content="Unidade:" HorizontalAlignment="Left" Margin="440,154,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbDs_Unidade" HorizontalAlignment="Left" Margin="435,185,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblDs_codAlter" Content="Código Alternativo:" HorizontalAlignment="Left" Margin="200,81,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDs_CodAlter" HorizontalAlignment="Left" Height="23" Margin="200,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-        <Label x:Name="lblDs_Fabricante" Content="Fabricante:" HorizontalAlignment="Left" Margin="603,155,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbDs_Fabricante" HorizontalAlignment="Left" Margin="600,185,0,0" VerticalAlignment="Top" Width="120"/>
-        
-                
+        <Label x:Name="lblDs_Produto" Content="Descrição do Produto:" HorizontalAlignment="Left" Margin="374,84,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDs_Produto" Text="" HorizontalAlignment="Left" Height="23" Margin="374,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Padding="0" FontSize="14"/>
 
-        <Label x:Name="lblDs_codAlter" Content="Código Alternativo:" HorizontalAlignment="Left" Margin="597,78,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtDs_CodAlter" HorizontalAlignment="Left" Height="23" Margin="600,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblVl_Venda" Content="Valor de Venda:" HorizontalAlignment="Left" Margin="200,159,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtVl_Venda" HorizontalAlignment="Left" Height="23" Margin="200,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
 
-        <Label x:Name="lblId_Produto" Content="ID:" HorizontalAlignment="Left" Margin="1010,64,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtId_Produto" Text="" HorizontalAlignment="Left" Height="24" Margin="1010,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+        <Label x:Name="lblVl_Custo" Content="Valor de Custo:" HorizontalAlignment="Left" Margin="374,159,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtVl_Custo" HorizontalAlignment="Left" Height="23" Margin="374,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-        <Label x:Name="lblDs_Produto" Content="Descrição do Produto:" HorizontalAlignment="Left" Margin="100,84,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Produto" Text="" HorizontalAlignment="Left" Height="26" Margin="100,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Unidade" Content="Unidade:" HorizontalAlignment="Left" Margin="548,154,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbDs_Unidade" HorizontalAlignment="Left" Margin="548,185,0,0" VerticalAlignment="Top" Width="78"/>
 
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="105,305,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="250,305,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="400,305,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click" />
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="545,305,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
-     
+        <Label x:Name="lblDs_Fabricante" Content="Fabricante:" HorizontalAlignment="Left" Margin="675,154,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbDs_Fabricante" HorizontalAlignment="Left" Margin="675,185,0,0" VerticalAlignment="Top" Width="149"/>
+
+
+        <Label x:Name="lblId_Produto" Content="ID:" HorizontalAlignment="Left" Margin="972,20,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtId_Produto" Text="" HorizontalAlignment="Left" Height="24" Margin="972,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+
+
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="315,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnSalvar_Click" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="435,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnConsultar_Click" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="555,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnExcluir_Click" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="675,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnLimpar_Click" />
+
     </Grid>
 </UserControl>

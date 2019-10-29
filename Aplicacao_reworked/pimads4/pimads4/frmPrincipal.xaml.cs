@@ -62,5 +62,15 @@ namespace pimads4
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterUnidades());
         }
+
+        private void Btnlogout_Click(object sender, RoutedEventArgs e)
+        {
+           
+      
+
+
+           
+
+        }
     }
 }
