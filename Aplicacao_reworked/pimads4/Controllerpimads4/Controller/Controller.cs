@@ -37,24 +37,6 @@ namespace Controllerpimads4.Controller
             return lstUsuarios;
         }
 
-<<<<<<< HEAD
-=======
-        public List<PedidoDTO> ConsultarPedidos()
-        {
-            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
-            lstPedidos = PedidoBL.GetInstance().ConsultarPedidos();
-            return lstPedidos;
-        }
-
-        public List<CidadeDTO> ConsultarCidades()
-        {
-            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
-            lstCidades = CidadeBL.GetInstance().ConsultarCidades();
-            return lstCidades;
-        }
-
-
->>>>>>> 4cd2249acf21a619882f027477b2f643800bbb21
         public UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
             UsuarioDTO usuario = UsuarioBL.GetInstance().ConsultarUsuarioById(idUsuario);
@@ -115,6 +97,16 @@ namespace Controllerpimads4.Controller
 
         #endregion
 
+        #region Metodos Cidades
+
+        public List<CidadeDTO> ConsultarCidades()
+        {
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = CidadeBL.GetInstance().ConsultarCidades();
+            return lstCidades;
+        }
+
+        #endregion
 
 
 

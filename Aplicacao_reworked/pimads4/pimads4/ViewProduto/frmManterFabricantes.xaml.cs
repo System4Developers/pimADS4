@@ -54,6 +54,9 @@ namespace pimads4.ViewProduto
 
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
+
+
+
             if (txtId_Fabricante.Text.Equals(""))
             {
                 InicializarBotoes();
