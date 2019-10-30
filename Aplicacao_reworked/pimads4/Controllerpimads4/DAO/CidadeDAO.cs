@@ -40,12 +40,12 @@ namespace Controllerpimads4.DAO
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                     
                     cidade = new CidadeDTO();
                     cidade.IdCidade = Convert.ToInt32(dr["idCidade"]);
                     cidade.Nome = dr["nmCidade"].ToString();
                     cidade.CodIbge = dr["codIBGE"].ToString();
                     cidade.Estado.DsSigla = dr["dsSigla"].ToString();
+
 
                     lstCidades.Add(cidade);
                 }

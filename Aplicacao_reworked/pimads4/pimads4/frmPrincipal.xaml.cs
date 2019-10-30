@@ -63,13 +63,11 @@ namespace pimads4
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterUnidades());
         }
-
         private void BtnConsultarCidades_Click(object sender, RoutedEventArgs e)
         {
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterCidades());
         }
-
         private void Btnlogout_Click(object sender, RoutedEventArgs e)
         {
 

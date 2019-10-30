@@ -31,7 +31,7 @@ namespace Controllerpimads4.DAO
             SqlCommand cmd = new SqlCommand("sp_CadastrarFabricante", conn);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@dsFabricante", fabricante.DsFabricante);
+            cmd.Parameters.AddWithValue("@nmFabricante", fabricante.NmFabricante);
 
             try
             {
@@ -68,7 +68,7 @@ namespace Controllerpimads4.DAO
                 {
                     fabricante = new FabricanteDTO();
                     fabricante.IdFabricante = Convert.ToInt32(dr["idFabricante"]);
-                    fabricante.DsFabricante = dr["dsFabricante"].ToString();
+                    fabricante.NmFabricante = dr["nmFabricante"].ToString();
 
                     lstFabricantes.Add(fabricante);
                 }
@@ -106,7 +106,7 @@ namespace Controllerpimads4.DAO
                 {
                     fabricante = new FabricanteDTO();
                     fabricante.IdFabricante = Convert.ToInt32(dr["idFabricante"]);
-                    fabricante.DsFabricante = dr["dsFabricante"].ToString();
+                    fabricante.NmFabricante = dr["nmFabricante"].ToString();
                 }
                 conn.Close();
             }
@@ -121,20 +121,16 @@ namespace Controllerpimads4.DAO
             }
             return fabricante;
         }
-        /*
-        internal void AtualizarUsuario(UsuarioDTO usuario)
+        
+        internal void AtualizarFabricante(FabricanteDTO fabricante)
         {
             string connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand("sp_AtualizarUsuario", conn);
+            SqlCommand cmd = new SqlCommand("sp_AtualizarFabricante", conn);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idUsuario", usuario.IdUsuario);
-            cmd.Parameters.AddWithValue("@dsLogin", usuario.DsLogin);
-            cmd.Parameters.AddWithValue("@dsSenha", usuario.DsSenha);
-            cmd.Parameters.AddWithValue("@tpStatus", usuario.TpStatus);
-            cmd.Parameters.AddWithValue("@nmUsuario", usuario.NmUsuario);
-            cmd.Parameters.AddWithValue("@tpUsuario", usuario.TpUsuario);
+            cmd.Parameters.AddWithValue("@idFabricante", fabricante.IdFabricante);
+            cmd.Parameters.AddWithValue("@nmFabricante", fabricante.NmFabricante);
 
             try
             {
@@ -152,15 +148,15 @@ namespace Controllerpimads4.DAO
             }
 
         }
-
-        internal void ExlcuirUsuario(int idUsuario)
+        
+        internal void ExcluirFabricante(int idFabricante)
         {
             string connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand("sp_ExcluirUsuario", conn);
+            SqlCommand cmd = new SqlCommand("sp_ExcluirFabricante", conn);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+            cmd.Parameters.AddWithValue("@idFabricante", idFabricante);
 
             try
             {
@@ -177,7 +173,7 @@ namespace Controllerpimads4.DAO
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
 
-        }*/
+        }
 
     }
 }

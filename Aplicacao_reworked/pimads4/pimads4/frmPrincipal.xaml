@@ -67,12 +67,15 @@
         <Button x:Name="btnConsultarUnidades" Content="Consultar Unidades" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,256,10,0"  Click="BtnConsultarUnidades_Click" Grid.ColumnSpan="2" />
         <Button x:Name="btnConsultarCidades" Content="Consultar Cidades" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,303,10,0"  Click="BtnConsultarCidades_Click" Grid.ColumnSpan="2" RenderTransformOrigin="0.523,-1.767" />
         <Button x:Name="btnlogout" Content="Logout" HorizontalAlignment="Left" Margin="936,13,0,0" VerticalAlignment="Top" Width="106" Click="Btnlogout_Click" Grid.Column="2"/>
+<<<<<<< HEAD
         <Button x:Name="btnConsultarBairro" Content="Consultar Bairros" Grid.Row="1" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Margin="10,351,10,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.523,-1.767" Click="BtnConsultarBairro_Click" />
 
 
 
 
 
+=======
+>>>>>>> 9fc3a8ac8526d4d6621fd11ff09ed260149a57fd
     </Grid>
 
 

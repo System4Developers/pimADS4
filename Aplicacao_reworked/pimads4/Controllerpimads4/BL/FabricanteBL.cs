@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,7 @@ namespace Controllerpimads4.BL
 
         private FabricanteBL() { }
 
-        public static FabricanteBL GetInstace()
+        public static FabricanteBL GetInstance()
         {
             if (instance==null)
             {
@@ -22,6 +24,38 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
+        internal void CadastrarFabricante(FabricanteDTO fabricante)
+        {
+
+            if (fabricante.NmFabricante != "")
+            {
+                FabricanteDAO.GetInstance().CadastrarFabricante(fabricante);
+            }
+        }
+        
+        internal List<FabricanteDTO> ConsultarFabricanteTodos()
+        {
+            List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
+            lstFabricantes = FabricanteDAO.GetInstance().ConsultarFabricanteTodos();
+            return lstFabricantes;
+        }
+        
+        internal FabricanteDTO ConsultarFabricanteById(int idFabricante)
+        {
+            FabricanteDTO fabricante = FabricanteDAO.GetInstance().ConsultarFabricanteById(idFabricante);
+            return fabricante;
+        }
+        
+        internal void AtualizarFabricante(FabricanteDTO fabricante)
+        {
+            FabricanteDAO.GetInstance().AtualizarFabricante(fabricante);
+
+        }
+        
+        internal void ExcluirFabricante(int idFabricante)
+        {
+            FabricanteDAO.GetInstance().ExcluirFabricante(idFabricante);
+        }
 
     }
 }

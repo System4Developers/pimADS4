@@ -6,5 +6,5 @@ CREATE PROCEDURE sp_ExcluirFabricante
 	@idFabricante int
 )
 AS BEGIN
-	DELETE FROM Fabricante WHERE idFabricante=@idFabricante
+	DELETE FROM Fabricantes WHERE idFabricante=@idFabricante
 END
