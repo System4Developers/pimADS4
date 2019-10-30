@@ -108,7 +108,17 @@ namespace Controllerpimads4.Controller
 
         #endregion
 
+        #region Metodos Bairros
 
+        public List<BairroDTO> ConsultarBairros()
+        {
+            List<BairroDTO> lstBairros = new List<BairroDTO>();
+            lstBairros = BairroBL.GetInstance().ConsultarBairros();
+            return lstBairros;
+        }
+
+        #endregion
+        
 
     }
 }

@@ -20,9 +20,9 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdBairro}" Header="ID" />
-                <DataGridTextColumn Binding="{Binding Nome}" Header="Bairro" />
-                <DataGridTextColumn Binding="{Binding Nome}" Header="Cidade" />
-                <DataGridTextColumn Binding="{Binding Estado.DsSigla}" Header="Estado" />
+                <DataGridTextColumn Binding="{Binding DsBairro}" Header="Bairro" />
+                <DataGridTextColumn Binding="{Binding Cidade.Nome}" Header="Cidade" />
+                <DataGridTextColumn Binding="{Binding Cidade.Estado.DsSigla}" Header="Estado" />
             </DataGrid.Columns>
         </DataGrid>
 

@@ -32,9 +32,8 @@ namespace pimads4.ViewCEP
         private void InicializarDtg()
         {
             List<BairroDTO> lstBairros = new List<BairroDTO>();
-            //lstBairros = Controller.GetInstance().ConsultarBairro();
-            //lstBairros.ItemsSource = lstBairros;
-
+            lstBairros = Controller.GetInstance().ConsultarBairros();
+            dtgBairro.ItemsSource = lstBairros;
         }
 
         private void InicializarBotoes()
