@@ -44,6 +44,13 @@ namespace Controllerpimads4.Controller
             return lstPedidos;
         }
 
+        public List<CidadeDTO> ConsultarCidades()
+        {
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = CidadeBL.GetInstance().ConsultarCidades();
+            return lstCidades;
+        }
+
 
         public UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {

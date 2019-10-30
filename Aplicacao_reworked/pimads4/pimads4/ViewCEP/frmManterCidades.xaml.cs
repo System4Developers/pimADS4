@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +25,25 @@ namespace pimads4.ViewCEP
         public frmManterCidades()
         {
             InitializeComponent();
+            InicializarDtg();
+            InicializarBotoes();
         }
 
+        private void InicializarDtg()
+        {
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = Controller.GetInstance().ConsultarCidades();
+            dtgCidades.ItemsSource = lstCidades;
+
+        }
+
+        private void InicializarBotoes()
+        {
+            btnSalvar.IsEnabled = true;
+            btnConsultar.IsEnabled = true;
+            btnExcluir.IsEnabled = false;
+            btnLimpar.IsEnabled = false;
+        }
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
 
