@@ -45,7 +45,7 @@ namespace Controllerpimads4.DAO
                     cidade.IdCidade = Convert.ToInt32(dr["idCidade"]);
                     cidade.Nome = dr["nmCidade"].ToString();
                     cidade.CodIbge = dr["codIBGE"].ToString();
-                    cidade.Estado = dr["dsSigla"].ToString();
+                    cidade.Estado.DsSigla = dr["dsSigla"].ToString();
 
                     lstCidades.Add(cidade);
                 }

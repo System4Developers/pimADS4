@@ -4,9 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.ViewCEP"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" Height="691.127" Width="1127.133">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="542*"/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="dtgBairro"  ColumnWidth="*" HorizontalAlignment="Left" Height="315" Margin="69,219,0,0" VerticalAlignment="Top" Width="1015"
+            CanUserReorderColumns="True"                  
+            CanUserResizeColumns="True"
+            AutoGenerateColumns="False" 
+            FontSize="14"
+            IsReadOnly="True">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding IdBairro}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding Nome}" Header="Bairro" />
+                <DataGridTextColumn Binding="{Binding Nome}" Header="Cidade" />
+                <DataGridTextColumn Binding="{Binding Estado.DsSigla}" Header="Estado" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label x:Name="lblId_Bairro" Content="ID:" HorizontalAlignment="Left" Margin="990,21,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtId_Bairro" Text="" HorizontalAlignment="Left" Height="24" Margin="990,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+
+        <Label x:Name="lblDs_Bairro" Content="Nome da Bairro:" HorizontalAlignment="Left" Margin="80,41,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDs_Bairro" Text="" HorizontalAlignment="Left" Height="24" Margin="80,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
+
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="74,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="219,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="369,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click_1" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="514,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
+
     </Grid>
 </UserControl>

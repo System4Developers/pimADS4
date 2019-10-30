@@ -74,5 +74,11 @@ namespace pimads4
         {
 
         }
+
+        private void BtnConsultarBairro_Click(object sender, RoutedEventArgs e)
+        {
+            grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterBairros());
+        }
     }
 }

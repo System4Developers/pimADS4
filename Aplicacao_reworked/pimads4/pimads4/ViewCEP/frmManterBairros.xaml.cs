@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,49 @@ namespace pimads4.ViewCEP
         public frmManterBairros()
         {
             InitializeComponent();
+            InicializarDtg();
+            InicializarBotoes();
+        }
+
+        private void InicializarDtg()
+        {
+            List<BairroDTO> lstBairros = new List<BairroDTO>();
+            lstBairros = Controller.GetInstance().ConsultarBairro();
+            lstBairros.ItemsSource = lstBairros;
+
+        }
+
+        private void InicializarBotoes()
+        {
+            btnSalvar.IsEnabled = true;
+            btnConsultar.IsEnabled = true;
+            btnExcluir.IsEnabled = false;
+            btnLimpar.IsEnabled = false;
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnExcluir_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
