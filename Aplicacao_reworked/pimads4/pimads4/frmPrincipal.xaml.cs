@@ -64,21 +64,16 @@ namespace pimads4
             grdFormContentArea.Children.Add(new frmManterUnidades());
         }
 
-<<<<<<< HEAD
+
         private void BtnConsultarCidades_Click(object sender, RoutedEventArgs e)
         {
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterCidades());
-=======
+        }
         private void Btnlogout_Click(object sender, RoutedEventArgs e)
         {
            
-      
 
-
-           
-
->>>>>>> 436a6f69f7cba12b7fd660eddb53f2947058d98e
         }
     }
 }

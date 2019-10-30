@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,15 +27,16 @@ namespace pimads4.ViewProduto
             InitializeComponent();
             InicializarCampos();
             InicializarBotoes();
+            InicializarDtg();
         }
 
-        /*      private void InicializarDtg()
-                {
-                    List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
-                    lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
-                    dtgUsuarios.ItemsSource = lstUsuarios;
+        private void InicializarDtg()
+        {
+            List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
+            lstFabricantes = Controller.GetInstance().ConsultarFabricanteTodos();
+            dtgFabricantes.ItemsSource = lstFabricantes;
 
-                }*/
+        }
 
         private void InicializarCampos()
         {
@@ -55,17 +58,24 @@ namespace pimads4.ViewProduto
             {
                 InicializarBotoes();
                 InicializarCampos();
-                //InicializarDtg();
+                InicializarDtg();
             }
             else
             {
-                //InicializarDtg();
+                InicializarDtg();
             }
 
         }
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
+            FabricanteDTO dtgFabricante = (FabricanteDTO)dtgFabricantes.SelectedItem;
+
+            FabricanteDTO fabricante = Controller.GetInstance().ConsultarFabricanteById(dtgFabricante.IdFabricante);
+
+            txtId_Fabricante.Text = fabricante.IdFabricante.ToString();
+            txtDs_Fabricante.Text = fabricante.NmFabricante;
+
             btnSalvar.IsEnabled = true;
             btnLimpar.IsEnabled = true;
             btnExcluir.IsEnabled = true;
@@ -73,9 +83,15 @@ namespace pimads4.ViewProduto
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
+            int idFabricante;
+
+            idFabricante = Convert.ToInt32(txtId_Fabricante.Text);
+
+            Controller.GetInstance().ExcluirFabricante(idFabricante);
+
             InicializarBotoes();
             InicializarCampos();
-            //InicializarDtg();
+            InicializarDtg();
         }
 
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
@@ -84,19 +100,6 @@ namespace pimads4.ViewProduto
             InicializarCampos();
         }
 
-        private void BtnConsultar_Click_1(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void BtnExcluir_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnLimpar_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

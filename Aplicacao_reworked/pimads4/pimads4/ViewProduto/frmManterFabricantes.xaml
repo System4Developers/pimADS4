@@ -16,7 +16,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdFabricante}" Header="ID" />
-                <DataGridTextColumn Binding="{Binding DsFabricante}" Header="Fabricante" />
+                <DataGridTextColumn Binding="{Binding NmFabricante}" Header="Fabricante" />
             </DataGrid.Columns>
         </DataGrid>
 

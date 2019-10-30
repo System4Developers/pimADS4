@@ -23,7 +23,7 @@ namespace Controllerpimads4.Controller
 
             return instance;
         }
-       
+        #region Metodos do Usuario
         public void CadastrarUsuario(UsuarioDTO usuario)
         {
             UsuarioBL.GetInstance().CadastrarUsuario(usuario);
@@ -36,14 +36,6 @@ namespace Controllerpimads4.Controller
             lstUsuarios = UsuarioBL.GetInstance().ConsultarUsuarios();
             return lstUsuarios;
         }
-
-        public List<PedidoDTO> ConsultarPedidos()
-        {
-            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
-            lstPedidos = PedidoBL.GetInstance().ConsultarPedidos();
-            return lstPedidos;
-        }
-
 
         public UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
@@ -60,6 +52,53 @@ namespace Controllerpimads4.Controller
         {
             UsuarioBL.GetInstance().ExcluirUsuario(idUsuario);
         }
+        #endregion
+
+        #region Metodos Fabricante
+        public void CadastrarFabricante(FabricanteDTO fabricante)
+        {
+            FabricanteBL.GetInstance().CadastrarFabricante(fabricante);
+
+        }
+        
+        public List<FabricanteDTO> ConsultarFabricanteTodos()
+        {
+            List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
+            lstFabricantes = FabricanteBL.GetInstance().ConsultarFabricanteTodos();
+            return lstFabricantes;
+        }
+
+        public FabricanteDTO ConsultarFabricanteById(int idFabricante)
+        {
+            FabricanteDTO fabricante = FabricanteBL.GetInstance().ConsultarFabricanteById(idFabricante);
+            return fabricante;
+        }
+
+        public void AtualizarFabricante(FabricanteDTO fabricante)
+        {
+            FabricanteBL.GetInstance().AtualizarFabricante(fabricante);
+        }
+
+        public void ExcluirFabricante(int idFabricante)
+        {
+            FabricanteBL.GetInstance().ExcluirFabricante(idFabricante);
+        }
+        #endregion
+
+        #region Metodos Pedido
+
+        public List<PedidoDTO> ConsultarPedidos()
+        {
+            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
+            lstPedidos = PedidoBL.GetInstance().ConsultarPedidos();
+            return lstPedidos;
+        }
+
+
+        #endregion
+
+
+
 
     }
 }
