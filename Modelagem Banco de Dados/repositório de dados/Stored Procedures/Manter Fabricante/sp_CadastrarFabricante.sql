@@ -1,7 +1,7 @@
 use pimads4
 go
 
-CREATE PROCEDURE sp_CadastarFabricante
+CREATE PROCEDURE sp_CadastrarFabricante
 	@nmFabricante varchar(50)
 AS 
 BEGIN

@@ -56,18 +56,29 @@ namespace pimads4.ViewProduto
         {
 
 
-
             if (txtId_Fabricante.Text.Equals(""))
             {
+                FabricanteDTO fabricante = new FabricanteDTO();
+
+                fabricante.NmFabricante = txtDs_Fabricante.Text;
+
+                Controller.GetInstance().CadastrarFabricante(fabricante);
                 InicializarBotoes();
                 InicializarCampos();
                 InicializarDtg();
+
             }
             else
             {
-                InicializarDtg();
-            }
+                FabricanteDTO fabricante = new FabricanteDTO();
 
+                fabricante.NmFabricante = txtDs_Fabricante.Text;
+                fabricante.IdFabricante = Convert.ToInt32(txtId_Fabricante.Text);
+
+                Controller.GetInstance().AtualizarFabricante(fabricante);
+                InicializarDtg();
+
+            }
         }
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
