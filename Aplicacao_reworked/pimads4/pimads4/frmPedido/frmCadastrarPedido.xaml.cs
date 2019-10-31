@@ -20,9 +20,16 @@ namespace pimads4.frmPedido
     /// </summary>
     public partial class frmCadastrarPedido : UserControl
     {
+        private frmManterPedido frmManterPedido;
+
         public frmCadastrarPedido()
         {
             InitializeComponent();
+        }
+
+        private void BtnClosePedido_Click(object sender, RoutedEventArgs e)
+        {
+         
         }
     }
 }

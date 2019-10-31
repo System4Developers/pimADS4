@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" d:DesignWidth="800" Height="543">
     <Grid Height="533" VerticalAlignment="Top">
-        <Button x:Name="btnNovoPedido" Content="+ NOVO PEDIDO" HorizontalAlignment="Left" Margin="58,34,0,0" VerticalAlignment="Top" Width="106" Height="25" Click="BtnNovoPedido_Click"/>
+        <Button x:Name="btnNovoPedido" Content="+ NOVO PEDIDO" HorizontalAlignment="Left" Margin="58,34,0,0" VerticalAlignment="Top" Width="145" Height="25" Click="BtnNovoPedido_Click"/>
 
         <DataGrid x:Name="dtgPedidos"  ColumnWidth="*" HorizontalAlignment="Left" Height="391" Margin="32,132,0,0" VerticalAlignment="Top" Width="743"
             CanUserReorderColumns="True"                  

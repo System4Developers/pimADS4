@@ -22,6 +22,8 @@ namespace pimads4.frmPedido
     /// </summary>
     public partial class frmManterPedido : UserControl
     {
+        public object Children { get; internal set; }
+
         public frmManterPedido()
         {
             InitializeComponent();
@@ -34,6 +36,11 @@ namespace pimads4.frmPedido
             lstPedidos = Controller.GetInstance().ConsultarPedidos();
             dtgPedidos.ItemsSource = lstPedidos;
 
+        }
+
+        internal void Show()
+        {
+            throw new NotImplementedException();
         }
 
         private void BtnNovoPedido_Click(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:pimads4.ViewProduto"
              mc:Ignorable="d" Height="730" Width="1165">
     <Grid Margin="20,0,-20,0">
-        <DataGrid x:Name="dtgFabricantes"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="48,305,-295,-170" VerticalAlignment="Top" Width="1015"
+        <DataGrid x:Name="dtgFabricantes"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="57,305,0,0" VerticalAlignment="Top" Width="1015"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             Background="#DCDCDC"
@@ -23,8 +23,8 @@
         <Label x:Name="lblId_Fabricante" Content="ID:" HorizontalAlignment="Left" Margin="972,20,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <TextBox x:Name="txtId_Fabricante" Text="" HorizontalAlignment="Left" Height="24" Margin="972,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
 
-        <Label x:Name="lblDs_Fabricante" Content="Nome do Fabricante:" HorizontalAlignment="Left" Margin="224,181,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Fabricante" Text="" HorizontalAlignment="Left" Height="24" Margin="394,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Fabricante" Content="Nome do Fabricante:" HorizontalAlignment="Left" Margin="203,181,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDs_Fabricante" Text="" HorizontalAlignment="Left" Height="24" Margin="376,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="315,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="435,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnConsultar_Click" />

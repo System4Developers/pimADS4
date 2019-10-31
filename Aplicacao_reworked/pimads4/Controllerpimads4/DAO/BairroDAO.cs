@@ -62,7 +62,7 @@ namespace Controllerpimads4.DAO
                 {
                     conn.Close();
                 }
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
             return lstBairros;
         }
