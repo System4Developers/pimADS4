@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,5 +24,12 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
+        internal List<EstadoDTO> ConsultarEstados()
+        {
+            List<EstadoDTO> lstEstados = new List<EstadoDTO>();
+            lstEstados = EstadoDAO.GetInstance().ConsultarEstadosTodos();
+            return lstEstados;
+
+        }
     }
 }

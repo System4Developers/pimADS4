@@ -39,7 +39,7 @@
         <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left" Margin="239,35,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <ComboBox x:Name="cmbCidade" HorizontalAlignment="Left" Margin="239,59,0,0" VerticalAlignment="Top" Width="203"/>
         <Label x:Name="lblDs_Estado" Content="Sigla do Estado" HorizontalAlignment="Left" Margin="74,35,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="74,59,0,0" VerticalAlignment="Top" Width="104" SelectionChanged="CmbEstado_SelectionChanged"/>
+        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="74,59,0,0" VerticalAlignment="Top" Width="104"/>
 
     </Grid>
 </UserControl>

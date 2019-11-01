@@ -97,6 +97,17 @@ namespace Controllerpimads4.Controller
 
         #endregion
 
+        #region Metodos Estados
+
+        public List<EstadoDTO> ConsultarEstados()
+        {
+            List<EstadoDTO> lstEstados = new List<EstadoDTO>();
+            lstEstados = EstadoBL.GetInstance().ConsultarEstados();
+            return lstEstados;
+        }
+
+        #endregion
+
         #region Metodos Cidades
 
         public List<CidadeDTO> ConsultarCidades()

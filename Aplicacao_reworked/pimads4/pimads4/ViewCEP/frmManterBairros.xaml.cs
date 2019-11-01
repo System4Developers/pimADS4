@@ -42,9 +42,10 @@ namespace pimads4.ViewCEP
             btnConsultar.IsEnabled = true;
             btnExcluir.IsEnabled = false;
             btnLimpar.IsEnabled = false;
-            this.cmbEstado.ItemsSource = Controller.GetInstance().ConsultarCidades();
-            this.cmbEstado.DisplayMemberPath = "Nome";
-            this.cmbEstado.SelectedValuePath = "IdCidade";
+            cmbEstado.Items.Clear();
+            cmbEstado.ItemsSource = Controller.GetInstance().ConsultarEstados();
+            cmbEstado.DisplayMemberPath = "dsSigla";
+            cmbEstado.SelectedValuePath = "IdEstado";
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
