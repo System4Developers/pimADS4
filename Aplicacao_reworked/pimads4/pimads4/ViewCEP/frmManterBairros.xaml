@@ -29,13 +29,17 @@
         <Label x:Name="lblId_Bairro" Content="ID:" HorizontalAlignment="Left" Margin="990,21,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <TextBox x:Name="txtId_Bairro" Text="" HorizontalAlignment="Left" Height="24" Margin="990,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
 
-        <Label x:Name="lblDs_Bairro" Content="Nome da Bairro:" HorizontalAlignment="Left" Margin="80,41,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Bairro" Text="" HorizontalAlignment="Left" Height="24" Margin="80,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Bairro" Content="Nome da Bairro:" HorizontalAlignment="Left" Margin="482,43,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDs_Bairro" Text="" HorizontalAlignment="Left" Height="24" Margin="482,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" Padding="0" FontSize="14"/>
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="74,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="219,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="369,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click_1" />
         <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="514,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
+        <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left" Margin="239,35,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox x:Name="cmbCidade" HorizontalAlignment="Left" Margin="239,59,0,0" VerticalAlignment="Top" Width="203"/>
+        <Label x:Name="lblDs_Estado" Content="Sigla do Estado" HorizontalAlignment="Left" Margin="74,35,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="74,59,0,0" VerticalAlignment="Top" Width="104" SelectionChanged="CmbEstado_SelectionChanged"/>
 
     </Grid>
 </UserControl>
