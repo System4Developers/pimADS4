@@ -40,6 +40,7 @@ namespace Controllerpimads4.DAO
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
+                    estado = new EstadoDTO();
                     estado.IdEstado = Convert.ToInt32(dr["idEstado"]);
                     estado.NmEstado = dr["nmEstado"].ToString();
                     estado.CodIbge = dr["codIBGE"].ToString();

@@ -44,7 +44,7 @@ namespace pimads4.ViewCEP
             btnLimpar.IsEnabled = false;
             cmbEstado.Items.Clear();
             cmbEstado.ItemsSource = Controller.GetInstance().ConsultarEstados();
-            cmbEstado.DisplayMemberPath = "dsSigla";
+            cmbEstado.DisplayMemberPath = "DsSigla";
             cmbEstado.SelectedValuePath = "IdEstado";
         }
 

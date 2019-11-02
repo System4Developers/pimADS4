@@ -1,19 +1,8 @@
+CREATE DATABASE pimads4
+GO
 
-CREATE TABLE Usuarios 
-(
-    idUsuario INT PRIMARY KEY IDENTITY(1,1),
-    dsLogin VARCHAR(15),
-    dsSenha VARCHAR(15),
-    tpStatus VARCHAR(10),
-    nmUsuario VARCHAR(40),
-    tpUsuario VARCHAR(10)
-)
-
-CREATE TABLE Estoque 
-(
-    idProduto INT PRIMARY KEY IDENTITY(1,1),
-    qtdDisponivel INT
-)
+USE pimads4
+GO
 
 CREATE TABLE Bairros 
 (
@@ -22,13 +11,69 @@ CREATE TABLE Bairros
     fk_idCidade_Cidades INT
 )
 
+CREATE TABLE Pessoas 
+(
+    idPessoa INT PRIMARY KEY IDENTITY(1,1),
+    tpPessoa VARCHAR(10),
+    nmPessoa VARCHAR(100),
+    numDocumento VARCHAR(15),
+    numRG VARCHAR(12),
+    dtNascimento DATETIME,
+    dsEmail VARCHAR(100),
+    dsEndereco VARCHAR(120),
+    complemento VARCHAR(10),
+    numEnd VARCHAR(5),
+    observacao VARCHAR(100),
+    fk_idBairro_Bairros INT,
+)
 
 CREATE TABLE Estados 
 (
     idEstado INT PRIMARY KEY IDENTITY(1,1),
+    nmEstado VARCHAR(40),
     dsSigla VARCHAR(2),
-    codIBGE VARCHAR(7),
-    nmEstado VARCHAR(40)
+    codIBGE VARCHAR(7)
+)
+
+CREATE TABLE Usuarios 
+(
+    idUsuario INT PRIMARY KEY IDENTITY(1,1),
+    dsLogin VARCHAR(15),
+    dsSenha VARCHAR(15),
+    nmUsuario VARCHAR(40),
+    tpUsuario VARCHAR(10),
+    tpStatus VARCHAR(1)
+)
+
+CREATE TABLE OrdemCompra 
+(
+    idOrdemCompra INT PRIMARY KEY IDENTITY(1,1),
+    valorTotal FLOAT,
+    dtDigitacao DATETIME,
+    tpStatus VARCHAR(1),
+    fk_idUsuario_Usuarios INT,
+    fk_idPessoa_Pessoas INT
+)
+
+
+
+CREATE TABLE OrdemCompraProduto 
+(
+    idOcProduto INT PRIMARY KEY IDENTITY(1,1),
+    vlrUnit FLOAT,
+    quantidade INT,
+    fk_idOrdemCompra_OrdemCompra INT,
+    fk_idProduto_Produtos INT
+)
+
+CREATE TABLE PedidoVenda 
+(
+    idPedVenda INT PRIMARY KEY IDENTITY(1,1),
+    valorTotal FLOAT,
+    dtDigitacao DATETIME,
+    tpPagamento VARCHAR(15),
+    tpStatus VARCHAR(1),
+    fk_idPessoa_Pessoas INT
 )
 
 CREATE TABLE Cidades 
@@ -36,79 +81,61 @@ CREATE TABLE Cidades
     idCidade INT PRIMARY KEY IDENTITY(1,1),
     nmCidade VARCHAR(40),
     codIBGE VARCHAR(7),
-    fk_idEstado_estados INT,
+    fk_idEstado_Estados INT
 )
 
-CREATE TABLE Pessoas 
+CREATE TABLE PedidoProduto 
 (
-    idPessoa INT PRIMARY KEY IDENTITY(1,1),
-    nmPessoa VARCHAR(100),
-    tpPessoa VARCHAR(10),
-    CPF VARCHAR(15),
-    RG VARCHAR(12),
-    nmRazaoSocial VARCHAR(120),
-    dsObs VARCHAR(10),
-    dsEstadoCivil VARCHAR(10),
-    tpStatus VARCHAR(1),
-    CNPJ VARCHAR(15),
-    dsEmail VARCHAR(100),
-    dtNascimento DATETIME,
-    complemento VARCHAR(10),
-    endereco VARCHAR(10),
-    numEnd VARCHAR(10),
-    fk_idBairro_bairros INT,
-)
-
-CREATE TABLE Pedidos 
-(
-    idPedido INT PRIMARY KEY IDENTITY(1,1),
-    dtDigitacao DATETIME,
-    valorTotal FLOAT,
-    formaPagamento VARCHAR(12),
-    tpStatus VARCHAR(1),
-    formaAquisicao VARCHAR(10),
-    tpPedido VARCHAR(10),
-    fk_idPessoa_pessoas INT,
-    fk_idUsuario_usuarios INT,
+    idPedProduto INT PRIMARY KEY IDENTITY(1,1),
+    vlrUnit FLOAT,
+    quantidade INT,
+    desconto INT,
+    fk_idPedVenda_PedidoVenda INT,
+    fk_idProduto_Produtos INT,
 )
 
 CREATE TABLE Produtos 
 (
     idProduto INT PRIMARY KEY IDENTITY(1,1),
+    quantidade INT,
     dsProduto VARCHAR(100),
     valorVenda FLOAT,
     valorCusto FLOAT,
-    fk_idUnidade_unidades INT,
-    fk_idFabricante_fabricantes INT
+    tpProduto VARCHAR(1),
+    fk_idUnidade_Unidades INT,
+    fk_idFabricante_Fabricantes INT
 )
 
-CREATE TABLE unidades 
-(
-    idUnidade INT PRIMARY KEY IDENTITY(1,1),
-    dsUnidade VARCHAR(5)
-)
-
-CREATE TABLE fabricantes 
+CREATE TABLE Fabricantes 
 (
     idFabricante INT PRIMARY KEY IDENTITY(1,1),
     nmFabricante VARCHAR(50)
 )
 
-CREATE TABLE PedProduto 
+CREATE TABLE Unidades 
 (
-    idPedProd INT PRIMARY KEY IDENTITY(1,1),
-    vlrUnit FLOAT,
-    quantidade INT,
-    fk_idProduto_produtos INT,
-    fk_idPedido_Pedidos INT
+    idUnidade INT PRIMARY KEY IDENTITY(1,1),
+    dsUnidade VARCHAR(5)
 )
 
-ALTER TABLE Bairros ADD FOREIGN KEY (fk_idCidade_Cidades) REFERENCES Cidades(idCidade)
-ALTER TABLE Cidades ADD FOREIGN KEY(fk_idEstado_estados) REFERENCES Estados (idEstado)
-ALTER TABLE Pessoas ADD FOREIGN KEY(idBairro) REFERENCES Bairros (idBairro)
-ALTER TABLE Produtos ADD FOREIGN KEY (fk_idUnidade_unidades) REFERENCES unidades (idUnidade)
-ALTER TABLE Produtos ADD FOREIGN KEY (fk_idFabricante_fabricantes) REFERENCES fabricantes (idFabricante)
-ALTER TABLE Pedidos ADD FOREIGN KEY(fk_idPessoa_pessoas) REFERENCES Pessoas (idPessoa)
-ALTER TABLE Pedidos ADD FOREIGN KEY(fk_idUsuario_usuarios) REFERENCES Usuarios (idUsuario)
-ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idProduto_produtos) REFERENCES Produtos (idProduto)
-ALTER TABLE PedProduto ADD FOREIGN KEY(fk_idPedido_Pedidos) REFERENCES Pedidos (idPedido)
+
+ALTER TABLE Bairros ADD FOREIGN KEY(fk_idCidade_Cidades) REFERENCES Cidades(idCidade)
+
+ALTER TABLE Pessoas ADD FOREIGN KEY(fk_idBairro_Bairros) REFERENCES Bairros (idBairro)
+
+ALTER TABLE OrdemCompra ADD FOREIGN KEY(fk_idUsuario_Usuarios) REFERENCES Usuarios (idUsuario)
+ALTER TABLE OrdemCompra ADD  FOREIGN KEY(fk_idPessoa_Pessoas) REFERENCES Pessoas (idPessoa)
+
+ALTER TABLE OrdemCompraProduto ADD FOREIGN KEY(idOrdemCompra) REFERENCES OrdemCompra (idOrdemCompra)
+ALTER TABLE OrdemCompraProduto ADD FOREIGN KEY(fk_idProduto_Produtos) REFERENCES Produtos (idProduto)
+
+ALTER TABLE PedidoVenda ADD FOREIGN KEY (fk_idPessoa_Pessoas) REFERENCES Pessoas (idPessoa)
+
+ALTER TABLE Cidades ADD FOREIGN KEY(fk_idEstado_Estados) REFERENCES Estados (idEstado)
+
+ALTER TABLE PedidoProduto ADD FOREIGN KEY(fk_idPedVenda_PedidoVenda) REFERENCES PedidosVenda (idPedVenda)
+ALTER TABLE PedidoProduto ADD FOREIGN KEY(fk_idProduto_Produtos) REFERENCES Produtos (idProduto)
+
+ALTER TABLE Produtos ADD FOREIGN KEY(fk_idUnidade_Unidades) REFERENCES Unidades(idUnidade)
+ALTER TABLE Produtos ADD FOREIGN KEY(fk_idFabricante_Fabricantes) REFERENCES Fabricantes(idFabricante)
+
