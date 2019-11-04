@@ -1,10 +1,10 @@
 USE pimads4
 GO
 
-CREATE PROCEDURE sp_ExcluirUnidade
+CREATE PROCEDURE sp_ExcluirProduto
 (
-	@idUnidade int
+	@idProduto int
 )
 AS BEGIN
-	DELETE FROM Unidades WHERE idUnidade=@idUnidade
+	DELETE FROM Produtos WHERE idProduto=@idProduto
 END

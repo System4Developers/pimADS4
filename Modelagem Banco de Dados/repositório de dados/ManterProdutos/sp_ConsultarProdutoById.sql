@@ -1,10 +1,10 @@
 use pimads4
 go
 
-CREATE PROCEDURE sp_ConsultarUnidadeById
-	@idUnidade int
+CREATE PROCEDURE sp_ConsultarProdutoById
+	@idProduto int
 AS 
 BEGIN
-	SELECT * FROM Unidades
-	WHERE idUnidade = @idUnidade
+	SELECT * FROM Produtos
+	WHERE idProduto = @idProduto
 END
