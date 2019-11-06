@@ -17,5 +17,16 @@ CREATE PROCEDURE sp_AtualizarPessoa
 AS 
 BEGIN
 	UPDATE Pessoas
-	SET tpPessoa = @tpPessoa,nmPessoa=@nmPessoa,numDocumento=@numDocumento,numRG=@numRG,dtNascimento=@dtNascimento ,dsEmail=@dsEmail,dsEndereco=@dsEndereco,complemento=@complemento,numEnd=@numEnd,observacao=@observacao,fk_idBairro_Bairros=@fk_idBairro_Bairros WHERE idPessoa = @idPessoa
+	SET tpPessoa = @tpPessoa
+	,nmPessoa=@nmPessoa
+	,numDocumento=@numDocumento
+	,numRG=@numRG
+	,dtNascimento=@dtNascimento
+	,dsEmail=@dsEmail
+	,dsEndereco=@dsEndereco
+	,complemento=@complemento
+	,numEnd=@numEnd
+	,observacao=@observacao
+	,fk_idBairro_Bairros=@fk_idBairro_Bairros 
+	WHERE idPessoa = @idPessoa
 END

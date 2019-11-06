@@ -7,5 +7,6 @@ CREATE PROCEDURE sp_AtualizarFabricante
 AS 
 BEGIN
 	UPDATE fabricantes
-	SET nmFabricante = @nmFabricante WHERE idFabricante = @idFabricante
+	SET nmFabricante = @nmFabricante 
+	WHERE idFabricante = @idFabricante
 END

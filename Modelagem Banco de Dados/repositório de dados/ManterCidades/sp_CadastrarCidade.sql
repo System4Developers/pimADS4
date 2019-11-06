@@ -7,6 +7,16 @@ CREATE PROCEDURE sp_CadastrarCidade
 	@fk_idEstado_Estados int
 AS 
 BEGIN
-	INSERT INTO Cidades (nmCidade,codIBGE,fk_idEstado_Estados) 
-	VALUES(@nmCidade,@codIBGE,@fk_idEstado_Estados)
+	INSERT INTO Cidades 
+	(
+		nmCidade
+		,codIBGE
+		,fk_idEstado_Estados
+	) 
+	VALUES
+	(
+		@nmCidade
+		,@codIBGE
+		,@fk_idEstado_Estados
+	)
 END

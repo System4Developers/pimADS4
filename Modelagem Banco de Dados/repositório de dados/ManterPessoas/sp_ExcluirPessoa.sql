@@ -6,5 +6,6 @@ CREATE PROCEDURE sp_ExcluirPessoa
 	@idPessoa int
 )
 AS BEGIN
-	DELETE FROM Pessoas WHERE idPessoa=@idPessoa
+	DELETE FROM Pessoas 
+	WHERE idPessoa=@idPessoa
 END

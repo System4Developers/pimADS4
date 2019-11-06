@@ -66,12 +66,13 @@ CREATE TABLE OrdemCompraProduto
 
 CREATE TABLE PedidoVenda 
 (
-    idPedVenda INT PRIMARY KEY IDENTITY(1,1),
+    idPedidoVenda INT PRIMARY KEY IDENTITY(1,1),
     valorTotal FLOAT,
     dtDigitacao DATETIME NOT NULL,
     tpPagamento VARCHAR(15) NOT NULL,
     tpStatus VARCHAR(1) NOT NULL,
-    fk_idPessoa_Pessoas INT
+    fk_idPessoa_Pessoas INT,
+    fk_idUsuario_Usuarios INT
 )
 
 CREATE TABLE Cidades 
@@ -88,7 +89,7 @@ CREATE TABLE PedidoProduto
     vlrUnit FLOAT NOT NULL,
     quantidade INT NOT NULL,
     desconto INT,
-    fk_idPedVenda_PedidoVenda INT,
+    fk_idPedidoVenda_PedidoVenda INT,
     fk_idProduto_Produtos INT,
 
 )
@@ -129,10 +130,11 @@ ALTER TABLE OrdemCompraProduto ADD FOREIGN KEY(fk_idOrdemCompra_OrdemCompra) REF
 ALTER TABLE OrdemCompraProduto ADD FOREIGN KEY(fk_idProduto_Produtos) REFERENCES Produtos (idProduto)
 
 ALTER TABLE PedidoVenda ADD FOREIGN KEY (fk_idPessoa_Pessoas) REFERENCES Pessoas (idPessoa)
+ALTER TABLE PedidoVenda ADD FOREIGN KEY (fk_idUsuario_Usuarios) REFERENCES Usuarios(idUsuario)
 
 ALTER TABLE Cidades ADD FOREIGN KEY(fk_idEstado_Estados) REFERENCES Estados (idEstado)
 
-ALTER TABLE PedidoProduto ADD FOREIGN KEY(fk_idPedVenda_PedidoVenda) REFERENCES PedidoVenda (idPedVenda)
+ALTER TABLE PedidoProduto ADD FOREIGN KEY(fk_idPedidoVenda_PedidoVenda) REFERENCES PedidoVenda (idPedidoVenda)
 ALTER TABLE PedidoProduto ADD FOREIGN KEY(fk_idProduto_Produtos) REFERENCES Produtos (idProduto)
 
 ALTER TABLE Produtos ADD FOREIGN KEY(fk_idUnidade_Unidades) REFERENCES Unidades(idUnidade)

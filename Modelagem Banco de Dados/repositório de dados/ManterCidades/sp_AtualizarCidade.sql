@@ -1,7 +1,7 @@
 use pimads4
 go
 
-CREATE PROCEDURE sp_AtualizarCidades
+CREATE PROCEDURE sp_AtualizarCidade
     @idCidade int,
 	@nmCidade varchar(150),
 	@codIBGE varchar(7),

@@ -6,5 +6,6 @@ CREATE PROCEDURE sp_ExcluirUsuario
 	@idUsuario int
 )
 AS BEGIN
-	DELETE FROM Usuarios WHERE idUsuario=@idUsuario
+	DELETE FROM Usuarios 
+	WHERE idUsuario=@idUsuario
 END

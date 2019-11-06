@@ -7,5 +7,6 @@ CREATE PROCEDURE sp_AtualizarUnidade
 AS 
 BEGIN
 	UPDATE Unidades
-	SET dsUnidade = @dsUnidade WHERE idUnidade = @idUnidade
+	SET dsUnidade = @dsUnidade 
+	WHERE idUnidade = @idUnidade
 END
