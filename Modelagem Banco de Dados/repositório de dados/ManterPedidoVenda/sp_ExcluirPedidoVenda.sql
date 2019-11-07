@@ -3,9 +3,9 @@ GO
 
 CREATE PROCEDURE sp_ExcluirPedidoVenda
 (
-	@idPedVenda int
+	@idPedidoVenda int
 )
 AS BEGIN
 	DELETE FROM PedidoVenda 
-	WHERE idPedVenda=@idPedVenda
+	WHERE idPedidoVenda=@idPedidoVenda
 END

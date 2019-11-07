@@ -83,9 +83,9 @@ CREATE TABLE Cidades
     fk_idEstado_Estados INT
 )
 
-CREATE TABLE PedidoProduto 
+CREATE TABLE PedidoVendaProduto 
 (
-    idPedProduto INT PRIMARY KEY IDENTITY(1,1),
+    idPedidoVendaProduto INT PRIMARY KEY IDENTITY(1,1),
     vlrUnit FLOAT NOT NULL,
     quantidade INT NOT NULL,
     desconto INT,

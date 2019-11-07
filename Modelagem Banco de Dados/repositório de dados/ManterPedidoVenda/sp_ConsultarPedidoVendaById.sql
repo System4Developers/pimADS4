@@ -2,9 +2,9 @@ use pimads4
 go
 
 CREATE PROCEDURE sp_ConsultarPedidoVendaById
-	@idPedVenda int
+	@idPedidoVenda int
 AS 
 BEGIN
 	SELECT * FROM PedidoVenda
-	WHERE idPedVenda = @idPedVenda
+	WHERE idPedidoVenda = @idPedidoVenda
 END
