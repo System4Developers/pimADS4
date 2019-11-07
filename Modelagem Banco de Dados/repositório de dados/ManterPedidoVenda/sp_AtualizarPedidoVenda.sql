@@ -16,5 +16,5 @@ BEGIN
 	,tpStatus = @tpStatus
 	,fk_idPessoa_Pessoas=@fk_idPessoa_Pessoas
 	,fk_idUsuario_Usuarios=@fk_idUsuario_Usuarios
-	WHERE idOrdemCompra = @idOrdemCompra
+	WHERE @idPedidoVenda = @idPedidoVenda
 END

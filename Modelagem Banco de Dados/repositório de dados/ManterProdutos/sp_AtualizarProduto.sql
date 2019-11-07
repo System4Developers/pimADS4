@@ -16,7 +16,7 @@ BEGIN
 	,valorVenda = @valorVenda
 	,valorCusto=@valorCusto
 	,tpProduto=@tpProduto
-	,fk_idUnidade=@fk_idUnidade_Unidades
+	,fk_idUnidade_Unidades=@fk_idUnidade_Unidades
 	,fk_idFabricante_Fabricantes=@fk_idFabricante_Fabricantes 
 	WHERE idProduto = @idProduto
 END

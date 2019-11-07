@@ -134,8 +134,8 @@ ALTER TABLE PedidoVenda ADD FOREIGN KEY (fk_idUsuario_Usuarios) REFERENCES Usuar
 
 ALTER TABLE Cidades ADD FOREIGN KEY(fk_idEstado_Estados) REFERENCES Estados (idEstado)
 
-ALTER TABLE PedidoProduto ADD FOREIGN KEY(fk_idPedidoVenda_PedidoVenda) REFERENCES PedidoVenda (idPedidoVenda)
-ALTER TABLE PedidoProduto ADD FOREIGN KEY(fk_idProduto_Produtos) REFERENCES Produtos (idProduto)
+ALTER TABLE PedidoVendaProduto ADD FOREIGN KEY(fk_idPedidoVenda_PedidoVenda) REFERENCES PedidoVenda (idPedidoVenda)
+ALTER TABLE PedidoVendaProduto ADD FOREIGN KEY(fk_idProduto_Produtos) REFERENCES Produtos (idProduto)
 
 ALTER TABLE Produtos ADD FOREIGN KEY(fk_idUnidade_Unidades) REFERENCES Unidades(idUnidade)
 ALTER TABLE Produtos ADD FOREIGN KEY(fk_idFabricante_Fabricantes) REFERENCES Fabricantes(idFabricante)
