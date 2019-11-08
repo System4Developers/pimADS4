@@ -70,7 +70,10 @@ namespace pimads4
         }
         private void Btnlogout_Click(object sender, RoutedEventArgs e)
         {
-
+            frmLogin novo = new frmLogin();
+            // Apresenta o formulário chamado
+            novo.Show();
+            this.Close();
         }
 
         private void BtnConsultarBairro_Click(object sender, RoutedEventArgs e)

@@ -10,19 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace pimads4.ViewUsuario
 {
     /// <summary>
-    /// Interação lógica para frmLogin.xam
+    /// Lógica interna para frmLogin.xaml
     /// </summary>
-    public partial class frmLogin : Page
+    public partial class frmLogin : Window
     {
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void GradientStop_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
