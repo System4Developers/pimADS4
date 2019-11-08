@@ -26,17 +26,15 @@ namespace Controllerpimads4.DAO
         
         internal List<CidadeDTO> ConsultarCidadesTodos()
         {
-            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
             String sqlText = "select * from Cidades join Estados on Cidades.fk_idEstado_estados = Estados.idEstado";
-            SqlCommand cmd = new SqlCommand(sqlText, conn);
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
             List<CidadeDTO> lstCidades = new List<CidadeDTO>();
             CidadeDTO cidade = null;
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();                
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -50,14 +48,11 @@ namespace Controllerpimads4.DAO
                     lstCidades.Add(cidade);
                 }
 
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
             return lstCidades;

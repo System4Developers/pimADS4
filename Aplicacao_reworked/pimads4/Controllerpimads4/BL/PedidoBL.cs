@@ -23,10 +23,10 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
-        internal List<PedidoDTO> ConsultarPedidos()
+        internal List<PedidoVendaDTO> ConsultarPedidos()
         {
-            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
-            lstPedidos = PedidoDAO.GetInstance().ConsultarPedidosTodos();
+            List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
+            lstPedidos = PedidoVendaDAO.GetInstance().ConsultarPedidosTodos();
             return lstPedidos;
         }
 

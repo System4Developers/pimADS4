@@ -27,9 +27,7 @@ namespace Controllerpimads4.DAO
         
         internal void CadastrarUsuario(UsuarioDTO usuario)
         {
-            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand("sp_CadastrarUsuario", conn);
+            SqlCommand cmd = new SqlCommand("sp_CadastrarUsuario", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@dsLogin", usuario.DsLogin);
@@ -40,16 +38,14 @@ namespace Controllerpimads4.DAO
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();
                 cmd.ExecuteNonQuery();
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
+                
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
 
@@ -57,17 +53,14 @@ namespace Controllerpimads4.DAO
 
         internal List<UsuarioDTO> ConsultarUsuarioTodos()
         {
-            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
             String sqlText = "SELECT * FROM Usuarios";
-            SqlCommand cmd = new SqlCommand(sqlText, conn);
-            
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             UsuarioDTO usuario = null;
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -81,14 +74,11 @@ namespace Controllerpimads4.DAO
                     lstUsuarios.Add(usuario);
                 }
 
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
             return lstUsuarios;
@@ -96,9 +86,7 @@ namespace Controllerpimads4.DAO
 
         internal UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
-            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand("sp_ConsultarUsuarioById", conn);
+            SqlCommand cmd = new SqlCommand("sp_ConsultarUsuarioById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
@@ -107,7 +95,7 @@ namespace Controllerpimads4.DAO
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -120,25 +108,19 @@ namespace Controllerpimads4.DAO
                     usuario.NmUsuario = dr["nmUsuario"].ToString();
                     usuario.TpUsuario = dr["tpUsuario"].ToString();
                 }
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
-
             }
             return usuario;
         }
 
         internal void AtualizarUsuario(UsuarioDTO usuario)
         {
-            string connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand("sp_AtualizarUsuario", conn);
+            SqlCommand cmd = new SqlCommand("sp_AtualizarUsuario", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idUsuario",usuario.IdUsuario);
@@ -150,16 +132,13 @@ namespace Controllerpimads4.DAO
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();
                 cmd.ExecuteNonQuery();
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
 
@@ -167,25 +146,20 @@ namespace Controllerpimads4.DAO
 
         internal void ExlcuirUsuario(int idUsuario)
         {
-            string connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand("sp_ExcluirUsuario", conn);
+            SqlCommand cmd = new SqlCommand("sp_ExcluirUsuario", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idUsuario",idUsuario);
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();
                 cmd.ExecuteNonQuery();
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
 

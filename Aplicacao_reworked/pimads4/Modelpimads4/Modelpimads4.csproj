@@ -43,12 +43,13 @@
   <ItemGroup>
     <Compile Include="DTO\BairroDTO.cs" />
     <Compile Include="DTO\CidadeDTO.cs" />
-    <Compile Include="DTO\EstoqueDTO.cs" />
+    <Compile Include="DTO\OrdemCompraDTO.cs" />
+    <Compile Include="DTO\OrdemCompraProdutoDTO.cs" />
     <Compile Include="DTO\PessoaDTO.cs" />
     <Compile Include="DTO\EstadoDTO.cs" />
     <Compile Include="DTO\FabricanteDTO.cs" />
-    <Compile Include="DTO\PedidoDTO.cs" />
-    <Compile Include="DTO\PedProdutoDTO.cs" />
+    <Compile Include="DTO\PedidoVendaDTO.cs" />
+    <Compile Include="DTO\PedidoVendaProdutoDTO.cs" />
     <Compile Include="DTO\ProdutoDTO.cs" />
     <Compile Include="DTO\UnidadeDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />

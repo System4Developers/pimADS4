@@ -6,24 +6,26 @@ using System.Threading.Tasks;
 
 namespace Modelpimads4.DTO
 {
-    public class PedProdutoDTO
+    public class PedidoVendaProdutoDTO
     {
-        private int idPedItem;
+        private int idPedidoVendaProduto;
         private int quantidade;
+        private int desconto;
         private Double vlrUnit;
         private ProdutoDTO produto;
-        private PedidoDTO pedido;
+        private PedidoVendaDTO pedidoVenda;
 
-        public int IdPedItem { get => idPedItem; set => idPedItem = value; }
+        public int IdPedItem { get => idPedidoVendaProduto; set => idPedidoVendaProduto = value; }
         public int Quantidade { get => quantidade; set => quantidade = value; }
         public double VlrUnit { get => vlrUnit; set => vlrUnit = value; }
         public ProdutoDTO Produto { get => produto; set => produto = value; }
-        public PedidoDTO Pedido { get => pedido; set => pedido = value; }
+        public PedidoVendaDTO PedidoVenda { get => pedidoVenda; set => pedidoVenda = value; }
+        public int Desconto { get => desconto; set => desconto = value; }
 
-        public PedProdutoDTO()
+        public PedidoVendaProdutoDTO()
         {
             Produto = new ProdutoDTO();
-            Pedido = new PedidoDTO();
+            PedidoVenda = new PedidoVendaDTO();
         }
 
     }

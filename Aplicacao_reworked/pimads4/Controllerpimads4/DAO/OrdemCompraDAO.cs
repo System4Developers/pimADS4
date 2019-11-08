@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.DAO
 {
-    public class EstoqueDAO
+    public class OrdemCompraDAO
     {
-        private static EstoqueDAO instance;
+        public static OrdemCompraDAO instance;
 
-        private EstoqueDAO() { }
+        private OrdemCompraDAO() { }
 
-        public static EstoqueDAO GetInstance()
+        public static OrdemCompraDAO GetInstance()
         {
             if (instance==null)
             {
-                instance = new EstoqueDAO();
+                instance = new OrdemCompraDAO();
             }
-                
             return instance;
-        } 
-    }
+        }
 
+
+    }
 }

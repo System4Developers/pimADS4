@@ -87,9 +87,9 @@ namespace Controllerpimads4.Controller
 
         #region Metodos Pedido
 
-        public List<PedidoDTO> ConsultarPedidos()
+        public List<PedidoVendaDTO> ConsultarPedidos()
         {
-            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
+            List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
             lstPedidos = PedidoBL.GetInstance().ConsultarPedidos();
             return lstPedidos;
         }

@@ -32,7 +32,7 @@ namespace pimads4.frmPedido
 
         private void InicializarDtg()
         {
-            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
+            List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
             lstPedidos = Controller.GetInstance().ConsultarPedidos();
             dtgPedidos.ItemsSource = lstPedidos;
 

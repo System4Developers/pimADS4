@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.BL
 {
-    public class EstoqueBL
+    public class OrdemCompraBL
     {
-        private static EstoqueBL instance;
+        public static OrdemCompraBL instance;
 
-        private EstoqueBL() { }
+        private OrdemCompraBL() { }
 
-        public static EstoqueBL GetInstance()
+        public static OrdemCompraBL GetInstance()
         {
-            if (instance==null)
+            if (instance== null)
             {
-                instance = new EstoqueBL();
+                instance = new OrdemCompraBL();
             }
-
             return instance;
         }
+
 
 
     }

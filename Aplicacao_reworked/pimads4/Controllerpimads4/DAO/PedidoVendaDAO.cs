@@ -9,57 +9,50 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.DAO
 {
-    public class PedidoDAO
+    public class PedidoVendaDAO
     {
-        public static PedidoDAO instance;
+        public static PedidoVendaDAO instance;
 
-        private PedidoDAO() { }
+        private PedidoVendaDAO() { }
 
-        public static PedidoDAO GetInstance()
+        public static PedidoVendaDAO GetInstance()
         {
             if (instance == null)
             {
-                instance = new PedidoDAO();
+                instance = new PedidoVendaDAO();
             }
             return instance;
         }
 
 
-        
-        internal List<PedidoDTO> ConsultarPedidosTodos()
+        internal List<PedidoVendaDTO> ConsultarPedidosTodos()
         {
-            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
             String sqlText = "SELECT * FROM Pedidos";
-            SqlCommand cmd = new SqlCommand(sqlText, conn);
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
-            List<PedidoDTO> lstPedidos = new List<PedidoDTO>();
-            PedidoDTO pedido = null;
+            List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
+            PedidoVendaDTO pedido = null;
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    pedido = new PedidoDTO();
+                    pedido = new PedidoVendaDTO();
                     pedido.IdPedido = Convert.ToInt32(dr["idPedido"]);
                     pedido.DtDigitacao = dr["dtDigitacao"].ToString();
                     pedido.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
-                    pedido.FormaPagamento = dr["formaPagamento"].ToString();
-                    pedido.TpPedido = dr["tpPedido"].ToString();
+                    pedido.TpPagamento = dr["formaPagamento"].ToString();
 
                     lstPedidos.Add(pedido);
                 }
 
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
             return lstPedidos;
