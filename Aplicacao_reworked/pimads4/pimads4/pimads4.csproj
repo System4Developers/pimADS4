@@ -78,12 +78,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-
-    <Page Include="ViewUsuario\frmLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-
     <Page Include="frmPedido\frmCadastrarPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,11 +94,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    
-    <Compile Include="ViewUsuario\frmLogin.xaml.cs">
-      <DependentUpon>frmLogin.xaml</DependentUpon>
-    </Compile>
-    
     <Compile Include="frmPedido\frmCadastrarPedido.xaml.cs">
       <DependentUpon>frmCadastrarPedido.xaml</DependentUpon>
     </Compile>
@@ -135,6 +124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewUsuario\frmLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewUsuario\frmManterUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +148,9 @@
     </Compile>
     <Compile Include="ViewProduto\frmManterUnidades.xaml.cs">
       <DependentUpon>frmManterUnidades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUsuario\frmLogin.xaml.cs">
+      <DependentUpon>frmLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUsuario\frmManterUsuarios.xaml.cs">
       <DependentUpon>frmManterUsuarios.xaml</DependentUpon>
@@ -197,7 +193,9 @@
       <Name>Modelpimads4</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="ViewUsuario\img\Coroa1.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
@@ -209,6 +207,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ViewUsuario\img\fotoLogo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
