@@ -36,14 +36,11 @@ namespace Controllerpimads4.DAO
             {
                 ConexaoDAO.GetInstance().Conectar();
                 cmd.ExecuteNonQuery();
-                ConexaoDAO.GetInstance().Desconectar
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    ConexaoDAO.GetInstance().Desconectar();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
 
@@ -149,6 +146,7 @@ namespace Controllerpimads4.DAO
                 ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
+            { 
                 ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
