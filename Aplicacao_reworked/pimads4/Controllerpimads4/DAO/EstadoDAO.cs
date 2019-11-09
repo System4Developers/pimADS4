@@ -26,41 +26,37 @@ namespace Controllerpimads4.DAO
 
         internal List<EstadoDTO> ConsultarEstadosTodos()
         {
-            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
             String sqlText = "select * from Estados";
-            SqlCommand cmd = new SqlCommand(sqlText, conn);
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
-            List<EstadoDTO> lstEstados = new List<EstadoDTO>();
-            EstadoDTO estado = null;
+            List<EstadoDTO> lstObj = new List<EstadoDTO>();
+            EstadoDTO mObj = null;
 
             try
             {
-                conn.Open();
+                ConexaoDAO.GetInstance().Conectar();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    estado = new EstadoDTO();
-                    estado.IdEstado = Convert.ToInt32(dr["idEstado"]);
-                    estado.NmEstado = dr["nmEstado"].ToString();
-                    estado.CodIbge = dr["codIBGE"].ToString();
-                    estado.DsSigla = dr["dsSigla"].ToString();
+                    mObj = new EstadoDTO();
+                    mObj.IdEstado = Convert.ToInt32(dr["idEstado"]);
+                    mObj.NmEstado = dr["nmEstado"].ToString();
+                    mObj.CodIbge = dr["codIBGE"].ToString();
+                    mObj.DsSigla = dr["dsSigla"].ToString();
 
 
-                    lstEstados.Add(estado);
+                    lstObj.Add(mObj);
                 }
 
-                conn.Close();
+                ConexaoDAO.GetInstance().Desconectar();
             }
             catch (Exception ex)
             {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
-            return lstEstados;
+
+            return lstObj;
         }
 
     }

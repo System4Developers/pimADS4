@@ -14,7 +14,7 @@ namespace Modelpimads4.DTO
         private EstadoDTO estado;
 
         public int IdCidade { get => idCidade; set => idCidade = value; }
-        public string Nome { get => nome; set => nome = value; }
+        public string NmCidade { get => nome; set => nome = value; }
         public string CodIbge { get => codIbge; set => codIbge = value; }
         public EstadoDTO Estado { get => estado; set => estado = value; }
 

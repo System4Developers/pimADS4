@@ -24,13 +24,13 @@ namespace Controllerpimads4.DAO
             return instance;
         }
         
-        internal void CadastrarFabricante(FabricanteDTO fabricante)
+        internal void CadastrarFabricante(FabricanteDTO mObj)
         {
 
             SqlCommand cmd = new SqlCommand("sp_CadastrarFabricante", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@nmFabricante", fabricante.NmFabricante);
+            cmd.Parameters.AddWithValue("@nmFabricante", mObj.NmFabricante);
 
             try
             {
@@ -51,8 +51,8 @@ namespace Controllerpimads4.DAO
             String sqlText = "SELECT * FROM Fabricantes";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
-            List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
-            FabricanteDTO fabricante = null;
+            List<FabricanteDTO> lstObj = new List<FabricanteDTO>();
+            FabricanteDTO mObj = null;
 
             try
             {
@@ -60,11 +60,11 @@ namespace Controllerpimads4.DAO
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    fabricante = new FabricanteDTO();
-                    fabricante.IdFabricante = Convert.ToInt32(dr["idFabricante"]);
-                    fabricante.NmFabricante = dr["nmFabricante"].ToString();
+                    mObj = new FabricanteDTO();
+                    mObj.IdFabricante = Convert.ToInt32(dr["idFabricante"]);
+                    mObj.NmFabricante = dr["nmFabricante"].ToString();
 
-                    lstFabricantes.Add(fabricante);
+                    lstObj.Add(mObj);
                 }
 
                 ConexaoDAO.GetInstance().Desconectar();
@@ -74,17 +74,17 @@ namespace Controllerpimads4.DAO
                 ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
             }
-            return lstFabricantes;
+            return lstObj;
         }
         
-        internal FabricanteDTO ConsultarFabricanteById(int idFabricante)
+        internal FabricanteDTO ConsultarFabricanteById(int idAtributo)
         {
             SqlCommand cmd = new SqlCommand("sp_ConsultarFabricanteById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idFabricante", idFabricante);
+            cmd.Parameters.AddWithValue("@idFabricante", idAtributo);
 
-            FabricanteDTO fabricante = null;
+            FabricanteDTO mObj = null;
 
             try
             {
@@ -93,9 +93,9 @@ namespace Controllerpimads4.DAO
 
                 while (dr.Read())
                 {
-                    fabricante = new FabricanteDTO();
-                    fabricante.IdFabricante = Convert.ToInt32(dr["idFabricante"]);
-                    fabricante.NmFabricante = dr["nmFabricante"].ToString();
+                    mObj = new FabricanteDTO();
+                    mObj.IdFabricante = Convert.ToInt32(dr["idFabricante"]);
+                    mObj.NmFabricante = dr["nmFabricante"].ToString();
                 }
                 ConexaoDAO.GetInstance().Desconectar();
             }
@@ -105,17 +105,17 @@ namespace Controllerpimads4.DAO
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
 
             }
-            return fabricante;
+            return mObj;
         }
         
-        internal void AtualizarFabricante(FabricanteDTO fabricante)
+        internal void AtualizarFabricante(FabricanteDTO mObj)
         {
            
             SqlCommand cmd = new SqlCommand("sp_AtualizarFabricante", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idFabricante", fabricante.IdFabricante);
-            cmd.Parameters.AddWithValue("@nmFabricante", fabricante.NmFabricante);
+            cmd.Parameters.AddWithValue("@idFabricante", mObj.IdFabricante);
+            cmd.Parameters.AddWithValue("@nmFabricante", mObj.NmFabricante);
 
             try
             {
@@ -131,13 +131,13 @@ namespace Controllerpimads4.DAO
 
         }
         
-        internal void ExcluirFabricante(int idFabricante)
+        internal void ExcluirFabricante(int idAtributo)
         {
   
             SqlCommand cmd = new SqlCommand("sp_ExcluirFabricante", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idFabricante", idFabricante);
+            cmd.Parameters.AddWithValue("@idFabricante", idAtributo);
 
             try
             {
