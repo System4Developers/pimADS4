@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +23,34 @@ namespace Controllerpimads4.BL
 
             return instance;
         }
+
+        internal void CadastrarProduto(ProdutoDTO produto)
+        {
+            if (produto.DsProduto !="")
+            {
+                ProdutoDAO.GetInstance().CadastrarProduto(produto);
+            }
+        }
         
-        
+        internal List<ProdutoDTO> ConsultarProdutos()
+        {
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            lstProdutos = ProdutoDAO.GetInstance().ConsultarProdutoTodos();
+            return lstProdutos;
+        }
+        internal ProdutoDTO ConsultarUnidadeById(int idProduto)
+        {
+            ProdutoDTO produto = ProdutoDAO.GetInstance().ConsultarProdutoById(idProduto);
+            return produto;
+        }
+        internal void AtualizarProduto(ProdutoDTO produto)
+        {
+            ProdutoDAO.GetInstance().AtualizarProduto(produto);
+        }
+        internal void ExcluirUnidade(int idProduto)
+        {
+            ProdutoDAO.GetInstance().ExlcuirProduto(idProduto);
+        }
 
     }
 }

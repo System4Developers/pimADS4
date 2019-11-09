@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,7 @@ namespace Controllerpimads4.BL
         public static UnidadeBL GetInstance()
         {
 
-            if (instance==null)
+            if (instance == null)
             {
                 instance = new UnidadeBL();
             }
@@ -24,5 +26,37 @@ namespace Controllerpimads4.BL
         }
 
 
+        internal void CadastrarUnidade(UnidadeDTO unidade)
+        {
+            if (unidade.DsUnidade !="")
+            {
+                UnidadeDAO.GetInstance().CadastrarUnidade(unidade);
+            }
+
+        }
+
+        internal List<UnidadeDTO> ConsultarUnidades()
+        {
+            List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
+            lstUnidades = UnidadeDAO.GetInstance().ConsultarUnidadeTodos();
+            return lstUnidades;
+        }
+
+        internal UnidadeDTO ConsultarUnidadeById(int idUnidade)
+        {
+            UnidadeDTO unidade = UnidadeDAO.GetInstance().ConsultarUnidadeById(idUnidade);
+            return unidade;
+        }
+
+        internal void AtualizarUnidade(UnidadeDTO unidade)
+        {
+            UnidadeDAO.GetInstance().AtualizarUnidade(unidade);
+        }
+
+        internal void ExcluirUnidade(int idUnidade)
+        {
+            UnidadeDAO.GetInstance().ExlcuirUnidade(idUnidade);
+        }
+ 
     }
 }

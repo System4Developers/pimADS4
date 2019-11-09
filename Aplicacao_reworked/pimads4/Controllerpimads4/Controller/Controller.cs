@@ -23,6 +23,7 @@ namespace Controllerpimads4.Controller
 
             return instance;
         }
+
         #region Metodos do Usuario
         public void CadastrarUsuario(UsuarioDTO usuario)
         {
@@ -129,7 +130,61 @@ namespace Controllerpimads4.Controller
         }
 
         #endregion
-        
 
+        #region Metodos Unidade
+
+        public void CadastarUnidade(UnidadeDTO unidade)
+        {
+            UnidadeBL.GetInstance().CadastrarUnidade(unidade);
+        }
+        public List<UnidadeDTO> ConsultarUnidades()
+        {
+            List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
+            lstUnidades = UnidadeBL.GetInstance().ConsultarUnidades();
+            return lstUnidades;
+        }
+        public UnidadeDTO ConsultarUnidadeById(int idUnidade)
+        {
+            UnidadeDTO unidade = UnidadeBL.GetInstance().ConsultarUnidadeById(idUnidade);
+            return unidade;
+        }
+        public void AtualizarUnidade(UnidadeDTO unidade)
+        {
+            UnidadeBL.GetInstance().AtualizarUnidade(unidade);
+        }
+        public void ExcluirUnidade(int idUnidade)
+        {
+            UnidadeBL.GetInstance().ExcluirUnidade(idUnidade);
+        }
+
+        #endregion
+
+        #region Metodos Produto
+
+        public void CadastrarProduto(ProdutoDTO produto)
+        {
+            ProdutoBL.GetInstance().CadastrarProduto(produto);
+        }
+        public List<ProdutoDTO> ConsultarProdutos()
+        {
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            lstProdutos = ProdutoBL.GetInstance().ConsultarProdutos();
+            return lstProdutos;
+        }
+        public UnidadeDTO ConsultarUnidadeById(int idUnidade)
+        {
+            UnidadeDTO unidade = UnidadeBL.GetInstance().ConsultarUnidadeById(idUnidade);
+            return unidade;
+        }
+        public void AtualizarUnidade(UnidadeDTO unidade)
+        {
+            UnidadeBL.GetInstance().AtualizarUnidade(unidade);
+        }
+        public void ExcluirUnidade(int idUnidade)
+        {
+            UnidadeBL.GetInstance().ExcluirUnidade(idUnidade);
+        }*/
+
+        #endregion
     }
 }

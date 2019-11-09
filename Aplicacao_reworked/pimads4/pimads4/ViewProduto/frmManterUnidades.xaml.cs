@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,15 +27,16 @@ namespace pimads4.ViewProduto
             InitializeComponent();
             InicializarCampos();
             InicializarBotoes();
+            InicializarDtg();
         }
 
-/*      private void InicializarDtg()
+        private void InicializarDtg()
         {
-            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
-            lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
-            dtgUsuarios.ItemsSource = lstUsuarios;
+            List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
+            lstUnidades = Controller.GetInstance().ConsultarUnidades();
+            dtgUnidades.ItemsSource = lstUnidades;
 
-        }*/
+        }
 
         private void InicializarCampos()
         {
@@ -53,19 +56,36 @@ namespace pimads4.ViewProduto
         {
             if (txtId_Unidade.Text.Equals(""))
             {
+                UnidadeDTO unidade = new UnidadeDTO();
+                unidade.DsUnidade = txtDs_Unidade.Text;
+                Controller.GetInstance().CadastarUnidade(unidade);
+
                 InicializarBotoes();
                 InicializarCampos();
-                //InicializarDtg();
+                InicializarDtg();
             }
             else
             {
-                //InicializarDtg();
+                UnidadeDTO unidade = new UnidadeDTO();
+                unidade.IdUnidade = Convert.ToInt32(txtId_Unidade.Text);
+                unidade.DsUnidade = txtDs_Unidade.Text;
+
+                Controller.GetInstance().AtualizarUnidade(unidade);
+
+                InicializarDtg();
             }
 
         }
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
+            UnidadeDTO unidadeDtg = (UnidadeDTO)dtgUnidades.SelectedItem;
+
+            UnidadeDTO unidade = Controller.GetInstance().ConsultarUnidadeById(unidadeDtg.IdUnidade);
+
+            txtId_Unidade.Text = unidade.IdUnidade.ToString();
+            txtDs_Unidade.Text = unidade.DsUnidade.ToString();
+
             btnSalvar.IsEnabled = true;
             btnLimpar.IsEnabled = true;
             btnExcluir.IsEnabled = true;
@@ -73,9 +93,12 @@ namespace pimads4.ViewProduto
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
+            int idUnidade = Convert.ToInt32(txtId_Unidade.Text);
+            Controller.GetInstance().ExcluirUnidade(idUnidade);
+            
             InicializarBotoes();
             InicializarCampos();
-            //InicializarDtg();
+            InicializarDtg();
         }
 
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
