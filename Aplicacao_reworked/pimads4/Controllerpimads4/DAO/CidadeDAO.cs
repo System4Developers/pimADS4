@@ -50,7 +50,7 @@ namespace Controllerpimads4.DAO
 
         internal List<CidadeDTO> ConsultarCidadeTodos()
         {
-            String sqlText = "SELECT * FROM Cidades";
+            String sqlText = "SELECT * FROM Cidades JOIN Estados ON Cidades.fk_idEstado_Estados = Estados.idEstado";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
             List<CidadeDTO> lstObj = new List<CidadeDTO>();
@@ -67,6 +67,7 @@ namespace Controllerpimads4.DAO
                     mObj.NmCidade = dr["nmCidade"].ToString();
                     mObj.CodIbge = dr["codIBGE"].ToString();
                     mObj.Estado.IdEstado = Convert.ToInt32(dr["fk_idEstado_Estados"]);
+                    mObj.Estado.DsSigla = dr["dsSigla"].ToString();
 
                     lstObj.Add(mObj);
                 }

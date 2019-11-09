@@ -90,7 +90,7 @@ namespace Controllerpimads4.Controller
         public List<PedidoVendaDTO> ConsultarPedidos()
         {
             List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
-            lstPedidos = PedidoBL.GetInstance().ConsultarPedidos();
+            lstPedidos = PedidoVendaBL.GetInstance().ConsultarPedidos();
             return lstPedidos;
         }
 

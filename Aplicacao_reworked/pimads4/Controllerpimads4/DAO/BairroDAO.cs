@@ -46,7 +46,7 @@ namespace Controllerpimads4.DAO
                     bairro = new BairroDTO();
                     bairro.IdBairro = Convert.ToInt32(dr["idBairro"]);
                     bairro.DsBairro = dr["dsBairro"].ToString(); 
-                    bairro.Cidade.Nome = dr["nmCidade"].ToString();
+                    bairro.Cidade.NmCidade = dr["nmCidade"].ToString();
                     bairro.Cidade.Estado.DsSigla = dr["dsSigla"].ToString();
 
 

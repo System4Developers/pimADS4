@@ -81,5 +81,10 @@ namespace pimads4
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterBairros());
         }
+
+        private void BtnConsultarOc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

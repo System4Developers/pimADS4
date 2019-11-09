@@ -15,7 +15,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdCidade}" Header="ID" />
-                <DataGridTextColumn Binding="{Binding Nome}" Header="Cidade" />
+                <DataGridTextColumn Binding="{Binding NmCidade}" Header="Cidade" />
                 <DataGridTextColumn Binding="{Binding Estado.DsSigla}" Header="Estado" />
             </DataGrid.Columns>
         </DataGrid>

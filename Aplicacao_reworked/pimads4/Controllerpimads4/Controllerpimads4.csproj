@@ -49,7 +49,7 @@
     <Compile Include="BL\PessoaBL.cs" />
     <Compile Include="BL\EstadoBL.cs" />
     <Compile Include="BL\FabricanteBL.cs" />
-    <Compile Include="BL\PedidoBL.cs" />
+    <Compile Include="BL\PedidoVendaBL.cs" />
     <Compile Include="BL\PedidoVendaProdutoBL.cs" />
     <Compile Include="BL\ProdutoBL.cs" />
     <Compile Include="BL\UnidadeBL.cs" />

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Controllerpimads4.BL
 {
-    public class PedidoBL
+    public class PedidoVendaBL
     {
-        private static PedidoBL instance;
+        private static PedidoVendaBL instance;
 
-        private PedidoBL() { }
+        private PedidoVendaBL() { }
 
-        public static PedidoBL GetInstance()
+        public static PedidoVendaBL GetInstance()
         {
             if (instance == null)
             {
-                instance = new PedidoBL();
+                instance = new PedidoVendaBL();
             }
             return instance;
         }

@@ -27,7 +27,7 @@ namespace Controllerpimads4.DAO
 
         internal List<PedidoVendaDTO> ConsultarPedidosTodos()
         {
-            String sqlText = "SELECT * FROM Pedidos";
+            String sqlText = "SELECT * FROM PedidoVenda";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
             List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
