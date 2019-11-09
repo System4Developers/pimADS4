@@ -7,29 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
-        <DataGrid x:Name="dtgUnidades"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="124,305,0,0" VerticalAlignment="Top" Width="1015"
+        <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="124,305,0,0" VerticalAlignment="Top" Width="1015"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             Background="#DCDCDC"
             FontSize="14"
             IsReadOnly="True">
-
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IdUnidade}" Header="ID" />
-                <DataGridTextColumn Binding="{Binding DsUnidade}" Header="Unidade" />
+                <DataGridTextColumn Binding="{Binding IdProduto}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding DsProduto}" Header="Produto" />
+                <DataGridTextColumn Binding="{Binding ValorVenda}" Header="Valor de Venda" />
+                <DataGridTextColumn Binding="{Binding ValorCusto}" Header="Valor de Custo" />
+                <DataGridTextColumn Binding="{Binding Unidade.IdUnidade}" Header="Unidade" />
+                <DataGridTextColumn Binding="{Binding Fabricante.IdFabricante}" Header="Fabricante" />
+                <DataGridTextColumn Binding="{Binding TpProduto}" Header="Tipo de Produto" />
             </DataGrid.Columns>
-
-
-
-
         </DataGrid>
 
-
-        <Label x:Name="lblDs_codAlter" Content="Código Alternativo:" HorizontalAlignment="Left" Margin="320,81,0,0" VerticalAlignment="Top"/>
-
-        <Label x:Name="lblDs_Produto" Content="Descrição do Produto:" HorizontalAlignment="Left" Margin="502,88,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Produto" Text="" HorizontalAlignment="Left" Height="23" Margin="502,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Produto" Content="Descrição do Produto:" HorizontalAlignment="Left" Margin="325,88,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDs_Produto" Text="" HorizontalAlignment="Left" Height="23" Margin="325,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Padding="0" FontSize="14"/>
 
         <Label x:Name="lblVl_Venda" Content="Valor de Venda:" HorizontalAlignment="Left" Margin="320,159,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtVl_Venda" HorizontalAlignment="Left" Height="23" Margin="320,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -48,13 +45,18 @@
         <Label x:Name="lblId_Produto" Content="ID:" HorizontalAlignment="Left" Margin="1132,25,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <TextBox x:Name="txtId_Produto" Text="" HorizontalAlignment="Left" Height="24" Margin="1132,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
 
-        <TextBox x:Name="txtDs_CodAlter"  Height="23" VerticalAlignment="Bottom" Width="120" Margin="320,0,840,585"/>
-
+        <Label x:Name="lblTp_Produto" Content="Tipo:" HorizontalAlignment="Left" Margin="976,156,0,0" VerticalAlignment="Top"/>
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Produto" HorizontalAlignment="Left" Margin="980,185,0,0" VerticalAlignment="Top" Width="105" FontSize="14">
+            <ComboBoxItem IsSelected="True" Tag="V" Content="VENDA" />
+            <ComboBoxItem Tag="C" Content="CONSUMO"/>
+        </ComboBox>
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="413,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="535,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnConsultar_Click" />
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="657,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnExcluir_Click" />
         <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="779,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnLimpar_Click" />
+        
+
 
     </Grid>
 </UserControl>

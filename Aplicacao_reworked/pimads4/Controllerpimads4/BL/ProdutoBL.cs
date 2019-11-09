@@ -31,14 +31,13 @@ namespace Controllerpimads4.BL
                 ProdutoDAO.GetInstance().CadastrarProduto(produto);
             }
         }
-        
         internal List<ProdutoDTO> ConsultarProdutos()
         {
             List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
             lstProdutos = ProdutoDAO.GetInstance().ConsultarProdutoTodos();
             return lstProdutos;
         }
-        internal ProdutoDTO ConsultarUnidadeById(int idProduto)
+        internal ProdutoDTO ConsultarProdutoById(int idProduto)
         {
             ProdutoDTO produto = ProdutoDAO.GetInstance().ConsultarProdutoById(idProduto);
             return produto;
@@ -47,7 +46,7 @@ namespace Controllerpimads4.BL
         {
             ProdutoDAO.GetInstance().AtualizarProduto(produto);
         }
-        internal void ExcluirUnidade(int idProduto)
+        internal void ExcluirProduto(int idProduto)
         {
             ProdutoDAO.GetInstance().ExlcuirProduto(idProduto);
         }

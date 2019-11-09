@@ -171,19 +171,19 @@ namespace Controllerpimads4.Controller
             lstProdutos = ProdutoBL.GetInstance().ConsultarProdutos();
             return lstProdutos;
         }
-        public UnidadeDTO ConsultarUnidadeById(int idUnidade)
+        public ProdutoDTO ConsultarProdutoById(int idUnidade)
         {
-            UnidadeDTO unidade = UnidadeBL.GetInstance().ConsultarUnidadeById(idUnidade);
-            return unidade;
+            ProdutoDTO produto = ProdutoBL.GetInstance().ConsultarProdutoById(idUnidade);
+            return produto;
         }
-        public void AtualizarUnidade(UnidadeDTO unidade)
+        public void AtualizarProduto(ProdutoDTO produto)
         {
-            UnidadeBL.GetInstance().AtualizarUnidade(unidade);
+            ProdutoBL.GetInstance().AtualizarProduto(produto);
         }
-        public void ExcluirUnidade(int idUnidade)
+        public void ExcluirProduto(int idProduto)
         {
-            UnidadeBL.GetInstance().ExcluirUnidade(idUnidade);
-        }*/
+            ProdutoBL.GetInstance().ExcluirProduto(idProduto);
+        }
 
         #endregion
     }

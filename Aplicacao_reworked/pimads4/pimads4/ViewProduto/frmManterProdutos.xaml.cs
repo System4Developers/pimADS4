@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,22 +27,33 @@ namespace pimads4.ViewProduto
             InitializeComponent();
             InicializarCampos();
             InicializarBotoes();
+            InicializarDtg();
         }
 
-        /*      private void InicializarDtg()
-                {
-                    List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
-                    lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
-                    dtgUsuarios.ItemsSource = lstUsuarios;
+        private void InicializarDtg()
+        {
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            lstProdutos = Controller.GetInstance().ConsultarProdutos();
+            dtgProdutos.ItemsSource = lstProdutos;
 
-                }*/
+        }
 
         private void InicializarCampos()
         {
+            cmbDs_Fabricante.ItemsSource =Controller.GetInstance().ConsultarFabricanteTodos();
+            cmbDs_Fabricante.SelectedValuePath = "IdFabricante";
+            cmbDs_Fabricante.DisplayMemberPath = "NmFabricante";
+
+            cmbDs_Unidade.ItemsSource =Controller.GetInstance().ConsultarUnidades();
+            cmbDs_Unidade.SelectedValuePath = "IdUnidade";
+            cmbDs_Unidade.DisplayMemberPath = "DsUnidade";
+
+            cmbTp_Produto.SelectedValue = "V";
+
             txtId_Produto.Text = string.Empty;
             txtDs_Produto.Text = string.Empty;
-            txtDs_CodAlter.Text = string.Empty;
             txtVl_Venda.Text = string.Empty;
+            txtVl_Custo.Text = string.Empty;
         }
 
         private void InicializarBotoes()
@@ -55,19 +68,54 @@ namespace pimads4.ViewProduto
         {
             if (txtId_Produto.Text.Equals(""))
             {
+                ProdutoDTO produto = new ProdutoDTO();
+
+                produto.DsProduto = txtDs_Produto.Text;
+                produto.ValorVenda = Convert.ToDouble(txtVl_Venda.Text);
+                produto.ValorCusto = Convert.ToDouble(txtVl_Custo.Text);
+                produto.TpProduto = cmbTp_Produto.SelectedValue.ToString();
+                produto.Unidade.IdUnidade = Convert.ToInt32(cmbDs_Unidade.SelectedValue.ToString());
+                produto.Fabricante.IdFabricante = Convert.ToInt32(cmbDs_Fabricante.SelectedValue.ToString());
+
+                Controller.GetInstance().CadastrarProduto(produto);
+
                 InicializarBotoes();
                 InicializarCampos();
-                //InicializarDtg();
+                InicializarDtg();
             }
             else
             {
-                //InicializarDtg();
+                ProdutoDTO produto = new ProdutoDTO();
+
+                produto.IdProduto = Convert.ToInt32(txtId_Produto.Text);
+                produto.DsProduto = txtDs_Produto.Text;
+                produto.ValorVenda = Convert.ToDouble(txtVl_Venda.Text);
+                produto.ValorCusto = Convert.ToDouble(txtVl_Custo.Text);
+                produto.TpProduto = cmbTp_Produto.SelectedValue.ToString();
+                produto.Unidade.IdUnidade = Convert.ToInt32(cmbDs_Unidade.SelectedValue.ToString());
+                produto.Fabricante.IdFabricante = Convert.ToInt32(cmbDs_Fabricante.SelectedValue.ToString());
+
+                Controller.GetInstance().AtualizarProduto(produto);
+    
+                InicializarDtg();
             }
 
         }
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
+            ProdutoDTO produtoDtg = (ProdutoDTO)dtgProdutos.SelectedItem;
+
+            ProdutoDTO produto = Controller.GetInstance().ConsultarProdutoById(produtoDtg.IdProduto);
+
+            txtId_Produto.Text = produto.IdProduto.ToString();
+            txtDs_Produto.Text = produto.DsProduto;
+            txtVl_Venda.Text = produto.ValorVenda.ToString();
+            txtVl_Custo.Text = produto.ValorCusto.ToString();
+            cmbTp_Produto.SelectedValue = produto.TpProduto;
+            cmbDs_Unidade.SelectedValue = produto.Unidade.IdUnidade;
+            cmbDs_Fabricante.SelectedValue = produto.Fabricante.IdFabricante;
+
             btnSalvar.IsEnabled = true;
             btnLimpar.IsEnabled = true;
             btnExcluir.IsEnabled = true;
@@ -75,9 +123,12 @@ namespace pimads4.ViewProduto
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
+            int idProduto = Convert.ToInt32(txtId_Produto.Text);
+            Controller.GetInstance().ExcluirProduto(idProduto);
+
             InicializarBotoes();
             InicializarCampos();
-            //InicializarDtg();
+            InicializarDtg();
         }
 
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
