@@ -27,6 +27,7 @@ namespace pimads4.ViewUsuario
         {
             InitializeComponent();
             InicializarDtg();
+            InicializarCampos();
             InicializarBotoes();
         }
 

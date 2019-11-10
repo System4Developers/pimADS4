@@ -17,19 +17,28 @@
                 <DataGridTextColumn Binding="{Binding IdCidade}" Header="ID" />
                 <DataGridTextColumn Binding="{Binding NmCidade}" Header="Cidade" />
                 <DataGridTextColumn Binding="{Binding Estado.DsSigla}" Header="Estado" />
+                <DataGridTextColumn Binding="{Binding CodIbge}" Header="Código IBGE" />
             </DataGrid.Columns>
         </DataGrid>
 
         <Label x:Name="lblId_Cidade" Content="ID:" HorizontalAlignment="Left" Margin="990,21,-207,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <TextBox x:Name="txtId_Cidade" Text="" HorizontalAlignment="Left" Height="24" Margin="990,41,-290,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+        
+        <Label x:Name="lblDs_Estado" Content="Sigla do Estado" HorizontalAlignment="Left" Margin="86,46,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="86,70,0,0" VerticalAlignment="Top" Width="104"/>
 
-        <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left" Margin="80,41,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Cidade" Text="" HorizontalAlignment="Left" Height="24" Margin="80,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left" Margin="213,50,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtDs_Cidade" Text="" HorizontalAlignment="Left" Height="24" Margin="211,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="344" Padding="0" FontSize="14"/>
+
+        <Label x:Name="lblCd_Ibge" Content="Código IBGE:" HorizontalAlignment="Left" Margin="572,51,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtCd_Ibge" Text="" HorizontalAlignment="Left" Height="24" Margin="570,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Padding="0" FontSize="14"/>
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="85,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="230,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="380,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click" />
         <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="525,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
+        
+     
 
     </Grid>
 </UserControl>

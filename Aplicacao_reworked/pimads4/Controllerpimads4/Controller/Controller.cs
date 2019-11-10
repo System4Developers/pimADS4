@@ -110,6 +110,11 @@ namespace Controllerpimads4.Controller
         #endregion
 
         #region Metodos Cidades
+        //
+        public void CadastrarCidade(CidadeDTO cidade)
+        {
+            CidadeBL.GetInstance().CadastrarCidade(cidade);
+        }
 
         public List<CidadeDTO> ConsultarCidades()
         {
@@ -123,6 +128,22 @@ namespace Controllerpimads4.Controller
             List<CidadeDTO> lstCidades = new List<CidadeDTO>();
             lstCidades = CidadeBL.GetInstance().ConsultarCidadesByEstado(idEstado);
             return lstCidades;
+        }
+
+        public CidadeDTO ConsultarCidadeById(int idCidade)
+        {
+            CidadeDTO cidade = CidadeBL.GetInstance().ConsultarCidadeById(idCidade);
+            return cidade;
+        }
+
+        public void AtualizarCidade(CidadeDTO cidade)
+        {
+            CidadeBL.GetInstance().AtualizarCidade(cidade);
+        }
+
+        public void ExcluirCidade(int idCidade)
+        {
+            CidadeBL.GetInstance().ExcluirCidade(idCidade);
         }
 
         #endregion
