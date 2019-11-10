@@ -24,11 +24,35 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
+        internal void CadastrarBairro(BairroDTO bairro)
+        {
+            if (bairro.DsBairro != "")
+            {
+                BairroDAO.GetInstance().CadastrarBairro(bairro);
+            }
+        }
+
         internal List<BairroDTO> ConsultarBairros()
         {
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros = BairroDAO.GetInstance().ConsultarBairrosTodos();
             return lstBairros;
+        }
+
+        internal BairroDTO ConsultarBairroById(int idBairro)
+        {
+            BairroDTO bairro = BairroDAO.GetInstance().ConsultarBairroById(idBairro);
+            return bairro;
+        }
+
+        internal void AtualizarBairro(BairroDTO bairro)
+        {
+            BairroDAO.GetInstance().AtualizarBairro(bairro);
+        }
+
+        internal void ExcluirBairro(int idBairro)
+        {
+            BairroDAO.GetInstance().ExlcuirBairro(idBairro);
         }
         
     }

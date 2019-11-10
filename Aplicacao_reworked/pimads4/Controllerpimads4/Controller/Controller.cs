@@ -121,12 +121,29 @@ namespace Controllerpimads4.Controller
         #endregion
 
         #region Metodos Bairros
-
+        
+        public void CadastrarBairro(BairroDTO bairro)
+        {
+            BairroBL.GetInstance().CadastrarBairro(bairro);
+        }
         public List<BairroDTO> ConsultarBairros()
         {
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros = BairroBL.GetInstance().ConsultarBairros();
             return lstBairros;
+        }
+        public BairroDTO ConsultarBairroById(int idBairro)
+        {
+            BairroDTO bairro = BairroBL.GetInstance().ConsultarBairroById(idBairro);
+            return bairro;
+        }
+        public void AtualizarBairro(BairroDTO bairro)
+        {
+            BairroBL.GetInstance().AtualizarBairro(bairro);
+        }
+        public void ExcluirBairro(int idBairro)
+        {
+            BairroBL.GetInstance().ExcluirBairro(idBairro);
         }
 
         #endregion

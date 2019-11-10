@@ -25,7 +25,28 @@ namespace Controllerpimads4.DAO
             return instance;
         }
 
+        internal void CadastrarBairro(BairroDTO mObj)
+        {
+            SqlCommand cmd = new SqlCommand("sp_CadastrarBairro", ConexaoDAO.GetInstance().Conexao());
 
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@dsBairro", mObj.DsBairro);
+            cmd.Parameters.AddWithValue("@fk_idCidade_Cidades", mObj.Cidade.IdCidade);
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                cmd.ExecuteNonQuery();
+                ConexaoDAO.GetInstance().Desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+
+        }
         
         internal List<BairroDTO> ConsultarBairrosTodos()
         {
@@ -48,9 +69,7 @@ namespace Controllerpimads4.DAO
                     bairro.DsBairro = dr["dsBairro"].ToString(); 
                     bairro.Cidade.NmCidade = dr["nmCidade"].ToString();
                     bairro.Cidade.Estado.DsSigla = dr["dsSigla"].ToString();
-
-
-
+                                       
                     lstBairros.Add(bairro);
                 }
 
@@ -66,5 +85,81 @@ namespace Controllerpimads4.DAO
             }
             return lstBairros;
         }
+        
+        internal BairroDTO ConsultarBairroById(int idAtributo)
+        {
+            SqlCommand cmd = new SqlCommand("sp_ConsultarBairroById", ConexaoDAO.GetInstance().Conexao());
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idBairro", idAtributo);
+
+            BairroDTO mObj = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    mObj = new BairroDTO();
+                    mObj.IdBairro = Convert.ToInt32(dr["idBairro"]);
+                    mObj.DsBairro = dr["dsBairro"].ToString();
+                    mObj.Cidade.IdCidade = Convert.ToInt32(dr["fk_idCidade_Cidades"]);
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+            return mObj;
+        }
+        
+        internal void AtualizarBairro(BairroDTO mObj)
+        {
+            SqlCommand cmd = new SqlCommand("sp_AtualizarBairro", ConexaoDAO.GetInstance().Conexao());
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idBairro", mObj.IdBairro);
+            cmd.Parameters.AddWithValue("@dsBairro", mObj.DsBairro);
+            cmd.Parameters.AddWithValue("@fk_idCidade_Cidades", mObj.Cidade.IdCidade);
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                cmd.ExecuteNonQuery();
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+
+        }
+        
+        internal void ExlcuirBairro(int idAtributo)
+        {
+            SqlCommand cmd = new SqlCommand("sp_ExcluirBairro", ConexaoDAO.GetInstance().Conexao());
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idBairro", idAtributo);
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                cmd.ExecuteNonQuery();
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+
+        }
+
     }
 }
