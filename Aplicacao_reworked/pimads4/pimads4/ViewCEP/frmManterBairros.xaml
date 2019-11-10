@@ -21,7 +21,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdBairro}" Header="ID" />
                 <DataGridTextColumn Binding="{Binding DsBairro}" Header="Bairro" />
-                <DataGridTextColumn Binding="{Binding Cidade.Nome}" Header="Cidade" />
+                <DataGridTextColumn Binding="{Binding Cidade.NmCidade}" Header="Cidade" />
                 <DataGridTextColumn Binding="{Binding Cidade.Estado.DsSigla}" Header="Estado" />
             </DataGrid.Columns>
         </DataGrid>
@@ -34,12 +34,12 @@
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="74,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="219,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="369,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click_1" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="369,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click" />
         <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="514,176,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
         <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left" Margin="239,35,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <ComboBox x:Name="cmbCidade" HorizontalAlignment="Left" Margin="239,59,0,0" VerticalAlignment="Top" Width="203"/>
         <Label x:Name="lblDs_Estado" Content="Sigla do Estado" HorizontalAlignment="Left" Margin="74,35,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="74,59,0,0" VerticalAlignment="Top" Width="104"/>
+        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="74,59,0,0" VerticalAlignment="Top" Width="104" SelectionChanged="CmbEstado_SelectionChanged"/>
 
     </Grid>
 </UserControl>

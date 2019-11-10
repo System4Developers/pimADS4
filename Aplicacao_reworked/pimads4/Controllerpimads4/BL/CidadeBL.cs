@@ -30,5 +30,12 @@ namespace Controllerpimads4.BL
             lstCidades = CidadeDAO.GetInstance().ConsultarCidadeTodos();
             return lstCidades;
         }
+
+        internal List<CidadeDTO> ConsultarCidadesByEstado(int idEstado)
+        {
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = CidadeDAO.GetInstance().ConsultarCidadesByEstado(idEstado);
+            return lstCidades;
+        }
     }
 }

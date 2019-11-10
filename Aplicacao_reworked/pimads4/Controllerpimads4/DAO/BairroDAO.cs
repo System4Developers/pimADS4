@@ -106,6 +106,7 @@ namespace Controllerpimads4.DAO
                     mObj.IdBairro = Convert.ToInt32(dr["idBairro"]);
                     mObj.DsBairro = dr["dsBairro"].ToString();
                     mObj.Cidade.IdCidade = Convert.ToInt32(dr["fk_idCidade_Cidades"]);
+                    mObj.Cidade.Estado.IdEstado = Convert.ToInt32(dr["fk_idEstado_Estados"]);
                 }
                 ConexaoDAO.GetInstance().Desconectar();
             }

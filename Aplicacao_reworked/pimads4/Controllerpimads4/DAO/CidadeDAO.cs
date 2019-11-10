@@ -114,6 +114,39 @@ namespace Controllerpimads4.DAO
             return mObj;
         }
 
+        internal List<CidadeDTO> ConsultarCidadesByEstado(int idAtributo)
+        {
+            String sqlText = "SELECT * FROM Cidades JOIN Estados ON Cidades.fk_idEstado_Estados = Estados.idEstado" +
+                " WHERE idEstado=" + 
+                "'"+ idAtributo +"'";
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            List<CidadeDTO> lstObj = new List<CidadeDTO>();
+            CidadeDTO mObj = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    mObj = new CidadeDTO();
+                    mObj.IdCidade = Convert.ToInt32(dr["idCidade"]);
+                    mObj.NmCidade = dr["nmCidade"].ToString();
+                    lstObj.Add(mObj);
+                }
+
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+            return lstObj;
+        }
+
+
         internal void AtualizarCidade(CidadeDTO mObj)
         {
             SqlCommand cmd = new SqlCommand("sp_AtualizarCidade", ConexaoDAO.GetInstance().Conexao());

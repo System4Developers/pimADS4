@@ -118,10 +118,17 @@ namespace Controllerpimads4.Controller
             return lstCidades;
         }
 
+        public List<CidadeDTO> ConsultarCidadesByEstado(int idEstado)
+        {
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = CidadeBL.GetInstance().ConsultarCidadesByEstado(idEstado);
+            return lstCidades;
+        }
+
         #endregion
 
         #region Metodos Bairros
-        
+
         public void CadastrarBairro(BairroDTO bairro)
         {
             BairroBL.GetInstance().CadastrarBairro(bairro);
