@@ -4,8 +4,79 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid Width="1280" Height="720">
+
+
+        <Label x:Name="lblId_Pessoa" Content="ID:" HorizontalAlignment="Left" Margin="1132,25,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtId_Pessoa" Text="" HorizontalAlignment="Left" Height="24" Margin="1132,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+
+        <Label x:Name="lblTp_Pessoa" Content="Tipo de Pessoa:" HorizontalAlignment="Left" Margin="106,16,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Pessoa" HorizontalAlignment="Left" Margin="105,40,0,0" VerticalAlignment="Top" Width="245" FontSize="14">
+            <ComboBoxItem IsSelected="True" Tag="F" Content="FISICA" />
+            <ComboBoxItem Tag="J" Content="JURIDICA"/>
+        </ComboBox>
+
+        <Label x:Name="lblNm_Pessoa" Content="Nome / Razao Social:" HorizontalAlignment="Left" Margin="105,81,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNm_Pessoa" HorizontalAlignment="Left" Height="23" Margin="105,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275"/>
+
+        <Label x:Name="lblNr_Documento" Content="CPF / CNPJ:" HorizontalAlignment="Left" Margin="400,81,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNr_Documento" HorizontalAlignment="Left" Height="23" Margin="400,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+
+        <Label x:Name="lblNr_RG" Content="RG:" HorizontalAlignment="Left" Margin="655,79,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNr_RG" HorizontalAlignment="Left" Height="23" Margin="655,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+
+        <DatePicker x:Name="dtpDt_Nascimento" HorizontalAlignment="Left" Margin="110,160,0,0" VerticalAlignment="Top" Width="270"/>
+
+        <Label x:Name="lblDs_Email" Content="Email:" HorizontalAlignment="Left" Margin="400,136,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDs_Email" HorizontalAlignment="Left" Height="23" Margin="400,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+
+        <Label x:Name="lblDs_Endereco" Content="Endereço:" HorizontalAlignment="Left" Margin="110,266,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDs_Endereco" HorizontalAlignment="Left" Height="23" Margin="110,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+
+        <Label x:Name="lblDs_Complemento" Content="Complemento:" HorizontalAlignment="Left" Margin="360,266,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDs_Complemento" HorizontalAlignment="Left" Height="23" Margin="360,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+
+        <Label x:Name="lblNr_Endereco" Content="Número:" HorizontalAlignment="Left" Margin="500,266,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNr_Endereco" HorizontalAlignment="Left" Height="23" Margin="500,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+
+        <Label x:Name="lblDs_Estado" Content="Estado" HorizontalAlignment="Left" Margin="111,203,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="111,227,0,0" VerticalAlignment="Top" Width="104" SelectionChanged="CmbEstado_SelectionChanged"/>
+
+        <Label x:Name="lblDs_Cidade" Content="Cidade:" HorizontalAlignment="Left" Margin="250,206,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox x:Name="cmbCidade" HorizontalAlignment="Left" Margin="250,230,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="CmbCidade_SelectionChanged"/>
+
+        <Label x:Name="lblDs_Bairro" Content="Bairro:" HorizontalAlignment="Left" Margin="475,206,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
+        <ComboBox x:Name="cmbDs_Bairro" HorizontalAlignment="Left" Margin="475,230,0,0" VerticalAlignment="Top" Width="230"/>
+
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="121,345,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnSalvar_Click" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="271,345,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnConsultar_Click" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="431,345,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnExcluir_Click" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="576,345,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnLimpar_Click" />
+
+        <DataGrid x:Name="dtgPessoas"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="115,390,0,0" VerticalAlignment="Top" Width="1015"
+            CanUserReorderColumns="True"                  
+            CanUserResizeColumns="True"
+            AutoGenerateColumns="False" 
+            FontSize="14"
+            IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding IdPessoa}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding NmPessoa}" Header="Pessoa" />
+                <DataGridTextColumn Binding="{Binding NumDocumento}" Header="CPF/CNPJ" />
+                <DataGridTextColumn Binding="{Binding DsEmail}" Header="Email" />
+                <DataGridTextColumn Binding="{Binding DsEndereco}" Header="Endereço" />
+                <DataGridTextColumn Binding="{Binding Observacao}" Header="Observação" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+
+
+
+
+
     </Grid>
 </UserControl>

@@ -16,6 +16,7 @@ using pimads4.ViewUsuario;
 using pimads4.frmPedido;
 using pimads4.ViewProduto;
 using pimads4.ViewCEP;
+using pimads4.ViewPessoa;
 
 namespace pimads4
 {
@@ -85,6 +86,12 @@ namespace pimads4
         private void BtnConsultarOc_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BtnConsultarPessoas_Click(object sender, RoutedEventArgs e)
+        {
+            grdFormContentArea.Children.Clear();
+            grdFormContentArea.Children.Add(new frmManterPessoas());
         }
     }
 }

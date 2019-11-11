@@ -24,5 +24,35 @@ namespace pimads4.ViewPessoa
         {
             InitializeComponent();
         }
+
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CmbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CmbCidade_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
