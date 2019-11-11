@@ -14,7 +14,7 @@ CREATE TABLE Bairros
 CREATE TABLE Pessoas 
 (
     idPessoa INT PRIMARY KEY IDENTITY(1,1),
-    tpPessoa VARCHAR(10) NOT NULL,
+    tpPessoa VARCHAR(1) NOT NULL,
     nmPessoa VARCHAR(100) NOT NULL,
     numDocumento VARCHAR(15) NOT NULL,
     numRG VARCHAR(12),
