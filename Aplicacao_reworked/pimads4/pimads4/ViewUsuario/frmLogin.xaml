@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:pimads4.ViewUsuario"
         mc:Ignorable="d"
-        Title="frmLogin" Height="720" Width="1280" WindowState="Maximized">
+        Title="frmLogin" Height="720" Width="1280" WindowState="Maximized" WindowStyle="None">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="1.7,1" StartPoint="0.5,0">
@@ -34,16 +34,17 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid HorizontalAlignment="Right" Height="720" VerticalAlignment="Center" Width="500" Background="White" Grid.Column="3" Grid.Row="1" Grid.RowSpan="4" Margin="0,-16,0,-15" Grid.ColumnSpan="2">
+        <Grid HorizontalAlignment="Right"  VerticalAlignment="Top" Width="500" Background="White" Grid.Column="3" Grid.RowSpan="4" Margin="0,4,0,-21" Grid.ColumnSpan="2" Grid.Row="1" Height="710">
             <Button x:Name="btnLogar" Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="201" Click="Button_Click" Margin="155,0,144,162"/>
             <Label x:Name="lblDs_Mensagem" HorizontalAlignment="Left" Margin="138,616,0,0" VerticalAlignment="Top" Width="230"/>
             <Button x:Name="btnLogarAnonimo" Content="Modo Anonimo" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="201"  Margin="153,0,146,122" Click="BtnLogarAnonimo_Click"/>
+            <Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="86"  Margin="383,0,31,28" Click="BtnSair_Click" />
         </Grid>
 
         <TextBox x:Name="txtDs_Login" materialDesign:HintAssist.Hint="Usuario" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Right" Height="35" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="234" Margin="0,0,132,0"/>
 
         <PasswordBox x:Name="txtDs_Senha" materialDesign:HintAssist.Hint="Senha" Grid.Column="4" Height="35"  Grid.Row="3"  VerticalAlignment="Bottom"  Margin="0,0,132,0" HorizontalAlignment="Right" Width="234" />
-        
+
         <TextBlock x:Name="lblDs_Login" Grid.Column="4" HorizontalAlignment="Right" Grid.RowSpan="2" TextWrapping="Wrap" Foreground="Silver" Text="LOGIN" VerticalAlignment="Bottom" FontSize="18" Height="30" Width="60" Margin="0,0,215,0" />
 
         <Image Source="img/fotoLogo.jpg" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="116,-10,118,10"/>

@@ -49,6 +49,13 @@ namespace pimads4.ViewUsuario
 
         private void BtnLogarAnonimo_Click(object sender, RoutedEventArgs e)
         {
+            estPropriedades.Bl_Logado = true;
+            estPropriedades.Nm_Usuario = "Anonimo - Teste";
+            this.Close();
+        }
+
+        private void BtnSair_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

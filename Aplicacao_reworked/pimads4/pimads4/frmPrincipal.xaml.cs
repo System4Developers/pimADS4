@@ -35,6 +35,10 @@ namespace pimads4
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (!estPropriedades.Bl_Logado)
+            {
+                this.Close();
+            }
             lblNm_Usuario.Content ="Usuário: " + estPropriedades.Nm_Usuario;
         }
 
@@ -80,7 +84,8 @@ namespace pimads4
         private void Btnlogout_Click(object sender, RoutedEventArgs e)
         {
             frmLogin novo = new frmLogin();
-            novo.Show();
+            estPropriedades.Bl_Logado = false;
+            novo.ShowDialog();
         }
 
         private void BtnConsultarBairro_Click(object sender, RoutedEventArgs e)

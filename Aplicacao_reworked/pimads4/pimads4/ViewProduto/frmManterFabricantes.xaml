@@ -9,7 +9,6 @@
         <DataGrid x:Name="dtgFabricantes"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="57,305,0,0" VerticalAlignment="Top" Width="1015"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
-            Background="#DCDCDC"
             AutoGenerateColumns="False" 
             FontSize="14"
             IsReadOnly="True">
