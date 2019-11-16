@@ -52,6 +52,7 @@ namespace pimads4.ViewPessoa
             txtDs_Endereco.Text = string.Empty;
             txtDs_Complemento.Text = string.Empty;
             txtNr_Endereco.Text = string.Empty;
+            txtDs_Observacao.Text = string.Empty;
 
             VerificarTipoPessoa();
 
@@ -94,26 +95,6 @@ namespace pimads4.ViewPessoa
             }
         }
 
-        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void CmbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int idEstado = Convert.ToInt32(cmbEstado.SelectedValue);
@@ -130,7 +111,7 @@ namespace pimads4.ViewPessoa
 
             cmbDs_Bairro.ItemsSource = null;
             cmbDs_Bairro.ItemsSource = Controller.GetInstance().ConsultarBairrosByCidade(idCidade);
-            cmbDs_Bairro.SelectedValue = "IdBairro";
+            cmbDs_Bairro.SelectedValuePath = "IdBairro";
             cmbDs_Bairro.DisplayMemberPath = "DsBairro";
         }
 
@@ -138,5 +119,94 @@ namespace pimads4.ViewPessoa
         {
             VerificarTipoPessoa();
         }
+
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+            PessoaDTO pessoa = new PessoaDTO();
+
+            pessoa.NmPessoa = txtNm_Pessoa.Text;
+            pessoa.TpPessoa = cmbTp_Pessoa.SelectedValue.ToString();
+            pessoa.NumDocumento = txtNr_Documento.Text;
+            pessoa.NumRG = txtNr_RG.Text;
+            if (cmbTp_Pessoa.SelectedValue.ToString() == "F")
+            {
+                pessoa.DtNascimento = dtpDt_Nascimento.Text;
+            }
+            pessoa.DsEmail = txtDs_Email.Text;
+            pessoa.DsEndereco = txtDs_Endereco.Text;
+            pessoa.Complemento = txtDs_Complemento.Text;
+            pessoa.NumEnd = txtNr_Endereco.Text;
+            pessoa.Observacao = txtDs_Observacao.Text;
+            pessoa.Bairro.IdBairro = Convert.ToInt32(cmbDs_Bairro.SelectedValue);
+
+            if (txtId_Pessoa.Text.Equals(""))
+            {
+                Controller.GetInstance().CadastrarPessoa(pessoa);
+
+                InicializarBotoes();
+                InicializarCampos();
+                InicializarDtg();
+            }
+            else
+            {
+                pessoa.IdPessoa = Convert.ToInt32(txtId_Pessoa.Text);
+                Controller.GetInstance().AtualizarPessoa(pessoa);
+
+                InicializarDtg();
+            }
+
+        }
+
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+            PessoaDTO pessoaDtg = (PessoaDTO)dtgPessoas.SelectedItem;
+
+            PessoaDTO pessoa = Controller.GetInstance().ConsultarPessoaById(pessoaDtg.IdPessoa);
+
+            txtNm_Pessoa.Text = pessoa.NmPessoa;
+            cmbTp_Pessoa.SelectedValue = pessoa.TpPessoa;
+            txtNr_Documento.Text = pessoa.NumDocumento;
+            txtNr_RG.Text = pessoa.NumRG;
+            if (pessoa.TpPessoa == "F")
+            {
+                dtpDt_Nascimento.Text = pessoa.DtNascimento;
+            }
+            txtDs_Email.Text = pessoa.DsEmail;
+            txtDs_Endereco.Text = pessoa.DsEndereco;
+            txtDs_Complemento.Text = pessoa.Complemento;
+            txtNr_Endereco.Text = pessoa.NumEnd;
+            txtDs_Observacao.Text = pessoa.Observacao;
+
+
+
+            btnSalvar.IsEnabled = true;
+            btnLimpar.IsEnabled = true;
+            btnExcluir.IsEnabled = true;
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            int idPessoa = Convert.ToInt32(txtId_Pessoa.Text);
+            Controller.GetInstance().ExcluirPessoa(idPessoa);
+
+            InicializarBotoes();
+            InicializarCampos();
+            InicializarDtg();
+        }
+
+        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            btnExcluir.IsEnabled = false;
+            InicializarCampos();
+        }
+
+        private void BtnEditarId(object sender, RoutedEventArgs e)
+        {
+            PessoaDTO pessoaDtg = (PessoaDTO)dtgPessoas.SelectedItem;
+            MessageBox.Show(pessoaDtg.IdPessoa.ToString());
+        }
+
+
     }
 }

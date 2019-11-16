@@ -110,7 +110,7 @@ namespace Controllerpimads4.DAO
             {
                 ConexaoDAO.GetInstance().Conectar();
                 SqlDataReader dr = cmd.ExecuteReader();
-
+                          
                 while (dr.Read())
                 {
                     mObj = new PessoaDTO();
@@ -126,6 +126,8 @@ namespace Controllerpimads4.DAO
                     mObj.NumEnd = dr["numEnd"].ToString();
                     mObj.Observacao = dr["observacao"].ToString();
                     mObj.Bairro.IdBairro = Convert.ToInt32(dr["fk_idBairro_Bairros"]);
+                    mObj.Bairro.Cidade.IdCidade = Convert.ToInt32(dr["fk_idCidade_Cidades"]);
+                    mObj.Bairro.Cidade.Estado.IdEstado = Convert.ToInt32(dr["fk_idEstado_Estados"]);
                 }
                 ConexaoDAO.GetInstance().Desconectar();
             }

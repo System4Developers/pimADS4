@@ -41,6 +41,9 @@
         <Label x:Name="lblNr_Endereco" Content="Número:" HorizontalAlignment="Left" Margin="500,266,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNr_Endereco" HorizontalAlignment="Left" Height="23" Margin="500,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
 
+        <Label x:Name="lblDs_Observacao" Content="Dados Complementares:" HorizontalAlignment="Left" Margin="770,149,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDs_Observacao" HorizontalAlignment="Left" Height="23" Margin="775,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365"/>
+
         <Label x:Name="lblDs_Estado" Content="Estado" HorizontalAlignment="Left" Margin="111,203,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
         <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="111,227,0,0" VerticalAlignment="Top" Width="104" SelectionChanged="CmbEstado_SelectionChanged"/>
 
@@ -81,9 +84,17 @@
                 <DataGridTextColumn Binding="{Binding DsEmail}" Header="Email" />
                 <DataGridTextColumn Binding="{Binding DsEndereco}" Header="Endereço" />
                 <DataGridTextColumn Binding="{Binding Observacao}" Header="Observação" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEditarId" Click="BtnEditarId">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        
+
+
 
 
 
