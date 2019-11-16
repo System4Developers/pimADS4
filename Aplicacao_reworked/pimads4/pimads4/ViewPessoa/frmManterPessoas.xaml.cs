@@ -201,7 +201,7 @@ namespace pimads4.ViewPessoa
             InicializarCampos();
         }
 
-        private void BtnEditarId(object sender, RoutedEventArgs e)
+        private void BtnEditar(object sender, RoutedEventArgs e)
         {
             PessoaDTO pessoaDtg = (PessoaDTO)dtgPessoas.SelectedItem;
             MessageBox.Show(pessoaDtg.IdPessoa.ToString());
