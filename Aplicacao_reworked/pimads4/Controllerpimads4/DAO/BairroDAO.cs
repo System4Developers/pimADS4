@@ -85,7 +85,43 @@ namespace Controllerpimads4.DAO
             }
             return lstBairros;
         }
-        
+
+        internal List<BairroDTO> ConsultarBairrosByCidade(int idAtributo)
+        {
+            String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String sqlText = "select * from Bairros Where fk_idCidade_Cidades ="+ "'" + idAtributo + "'";
+            SqlCommand cmd = new SqlCommand(sqlText, conn);
+
+            List<BairroDTO> lstBairros = new List<BairroDTO>();
+            BairroDTO bairro = null;
+
+            try
+            {
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    bairro = new BairroDTO();
+                    bairro.IdBairro = Convert.ToInt32(dr["idBairro"]);
+                    bairro.DsBairro = dr["dsBairro"].ToString();
+                    
+                    lstBairros.Add(bairro);
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+            return lstBairros;
+        }
+
         internal BairroDTO ConsultarBairroById(int idAtributo)
         {
             SqlCommand cmd = new SqlCommand("sp_ConsultarBairroById", ConexaoDAO.GetInstance().Conexao());

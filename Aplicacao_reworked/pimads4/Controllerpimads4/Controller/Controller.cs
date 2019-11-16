@@ -173,7 +173,12 @@ namespace Controllerpimads4.Controller
         {
             BairroBL.GetInstance().ExcluirBairro(idBairro);
         }
-
+        public List<BairroDTO> ConsultarBairrosByCidade(int idCidade)
+        {
+            List<BairroDTO> lstBairros = new List<BairroDTO>();
+            lstBairros = BairroBL.GetInstance().ConsultarBairrosByCidade(idCidade);
+            return lstBairros;
+        }
         #endregion
 
         #region Metodos Unidade
@@ -228,6 +233,34 @@ namespace Controllerpimads4.Controller
         public void ExcluirProduto(int idProduto)
         {
             ProdutoBL.GetInstance().ExcluirProduto(idProduto);
+        }
+
+        #endregion
+
+        #region Metodos Pessoas
+
+        public void CadastrarPessoa(PessoaDTO pessoa)
+        {
+            PessoaBL.GetInstance().CadastrarPessoa(pessoa);
+        }
+        public List<PessoaDTO> ConsultarPessoa()
+        {
+            List<PessoaDTO> lstPessoas = new List<PessoaDTO>();
+            lstPessoas = PessoaBL.GetInstance().ConsultarPessoas();
+            return lstPessoas;
+        }
+        public PessoaDTO ConsultarPessoaById(int idPessoa)
+        {
+            PessoaDTO pessoa = PessoaBL.GetInstance().ConsultarPessoaById(idPessoa);
+            return pessoa;
+        }
+        public void AtualizarPessoa(PessoaDTO pessoa)
+        {
+            PessoaBL.GetInstance().AtualizarPessoa(pessoa);
+        }
+        public void ExcluirPessoa(int idPessoa)
+        {
+            PessoaBL.GetInstance().ExcluirPessoa(idPessoa);
         }
 
         #endregion

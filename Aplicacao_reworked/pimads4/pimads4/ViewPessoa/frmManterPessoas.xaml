@@ -12,7 +12,7 @@
         <TextBox x:Name="txtId_Pessoa" Text="" HorizontalAlignment="Left" Height="24" Margin="1132,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
 
         <Label x:Name="lblTp_Pessoa" Content="Tipo de Pessoa:" HorizontalAlignment="Left" Margin="106,16,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Pessoa" HorizontalAlignment="Left" Margin="105,40,0,0" VerticalAlignment="Top" Width="245" FontSize="14">
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Pessoa" HorizontalAlignment="Left" Margin="105,40,0,0" VerticalAlignment="Top" Width="245" FontSize="14" SelectionChanged="CmbTp_Pessoa_SelectionChanged">
             <ComboBoxItem IsSelected="True" Tag="F" Content="FISICA" />
             <ComboBoxItem Tag="J" Content="JURIDICA"/>
         </ComboBox>
@@ -26,7 +26,8 @@
         <Label x:Name="lblNr_RG" Content="RG:" HorizontalAlignment="Left" Margin="655,79,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNr_RG" HorizontalAlignment="Left" Height="23" Margin="655,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
 
-        <DatePicker x:Name="dtpDt_Nascimento" HorizontalAlignment="Left" Margin="110,160,0,0" VerticalAlignment="Top" Width="270"/>
+        <Label x:Name="lblDt_Nascimento" Content="Data de Nascimento:" HorizontalAlignment="Left" Margin="103,140,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtpDt_Nascimento" HorizontalAlignment="Left" Margin="110,160,0,0" VerticalAlignment="Top" Width="260"/>
 
         <Label x:Name="lblDs_Email" Content="Email:" HorizontalAlignment="Left" Margin="400,136,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtDs_Email" HorizontalAlignment="Left" Height="23" Margin="400,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
@@ -44,10 +45,23 @@
         <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="111,227,0,0" VerticalAlignment="Top" Width="104" SelectionChanged="CmbEstado_SelectionChanged"/>
 
         <Label x:Name="lblDs_Cidade" Content="Cidade:" HorizontalAlignment="Left" Margin="250,206,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <ComboBox x:Name="cmbCidade" HorizontalAlignment="Left" Margin="250,230,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="CmbCidade_SelectionChanged"/>
+        <ComboBox x:Name="cmbCidade" HorizontalAlignment="Left" Margin="250,230,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="CmbCidade_SelectionChanged">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
 
         <Label x:Name="lblDs_Bairro" Content="Bairro:" HorizontalAlignment="Left" Margin="475,206,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <ComboBox x:Name="cmbDs_Bairro" HorizontalAlignment="Left" Margin="475,230,0,0" VerticalAlignment="Top" Width="230"/>
+        <ComboBox x:Name="cmbDs_Bairro" HorizontalAlignment="Left" Margin="475,230,0,0" VerticalAlignment="Top" Width="230">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+
+        </ComboBox>
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="121,345,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnSalvar_Click" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="271,345,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnConsultar_Click" />
@@ -69,12 +83,7 @@
                 <DataGridTextColumn Binding="{Binding Observacao}" Header="Observação" />
             </DataGrid.Columns>
         </DataGrid>
-
-
-
-
-
-
+        
 
 
 
