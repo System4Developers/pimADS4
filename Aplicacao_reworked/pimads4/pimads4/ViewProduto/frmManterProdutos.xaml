@@ -21,6 +21,13 @@
                 <DataGridTextColumn Binding="{Binding Unidade.IdUnidade}" Header="Unidade" />
                 <DataGridTextColumn Binding="{Binding Fabricante.IdFabricante}" Header="Fabricante" />
                 <DataGridTextColumn Binding="{Binding TpProduto}" Header="Tipo de Produto" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEditar" Click="BtnEditar">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

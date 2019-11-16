@@ -59,18 +59,7 @@ namespace pimads4.ViewCEP
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
 
-            CidadeDTO cidadeDtg = (CidadeDTO)dtgCidades.SelectedItem;
-
-            CidadeDTO cidade = Controller.GetInstance().ConsultarCidadeById(cidadeDtg.IdCidade);
-
-            txtId_Cidade.Text = cidade.IdCidade.ToString();
-            txtDs_Cidade.Text = cidade.NmCidade;
-            txtCd_Ibge.Text = cidade.CodIbge;
-            cmbEstado.SelectedValue = cidade.Estado.IdEstado;
-
-            btnSalvar.IsEnabled = true;
-            btnLimpar.IsEnabled = true;
-            btnExcluir.IsEnabled = true;
+           
 
         }
 
@@ -121,6 +110,22 @@ namespace pimads4.ViewCEP
             InicializarCampos();
             InicializarDtg();
 
+        }
+
+        private void BtnEditar(object sender, RoutedEventArgs e)
+        {
+            CidadeDTO cidadeDtg = (CidadeDTO)dtgCidades.SelectedItem;
+
+            CidadeDTO cidade = Controller.GetInstance().ConsultarCidadeById(cidadeDtg.IdCidade);
+
+            txtId_Cidade.Text = cidade.IdCidade.ToString();
+            txtDs_Cidade.Text = cidade.NmCidade;
+            txtCd_Ibge.Text = cidade.CodIbge;
+            cmbEstado.SelectedValue = cidade.Estado.IdEstado;
+
+            btnSalvar.IsEnabled = true;
+            btnLimpar.IsEnabled = true;
+            btnExcluir.IsEnabled = true;
         }
     }
 }

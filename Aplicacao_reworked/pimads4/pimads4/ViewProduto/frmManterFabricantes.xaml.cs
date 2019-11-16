@@ -83,16 +83,7 @@ namespace pimads4.ViewProduto
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            FabricanteDTO dtgFabricante = (FabricanteDTO)dtgFabricantes.SelectedItem;
-
-            FabricanteDTO fabricante = Controller.GetInstance().ConsultarFabricanteById(dtgFabricante.IdFabricante);
-
-            txtId_Fabricante.Text = fabricante.IdFabricante.ToString();
-            txtDs_Fabricante.Text = fabricante.NmFabricante;
-
-            btnSalvar.IsEnabled = true;
-            btnLimpar.IsEnabled = true;
-            btnExcluir.IsEnabled = true;
+            
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
@@ -114,6 +105,18 @@ namespace pimads4.ViewProduto
             InicializarCampos();
         }
 
+        private void BtnEditar(object sender, RoutedEventArgs e)
+        {
+            FabricanteDTO dtgFabricante = (FabricanteDTO)dtgFabricantes.SelectedItem;
 
+            FabricanteDTO fabricante = Controller.GetInstance().ConsultarFabricanteById(dtgFabricante.IdFabricante);
+
+            txtId_Fabricante.Text = fabricante.IdFabricante.ToString();
+            txtDs_Fabricante.Text = fabricante.NmFabricante;
+
+            btnSalvar.IsEnabled = true;
+            btnLimpar.IsEnabled = true;
+            btnExcluir.IsEnabled = true;
+        }
     }
 }

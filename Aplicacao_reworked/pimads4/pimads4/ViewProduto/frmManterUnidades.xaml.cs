@@ -79,16 +79,7 @@ namespace pimads4.ViewProduto
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            UnidadeDTO unidadeDtg = (UnidadeDTO)dtgUnidades.SelectedItem;
-
-            UnidadeDTO unidade = Controller.GetInstance().ConsultarUnidadeById(unidadeDtg.IdUnidade);
-
-            txtId_Unidade.Text = unidade.IdUnidade.ToString();
-            txtDs_Unidade.Text = unidade.DsUnidade.ToString();
-
-            btnSalvar.IsEnabled = true;
-            btnLimpar.IsEnabled = true;
-            btnExcluir.IsEnabled = true;
+            
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
@@ -105,6 +96,20 @@ namespace pimads4.ViewProduto
         {
             btnExcluir.IsEnabled = false;
             InicializarCampos();
+        }
+
+        private void BtnEditar(object sender, RoutedEventArgs e)
+        {
+            UnidadeDTO unidadeDtg = (UnidadeDTO)dtgUnidades.SelectedItem;
+
+            UnidadeDTO unidade = Controller.GetInstance().ConsultarUnidadeById(unidadeDtg.IdUnidade);
+
+            txtId_Unidade.Text = unidade.IdUnidade.ToString();
+            txtDs_Unidade.Text = unidade.DsUnidade.ToString();
+
+            btnSalvar.IsEnabled = true;
+            btnLimpar.IsEnabled = true;
+            btnExcluir.IsEnabled = true;
         }
     }
 }

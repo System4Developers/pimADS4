@@ -70,19 +70,6 @@ namespace pimads4.ViewCEP
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
 
-            BairroDTO bairroDtg = (BairroDTO)dtgBairro.SelectedItem;
-
-            BairroDTO bairro = Controller.GetInstance().ConsultarBairroById(bairroDtg.IdBairro);
-
-            txtDs_Bairro.Text = bairro.DsBairro.ToString();
-            txtId_Bairro.Text = bairro.IdBairro.ToString();
-            cmbEstado.SelectedValue = bairro.Cidade.Estado.IdEstado;
-            InicializarCmbCidades();
-            cmbCidade.SelectedValue = bairro.Cidade.IdCidade;
-
-            btnSalvar.IsEnabled = true;
-            btnLimpar.IsEnabled = true;
-            btnExcluir.IsEnabled = true;
 
         }
 
@@ -138,6 +125,25 @@ namespace pimads4.ViewCEP
         private void CmbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             InicializarCmbCidades();
+        }
+
+        private void BtnEditar(object sender, RoutedEventArgs e)
+        {
+
+            BairroDTO bairroDtg = (BairroDTO)dtgBairro.SelectedItem;
+
+            BairroDTO bairro = Controller.GetInstance().ConsultarBairroById(bairroDtg.IdBairro);
+
+            txtDs_Bairro.Text = bairro.DsBairro.ToString();
+            txtId_Bairro.Text = bairro.IdBairro.ToString();
+            cmbEstado.SelectedValue = bairro.Cidade.Estado.IdEstado;
+            InicializarCmbCidades();
+            cmbCidade.SelectedValue = bairro.Cidade.IdCidade;
+
+            btnSalvar.IsEnabled = true;
+            btnLimpar.IsEnabled = true;
+            btnExcluir.IsEnabled = true;
+
         }
     }
 }

@@ -23,6 +23,13 @@
                 <DataGridTextColumn Binding="{Binding DsBairro}" Header="Bairro" />
                 <DataGridTextColumn Binding="{Binding Cidade.NmCidade}" Header="Cidade" />
                 <DataGridTextColumn Binding="{Binding Cidade.Estado.DsSigla}" Header="Estado" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEditar" Click="BtnEditar">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -59,20 +59,7 @@ namespace pimads4.ViewUsuario
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
               
-            UsuarioDTO usuarioDtg = (UsuarioDTO)dtgUsuarios.SelectedItem;
-
-            UsuarioDTO usuario = Controller.GetInstance().ConsultarUsuarioById(usuarioDtg.IdUsuario);
-
-            txtID.Text = usuario.IdUsuario.ToString();
-            txtDsSenha.Password = usuario.DsSenha.ToString();
-            cmbTpStatus.SelectedValue = usuario.TpStatus;
-            cmbTpUsuario.SelectedValue = usuario.TpUsuario;
-            txtDsLogin.Text = usuario.DsLogin;
-            txtNome.Text = usuario.NmUsuario;
-
-            btnSalvar.IsEnabled = true;
-            btnLimpar.IsEnabled = true;
-            btnExcluir.IsEnabled = true;
+            
 
         }
 
@@ -129,6 +116,24 @@ namespace pimads4.ViewUsuario
             InicializarCampos();
             InicializarDtg();
             
+        }
+
+        private void BtnEditar(object sender, RoutedEventArgs e)
+        {
+            UsuarioDTO usuarioDtg = (UsuarioDTO)dtgUsuarios.SelectedItem;
+
+            UsuarioDTO usuario = Controller.GetInstance().ConsultarUsuarioById(usuarioDtg.IdUsuario);
+
+            txtID.Text = usuario.IdUsuario.ToString();
+            txtDsSenha.Password = usuario.DsSenha.ToString();
+            cmbTpStatus.SelectedValue = usuario.TpStatus;
+            cmbTpUsuario.SelectedValue = usuario.TpUsuario;
+            txtDsLogin.Text = usuario.DsLogin;
+            txtNome.Text = usuario.NmUsuario;
+
+            btnSalvar.IsEnabled = true;
+            btnLimpar.IsEnabled = true;
+            btnExcluir.IsEnabled = true;
         }
     }
 }
