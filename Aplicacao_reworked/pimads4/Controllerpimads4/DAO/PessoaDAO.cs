@@ -141,7 +141,7 @@ namespace Controllerpimads4.DAO
 
         internal void AtualizarPessoa(PessoaDTO mObj)
         {
-            SqlCommand cmd = new SqlCommand("sp_AtualizarProduto", ConexaoDAO.GetInstance().Conexao());
+            SqlCommand cmd = new SqlCommand("sp_AtualizarPessoa", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@idPessoa", mObj.IdPessoa);

@@ -95,7 +95,7 @@ namespace pimads4.ViewPessoa
             }
         }
 
-        private void CmbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CarregarCmbCidades()
         {
             int idEstado = Convert.ToInt32(cmbEstado.SelectedValue);
 
@@ -105,7 +105,7 @@ namespace pimads4.ViewPessoa
             cmbCidade.DisplayMemberPath = "NmCidade";
         }
 
-        private void CmbCidade_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CarregarCmbBairros()
         {
             int idCidade = Convert.ToInt32(cmbCidade.SelectedValue);
 
@@ -113,6 +113,16 @@ namespace pimads4.ViewPessoa
             cmbDs_Bairro.ItemsSource = Controller.GetInstance().ConsultarBairrosByCidade(idCidade);
             cmbDs_Bairro.SelectedValuePath = "IdBairro";
             cmbDs_Bairro.DisplayMemberPath = "DsBairro";
+        }
+
+        private void CmbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CarregarCmbCidades();
+        }
+
+        private void CmbCidade_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CarregarCmbBairros();
         }
 
         private void CmbTp_Pessoa_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -125,6 +135,7 @@ namespace pimads4.ViewPessoa
 
             PessoaDTO pessoa = new PessoaDTO();
 
+            pessoa.IdPessoa = Convert.ToInt32("0"+txtId_Pessoa.Text);
             pessoa.NmPessoa = txtNm_Pessoa.Text;
             pessoa.TpPessoa = cmbTp_Pessoa.SelectedValue.ToString();
             pessoa.NumDocumento = txtNr_Documento.Text;
@@ -160,29 +171,7 @@ namespace pimads4.ViewPessoa
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            PessoaDTO pessoaDtg = (PessoaDTO)dtgPessoas.SelectedItem;
-
-            PessoaDTO pessoa = Controller.GetInstance().ConsultarPessoaById(pessoaDtg.IdPessoa);
-
-            txtNm_Pessoa.Text = pessoa.NmPessoa;
-            cmbTp_Pessoa.SelectedValue = pessoa.TpPessoa;
-            txtNr_Documento.Text = pessoa.NumDocumento;
-            txtNr_RG.Text = pessoa.NumRG;
-            if (pessoa.TpPessoa == "F")
-            {
-                dtpDt_Nascimento.Text = pessoa.DtNascimento;
-            }
-            txtDs_Email.Text = pessoa.DsEmail;
-            txtDs_Endereco.Text = pessoa.DsEndereco;
-            txtDs_Complemento.Text = pessoa.Complemento;
-            txtNr_Endereco.Text = pessoa.NumEnd;
-            txtDs_Observacao.Text = pessoa.Observacao;
-
-
-
-            btnSalvar.IsEnabled = true;
-            btnLimpar.IsEnabled = true;
-            btnExcluir.IsEnabled = true;
+            
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
@@ -204,9 +193,36 @@ namespace pimads4.ViewPessoa
         private void BtnEditar(object sender, RoutedEventArgs e)
         {
             PessoaDTO pessoaDtg = (PessoaDTO)dtgPessoas.SelectedItem;
-            MessageBox.Show(pessoaDtg.IdPessoa.ToString());
-        }
 
+            PessoaDTO pessoa = Controller.GetInstance().ConsultarPessoaById(pessoaDtg.IdPessoa);
+
+            txtId_Pessoa.Text = pessoa.IdPessoa.ToString();
+            txtNm_Pessoa.Text = pessoa.NmPessoa;
+            cmbTp_Pessoa.SelectedValue = pessoa.TpPessoa;
+            txtNr_Documento.Text = pessoa.NumDocumento;
+            txtNr_RG.Text = pessoa.NumRG;
+            if (pessoa.TpPessoa == "F")
+            {
+                dtpDt_Nascimento.Text = pessoa.DtNascimento;
+            }
+            txtDs_Email.Text = pessoa.DsEmail;
+            txtDs_Endereco.Text = pessoa.DsEndereco;
+            txtDs_Complemento.Text = pessoa.Complemento;
+            txtNr_Endereco.Text = pessoa.NumEnd;
+            txtDs_Observacao.Text = pessoa.Observacao;
+
+            cmbEstado.SelectedValue = pessoa.Bairro.Cidade.Estado.IdEstado;
+            CarregarCmbCidades();
+
+            cmbCidade.SelectedValue = pessoa.Bairro.Cidade.IdCidade;
+            CarregarCmbBairros();
+
+            cmbDs_Bairro.SelectedValue = pessoa.Bairro.IdBairro;
+
+            btnSalvar.IsEnabled = true;
+            btnLimpar.IsEnabled = true;
+            btnExcluir.IsEnabled = true;
+        }
 
     }
 }
