@@ -15,7 +15,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}" Loaded="Window_Loaded">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -41,7 +41,8 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="90"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
 
@@ -50,7 +51,7 @@
 
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="grdFormContentArea" Grid.RowSpan="9" Grid.Row="1" Grid.Column="2" Margin="0,0,0,4">
+        <Grid x:Name="grdFormContentArea" Grid.RowSpan="9" Grid.Row="1" Grid.Column="3" Margin="0,0,0,4">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFDF6F6" Offset="0"/>
@@ -61,7 +62,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <Button x:Name="btnUsuariosConsultar" Content="Consultar Usuarios" Grid.Row="1" Grid.Column="0" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Click="BtnUsuariosConsultar_Click" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Margin="9,0">
+        <Button x:Name="btnUsuariosConsultar" Content="Consultar Usuarios" Grid.Row="1" Grid.Column="0" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Click="BtnUsuariosConsultar_Click" Grid.ColumnSpan="3" RenderTransformOrigin="0.5,0.5" Margin="9,0">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -71,18 +72,19 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="btnFechar" Content="Sair" Grid.Column="2" Click="BtnFechar_Click" Height="Auto" Width="80" RenderTransformOrigin="-2.229,0.6" HorizontalAlignment="Right" Margin="0,8"/>
-        <Button x:Name="btnPedidoConsultar" Content="Consultar PedidoVenda" Grid.Row="2" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Click="BtnPedidoConsultar_Click" Grid.ColumnSpan="2" Margin="9,0" />
-        <Button x:Name="btnEstoqueConsultar" Content="Consultar Estoque" Grid.Row="3" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Grid.ColumnSpan="2" Margin="9,0" />
-        <Button x:Name="btnFabricantesConsultar" Content="Consultar Fabricantes" Grid.Row="4" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Click="BtnFabricantesConsultar_Click" Grid.ColumnSpan="2" Margin="9,0" />
-        <Label x:Name="lblPIM" Content="PIM ADS4" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" FontFamily="Viner Hand ITC" Foreground="White" Background="#FF111111" Height="36" Width="85"  Grid.Column="1" Margin="0,7"/>
-        <Button x:Name="btnConsultarProdutos" Content="Consultar Produtos" Grid.Row="5" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"    Click="BtnConsultarProdutos_Click" Grid.ColumnSpan="2" Margin="9,0" />
-        <Button x:Name="btnConsultarUnidades" Content="Consultar Unidades" Grid.Row="6" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"    Click="BtnConsultarUnidades_Click" Grid.ColumnSpan="2" Margin="9,0" />
-        <Button x:Name="btnConsultarCidades" Content="Consultar Cidades" Grid.Row="7" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"   Click="BtnConsultarCidades_Click" Grid.ColumnSpan="2" RenderTransformOrigin="0.523,-1.767" Margin="9,0" />
-        <Button x:Name="btnlogout" Content="Logout" HorizontalAlignment="Center" VerticalAlignment="Top" Width="106" Click="Btnlogout_Click" Grid.ColumnSpan="2" Grid.Row="9" Margin="42,157,42,0" />
-        <Button x:Name="btnConsultarBairro" Content="Consultar Bairros" Grid.Row="8" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Grid.ColumnSpan="2" RenderTransformOrigin="0.523,-1.767" Click="BtnConsultarBairro_Click" Margin="9,0" />
-        <Button x:Name="btnConsultarOc" Content="Consultar OrdemCompra" Grid.Row="9" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="10,5,0,0" Click="BtnConsultarOc_Click" />
-        <Button x:Name="btnConsultarPessoas" Content="Consultar Pessoas" Grid.Row="9" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="5,55,5,0" Click="BtnConsultarPessoas_Click" />
+        <Button x:Name="btnFechar" Content="Sair" Grid.Column="3" Click="BtnFechar_Click" Height="Auto" Width="80" RenderTransformOrigin="-2.229,0.6" HorizontalAlignment="Right" Margin="0,8"/>
+        <Button x:Name="btnPedidoConsultar" Content="Consultar PedidoVenda" Grid.Row="2" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Click="BtnPedidoConsultar_Click" Grid.ColumnSpan="3" Margin="9,0" />
+        <Button x:Name="btnEstoqueConsultar" Content="Consultar Estoque" Grid.Row="3" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Grid.ColumnSpan="3" Margin="9,0" />
+        <Button x:Name="btnFabricantesConsultar" Content="Consultar Fabricantes" Grid.Row="4" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Click="BtnFabricantesConsultar_Click" Grid.ColumnSpan="3" Margin="9,0" />
+        <Label x:Name="lblPIM" Content="PIM ADS4" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" FontFamily="Viner Hand ITC" Foreground="White" Background="#FF111111" Height="36" Width="85"  Grid.Column="2" Margin="0,7"/>
+        <Button x:Name="btnConsultarProdutos" Content="Consultar Produtos" Grid.Row="5" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"    Click="BtnConsultarProdutos_Click" Grid.ColumnSpan="3" Margin="9,0" />
+        <Button x:Name="btnConsultarUnidades" Content="Consultar Unidades" Grid.Row="6" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"    Click="BtnConsultarUnidades_Click" Grid.ColumnSpan="3" Margin="9,0" />
+        <Button x:Name="btnConsultarCidades" Content="Consultar Cidades" Grid.Row="7" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"   Click="BtnConsultarCidades_Click" Grid.ColumnSpan="3" RenderTransformOrigin="0.523,-1.767" Margin="9,0" />
+        <Button x:Name="btnlogout" Content="Logout" HorizontalAlignment="Center" VerticalAlignment="Top" Width="106" Click="Btnlogout_Click" Grid.ColumnSpan="2" Grid.Row="9" Margin="12,157,42,0" Grid.Column="1" />
+        <Button x:Name="btnConsultarBairro" Content="Consultar Bairros" Grid.Row="8" Height="43" HorizontalContentAlignment="Center" VerticalAlignment="Top"  Grid.ColumnSpan="3" RenderTransformOrigin="0.523,-1.767" Click="BtnConsultarBairro_Click" Margin="9,0" />
+        <Button x:Name="btnConsultarOc" Content="Consultar OrdemCompra" Grid.Row="9" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="10,5,0,0" Click="BtnConsultarOc_Click" />
+        <Button x:Name="btnConsultarPessoas" Content="Consultar Pessoas" Grid.Row="9" Height="42" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="5,55,5,0" Click="BtnConsultarPessoas_Click" />
+        <Label x:Name="lblNm_Usuario" Content="" Grid.Column="3" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top"/>
 
 
 

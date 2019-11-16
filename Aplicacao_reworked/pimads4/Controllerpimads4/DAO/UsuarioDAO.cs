@@ -165,5 +165,36 @@ namespace Controllerpimads4.DAO
 
         }
 
+        internal void ValidarLoginUsuario(String Ds_Login,String Ds_Senha)
+        {
+            String sqlText = "SELECT * FROM Usuarios WHERE " +
+                "dsLogin ="+ "'" + Ds_Login  +"'" + " AND " + 
+                "dsSenha =" + "'" + Ds_Senha + "'";
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while(dr.Read())
+                    {
+                        estPropriedades.Bl_Logado = true;
+                        estPropriedades.Id_Usuario = Convert.ToInt32(dr["idUsuario"].ToString());
+                        estPropriedades.Nm_Usuario = dr["nmUsuario"].ToString();
+                        estPropriedades.Tp_Usuario = dr["tpUsuario"].ToString();
+                    }
+                    
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+        }
+
     }
 }

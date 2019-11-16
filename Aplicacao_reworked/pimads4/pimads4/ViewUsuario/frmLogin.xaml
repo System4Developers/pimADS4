@@ -26,26 +26,28 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-
-
-
             <ColumnDefinition Width="132"/>
             <ColumnDefinition Width="520"/>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="49*"/>
             <ColumnDefinition Width="0*"/>
-
-
         </Grid.ColumnDefinitions>
-        <Grid HorizontalAlignment="Right" Height="720" VerticalAlignment="Center" Width="500" Background="White" Grid.Column="3" Grid.Row="1" Grid.RowSpan="4" Margin="0,-16,0,-15" Grid.ColumnSpan="2">
-            <Button Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="201" Click="Button_Click" Margin="155,0,144,162"/>
-        </Grid>
-        <TextBox materialDesign:HintAssist.Hint="Usuario" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Right" Height="35" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="234" Margin="0,0,132,0"/>
 
-        <TextBox materialDesign:HintAssist.Hint="Senha" Grid.Column="4" Height="35"  Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Bottom" SpellCheck.IsEnabled="True" Margin="0,0,132,0" HorizontalAlignment="Right" Width="234"   />
-        <TextBlock Grid.Column="4" HorizontalAlignment="Right" Grid.RowSpan="2" TextWrapping="Wrap" Foreground="Silver" Text="LOGIN" VerticalAlignment="Bottom" FontSize="18" Height="30" Width="60" Margin="0,0,215,0" />
+        <Grid HorizontalAlignment="Right" Height="720" VerticalAlignment="Center" Width="500" Background="White" Grid.Column="3" Grid.Row="1" Grid.RowSpan="4" Margin="0,-16,0,-15" Grid.ColumnSpan="2">
+            <Button x:Name="btnLogar" Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="201" Click="Button_Click" Margin="155,0,144,162"/>
+            <Label x:Name="lblDs_Mensagem" HorizontalAlignment="Left" Margin="138,616,0,0" VerticalAlignment="Top" Width="230"/>
+            <Button x:Name="btnLogarAnonimo" Content="Modo Anonimo" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="201"  Margin="153,0,146,122" Click="BtnLogarAnonimo_Click"/>
+        </Grid>
+
+        <TextBox x:Name="txtDs_Login" materialDesign:HintAssist.Hint="Usuario" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Right" Height="35" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="234" Margin="0,0,132,0"/>
+
+        <PasswordBox x:Name="txtDs_Senha" materialDesign:HintAssist.Hint="Senha" Grid.Column="4" Height="35"  Grid.Row="3"  VerticalAlignment="Bottom"  Margin="0,0,132,0" HorizontalAlignment="Right" Width="234" />
+        
+        <TextBlock x:Name="lblDs_Login" Grid.Column="4" HorizontalAlignment="Right" Grid.RowSpan="2" TextWrapping="Wrap" Foreground="Silver" Text="LOGIN" VerticalAlignment="Bottom" FontSize="18" Height="30" Width="60" Margin="0,0,215,0" />
+
         <Image Source="img/fotoLogo.jpg" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="116,-10,118,10"/>
+
         <Label Foreground="White" Content="IMPERADOR" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Bottom" FontSize="55" />
         <Label Foreground="White" Content="Marmoraria, Churrasqueiras e telhas" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" FontSize="13" Margin="103,0,161,0" Width="256"/>
     </Grid>

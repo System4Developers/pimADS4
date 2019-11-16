@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,14 +26,30 @@ namespace pimads4.ViewUsuario
             InitializeComponent();
         }
 
-        private void GradientStop_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
+            UsuarioDTO usuario = new UsuarioDTO();
+
+            usuario.DsLogin = txtDs_Login.Text;
+            usuario.DsSenha = txtDs_Senha.Password ;
+
+            estPropriedades.Bl_Logado = false;
+            Controller.GetInstance().ValidarLoginUsuario(usuario.DsLogin, usuario.DsSenha);
+
+            if (!estPropriedades.Bl_Logado)
+            {
+                lblDs_Mensagem.Content = "Login e/ou Senha Inválido(s)";
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void BtnLogarAnonimo_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

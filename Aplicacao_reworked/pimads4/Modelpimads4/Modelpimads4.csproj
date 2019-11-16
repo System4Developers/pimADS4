@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DTO\BairroDTO.cs" />
     <Compile Include="DTO\CidadeDTO.cs" />
+    <Compile Include="DTO\estPropriedades.cs" />
     <Compile Include="DTO\OrdemCompraDTO.cs" />
     <Compile Include="DTO\OrdemCompraProdutoDTO.cs" />
     <Compile Include="DTO\PessoaDTO.cs" />

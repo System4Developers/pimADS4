@@ -58,6 +58,12 @@ namespace Controllerpimads4.BL
             UsuarioDAO.GetInstance().ExlcuirUsuario(idUsuario);
         }
 
-
+        internal void ValidarLoginUsuario(String Ds_Login, String Ds_Senha)
+        {
+            if (Ds_Login !="" && Ds_Senha !="")
+            {
+                UsuarioDAO.GetInstance().ValidarLoginUsuario(Ds_Login, Ds_Senha);
+            }
+        }
     }
 }

@@ -53,6 +53,10 @@ namespace Controllerpimads4.Controller
         {
             UsuarioBL.GetInstance().ExcluirUsuario(idUsuario);
         }
+        public void ValidarLoginUsuario(String Ds_Login, String Ds_Senha)
+        {
+            UsuarioBL.GetInstance().ValidarLoginUsuario(Ds_Login, Ds_Senha);
+        }
         #endregion
 
         #region Metodos Fabricante

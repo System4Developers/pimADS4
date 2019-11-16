@@ -17,6 +17,7 @@ using pimads4.frmPedido;
 using pimads4.ViewProduto;
 using pimads4.ViewCEP;
 using pimads4.ViewPessoa;
+using Modelpimads4.DTO;
 
 namespace pimads4
 {
@@ -28,6 +29,13 @@ namespace pimads4
         public MainWindow()
         {          
             InitializeComponent();
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.ShowDialog();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lblNm_Usuario.Content ="Usuário: " + estPropriedades.Nm_Usuario;
         }
 
         private void BtnUsuariosConsultar_Click(object sender, RoutedEventArgs e)
@@ -72,9 +80,7 @@ namespace pimads4
         private void Btnlogout_Click(object sender, RoutedEventArgs e)
         {
             frmLogin novo = new frmLogin();
-            // Apresenta o formulário chamado
             novo.Show();
-            this.Close();
         }
 
         private void BtnConsultarBairro_Click(object sender, RoutedEventArgs e)
@@ -93,5 +99,7 @@ namespace pimads4
             grdFormContentArea.Children.Clear();
             grdFormContentArea.Children.Add(new frmManterPessoas());
         }
+
+
     }
 }
