@@ -78,11 +78,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="frmPedido\frmCadastrarPedido.xaml">
+    <Page Include="ViewPedido\frmCadastrarPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frmPedido\frmManterPedido.xaml">
+    <Page Include="ViewPedido\frmManterPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,10 +94,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="frmPedido\frmCadastrarPedido.xaml.cs">
+    <Compile Include="ViewPedido\frmCadastrarPedido.xaml.cs">
       <DependentUpon>frmCadastrarPedido.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frmPedido\frmManterPedido.xaml.cs">
+    <Compile Include="ViewPedido\frmManterPedido.xaml.cs">
       <DependentUpon>frmManterPedido.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.xaml.cs">
@@ -218,5 +218,6 @@
   <ItemGroup>
     <Resource Include="ViewUsuario\img\fotoLogo.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
