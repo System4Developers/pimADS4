@@ -121,6 +121,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewPedido\frmPdv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewPessoa\frmManterPessoas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +156,9 @@
     </Compile>
     <Compile Include="ViewCEP\frmManterCidades.xaml.cs">
       <DependentUpon>frmManterCidades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPedido\frmPdv.xaml.cs">
+      <DependentUpon>frmPdv.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewPessoa\frmManterPessoas.xaml.cs">
       <DependentUpon>frmManterPessoas.xaml</DependentUpon>
