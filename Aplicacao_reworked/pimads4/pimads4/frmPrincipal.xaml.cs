@@ -31,8 +31,9 @@ namespace pimads4
         {          
             InitializeComponent();
 
+           
 
-            var item6 = new ItemMenu("PDV", new UserControl(), PackIconKind.Schedule);
+            var item6 = new ItemMenu("PDV", new frmManterUsuarios(), PackIconKind.Schedule);
 
             var item0 = new ItemMenu("PDC", new UserControl(), PackIconKind.ViewDashboard);
 
