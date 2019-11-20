@@ -33,9 +33,17 @@ namespace pimads4
 
            
 
-            var item6 = new ItemMenu("PDV", new frmManterUsuarios(), PackIconKind.Schedule);
 
-            var item0 = new ItemMenu("PDC", new UserControl(), PackIconKind.ViewDashboard);
+
+            var menuPdv = new List<SubItem>();
+            menuPdv.Add(new SubItem("Novo"));
+            menuPdv.Add(new SubItem("Consultar"));
+            var item6 = new ItemMenu("PDV", menuPdv,PackIconKind.Schedule);
+
+            var menuPdc = new List<SubItem>();
+            menuPdc.Add(new SubItem("Novo"));
+            menuPdc.Add(new SubItem("Consultar"));
+            var item0 = new ItemMenu("PDC", menuPdc, PackIconKind.Schedule);
 
             var menuRegistro = new List<SubItem>();
             menuRegistro.Add(new SubItem("Pessoas" ));
