@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="pimads4.frmVendaPdv"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:pimads4"
+             mc:Ignorable="d" 
+             d:DesignHeight="620" d:DesignWidth="1045">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="53*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+
+            <ColumnDefinition Width="39"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="246*"/>
+            <ColumnDefinition Width="67*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Label  Content="ID" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="32" Height="26" Grid.Column="3" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="42"  Grid.Column="4" Grid.Row="1"/>
+        <Label Content="Cliente" Grid.Row="0" Grid.Column="5" Margin="0,80,5,0"/>
+        <ComboBox  Grid.Column="6" Width="360" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.ColumnSpan="4"/>
+        <Label Content="ID" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="0" Width="32" Height="26"/>
+        <TextBox TextWrapping="Wrap" Grid.Column="4" Grid.Row="0" Margin="0,80,21,0" />
+        <Label Content="Produto" VerticalAlignment="Bottom" Height="24" HorizontalAlignment="Left" Width="65" Grid.Column="5" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="360" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="4"/>
+        <Label Content="Quantidade" HorizontalAlignment="Left" VerticalAlignment="Center" Height="26" Width="85"  Grid.Column="8" Grid.Row="2"/>
+        <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Width="66" Grid.Column="9" Grid.Row="2" />
+        <Label Content="Unidade" VerticalAlignment="Center" Height="26" Grid.Column="6" Grid.Row="2" Margin="0,0,5,0"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Height="28" Grid.Column="7" Grid.Row="2"/>
+        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="11" Grid.Column="1" Grid.Row="3" Grid.RowSpan="6" Margin="0,0,44,45"/>
+        <DataGrid Height="280"  VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="8" Grid.Row="4" Grid.RowSpan="4" SelectionChanged="DataGrid_SelectionChanged_1" Margin="0,0,5,0"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="110" Height="28" Grid.Column="10" Grid.Row="5"/>
+        <Button Content="Finalizar" Grid.Column="10" Grid.Row="7" Height="Auto" Margin="138,56,0,0"/>
+        <Button Content="Alterar" HorizontalAlignment="Left" Width="108" Height="27"  Grid.Column="10" Grid.Row="4" VerticalAlignment="Bottom" />
+
+        <Grid Margin="100,41,61,39" Background="White" Grid.Column="10" Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Button Content="Ok !" Grid.Column="10"  Grid.Row="2" Margin="0,19,171,0" Height="Auto"/>
+
+
+
+
+    </Grid>
+</UserControl>

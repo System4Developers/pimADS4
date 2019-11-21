@@ -13,16 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace pimads4.ViewPedido
+namespace pimads4
 {
     /// <summary>
-    /// Interação lógica para frmPdv.xam
+    /// Interação lógica para frmVendaPdv.xam
     /// </summary>
-    public partial class frmPdv : Page
+    public partial class frmVendaPdv : UserControl
     {
-        public frmPdv()
+        public frmVendaPdv()
         {
             InitializeComponent();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

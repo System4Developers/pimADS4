@@ -78,6 +78,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="frmVendaPdv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlMenuItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,6 +101,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmVendaPdv.xaml.cs">
+      <DependentUpon>frmVendaPdv.xaml</DependentUpon>
     </Compile>
     <Compile Include="ItemMenu.cs" />
     <Compile Include="SubItem.cs" />
@@ -118,10 +125,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewCEP\frmManterCidades.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewPedido\frmPdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,9 +159,6 @@
     </Compile>
     <Compile Include="ViewCEP\frmManterCidades.xaml.cs">
       <DependentUpon>frmManterCidades.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewPedido\frmPdv.xaml.cs">
-      <DependentUpon>frmPdv.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewPessoa\frmManterPessoas.xaml.cs">
       <DependentUpon>frmManterPessoas.xaml</DependentUpon>
