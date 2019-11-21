@@ -9,6 +9,7 @@ namespace pimads4
             Name = name;
             Screen = screen;
         }
+
         public string Name { get; private set; }
         public UserControl Screen { get; private set; }
     }

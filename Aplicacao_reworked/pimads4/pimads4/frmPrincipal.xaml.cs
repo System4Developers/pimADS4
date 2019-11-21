@@ -28,11 +28,33 @@ namespace pimads4
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {          
+        {
+            // Login manter sequencia
             InitializeComponent();
+            InicializarLogin();
+            // Login manter sequencia
 
+            InicializarMenuLateral();
+        }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!estPropriedades.Bl_Logado)
+            {
+                this.Close();
+            }
+            //lblNm_Usuario.Content ="Usuário: " + estPropriedades.Nm_Usuario;
+        }
 
+        private void InicializarLogin()
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.ShowDialog();
+        }
+
+        private void InicializarMenuLateral()
+        {
+                
             var menuPdv = new List<SubItem>();
             menuPdv.Add(new SubItem("Novo"));
             menuPdv.Add(new SubItem("Consultar"));
@@ -44,11 +66,9 @@ namespace pimads4
             var item0 = new ItemMenu("PDC", menuPdc, PackIconKind.Schedule);
 
             var menuRegistro = new List<SubItem>();
-            menuRegistro.Add(new SubItem("Pessoas" ));
+            menuRegistro.Add(new SubItem("Pessoas" ,new frmManterPessoas()));
             menuRegistro.Add(new SubItem("Usuarios" ));
             var item1 = new ItemMenu("Entidade", menuRegistro, PackIconKind.Register);
-
-
 
             var menuReports = new List<SubItem>();
             menuReports.Add(new SubItem("Estoque"));
@@ -63,29 +83,14 @@ namespace pimads4
             menuExpenses.Add(new SubItem("Bairros"));
             var item3 = new ItemMenu("Endereço", menuExpenses, PackIconKind.ShoppingBasket);
 
+            Menu.Children.Add(new UserControlMenuItem(item0,this));
+            Menu.Children.Add(new UserControlMenuItem(item6,this));
+            Menu.Children.Add(new UserControlMenuItem(item1,this));
+            Menu.Children.Add(new UserControlMenuItem(item2,this));
+            Menu.Children.Add(new UserControlMenuItem(item3,this));
 
-
-            Menu.Children.Add(new UserControlMenuItem(item0));
-            Menu.Children.Add(new UserControlMenuItem(item6));
-            Menu.Children.Add(new UserControlMenuItem(item1));
-            Menu.Children.Add(new UserControlMenuItem(item2));
-            Menu.Children.Add(new UserControlMenuItem(item3));
-
-
-
-
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.ShowDialog();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (!estPropriedades.Bl_Logado)
-            {
-                this.Close();
-            }
-            //lblNm_Usuario.Content ="Usuário: " + estPropriedades.Nm_Usuario;
-        }
 
         private void BtnUsuariosConsultar_Click(object sender, RoutedEventArgs e)
         {

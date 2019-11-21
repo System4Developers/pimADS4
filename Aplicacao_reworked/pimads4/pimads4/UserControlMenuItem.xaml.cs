@@ -20,14 +20,31 @@ namespace pimads4
     /// </summary>
     public partial class UserControlMenuItem : UserControl
     {
-        public UserControlMenuItem(ItemMenu itemMenu)
+        private MainWindow frmPrincipal;
+
+        public UserControlMenuItem(ItemMenu itemMenu, MainWindow frmPrincipal)
         {
             InitializeComponent();
 
             ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
             ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
 
+            this.frmPrincipal = frmPrincipal;
             this.DataContext = itemMenu;
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                frmPrincipal.grdFormContentArea.Children.Clear();
+                frmPrincipal.grdFormContentArea.Children.Add(((SubItem)((ListView)sender).SelectedItem).Screen);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tela em Construção");
+            }
+           
         }
     }
 }
