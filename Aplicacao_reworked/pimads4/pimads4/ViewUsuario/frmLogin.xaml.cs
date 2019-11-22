@@ -56,7 +56,7 @@ namespace pimads4.ViewUsuario
 
         private void BtnSair_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

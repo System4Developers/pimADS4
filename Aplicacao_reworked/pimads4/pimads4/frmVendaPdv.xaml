@@ -12,56 +12,82 @@
             <RowDefinition Height="106*"/>
             <RowDefinition Height="56*"/>
             <RowDefinition Height="51*"/>
-            <RowDefinition Height="69*"/>
-            <RowDefinition Height="87*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="65*"/>
             <RowDefinition Height="58*"/>
             <RowDefinition Height="57*"/>
-            <RowDefinition Height="83*"/>
-            <RowDefinition Height="53*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="49*"/>
 
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
 
 
-            <ColumnDefinition Width="39"/>
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="121*"/>
-            <ColumnDefinition Width="34*"/>
-            <ColumnDefinition Width="63*"/>
-            <ColumnDefinition Width="70*"/>
-            <ColumnDefinition Width="63*"/>
-            <ColumnDefinition Width="67*"/>
-            <ColumnDefinition Width="90*"/>
-            <ColumnDefinition Width="170*"/>
-            <ColumnDefinition Width="246*"/>
-            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="26"/>
+            <ColumnDefinition Width="4"/>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="78*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="189*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="37*"/>
 
         </Grid.ColumnDefinitions>
 
-        <Label  Content="ID" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="32" Height="26" Grid.Column="3" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="42"  Grid.Column="4" Grid.Row="1"/>
-        <Label Content="Cliente" Grid.Row="0" Grid.Column="5" Margin="0,80,5,0"/>
-        <ComboBox  Grid.Column="6" Width="360" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.ColumnSpan="4"/>
-        <Label Content="ID" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="0" Width="32" Height="26"/>
-        <TextBox TextWrapping="Wrap" Grid.Column="4" Grid.Row="0" Margin="0,80,21,0" />
-        <Label Content="Produto" VerticalAlignment="Bottom" Height="24" HorizontalAlignment="Left" Width="65" Grid.Column="5" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="360" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="4"/>
-        <Label Content="Quantidade" HorizontalAlignment="Left" VerticalAlignment="Center" Height="26" Width="85"  Grid.Column="8" Grid.Row="2"/>
-        <TextBox HorizontalAlignment="Left" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Width="66" Grid.Column="9" Grid.Row="2" />
-        <Label Content="Unidade" VerticalAlignment="Center" Height="26" Grid.Column="6" Grid.Row="2" Margin="0,0,5,0"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Height="28" Grid.Column="7" Grid.Row="2"/>
-        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="11" Grid.Column="1" Grid.Row="3" Grid.RowSpan="6" Margin="0,0,44,45"/>
-        <DataGrid Height="280"  VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="8" Grid.Row="4" Grid.RowSpan="4" SelectionChanged="DataGrid_SelectionChanged_1" Margin="0,0,5,0"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="110" Height="28" Grid.Column="10" Grid.Row="5"/>
-        <Button Content="Finalizar" Grid.Column="10" Grid.Row="7" Height="Auto" Margin="138,56,0,0"/>
-        <Button Content="Alterar" HorizontalAlignment="Left" Width="108" Height="27"  Grid.Column="10" Grid.Row="4" VerticalAlignment="Bottom" />
+        <Label Content="Cliente" Grid.Row="0" Grid.Column="3" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Height="26"/>
+        <ComboBox  Grid.Column="3" VerticalAlignment="Top" Grid.ColumnSpan="6"  Grid.Row="1" Height="28"/>
+        <Label Content="Produto" Grid.Column="10" VerticalAlignment="Bottom" Height="26"/>
+        <ComboBox VerticalAlignment="Top" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="6" SelectionChanged="ComboBox_SelectionChanged" Height="28" />
+        <Label Content="Quantidade"  Grid.Column="13" Grid.Row="2" Margin="0,25,23,0" />
+        <TextBox Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="13" Grid.Row="3" Margin="0,3,18,2"/>
+        <Label Content="Unidade" VerticalAlignment="Bottom" Height="26" Grid.Column="14" Grid.Row="2" Grid.ColumnSpan="3" />
+        <TextBox Grid.Column="15" HorizontalAlignment="Left" Height="23" Grid.Row="3"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="50" Margin="0,2"/>
+        <Label Content="Valor Desconto" Grid.Column="13"  Grid.Row="4" VerticalAlignment="Bottom" Height="26"/>
+        <TextBox Grid.Column="13" HorizontalAlignment="Left" Height="22"  Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2"/>
+        <Label Content="Valor unitario" Grid.Column="15" Grid.Row="4" VerticalAlignment="Bottom" Height="26"/>
+        <TextBox Grid.Column="15" HorizontalAlignment="Left" Height="22"  Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2"/>
+        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="11" Grid.Column="1" Grid.Row="2" Grid.RowSpan="12" Margin="0,10,1,45">
 
-        <Grid Margin="100,41,61,39" Background="White" Grid.Column="10" Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Button Content="Ok !" Grid.Column="10"  Grid.Row="2" Margin="0,19,171,0" Height="Auto"/>
+        </Grid>
+        <Button x:Name="btnExluir" Content="Excluir" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="108" Height="27" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="2"  />
+        <Button x:Name="btnFinalizarCompra" Content="Finalizar Compra" Grid.Column="10" Grid.Row="13" Height="28" Margin="0,11,0,10" />
+        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Width="108" Height="27"  Grid.Column="2" Grid.Row="11" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.RowSpan="2" />
 
+        <Grid Background="White" Grid.Column="10" Grid.Row="10" Grid.RowSpan="2"/>
+        <Grid  Background="White" Grid.Column="8" Grid.Row="10" Grid.RowSpan="2" />
 
+        <Button x:Name="btnOkProduto" Content="Ok !" Grid.Column="13"  Grid.Row="6"  Height="25" Grid.ColumnSpan="3" Margin="0,20" />
 
+        <DataGrid Grid.Column="2" Grid.ColumnSpan="9" Grid.Row="2" Grid.RowSpan="8" SelectionChanged="DataGrid_SelectionChanged_1" Margin="0,32,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding IdUsuario}" Header="Item" />
+                <DataGridTextColumn Binding="{Binding NmUsuario}" Header="Produto" />
+                <DataGridTextColumn Binding="{Binding DsLogin}" Header="Unidade" />
+                <DataGridTextColumn Binding="{Binding TpUsuario}" Header="Quantidade"/>
+                <DataGridTextColumn Binding="{Binding TpStatus}" Header="Valor Unit"/>
+                <DataGridTextColumn Binding="{Binding TpStatus}" Header="Valor Desconto"/>
+                <DataGridTextColumn Binding="{Binding TpStatus}" Header="Total"/>
+                <DataGridTemplateColumn>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Total Desconto" Grid.Column="8" HorizontalAlignment="Center"  Grid.Row="12" VerticalAlignment="Top" Width="124" FontWeight="Bold" FontSize="11" Height="26" Grid.RowSpan="2"/>
 
     </Grid>
 </UserControl>

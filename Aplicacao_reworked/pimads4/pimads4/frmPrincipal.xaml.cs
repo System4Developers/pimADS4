@@ -102,5 +102,10 @@ namespace pimads4
         {
             this.Close();
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
