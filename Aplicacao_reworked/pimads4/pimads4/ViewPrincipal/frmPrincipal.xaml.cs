@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using pimads4.ViewUsuario;
-using pimads4.frmPedido;
 using pimads4.ViewProduto;
 using pimads4.ViewCEP;
 using pimads4.ViewPessoa;
@@ -73,7 +72,6 @@ namespace pimads4
             var menuReports = new List<SubItem>();
             menuReports.Add(new SubItem("Estoque"));
             menuReports.Add(new SubItem("Fabricante" , new frmManterFabricantes()));
-            menuReports.Add(new SubItem("Pedido" , new frmManterPedido()));
             menuReports.Add(new SubItem("Produto", new frmManterProdutos()));
             menuReports.Add(new SubItem("Unidade" ,new frmManterUnidades()));
             var item2 = new ItemMenu("Estoque", menuReports, PackIconKind.FileReport);

@@ -78,23 +78,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="frmVendaPdv.xaml">
+    <Page Include="ViewPV\frmVendaPdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlMenuItem.xaml">
+    <Page Include="ViewPrincipal\UserControlMenuItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ViewPedido\frmCadastrarPedido.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewPedido\frmManterPedido.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="frmPrincipal.xaml">
+    <Page Include="ViewPrincipal\frmPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -102,21 +94,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="frmVendaPdv.xaml.cs">
+    <Compile Include="ViewPV\frmVendaPdv.xaml.cs">
       <DependentUpon>frmVendaPdv.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ItemMenu.cs" />
-    <Compile Include="SubItem.cs" />
-    <Compile Include="UserControlMenuItem.xaml.cs">
+    <Compile Include="ViewPrincipal\ItemMenu.cs" />
+    <Compile Include="ViewPrincipal\SubItem.cs" />
+    <Compile Include="ViewPrincipal\UserControlMenuItem.xaml.cs">
       <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewPedido\frmCadastrarPedido.xaml.cs">
-      <DependentUpon>frmCadastrarPedido.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewPedido\frmManterPedido.xaml.cs">
-      <DependentUpon>frmManterPedido.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="frmPrincipal.xaml.cs">
+    <Compile Include="ViewPrincipal\frmPrincipal.xaml.cs">
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -234,6 +220,8 @@
   <ItemGroup>
     <Resource Include="ViewUsuario\img\fotoLogo.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewPC\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
