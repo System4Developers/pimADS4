@@ -290,21 +290,47 @@ namespace Controllerpimads4.Controller
 
         public void AdicionarQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc,int index)
         {
-            OrdemCompraProdutoBL.GetInstance().AdicionarQuantidadeProdutoOc(listaProdutosOc, index);
-        }
-
-        public List<OrdemCompraProdutoDTO> RemoverQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc, int index)
-        {
             this.mensagem = "";
-            listaProdutosOc = OrdemCompraProdutoBL.GetInstance().RemoverQuantidadeProdutoOc(listaProdutosOc, index);
+            OrdemCompraProdutoBL.GetInstance().AdicionarQuantidadeProdutoOc(listaProdutosOc, index);
+
             if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
             {
                 this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
             }
-            return listaProdutosOc;
         }
 
-        
+        public void RemoverQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc, int index)
+        {
+            this.mensagem = "";
+            OrdemCompraProdutoBL.GetInstance().RemoverQuantidadeProdutoOc(listaProdutosOc, index);
+
+            if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
+            {
+                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public double OcProdCalcularValorTotal(List<OrdemCompraProdutoDTO> listaProdutosOc)
+        {
+            this.mensagem = "";
+            double vlTotal=0;
+
+            try
+            {
+                vlTotal = OrdemCompraProdutoBL.GetInstance().OcProdCalcularValorTotal(listaProdutosOc);
+                if (OrdemCompraProdutoBL.GetInstance().mensagem != "")
+                {
+                    this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.mensagem = "NAO FOI POSSIVEL CALCULAR O VALOR TOTAL";
+            }
+
+            return vlTotal;
+        }
+
         #endregion
 
 

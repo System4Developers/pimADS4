@@ -54,23 +54,21 @@ namespace pimads4.ViewPC
         }
 
         private void AtualizarTotal()
-        {/*
-            Double vlTotal = 0;
-            List<ProdutoDTO> lista = new List<ProdutoDTO>();
-            lista = dtgProdutos.ItemsSource as List<ProdutoDTO>;
-            try
-            {
-                foreach (ProdutoDTO p in lista)
-                {
-                    vlTotal += p.SubTotal1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Nao foi possivel calcular o total");
-            }
-            txtTotal.Text = vlTotal.ToString();*/
+        {
+            
+            List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();          
+            listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
+            double vlTotal = Controller.GetInstance().OcProdCalcularValorTotal(listaOcProduto);
 
+            if (Controller.GetInstance().mensagem.Equals(""))
+            {
+                txtVlr_Total.Text = vlTotal.ToString();
+            }
+            else
+            {
+                MessageBox.Show(Controller.GetInstance().mensagem);
+            }
+                       
         }
 
         private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
@@ -110,14 +108,15 @@ namespace pimads4.ViewPC
             ocProduto.Produto.DsProduto = cmbDs_Produto.Text;
             
             Controller.GetInstance().VerificarProdutoOc(ocProduto);
-            if (Controller.GetInstance().mensagem != "")
-            {
-                MessageBox.Show(Controller.GetInstance().mensagem);
-            }
-            else
+            if (Controller.GetInstance().mensagem.Equals(""))
             {
                 listaOcProduto.Add(ocProduto);
                 AtualizarDatagrid(listaOcProduto);
+                AtualizarTotal();
+            }
+            else
+            {
+                MessageBox.Show(Controller.GetInstance().mensagem);
             }
         }
 
@@ -125,11 +124,17 @@ namespace pimads4.ViewPC
         {
             OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
             List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
+
             if (dtgProdutos.SelectedIndex >= 0)
             {
                 listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
                 listaOcProduto.RemoveAt(dtgProdutos.SelectedIndex);
                 AtualizarDatagrid(listaOcProduto);
+                AtualizarTotal();
+            }
+            else
+            {
+                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
             }
         }
 
@@ -144,9 +149,20 @@ namespace pimads4.ViewPC
                 listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
                 Controller.GetInstance().AdicionarQuantidadeProdutoOc(listaOcProduto, dtgProdutos.SelectedIndex);
-                
-                AtualizarDatagrid(listaOcProduto);
-                dtgProdutos.SelectedIndex = selIndex;
+                if (Controller.GetInstance().mensagem.Equals(""))
+                {
+                    AtualizarDatagrid(listaOcProduto);
+                    dtgProdutos.SelectedIndex = selIndex;
+                    AtualizarTotal();
+                }
+                else
+                {
+                   MessageBox.Show(Controller.GetInstance().mensagem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
             }
         }
 
@@ -162,17 +178,21 @@ namespace pimads4.ViewPC
                 int selIndex = dtgProdutos.SelectedIndex;
                 listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
-                listaOcProduto = Controller.GetInstance().RemoverQuantidadeProdutoOc(listaOcProduto, dtgProdutos.SelectedIndex);
-
+                Controller.GetInstance().RemoverQuantidadeProdutoOc(listaOcProduto, dtgProdutos.SelectedIndex);
                 if (Controller.GetInstance().mensagem.Equals(""))
                 {
                     AtualizarDatagrid(listaOcProduto);
                     dtgProdutos.SelectedIndex = selIndex;
+                    AtualizarTotal();
                 }
                 else
                 {
                     MessageBox.Show(Controller.GetInstance().mensagem);
                 }
+            }
+            else
+            {
+                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
             }
         }
 
