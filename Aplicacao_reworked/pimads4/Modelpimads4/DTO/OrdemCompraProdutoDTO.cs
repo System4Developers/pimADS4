@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Modelpimads4.DTO
 {
+    
     public class OrdemCompraProdutoDTO
     {
+
         private int idOcProduto;
         private Double vlrUnit;
         private int quantidade;
+        private Double subTotal;
         OrdemCompraDTO ordemCompra;
         ProdutoDTO produto;
 
@@ -19,6 +22,7 @@ namespace Modelpimads4.DTO
         public int Quantidade { get => quantidade; set => quantidade = value; }
         public OrdemCompraDTO OrdemCompra { get => ordemCompra; set => ordemCompra = value; }
         public ProdutoDTO Produto { get => produto; set => produto = value; }
+        public double SubTotal { get => subTotal; set => subTotal = value; }
 
         public OrdemCompraProdutoDTO()
         {

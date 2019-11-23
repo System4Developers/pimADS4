@@ -50,5 +50,11 @@ namespace Controllerpimads4.BL
         {
             PessoaDAO.GetInstance().ExlcuirPessoa(idPessoa);
         }
+        internal List<PessoaDTO> ConsultarPessoaJuridica()
+        {
+            List<PessoaDTO> listaPessoaJuridica = new List<PessoaDTO>();
+            listaPessoaJuridica = PessoaDAO.GetInstance().ConsultarPessoaJuridica();
+            return listaPessoaJuridica;
+        }
     }
 }

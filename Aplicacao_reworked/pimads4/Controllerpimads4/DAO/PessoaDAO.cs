@@ -139,6 +139,35 @@ namespace Controllerpimads4.DAO
             return mObj;
         }
 
+        internal List<PessoaDTO> ConsultarPessoaJuridica()
+        {
+            SqlCommand cmd = new SqlCommand("Select * from Pessoas where tpPessoa='J'", ConexaoDAO.GetInstance().Conexao());
+            List<PessoaDTO> listaPessoaJuridica = new List<PessoaDTO>();
+            PessoaDTO pessoa = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    pessoa = new PessoaDTO();
+                    pessoa.IdPessoa = Convert.ToInt32(dr["idPessoa"]);
+                    pessoa.NmPessoa = dr["nmPessoa"].ToString();
+                    listaPessoaJuridica.Add(pessoa);
+
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Erro: " + ex);
+            }
+
+            return listaPessoaJuridica;
+        }
+
         internal void AtualizarPessoa(PessoaDTO mObj)
         {
             SqlCommand cmd = new SqlCommand("sp_AtualizarPessoa", ConexaoDAO.GetInstance().Conexao());

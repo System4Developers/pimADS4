@@ -258,6 +258,12 @@ namespace Controllerpimads4.Controller
             PessoaDTO pessoa = PessoaBL.GetInstance().ConsultarPessoaById(idPessoa);
             return pessoa;
         }
+        public List<PessoaDTO> ConsultarPessoaJuridica()
+        {
+            List<PessoaDTO> listaPessoaJuridica = new List<PessoaDTO>();
+            listaPessoaJuridica = PessoaBL.GetInstance().ConsultarPessoaJuridica();
+            return listaPessoaJuridica;
+        }
         public void AtualizarPessoa(PessoaDTO pessoa)
         {
             PessoaBL.GetInstance().AtualizarPessoa(pessoa);
@@ -268,5 +274,6 @@ namespace Controllerpimads4.Controller
         }
 
         #endregion
+
     }
 }

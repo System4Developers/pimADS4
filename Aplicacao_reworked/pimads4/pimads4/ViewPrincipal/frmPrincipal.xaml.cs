@@ -18,6 +18,7 @@ using pimads4.ViewCEP;
 using pimads4.ViewPessoa;
 using Modelpimads4.DTO;
 using MaterialDesignThemes.Wpf;
+using pimads4.ViewPC;
 
 namespace pimads4
 {
@@ -32,7 +33,6 @@ namespace pimads4
             InitializeComponent();
             InicializarLogin();
             // Login manter sequencia
-
             InicializarMenuLateral();
         }
 
@@ -53,42 +53,46 @@ namespace pimads4
 
         private void InicializarMenuLateral()
         {
-                
-            var menuPdv = new List<SubItem>();
+            List<SubItem> menuPdv = new List<SubItem>();
+            List<SubItem> menuPdc = new List<SubItem>();
+            List<SubItem> menuEntidade = new List<SubItem>();
+            List<SubItem> menuEstoque = new List<SubItem>();
+            List<SubItem> menuEndereco = new List<SubItem>();
+            ItemMenu itemMenuPdv = null;
+            ItemMenu itemMenuPdc = null;
+            ItemMenu itemMenuEntidade = null;
+            ItemMenu itemMenuEstoque = null;
+            ItemMenu itemMenuEndereco = null;
+
             menuPdv.Add(new SubItem("Novo", new frmVendaPdv()));
             menuPdv.Add(new SubItem("Consultar"));
-            var itemMenuPDV = new ItemMenu("PDV", menuPdv,PackIconKind.ViewDashboard);
+            itemMenuPdv = new ItemMenu("PDV", menuPdv,PackIconKind.ViewDashboard);
 
-            var menuPdc = new List<SubItem>();
-            menuPdc.Add(new SubItem("Novo"));
+            menuPdc.Add(new SubItem("Novo", new frmCompraPC()));
             menuPdc.Add(new SubItem("Consultar"));
-            var item0 = new ItemMenu("PDC", menuPdc, PackIconKind.ViewDashboard);
+            itemMenuPdc = new ItemMenu("PDC", menuPdc, PackIconKind.ViewDashboard);
 
-            var menuRegistro = new List<SubItem>();
-            menuRegistro.Add(new SubItem("Pessoas" ,new frmManterPessoas()));
-            menuRegistro.Add(new SubItem("Usuarios" , new frmManterUsuarios() ));
-            var item1 = new ItemMenu("Entidade", menuRegistro, PackIconKind.Register);
+            menuEntidade.Add(new SubItem("Pessoas" ,new frmManterPessoas()));
+            menuEntidade.Add(new SubItem("Usuarios" , new frmManterUsuarios() ));
+            itemMenuEntidade = new ItemMenu("Entidade", menuEntidade, PackIconKind.Register);
 
-            var menuReports = new List<SubItem>();
-            menuReports.Add(new SubItem("Estoque"));
-            menuReports.Add(new SubItem("Fabricante" , new frmManterFabricantes()));
-            menuReports.Add(new SubItem("Produto", new frmManterProdutos()));
-            menuReports.Add(new SubItem("Unidade" ,new frmManterUnidades()));
-            var item2 = new ItemMenu("Estoque", menuReports, PackIconKind.FileReport);
+            menuEstoque.Add(new SubItem("Estoque"));
+            menuEstoque.Add(new SubItem("Fabricante" , new frmManterFabricantes()));
+            menuEstoque.Add(new SubItem("Produto", new frmManterProdutos()));
+            menuEstoque.Add(new SubItem("Unidade" ,new frmManterUnidades()));
+            itemMenuEstoque = new ItemMenu("Estoque", menuEstoque, PackIconKind.FileReport);
 
-            var menuExpenses = new List<SubItem>();
-            menuExpenses.Add(new SubItem("Cidade" , new frmManterCidades()));
-            menuExpenses.Add(new SubItem("Bairros", new frmManterBairros()));
-            var item3 = new ItemMenu("Endereço", menuExpenses, PackIconKind.Earth);
+            menuEndereco.Add(new SubItem("Cidade" , new frmManterCidades()));
+            menuEndereco.Add(new SubItem("Bairros", new frmManterBairros()));
+            itemMenuEndereco = new ItemMenu("Endereço", menuEndereco, PackIconKind.Earth);
 
-            Menu.Children.Add(new UserControlMenuItem(item0,this));
-            Menu.Children.Add(new UserControlMenuItem(itemMenuPDV,this));
-            Menu.Children.Add(new UserControlMenuItem(item1,this));
-            Menu.Children.Add(new UserControlMenuItem(item2,this));
-            Menu.Children.Add(new UserControlMenuItem(item3,this));
+            stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuPdc, this));
+            stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuPdv,this));
+            stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuEntidade,this));
+            stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuEstoque,this));
+            stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuEndereco,this));
 
         }
-
 
         private void BtnUsuariosConsultar_Click(object sender, RoutedEventArgs e)
         {
@@ -100,12 +104,6 @@ namespace pimads4
         {
             this.Close();
         }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
    
     }
 }

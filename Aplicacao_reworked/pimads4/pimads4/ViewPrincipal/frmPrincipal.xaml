@@ -78,7 +78,7 @@
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}" Grid.ColumnSpan="2" Grid.RowSpan="9" Margin="0,0,0,4">
 
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10">
-                <StackPanel x:Name="Menu" Margin="10"/>
+                <StackPanel x:Name="stpMenuLateral" Margin="10"/>
             </ScrollViewer>
         </Grid>
         <Grid Grid.Column="3"  Grid.Row="1" Width="45" Background="#FF2196F3" Margin="0,0,0,4" Grid.RowSpan="9"/>

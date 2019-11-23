@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Controllerpimads4.BL
 
         private OrdemCompraProdutoBL() { }
 
-        public OrdemCompraProdutoBL GetInstance()
+        public static OrdemCompraProdutoBL GetInstance()
         {
             if (instance==null)
             {
