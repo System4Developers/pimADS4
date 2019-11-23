@@ -18,7 +18,7 @@
         <Label x:Name="lblVlr_Custo" Content="VALOR CUSTO:" HorizontalAlignment="Left" Margin="621,175,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.516,0.485"/>
         <TextBox x:Name="txtVlr_Custo" HorizontalAlignment="Left" Height="23" Margin="626,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
 
-        <TextBox x:Name="txtVlr_Total" HorizontalAlignment="Left" Height="23" Margin="805,610,-125,-183" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txtVlr_Total" HorizontalAlignment="Left" Height="23" Margin="805,610,-125,-183" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
         <Label x:Name="lblVlr_Total" Content="TOTAL:" HorizontalAlignment="Left" Margin="706,609,0,-185" VerticalAlignment="Top" RenderTransformOrigin="-0.516,0.485" Width="89" HorizontalContentAlignment="Right"/>
 
         <Label x:Name="lblNr_Quantidade" Content="QUANTIDADE" HorizontalAlignment="Left" Margin="480,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.516,0.485"/>
@@ -41,11 +41,11 @@
 
         <Button x:Name="btnAdicionar" Content="ADICIONAR" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="130" Click="BtnAdicionar_Click"/>
 
-        <Button x:Name="btnProdRemover" Content="REMOVER" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="btnProdRemover" Content="REMOVER" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" Width="150" Click="BtnProdRemover_Click"/>
 
-        <Button x:Name="btnQtdAdd" Content="QTD. +1" HorizontalAlignment="Left" Margin="940,310,-290,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="btnQtdAdd" Content="QTD. +1" HorizontalAlignment="Left" Margin="940,310,-290,0" VerticalAlignment="Top" Width="150" Click="BtnQtdAdd_Click"/>
         
-        <Button x:Name="btnQtdRemover" Content="QTD. -1" HorizontalAlignment="Left" Margin="940,358,-290,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="btntdRemover" Content="QTD. -1" HorizontalAlignment="Left" Margin="940,358,-290,0" VerticalAlignment="Top" Width="150" Click="BtnQtdRemover_Click"/>
 
     </Grid>
 </UserControl>

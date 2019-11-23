@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Modelpimads4.DTO;
 using Controllerpimads4.BL;
 
+
 namespace Controllerpimads4.Controller
 {
     public class Controller
     {
         private static Controller instance;
+        public string mensagem;
 
         private Controller() { }
 
@@ -274,6 +276,37 @@ namespace Controllerpimads4.Controller
         }
 
         #endregion
+
+        #region Metodos Ordem de Compra
+        public void VerificarProdutoOc(OrdemCompraProdutoDTO produtoOc)
+        {
+            this.mensagem = "";
+            OrdemCompraProdutoBL.GetInstance().VerificarProdutoOc(produtoOc);
+            if (OrdemCompraProdutoBL.GetInstance().mensagem !="")
+            {
+                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public void AdicionarQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc,int index)
+        {
+            OrdemCompraProdutoBL.GetInstance().AdicionarQuantidadeProdutoOc(listaProdutosOc, index);
+        }
+
+        public List<OrdemCompraProdutoDTO> RemoverQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc, int index)
+        {
+            this.mensagem = "";
+            listaProdutosOc = OrdemCompraProdutoBL.GetInstance().RemoverQuantidadeProdutoOc(listaProdutosOc, index);
+            if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
+            {
+                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+            }
+            return listaProdutosOc;
+        }
+
+        
+        #endregion
+
 
     }
 }
