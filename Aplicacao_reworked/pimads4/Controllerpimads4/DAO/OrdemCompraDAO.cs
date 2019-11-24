@@ -29,24 +29,10 @@ namespace Controllerpimads4.DAO
         {
             this.mensagem = "";
             int id_OrdemCompra=0;
-            int id_Usuario = estPropriedades.Id_Usuario;
             
             string sqlText = string.Format("insert into OrdemCompra (valorTotal,dtDigitacao,tpStatus,fk_idUsuario_Usuarios,fk_idPessoa_Pessoas)" +
-            " OUTPUT INSERTED.idOrdemCompra VALUES({0},'{1}','{2}',{3},{4})",ordemCompra.ValorTotal, ordemCompra.DtDigitacao, ordemCompra.TpStatus, ordemCompra.Pessoa.IdPessoa,id_Usuario);
-
+            " OUTPUT INSERTED.idOrdemCompra VALUES({0},'{1}','{2}',{3},{4})",ordemCompra.ValorTotal, ordemCompra.DtDigitacao, ordemCompra.TpStatus, ordemCompra.Pessoa.IdPessoa,ordemCompra.Usuario.IdUsuario);
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
-
-           /* SqlCommand cmd = new SqlCommand("insert into OrdemCompra(valorTotal, dtDigitacao, tpStatus, fk_idUsuario_Usuarios, fk_idPessoa_Pessoas)" +
-            " OUTPUT INSERTED.idOrdemCompra VALUES(@valorTotal,'@dtDigitacao','@Status',1,@idPessoa)", ConexaoDAO.GetInstance().Conexao());
-
-            /* "insert into OrdemCompra (valorTotal,dtDigitacao,tpStatus,fk_idUsuario_Usuarios,fk_idPessoa_Pessoas)" +
-             " OUTPUT INSERTED.idOrdemCompra VALUES(@valorTotal,'@dtDigitacao','@Status', @idUsuario, @idPessoa)"
-             
-             cmd.Parameters.AddWithValue("@valorTotal", ordemCompra.ValorTotal);
-             cmd.Parameters.AddWithValue("@dtDigitacao", ordemCompra.DtDigitacao);
-             cmd.Parameters.AddWithValue("@Status", ordemCompra.TpStatus);
-             cmd.Parameters.AddWithValue("@idUsuario", ordemCompra.Usuario.IdUsuario);
-             cmd.Parameters.AddWithValue("@idPessoa", ordemCompra.Pessoa.IdPessoa);*/
 
             try
             {
