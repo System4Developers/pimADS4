@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="pimads4.ViewPC.frmCompraPC"
+﻿<UserControl x:Class="pimads4.ViewPC.frmCompraPdc"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -41,7 +41,7 @@
 
         <Button x:Name="btnAdicionar" Content="ADICIONAR" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="130" Click="BtnAdicionar_Click"/>
 
-        <Button x:Name="btnProdRemover" Content="REMOVER" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" Width="150" Click="BtnProdRemover_Click"/>
+        <Button x:Name="btnProdRemover" Content="REMOVER" HorizontalAlignment="Left" Margin="336,250,0,0" VerticalAlignment="Top" Width="150" Click="BtnProdRemover_Click"/>
 
         <Button x:Name="btnQtdAdd" Content="QTD. +1" HorizontalAlignment="Left" Margin="940,310,-290,0" VerticalAlignment="Top" Width="150" Click="BtnQtdAdd_Click"/>
         

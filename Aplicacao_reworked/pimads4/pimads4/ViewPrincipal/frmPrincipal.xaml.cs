@@ -19,6 +19,7 @@ using pimads4.ViewPessoa;
 using Modelpimads4.DTO;
 using MaterialDesignThemes.Wpf;
 using pimads4.ViewPC;
+using pimads4.ViewPV;
 
 namespace pimads4
 {
@@ -66,11 +67,11 @@ namespace pimads4
 
             menuPdv.Add(new SubItem("Novo", new frmVendaPdv()));
 
-            menuPdv.Add(new SubItem("Consultar"));
+            menuPdv.Add(new SubItem("Consultar", new ViewPVConsultar())); ;
             itemMenuPdv = new ItemMenu("PDV", menuPdv,PackIconKind.ViewDashboard);
 
 
-            menuPdc.Add(new SubItem("Novo", new frmCompraPC()));
+            menuPdc.Add(new SubItem("Novo", new frmCompraPdc()));
             menuPdc.Add(new SubItem("Consultar"));
             itemMenuPdc = new ItemMenu("PDC", menuPdc, PackIconKind.ViewDashboard);
 

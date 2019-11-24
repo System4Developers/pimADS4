@@ -20,9 +20,9 @@ namespace pimads4.ViewPC
     /// <summary>
     /// Interação lógica para frmCompraPC.xam
     /// </summary>
-    public partial class frmCompraPC : UserControl
+    public partial class frmCompraPdc : UserControl
     {
-        public frmCompraPC()
+        public frmCompraPdc()
         {
             InitializeComponent();
             InicializarCampos();

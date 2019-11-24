@@ -31,8 +31,11 @@
 
             <ColumnDefinition Width="26"/>
             <ColumnDefinition Width="4"/>
-            <ColumnDefinition Width="57*"/>
-            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="8*"/>
             <ColumnDefinition Width="78*"/>
             <ColumnDefinition Width="49*"/>
@@ -40,7 +43,7 @@
             <ColumnDefinition Width="143*"/>
             <ColumnDefinition Width="14*"/>
             <ColumnDefinition Width="189*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="21*"/>
             <ColumnDefinition Width="102*"/>
             <ColumnDefinition Width="0*"/>
@@ -49,31 +52,35 @@
 
         </Grid.ColumnDefinitions>
 
-        <Label Content="Cliente" Grid.Row="0" Grid.Column="3" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Height="26"/>
-        <ComboBox  Grid.Column="3" VerticalAlignment="Top" Grid.ColumnSpan="6"  Grid.Row="1" Height="28"/>
-        <Label Content="Produto" Grid.Column="10" VerticalAlignment="Bottom" Height="26"/>
-        <ComboBox VerticalAlignment="Top" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="6" SelectionChanged="ComboBox_SelectionChanged" Height="28" />
-        <Label Content="Quantidade"  Grid.Column="13" Grid.Row="2" Margin="0,25,23,0" />
-        <TextBox Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="13" Grid.Row="3" Margin="0,3,18,2"/>
-        <Label Content="Unidade" VerticalAlignment="Bottom" Height="26" Grid.Column="14" Grid.Row="2" Grid.ColumnSpan="3" />
-        <TextBox Grid.Column="15" HorizontalAlignment="Left" Height="23" Grid.Row="3"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="50" Margin="0,2"/>
-        <Label Content="Valor Desconto" Grid.Column="13"  Grid.Row="4" VerticalAlignment="Bottom" Height="26"/>
-        <TextBox Grid.Column="13" HorizontalAlignment="Left" Height="22"  Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2"/>
-        <Label Content="Valor unitario" Grid.Column="15" Grid.Row="4" VerticalAlignment="Bottom" Height="26"/>
-        <TextBox Grid.Column="15" HorizontalAlignment="Left" Height="22"  Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2"/>
-        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="11" Grid.Column="1" Grid.Row="2" Grid.RowSpan="12" Margin="0,10,1,45">
+        <Label Content="Cliente" Grid.Row="0" Grid.Column="5" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Height="26" Grid.ColumnSpan="2"/>
+        <ComboBox  Grid.Column="5" VerticalAlignment="Top" Grid.ColumnSpan="7"  Grid.Row="1" Height="28"/>
+        <Label  Content="Produto" Grid.Column="13" VerticalAlignment="Bottom" Height="26"/>
+        <ComboBox x:Name="cmbDs_Produto" VerticalAlignment="Top" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="6" SelectionChanged="ComboBox_SelectionChanged" Height="28" />
+        <Label Content="Quantidade"  Grid.Column="16" Grid.Row="2" Margin="0,25,23,0" />
+        <TextBox Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="16" Grid.Row="3" Margin="0,3,18,2"/>
+        <Label Content="Unidade" VerticalAlignment="Bottom" Height="26" Grid.Column="18" Grid.Row="2" Grid.ColumnSpan="2" />
+        <TextBox Grid.Column="17" HorizontalAlignment="Left" Height="23" Grid.Row="3"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="50" Margin="0,2" Grid.ColumnSpan="2"/>
+        <Label Content="Valor Desconto" Grid.Column="16"  Grid.Row="4" VerticalAlignment="Bottom" Height="26"/>
+        <TextBox Grid.Column="16" HorizontalAlignment="Left" Height="22"  Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2"/>
+        <Label Content="Valor unitario" Grid.Column="17" Grid.Row="4" VerticalAlignment="Bottom" Height="26" Grid.ColumnSpan="2"/>
+        <TextBox Grid.Column="17" HorizontalAlignment="Left" Height="22"  Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2" Grid.ColumnSpan="2"/>
+        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="14" Grid.Column="1" Grid.Row="2" Grid.RowSpan="12" Margin="0,10,1,45">
+
 
         </Grid>
-        <Button x:Name="btnExluir" Content="Excluir" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="108" Height="27" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="2"  />
-        <Button x:Name="btnFinalizarCompra" Content="Finalizar Compra" Grid.Column="10" Grid.Row="13" Height="28" Margin="0,11,0,10" />
-        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Width="108" Height="27"  Grid.Column="2" Grid.Row="11" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <Label Content="Quantidade" Grid.Column="2" FontWeight="Bold" VerticalAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="4"  Grid.Row="10" Grid.RowSpan="2" />
+        <Button x:Name="btnExluir" Content="Excluir" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="108" Height="24" Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="2"  />
+        <Button x:Name="btnFinalizarCompra" Content="Finalizar Compra" Grid.Column="13" Grid.Row="13" Height="Auto" Margin="0,11,0,10" />
+        <Button x:Name="btnQtdAdd" Content="+" Height="24" Grid.Column="2" Grid.Row="11" VerticalAlignment="Bottom" Grid.ColumnSpan="1" Grid.RowSpan="2"  />
+        <Button x:Name="btnQtdRmv" Content="-"  Height="24" Grid.Column="4" Grid.Row="11" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom"  />
 
-        <Grid Background="White" Grid.Column="10" Grid.Row="10" Grid.RowSpan="2"/>
-        <Grid  Background="White" Grid.Column="8" Grid.Row="10" Grid.RowSpan="2" />
 
-        <Button x:Name="btnOkProduto" Content="Ok !" Grid.Column="13"  Grid.Row="6"  Height="25" Grid.ColumnSpan="3" Margin="0,20" />
+        <Grid Background="White" Grid.Column="13" Grid.Row="10" Grid.RowSpan="2"/>
+        <Grid  Background="White" Grid.Column="11" Grid.Row="10" Grid.RowSpan="2" />
 
-        <DataGrid Grid.Column="2" Grid.ColumnSpan="9" Grid.Row="2" Grid.RowSpan="8" SelectionChanged="DataGrid_SelectionChanged_1" Margin="0,32,0,10">
+        <Button x:Name="btnOkProduto" Content="Ok !" Grid.Column="16"  Grid.Row="6"  Height="Auto" Grid.ColumnSpan="3" Margin="0,20" />
+
+        <DataGrid Grid.Column="2" Grid.ColumnSpan="12" Grid.Row="2" Grid.RowSpan="8" SelectionChanged="DataGrid_SelectionChanged_1" Margin="0,32,0,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdUsuario}" Header="Item" />
                 <DataGridTextColumn Binding="{Binding NmUsuario}" Header="Produto" />
@@ -87,7 +94,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Total Desconto" Grid.Column="8" HorizontalAlignment="Center"  Grid.Row="12" VerticalAlignment="Top" Width="124" FontWeight="Bold" FontSize="11" Height="26" Grid.RowSpan="2"/>
+        <Label Content="Total Desconto" Grid.Column="11" HorizontalAlignment="Center"  Grid.Row="12" VerticalAlignment="Top" Width="124" FontWeight="Bold" FontSize="11" Height="26" Grid.RowSpan="2" Margin="10,0,9,0"/>
 
     </Grid>
 </UserControl>

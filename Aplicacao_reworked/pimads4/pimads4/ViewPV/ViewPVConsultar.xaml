@@ -5,33 +5,53 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.ViewPV"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="620" d:DesignWidth="1045">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="113*"/>
-            <ColumnDefinition Width="52*"/>
-            <ColumnDefinition Width="79*"/>
-            <ColumnDefinition Width="143*"/>
-            <ColumnDefinition Width="79*"/>
-            <ColumnDefinition Width="335*"/>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="69*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="122*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="12*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="63*"/>
-            <RowDefinition Height="56*"/>
-            <RowDefinition Height="332*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="339*"/>
+            <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Data Inicio" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Height="24" Width="66" Grid.Column="2" Margin="6.065,0,6.935,0"/>
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Grid.Column="3" Grid.Row="0" Width="100" Margin="0.065,0,0,0"/>
-        <Label Content="Data Final" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="24" Width="66" Grid.Column="4" Margin="0.243,0,0,0"/>
-        <DatePicker Grid.Row="0" VerticalAlignment="Bottom" Height="25" Grid.Column="5" Width="100" HorizontalAlignment="Left" Margin="0.243,0,0,0"/>
-        <Label Content="Cliente"  VerticalAlignment="Bottom" Grid.Row="1" Height="24"  Grid.Column="1" />
-        <ComboBox HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="453" Grid.Row="1" Height="25" Grid.Column="2" />
-        <Label Content="Data Emissão" HorizontalAlignment="Left" Margin="7.065,45.5,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="81" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="8.065,45.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" Grid.Row="2" Grid.Column="3"/>
-        <Label Content="Pedido" HorizontalAlignment="Left" Margin="1.243,43.5,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="47" Grid.Column="4"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="39.243,43.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
-        <Label Content="Cliente" HorizontalAlignment="Left" Margin="15,79.5,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="48" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="0,13.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" RenderTransformOrigin="0.5,0.5" Grid.Row="2" Grid.ColumnSpan="6">
+        <Label Grid.Row="0" Content="Data Inicio"  VerticalAlignment="Bottom" Height="24"  Grid.Column="5" />
+        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Grid.Column="6" Grid.Row="0" Width="100" Grid.ColumnSpan="2"/>
+        <Label Content="Data Final"  VerticalAlignment="Bottom" Height="24"  Grid.Column="12"/>
+        <DatePicker Grid.Row="0" VerticalAlignment="Bottom" Height="25" Grid.Column="13" Width="100" HorizontalAlignment="Left"/>
+        <Label Content="Cliente"  VerticalAlignment="Bottom" Grid.Row="1" Height="24"  Grid.Column="3" Grid.ColumnSpan="2" />
+        <ComboBox  VerticalAlignment="Bottom" Grid.Row="1" Height="25" Grid.Column="4" Grid.ColumnSpan="11"/>
+        <Label Content="Data Emissão" Height="24" Grid.Row="3" Grid.Column="5" VerticalAlignment="Bottom"/>
+        <TextBox HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Bottom" Width="100" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2"/>
+        <Label Content="Pedido" VerticalAlignment="Bottom" Grid.Row="3" Height="24" Grid.Column="12" />
+        <TextBox Height="22" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="13" Width="100" />
+        <Label Content="Cliente" VerticalAlignment="Bottom" Grid.Row="4" Height="24" Grid.Column="3"  />
+        <TextBox Height="24" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="11"   />
+
+        <Rectangle Fill="#FFF4F4F5" Height="1"  Stroke="Silver" VerticalAlignment="Bottom"  Grid.Row="2" Grid.ColumnSpan="18">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -41,7 +61,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <DataGrid HorizontalAlignment="Left" Height="202" Margin="10,123.5,0,0" VerticalAlignment="Top" Width="353" Grid.Row="2" Grid.ColumnSpan="4">
+        <DataGrid Grid.Column="2" Grid.Row="7"  Grid.ColumnSpan="6"  Grid.RowSpan="1" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdUsuario}" Header="ID" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding NmUsuario}" Header="DATA" />
@@ -52,7 +72,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid HorizontalAlignment="Left" Height="202" Margin="6.243,123.5,0,0" VerticalAlignment="Top" Width="356" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2">
+
+
+        <DataGrid Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="5" Grid.RowSpan="1"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdUsuario}" Header="ID" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding NmUsuario}" Header="DESCRIÇÃO" />
@@ -63,7 +85,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="28.065,81.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4"/>
 
     </Grid>
 </UserControl>
