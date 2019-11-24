@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Modelpimads4.DTO;
 using Controllerpimads4.BL;
 
+
 namespace Controllerpimads4.Controller
 {
     public class Controller
     {
         private static Controller instance;
+        public string mensagem;
 
         private Controller() { }
 
@@ -258,6 +260,12 @@ namespace Controllerpimads4.Controller
             PessoaDTO pessoa = PessoaBL.GetInstance().ConsultarPessoaById(idPessoa);
             return pessoa;
         }
+        public List<PessoaDTO> ConsultarPessoaJuridica()
+        {
+            List<PessoaDTO> listaPessoaJuridica = new List<PessoaDTO>();
+            listaPessoaJuridica = PessoaBL.GetInstance().ConsultarPessoaJuridica();
+            return listaPessoaJuridica;
+        }
         public void AtualizarPessoa(PessoaDTO pessoa)
         {
             PessoaBL.GetInstance().AtualizarPessoa(pessoa);
@@ -268,5 +276,63 @@ namespace Controllerpimads4.Controller
         }
 
         #endregion
+
+        #region Metodos Ordem de Compra
+        public void VerificarProdutoOc(OrdemCompraProdutoDTO produtoOc)
+        {
+            this.mensagem = "";
+            OrdemCompraProdutoBL.GetInstance().VerificarProdutoOc(produtoOc);
+            if (OrdemCompraProdutoBL.GetInstance().mensagem !="")
+            {
+                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public void AdicionarQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc,int index)
+        {
+            this.mensagem = "";
+            OrdemCompraProdutoBL.GetInstance().AdicionarQuantidadeProdutoOc(listaProdutosOc, index);
+
+            if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
+            {
+                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public void RemoverQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc, int index)
+        {
+            this.mensagem = "";
+            OrdemCompraProdutoBL.GetInstance().RemoverQuantidadeProdutoOc(listaProdutosOc, index);
+
+            if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
+            {
+                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public double OcProdCalcularValorTotal(List<OrdemCompraProdutoDTO> listaProdutosOc)
+        {
+            this.mensagem = "";
+            double vlTotal=0;
+
+            try
+            {
+                vlTotal = OrdemCompraProdutoBL.GetInstance().OcProdCalcularValorTotal(listaProdutosOc);
+                if (OrdemCompraProdutoBL.GetInstance().mensagem != "")
+                {
+                    this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.mensagem = "NAO FOI POSSIVEL CALCULAR O VALOR TOTAL";
+            }
+
+            return vlTotal;
+        }
+
+        #endregion
+
+
     }
 }
