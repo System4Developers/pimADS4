@@ -7,7 +7,7 @@
              mc:Ignorable="d" Height="720" Width="1230">
     <Grid>
         <Label x:Name="lblDt_Digitacao" Content="DATA:" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.516,0.485"/>
-        <DatePicker x:Name="dtpDt_Digitacao" HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="150"/>
+        <DatePicker x:Name="dtpDt_Digitacao" HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="150" SelectedDateFormat="Short"/>
 
         <Label x:Name="lblNm_Fornecedor" Content="FORNECEDOR:" HorizontalAlignment="Left" Margin="199,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.516,0.485"/>
         <ComboBox x:Name="cmbNm_Fornecedor" HorizontalAlignment="Left" Margin="200,110,0,0" VerticalAlignment="Top" Width="450"/>
@@ -46,6 +46,8 @@
         <Button x:Name="btnQtdAdd" Content="QTD. +1" HorizontalAlignment="Left" Margin="940,310,-290,0" VerticalAlignment="Top" Width="150" Click="BtnQtdAdd_Click"/>
         
         <Button x:Name="btntdRemover" Content="QTD. -1" HorizontalAlignment="Left" Margin="940,358,-290,0" VerticalAlignment="Top" Width="150" Click="BtnQtdRemover_Click"/>
+        
+        <Button x:Name="btnFinalizar" Content="FINALIZAR" HorizontalAlignment="Left" Margin="795,663,0,0" VerticalAlignment="Top" Width="130" Click="BtnFinalizar_Click" />
 
     </Grid>
 </UserControl>

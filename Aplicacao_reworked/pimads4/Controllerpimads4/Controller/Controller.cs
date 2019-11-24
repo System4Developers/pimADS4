@@ -331,6 +331,26 @@ namespace Controllerpimads4.Controller
             return vlTotal;
         }
 
+        public int CadastrarPedidoCompra(OrdemCompraDTO ordemCompra)
+        {
+            this.mensagem = "";
+            int id_OrdemCompra = 0;
+
+            id_OrdemCompra = OrdemCompraBL.GetInstance().CadastrarPedidoCompra(ordemCompra);
+            if (OrdemCompraBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = OrdemCompraBL.GetInstance().mensagem;
+            }
+
+            return id_OrdemCompra;
+        }
+
+        public void CadastrarProdutoOrdemCompra(List<OrdemCompraProdutoDTO> listaProdutos, int id_OrdemCompra)
+        {
+            this.mensagem = "";
+            OrdemCompraProdutoBL.GetInstance().CadastrarProdutoOrdemCompra(listaProdutos, id_OrdemCompra);
+        }
+
         #endregion
 
 

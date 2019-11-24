@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,7 @@ namespace Controllerpimads4.BL
     public class OrdemCompraBL
     {
         public static OrdemCompraBL instance;
+        public string mensagem;
 
         private OrdemCompraBL() { }
 
@@ -19,6 +22,20 @@ namespace Controllerpimads4.BL
                 instance = new OrdemCompraBL();
             }
             return instance;
+        }
+
+        internal int CadastrarPedidoCompra(OrdemCompraDTO ordemCompra)
+        {
+            this.mensagem = "";
+            int id_OrdemCompra = 0;
+
+            id_OrdemCompra = OrdemCompraDAO.GetInstance().CadastrarPedidoCompra(ordemCompra);
+            if (OrdemCompraDAO.GetInstance().mensagem != "")
+            {
+                this.mensagem = OrdemCompraDAO.GetInstance().mensagem;
+            }
+            
+            return id_OrdemCompra;
         }
 
 
