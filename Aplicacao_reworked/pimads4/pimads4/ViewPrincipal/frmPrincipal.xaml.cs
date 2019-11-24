@@ -65,11 +65,13 @@ namespace pimads4
             ItemMenu itemMenuEndereco = null;
 
             menuPdv.Add(new SubItem("Novo", new frmVendaPdv()));
+
             menuPdv.Add(new SubItem("Consultar"));
             itemMenuPdv = new ItemMenu("PDV", menuPdv,PackIconKind.ViewDashboard);
 
+
             menuPdc.Add(new SubItem("Novo", new frmCompraPC()));
-            menuPdc.Add(new SubItem("Consultar"));
+            menuPdc.Add(new SubItem("Consultar", new ViewPCConsultar()));
             itemMenuPdc = new ItemMenu("PDC", menuPdc, PackIconKind.ViewDashboard);
 
             menuEntidade.Add(new SubItem("Pessoas" ,new frmManterPessoas()));
