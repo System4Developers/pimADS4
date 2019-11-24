@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewPC\ViewPCConsultar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewPV\frmVendaPdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +104,9 @@
     </Compile>
     <Compile Include="ViewPC\frmCompraPC.xaml.cs">
       <DependentUpon>frmCompraPC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPC\ViewPCConsultar.xaml.cs">
+      <DependentUpon>ViewPCConsultar.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewPV\frmVendaPdv.xaml.cs">
       <DependentUpon>frmVendaPdv.xaml</DependentUpon>
