@@ -1,4 +1,5 @@
-﻿using Modelpimads4.DTO;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -105,5 +106,11 @@ namespace Controllerpimads4.BL
             }
             return vlTotal;
         }
+
+        internal void CadastrarProdutoOrdemCompra(List<OrdemCompraProdutoDTO> listaProdutos,int id_OrdemCompra)
+        {
+            OrdemCompraProdutoDAO.GetInstance().CadastrarProdutoOrdemCompra(listaProdutos, id_OrdemCompra);
+        }
+
     }
 }

@@ -71,8 +71,13 @@ namespace pimads4
             itemMenuPdv = new ItemMenu("PDV", menuPdv,PackIconKind.ViewDashboard);
 
 
+<<<<<<< HEAD
             menuPdc.Add(new SubItem("Novo", new frmCompraPdc()));
             menuPdc.Add(new SubItem("Consultar"));
+=======
+            menuPdc.Add(new SubItem("Novo", new frmCompraPC()));
+            menuPdc.Add(new SubItem("Consultar", new ViewPCConsultar()));
+>>>>>>> 82b97bbd740e83a0ca2aec3d709a49bde098d888
             itemMenuPdc = new ItemMenu("PDC", menuPdc, PackIconKind.ViewDashboard);
 
             menuEntidade.Add(new SubItem("Pessoas" ,new frmManterPessoas()));
