@@ -50,5 +50,40 @@ namespace Controllerpimads4.DAO
             return id_OrdemCompra;
         }
 
+        internal List<OrdemCompraDTO> ConsultarOrdemCompraTodos()
+        {
+            this.mensagem = "";
+            String sqlText = "SELECT * FROM OrdemCompra JOIN Pessoas on Pessoas.idPessoa = OrdemCompra.fk_idPessoa_Pessoas";
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            List<OrdemCompraDTO> lstObj = new List<OrdemCompraDTO>();
+            OrdemCompraDTO mObj = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    mObj = new OrdemCompraDTO();
+                    mObj.IdOrdemCompra = Convert.ToInt32(dr["idOrdemCompra"]);
+                    mObj.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
+                    mObj.DtDigitacao = dr["dtDigitacao"].ToString();
+                    mObj.TpStatus = dr["tpStatus"].ToString();
+                    mObj.Pessoa.IdPessoa = Convert.ToInt32(dr["idPessoa"]);
+                    mObj.Pessoa.NmPessoa = dr["nmPessoa"].ToString();
+                    lstObj.Add(mObj);
+                }
+
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+            }
+            return lstObj;
+        }
+       
     }
 }
