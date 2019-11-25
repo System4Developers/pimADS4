@@ -37,7 +37,20 @@ namespace Controllerpimads4.BL
             
             return id_OrdemCompra;
         }
+        
+        internal List<OrdemCompraDTO> ConsultarOrdemCompraTodos()
+        {
+            this.mensagem = "";
 
+            List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
+            listaOrdemCompra = OrdemCompraDAO.GetInstance().ConsultarOrdemCompraTodos();
+            if (OrdemCompraDAO.GetInstance().mensagem != "")
+            {
+                this.mensagem = OrdemCompraDAO.GetInstance().mensagem;
+            }
+            
+            return listaOrdemCompra;
+        }
 
 
     }
