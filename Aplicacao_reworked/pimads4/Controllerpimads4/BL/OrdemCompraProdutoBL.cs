@@ -109,7 +109,12 @@ namespace Controllerpimads4.BL
 
         internal void CadastrarProdutoOrdemCompra(List<OrdemCompraProdutoDTO> listaProdutos,int id_OrdemCompra)
         {
+            this.mensagem = "";
             OrdemCompraProdutoDAO.GetInstance().CadastrarProdutoOrdemCompra(listaProdutos, id_OrdemCompra);
+            if (OrdemCompraProdutoDAO.GetInstance().mensagem != "")
+            {
+                this.mensagem = OrdemCompraProdutoDAO.GetInstance().mensagem;
+            }
         }
 
     }

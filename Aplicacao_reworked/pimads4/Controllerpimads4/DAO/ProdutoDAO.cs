@@ -11,6 +11,7 @@ namespace Controllerpimads4.DAO
     public class ProdutoDAO
     {
         private static ProdutoDAO instance;
+        public string mensagem;
 
         private ProdutoDAO() { }
 
@@ -165,6 +166,31 @@ namespace Controllerpimads4.DAO
             {
                 ConexaoDAO.GetInstance().Desconectar();
                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+            }
+
+        }
+
+        internal void AtualizarProdutoQuantidade(List<OrdemCompraProdutoDTO> listaProdutosOc)
+        {
+            this.mensagem = "";
+            foreach (OrdemCompraProdutoDTO ocProduto in listaProdutosOc)
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE Produtos SET quantidade = quantidade + @quantidade, valorCusto = @valorCusto where idProduto = @idProduto", ConexaoDAO.GetInstance().Conexao());
+                cmd.Parameters.AddWithValue("@quantidade", ocProduto.Quantidade);
+                cmd.Parameters.AddWithValue("@idProduto", ocProduto.Produto.IdProduto);
+                cmd.Parameters.AddWithValue("@valorCusto", ocProduto.VlrUnit);
+
+                try
+                {
+                    ConexaoDAO.GetInstance().Conectar();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    ConexaoDAO.GetInstance().Desconectar();
+                    this.mensagem= ex.Message + " - " + cmd.CommandText + " " + ex;
+                }
+                ConexaoDAO.GetInstance().Desconectar();
             }
 
         }

@@ -24,14 +24,14 @@ namespace Controllerpimads4.DAO
             return instance;
         }
 
-
         internal int CadastrarPedidoCompra(OrdemCompraDTO ordemCompra)
         {
             this.mensagem = "";
             int id_OrdemCompra=0;
             
             string sqlText = string.Format("insert into OrdemCompra (valorTotal,dtDigitacao,tpStatus,fk_idUsuario_Usuarios,fk_idPessoa_Pessoas)" +
-            " OUTPUT INSERTED.idOrdemCompra VALUES({0},'{1}','{2}',{3},{4})",ordemCompra.ValorTotal, ordemCompra.DtDigitacao, ordemCompra.TpStatus, ordemCompra.Pessoa.IdPessoa,ordemCompra.Usuario.IdUsuario);
+            " OUTPUT INSERTED.idOrdemCompra VALUES({0},'{1}','{2}',{3},{4})",ordemCompra.ValorTotal, ordemCompra.DtDigitacao, ordemCompra.TpStatus,ordemCompra.Usuario.IdUsuario, ordemCompra.Pessoa.IdPessoa);
+
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
             try

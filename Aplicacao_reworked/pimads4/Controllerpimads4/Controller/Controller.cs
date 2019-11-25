@@ -349,6 +349,19 @@ namespace Controllerpimads4.Controller
         {
             this.mensagem = "";
             OrdemCompraProdutoBL.GetInstance().CadastrarProdutoOrdemCompra(listaProdutos, id_OrdemCompra);
+
+            if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
+            {
+                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+            }
+            else
+            {
+                ProdutoBL.GetInstance().AtualizarProdutoQuantidade(listaProdutos);
+                if (ProdutoBL.GetInstance().mensagem != "")
+                {
+                    this.mensagem = ProdutoBL.GetInstance().mensagem;
+                }
+            }
         }
 
         #endregion

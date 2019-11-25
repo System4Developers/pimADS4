@@ -8,6 +8,11 @@ namespace pimads4
         {
             Name = name;
             Screen = screen;
+            if (Screen!=null)
+            {
+                Screen.InvalidateVisual();
+            }
+            
         }
 
         public string Name { get; private set; }

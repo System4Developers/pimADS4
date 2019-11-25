@@ -66,18 +66,11 @@ namespace pimads4
             ItemMenu itemMenuEndereco = null;
 
             menuPdv.Add(new SubItem("Novo", new frmVendaPdv()));
-
             menuPdv.Add(new SubItem("Consultar", new ViewPVConsultar())); ;
             itemMenuPdv = new ItemMenu("PDV", menuPdv,PackIconKind.ViewDashboard);
 
-
-<<<<<<< HEAD
             menuPdc.Add(new SubItem("Novo", new frmCompraPdc()));
             menuPdc.Add(new SubItem("Consultar"));
-=======
-            menuPdc.Add(new SubItem("Novo", new frmCompraPC()));
-            menuPdc.Add(new SubItem("Consultar", new ViewPCConsultar()));
->>>>>>> 82b97bbd740e83a0ca2aec3d709a49bde098d888
             itemMenuPdc = new ItemMenu("PDC", menuPdc, PackIconKind.ViewDashboard);
 
             menuEntidade.Add(new SubItem("Pessoas" ,new frmManterPessoas()));
@@ -100,12 +93,6 @@ namespace pimads4
             stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuEstoque,this));
             stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuEndereco,this));
 
-        }
-
-        private void BtnUsuariosConsultar_Click(object sender, RoutedEventArgs e)
-        {
-            grdFormContentArea.Children.Clear();
-            grdFormContentArea.Children.Add(new frmManterUsuarios());
         }
 
         private void BtnFechar_Click(object sender, RoutedEventArgs e)

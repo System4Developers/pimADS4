@@ -11,6 +11,7 @@ namespace Controllerpimads4.DAO
     public class OrdemCompraProdutoDAO
     {
         public static OrdemCompraProdutoDAO instance;
+        public string mensagem;
 
         private OrdemCompraProdutoDAO() { }
 
@@ -25,7 +26,7 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarProdutoOrdemCompra(List<OrdemCompraProdutoDTO> listaProdutos, int id_OrdemCompra)
         {
-
+            this.mensagem = "";
             foreach (OrdemCompraProdutoDTO ocProduto in listaProdutos)
             {
                 SqlCommand cmd = new SqlCommand("insert into OrdemCompraProduto (vlrUnit,quantidade,fk_idOrdemCompra_OrdemCompra,fk_idProduto_Produtos)" +
@@ -43,11 +44,10 @@ namespace Controllerpimads4.DAO
                 catch (Exception ex)
                 {
                     ConexaoDAO.GetInstance().Desconectar();
-                    throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                    this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
                 }
             }
             ConexaoDAO.GetInstance().Desconectar();
-
         }
     }
 }

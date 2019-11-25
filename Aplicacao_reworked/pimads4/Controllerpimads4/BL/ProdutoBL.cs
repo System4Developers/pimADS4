@@ -11,6 +11,7 @@ namespace Controllerpimads4.BL
     public class ProdutoBL
     {
         private static ProdutoBL instance;
+        public string mensagem;
         
         private ProdutoBL() { }
 
@@ -50,6 +51,14 @@ namespace Controllerpimads4.BL
         {
             ProdutoDAO.GetInstance().ExlcuirProduto(idProduto);
         }
-
+        internal void AtualizarProdutoQuantidade(List<OrdemCompraProdutoDTO> listaProdutosOc)
+        {
+            this.mensagem = "";
+            ProdutoDAO.GetInstance().AtualizarProdutoQuantidade(listaProdutosOc);
+            if (ProdutoDAO.GetInstance().mensagem !="")
+            {
+                this.mensagem = ProdutoDAO.GetInstance().mensagem;
+            }
+        }
     }
 }

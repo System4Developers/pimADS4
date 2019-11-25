@@ -199,28 +199,52 @@ namespace pimads4.ViewPC
         private void BtnFinalizar_Click(object sender, RoutedEventArgs e)
         {
             int id_OrdemCompra = 0;
-
             OrdemCompraDTO ordemCompra = new OrdemCompraDTO();
+
             ordemCompra.DtDigitacao = dtpDt_Digitacao.SelectedDate.ToString();
-            ordemCompra.ValorTotal = Convert.ToDouble(txtVlr_Total.Text);
+            try
+            {
+                ordemCompra.ValorTotal = Convert.ToDouble(txtVlr_Total.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("VALOR TOTAL INVALIDO");
+                return;
+            }
+            try
+            {
+                ordemCompra.Pessoa.IdPessoa = Convert.ToInt32(cmbNm_Fornecedor.SelectedValue);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("FORNECEDOR NÃO INFORMADO");
+                return;
+            }
             ordemCompra.TpStatus = "F";
-            ordemCompra.Usuario.IdUsuario = 1;
-            ordemCompra.Pessoa.IdPessoa = Convert.ToInt32(cmbNm_Fornecedor.SelectedValue);
+            ordemCompra.Usuario.IdUsuario = estPropriedades.Id_Usuario;
 
             id_OrdemCompra=Controller.GetInstance().CadastrarPedidoCompra(ordemCompra);
-
             if (Controller.GetInstance().mensagem != "")
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
             }
-           
-            OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
-            List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
-            listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
+            else
+            {
+                OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
+                List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
+                listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
-            Controller.GetInstance().CadastrarProdutoOrdemCompra(listaOcProduto, id_OrdemCompra);
-            
-
+                Controller.GetInstance().CadastrarProdutoOrdemCompra(listaOcProduto, id_OrdemCompra);
+                if (Controller.GetInstance().mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().mensagem);
+                }
+                else
+                {
+                    MessageBox.Show("ENTRADA DE PRODUTOS REGISTRADA");
+                }
+               
+            }
         }
     }
 }

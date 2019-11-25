@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,8 +31,8 @@ namespace pimads4
             this.frmPrincipal = frmPrincipal;
             this.DataContext = itemMenu;
         }
-
-        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+  
+        private void ListViewMenu_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -44,7 +43,6 @@ namespace pimads4
             {
                 MessageBox.Show("Tela em Construção");
             }
-           
         }
     }
 }
