@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace pimads4
+namespace pimads4.ViewPC
 {
     /// <summary>
-    /// Interação lógica para frmVendaPdv.xam
+    /// Interação lógica para frmComprarPdc.xam
     /// </summary>
-    public partial class frmVendaPdv : UserControl
+    public partial class frmComprarPdc : UserControl
     {
-        public frmVendaPdv()
+        public frmComprarPdc()
         {
             InitializeComponent();
             InicializarCampos();
@@ -30,21 +30,6 @@ namespace pimads4
         {
             dtpDt_Digitacao.Text = DateTime.Today.ToString();
 
-
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
     }
