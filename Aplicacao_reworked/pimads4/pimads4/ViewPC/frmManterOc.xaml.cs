@@ -18,11 +18,11 @@ using System.Windows.Shapes;
 namespace pimads4.ViewPC
 {
     /// <summary>
-    /// Interação lógica para frmCompraPC.xam
+    /// Interação lógica para frmManterOc.xam
     /// </summary>
-    public partial class frmCompraPdc : UserControl
+    public partial class frmManterOc : UserControl
     {
-        public frmCompraPdc()
+        public frmManterOc()
         {
             InitializeComponent();
             InicializarCampos();
@@ -38,7 +38,7 @@ namespace pimads4.ViewPC
             cmbNm_Fornecedor.SelectedValuePath = "IdPessoa";
             cmbNm_Fornecedor.DisplayMemberPath = "NmPessoa";
 
-            cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos(); 
+            cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos();
             cmbDs_Produto.SelectedValuePath = "IdProduto";
             cmbDs_Produto.DisplayMemberPath = "DsProduto";
 
@@ -55,8 +55,8 @@ namespace pimads4.ViewPC
 
         private void AtualizarTotal()
         {
-            
-            List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();          
+
+            List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
             listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
             double vlTotal = Controller.GetInstance().OcProdCalcularValorTotal(listaOcProduto);
 
@@ -68,7 +68,7 @@ namespace pimads4.ViewPC
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
             }
-                       
+
         }
 
         private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
@@ -106,7 +106,7 @@ namespace pimads4.ViewPC
             }
 
             ocProduto.Produto.DsProduto = cmbDs_Produto.Text;
-            
+
             Controller.GetInstance().VerificarProdutoOc(ocProduto);
             if (Controller.GetInstance().mensagem.Equals(""))
             {
@@ -118,24 +118,7 @@ namespace pimads4.ViewPC
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
             }
-        }
 
-        private void BtnProdRemover_Click(object sender, RoutedEventArgs e)
-        {
-            OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
-            List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
-
-            if (dtgProdutos.SelectedIndex >= 0)
-            {
-                listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
-                listaOcProduto.RemoveAt(dtgProdutos.SelectedIndex);
-                AtualizarDatagrid(listaOcProduto);
-                AtualizarTotal();
-            }
-            else
-            {
-                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
-            }
         }
 
         private void BtnQtdAdd_Click(object sender, RoutedEventArgs e)
@@ -157,7 +140,7 @@ namespace pimads4.ViewPC
                 }
                 else
                 {
-                   MessageBox.Show(Controller.GetInstance().mensagem);
+                    MessageBox.Show(Controller.GetInstance().mensagem);
                 }
             }
             else
@@ -166,9 +149,8 @@ namespace pimads4.ViewPC
             }
         }
 
-        private void BtnQtdRemover_Click(object sender, RoutedEventArgs e)
+        private void BtnQtdRmv_Click(object sender, RoutedEventArgs e)
         {
-
             OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
             List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
             listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
@@ -194,6 +176,25 @@ namespace pimads4.ViewPC
             {
                 MessageBox.Show("NENHUM PRODUTO SELECIONADO");
             }
+        }
+
+        private void BtnRemover_Click(object sender, RoutedEventArgs e)
+        {
+            OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
+            List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
+
+            if (dtgProdutos.SelectedIndex >= 0)
+            {
+                listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
+                listaOcProduto.RemoveAt(dtgProdutos.SelectedIndex);
+                AtualizarDatagrid(listaOcProduto);
+                AtualizarTotal();
+            }
+            else
+            {
+                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
+            }
+
         }
 
         private void BtnFinalizar_Click(object sender, RoutedEventArgs e)
@@ -223,7 +224,7 @@ namespace pimads4.ViewPC
             ordemCompra.TpStatus = "F";
             ordemCompra.Usuario.IdUsuario = estPropriedades.Id_Usuario;
 
-            id_OrdemCompra=Controller.GetInstance().CadastrarPedidoCompra(ordemCompra);
+            id_OrdemCompra = Controller.GetInstance().CadastrarPedidoCompra(ordemCompra);
             if (Controller.GetInstance().mensagem != "")
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
@@ -243,8 +244,9 @@ namespace pimads4.ViewPC
                 {
                     MessageBox.Show("ENTRADA DE PRODUTOS REGISTRADA");
                 }
-               
+
             }
+
         }
     }
 }

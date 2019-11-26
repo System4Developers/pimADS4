@@ -78,15 +78,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ViewPC\frmCompraPdc.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewPC\frmComprarPdc.xaml">
+    <Page Include="ViewPC\frmManterOc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewPC\frmConsultaPdc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewProduto\frmProdutoEstoque.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,11 +106,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewPC\frmCompraPdc.xaml.cs">
-      <DependentUpon>frmCompraPdc.xaml</DependentUpon>
+    <Compile Include="ViewPC\frmManterOc.xaml.cs">
+      <DependentUpon>frmManterOc.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewPC\frmConsultaPdc.xaml.cs">
       <DependentUpon>frmConsultaPdc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewProduto\frmProdutoEstoque.xaml.cs">
+      <DependentUpon>frmProdutoEstoque.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewPV\frmVendaPdv.xaml.cs">
       <DependentUpon>frmVendaPdv.xaml</DependentUpon>

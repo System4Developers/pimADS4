@@ -68,6 +68,7 @@ namespace Controllerpimads4.DAO
                     mObj = new ProdutoDTO();
                     mObj.IdProduto = Convert.ToInt32(dr["idProduto"]);
                     mObj.DsProduto = dr["dsProduto"].ToString();
+                    mObj.Quantidade = Convert.ToInt32(dr["quantidade"]);
                     mObj.ValorVenda = Convert.ToDouble(dr["valorVenda"]);
                     mObj.ValorCusto = Convert.ToDouble(dr["valorCusto"]);
                     mObj.TpProduto = dr["tpProduto"].ToString();

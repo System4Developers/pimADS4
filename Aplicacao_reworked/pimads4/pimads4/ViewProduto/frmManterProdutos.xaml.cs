@@ -141,5 +141,6 @@ namespace pimads4.ViewProduto
             btnLimpar.IsEnabled = true;
             btnExcluir.IsEnabled = true;
         }
+
     }
 }

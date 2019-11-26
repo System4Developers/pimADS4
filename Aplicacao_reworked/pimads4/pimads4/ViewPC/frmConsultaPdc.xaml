@@ -65,8 +65,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdOrdemCompra}" Header="Nº OC" />
                 <DataGridTextColumn Binding="{Binding Pessoa.NmPessoa}" Header="FORNECEDOR"/>
-                <DataGridTextColumn Binding="{Binding DtDigitacao}" Header="DATA" />
-                <DataGridTextColumn Binding="{Binding ValorTotal}" Header="VLR. TOTAL" />
+                <DataGridTextColumn Binding="{Binding DtDigitacao,StringFormat=M}" Header="DATA" />
+                <DataGridTextColumn Binding="{Binding ValorTotal, ConverterCulture=pt-BR, StringFormat=C}" Header="VLR. TOTAL" />
                 <DataGridTemplateColumn>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>

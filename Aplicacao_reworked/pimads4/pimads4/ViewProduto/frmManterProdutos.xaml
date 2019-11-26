@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.ViewProduto"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280">
+             d:DesignHeight="720" d:DesignWidth="1280" >
     <Grid>
         <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="124,305,0,0" VerticalAlignment="Top" Width="1015"
             CanUserReorderColumns="True"                  
