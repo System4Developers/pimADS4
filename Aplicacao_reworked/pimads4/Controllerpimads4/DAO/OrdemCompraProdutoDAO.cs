@@ -24,6 +24,45 @@ namespace Controllerpimads4.DAO
             return instance;
         }
 
+        internal List<OrdemCompraProdutoDTO> ConsultarProdutosPorIdOrdemCompra(int id_OrdemCompra)
+        {
+            this.mensagem = "";
+
+            String sqlText =string.Format("select * from OrdemCompraProduto join Produtos on produtos.idProduto = OrdemCompraProduto.fk_idProduto_Produtos " +
+                "where fk_idOrdemCompra_OrdemCompra = {0}",id_OrdemCompra);
+            SqlCommand cmd = new SqlCommand(sqlText,ConexaoDAO.GetInstance().Conexao());
+
+            OrdemCompraProdutoDTO mObj = null;
+            List<OrdemCompraProdutoDTO> lstObj = new List<OrdemCompraProdutoDTO>();
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while(dr.Read())
+                {
+                    mObj = new OrdemCompraProdutoDTO();
+                    mObj.IdOcProduto = Convert.ToInt32(dr["idOcProduto"]);
+                    mObj.VlrUnit = Convert.ToDouble(dr["vlrUnit"]);
+                    mObj.Quantidade = Convert.ToInt32(dr["quantidade"]);
+                    mObj.OrdemCompra.IdOrdemCompra = Convert.ToInt32(dr["fk_idOrdemCompra_OrdemCompra"]);
+                    mObj.Produto.IdProduto = Convert.ToInt32(dr["fk_idProduto_Produtos"]);
+                    mObj.Produto.DsProduto = dr["dsProduto"].ToString();
+
+                    lstObj.Add(mObj);
+
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+            }
+            return lstObj;
+        }
+
+
         internal void CadastrarProdutoOrdemCompra(List<OrdemCompraProdutoDTO> listaProdutos, int id_OrdemCompra)
         {
             this.mensagem = "";
