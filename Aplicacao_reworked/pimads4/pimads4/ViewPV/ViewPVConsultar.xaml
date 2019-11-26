@@ -85,6 +85,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.ColumnSpan="3" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+        <Button Grid.ColumnSpan="2" Content="Pesquisar" Grid.Column="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="103"/>
+        <Button Grid.ColumnSpan="2" Content="Limpar" Grid.Column="15" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Bottom" Width="103"/>
 
     </Grid>
 </UserControl>
