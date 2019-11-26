@@ -62,7 +62,7 @@
         <ComboBox x:Name="cmbNm_Cliente"  Grid.Column="5" VerticalAlignment="Top" Grid.ColumnSpan="9"  Grid.Row="2" Height="28"/>
         
         <Label x:Name="lblDs_Produto"  Content="Produto" Grid.Column="15" VerticalAlignment="Bottom" Height="26" Grid.Row="1"/>
-        <ComboBox x:Name="cmbDs_Produto" VerticalAlignment="Top" Grid.Column="15" Grid.Row="2" Grid.ColumnSpan="6" SelectionChanged="ComboBox_SelectionChanged" Height="28" />
+        <ComboBox x:Name="cmbDs_Produto" VerticalAlignment="Top" Grid.Column="15" Grid.Row="2" Grid.ColumnSpan="6"  Height="28" />
         
         <Label x:Name="lblNr_Quantidade" Content="Quantidade"  Grid.Column="18" Grid.Row="3" VerticalAlignment="Bottom" />
         <TextBox x:Name="txtNr_Quantidade" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="18" Grid.Row="4" Margin="0,3,18,2"/>
