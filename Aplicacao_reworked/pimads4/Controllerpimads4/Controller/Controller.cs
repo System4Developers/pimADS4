@@ -388,6 +388,39 @@ namespace Controllerpimads4.Controller
 
         #endregion
 
+        #region Metodos Pedido de Venda
+        public void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoBL.GetInstance().VerificarProdutoPv(pvProduto);
+            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public double PvProdCalcularValorTotal(List<PedidoVendaProdutoDTO> listaPvProduto)
+        {
+            this.mensagem = "";
+            double vlTotal = 0;
+
+            try
+            {
+                vlTotal = PedidoVendaProdutoBL.GetInstance().PvProdCalcularValorTotal(listaPvProduto);
+                if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+                {
+                    this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.mensagem = "NAO FOI POSSIVEL CALCULAR O VALOR TOTAL";
+            }
+
+            return vlTotal;
+        }
+
+        #endregion
 
     }
 }

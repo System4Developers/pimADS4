@@ -10,17 +10,21 @@ namespace Modelpimads4.DTO
     {
         private int idPedidoVendaProduto;
         private int quantidade;
-        private int desconto;
+        private Double desconto;
         private Double vlrUnit;
         private ProdutoDTO produto;
         private PedidoVendaDTO pedidoVenda;
+        private Double vlrSubTotal;
+        private String vlrDesconto;
 
         public int IdPedItem { get => idPedidoVendaProduto; set => idPedidoVendaProduto = value; }
         public int Quantidade { get => quantidade; set => quantidade = value; }
         public double VlrUnit { get => vlrUnit; set => vlrUnit = value; }
         public ProdutoDTO Produto { get => produto; set => produto = value; }
         public PedidoVendaDTO PedidoVenda { get => pedidoVenda; set => pedidoVenda = value; }
-        public int Desconto { get => desconto; set => desconto = value; }
+        public Double Desconto { get => desconto; set => desconto = value; }
+        public double VlrSubTotal { get => vlrSubTotal; set => vlrSubTotal = value; }
+        public string VlrDesconto { get => vlrDesconto; set => vlrDesconto = value; }
 
         public PedidoVendaProdutoDTO()
         {

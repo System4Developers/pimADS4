@@ -68,17 +68,28 @@
         <TextBox x:Name="txtNr_Quantidade" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="18" Grid.Row="4" Margin="0,3,18,2"/>
         
         <Label x:Name="lblVl_Desconto" Content="Valor Desconto" Grid.Column="18"  Grid.Row="5" VerticalAlignment="Bottom" Height="26"/>
-        <TextBox x:Name="txtVl_Desconto" Grid.Column="18" HorizontalAlignment="Left" Height="22"  Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2"/>
-        
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbVl_Desconto" Grid.Column="18" HorizontalAlignment="Left" Height="24"  Grid.Row="6" VerticalAlignment="Center" Width="82" Margin="0,2" FontSize="12" HorizontalContentAlignment="Center" >
+            <ComboBoxItem IsSelected="True" Tag="0" Content="" />
+            <ComboBoxItem Tag="5" Content="5 %"/>
+            <ComboBoxItem Tag="10" Content="10 %"/>
+            <ComboBoxItem Tag="15" Content="15 %"/>
+            <ComboBoxItem Tag="20" Content="20 %"/>
+            <ComboBoxItem Tag="25" Content="25 %"/>
+        </ComboBox>
+
+
         <Label x:Name="lblVl_Unitario" Content="Valor unitario" Grid.Column="20" Grid.Row="3" VerticalAlignment="Bottom" Height="26" />
         <TextBox x:Name="txtVl_Unitario" Grid.Column="19" HorizontalAlignment="Left" Height="22"  Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2" Grid.ColumnSpan="2"/>
 
-        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="18"  Grid.Row="7"  Height="Auto" Grid.ColumnSpan="3" Margin="0,20" />
+        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="18"  Grid.Row="7"  Height="Auto" Grid.ColumnSpan="3" Margin="0,20" Click="BtnAdicionar_Click" />
 
         <Grid Background="#FFE2E2E2" Grid.ColumnSpan="16" Grid.Column="1" Grid.Row="3" Grid.RowSpan="12" />
         
         <Grid Background="White" Grid.Column="15" Grid.Row="11" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtVl_Total" Grid.Column="15" Grid.Row="11" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        
         <Grid  Background="White" Grid.Column="13" Grid.Row="11" Grid.RowSpan="2" />
+        <TextBox x:Name="txtVl_TotalDesconto" Grid.Column="13" Grid.Row="11" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
         <Label Content="Quantidade" Grid.Column="2" FontWeight="Bold" VerticalAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="4"  Grid.Row="11" Grid.RowSpan="2" Height="26" />
         <Button x:Name="btnQtdAdd" Content="+" Height="24" Grid.Column="2" Grid.Row="12" VerticalAlignment="Bottom" Grid.ColumnSpan="1" Grid.RowSpan="2"  />
@@ -90,14 +101,14 @@
         
         <Label Content="Total Desconto" Grid.Column="13" HorizontalAlignment="Center"  Grid.Row="13" VerticalAlignment="Top" Width="89" FontWeight="Bold" FontSize="11" Height="26" Grid.RowSpan="2" />
 
-        <DataGrid x:Name="dtgPedidoVendaProduto" Grid.Column="2" Grid.ColumnSpan="14" Grid.Row="3" Grid.RowSpan="8" Margin="0,32,0,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="dtgPedidoVendaProduto" Grid.Column="2" Grid.ColumnSpan="14" Grid.Row="3" Grid.RowSpan="8" Margin="0,32,0,10" AutoGenerateColumns="False" ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IdUsuario}" Header="COD. PRODUTO" />
-                <DataGridTextColumn Binding="{Binding NmUsuario}" Header="PRODUTO" />
-                <DataGridTextColumn Binding="{Binding TpUsuario}" Header="QUANTIDADE"/>
-                <DataGridTextColumn Binding="{Binding TpStatus}" Header="VL. UNIT"/>
-                <DataGridTextColumn Binding="{Binding TpStatus}" Header="VL. DESCONTO"/>
-                <DataGridTextColumn Binding="{Binding TpStatus}" Header="SUBTOTAL"/>
+                <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="COD. PRODUTO"/>
+                <DataGridTextColumn Binding="{Binding Produto.DsProduto}" Header="PRODUTO" />
+                <DataGridTextColumn Binding="{Binding Quantidade}" Header="QUANTIDADE"/>
+                <DataGridTextColumn Binding="{Binding VlrUnit, ConverterCulture=pt-BR, StringFormat=C}" Header="VL. UNIT"/>
+                <DataGridTextColumn Binding="{Binding Desconto, ConverterCulture=pt-BR, StringFormat=C}" Header="VL. DESCONTO"/>
+                <DataGridTextColumn Binding="{Binding VlrSubTotal, ConverterCulture=pt-BR, StringFormat=C}" Header="SUBTOTAL"/>
             </DataGrid.Columns>
         </DataGrid>
         

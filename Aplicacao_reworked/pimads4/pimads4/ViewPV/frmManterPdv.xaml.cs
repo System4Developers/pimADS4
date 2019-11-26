@@ -53,6 +53,71 @@ namespace pimads4
             dtgPedidoVendaProduto.ItemsSource = listaPvProduto;
         }
 
-      
+        private void AtualizarTotal()
+        {
+
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+            listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+            double vlTotal = Controller.GetInstance().PvProdCalcularValorTotal(listaPvProduto);
+
+            if (Controller.GetInstance().mensagem.Equals(""))
+            {
+                txtVl_Total.Text = vlTotal.ToString();
+            }
+            else
+            {
+                MessageBox.Show(Controller.GetInstance().mensagem);
+            }
+
+        }
+
+        private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
+        {
+            PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+            listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+            try
+            {
+                pvProduto.Produto.IdProduto = Convert.ToInt32(cmbDs_Produto.SelectedValue);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("PRODUTO NÃO SELECIONADO");
+                return;
+            }
+            try
+            {
+                pvProduto.VlrUnit = Convert.ToDouble(txtVl_Unitario.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("VALOR UNITARIO INVÁLIDO");
+                return;
+            }
+            try
+            {
+                pvProduto.Quantidade = Convert.ToInt32(txtNr_Quantidade.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("VALOR DE QUANTIDADE INVALIDO");
+                return;
+            }
+            pvProduto.Produto.DsProduto = cmbDs_Produto.Text;
+            pvProduto.VlrDesconto = cmbVl_Desconto.SelectedValue.ToString();
+
+
+            Controller.GetInstance().VerificarProdutoPv(pvProduto);
+            if (Controller.GetInstance().mensagem.Equals(""))
+            {
+                listaPvProduto.Add(pvProduto);
+                AtualizarDatagrid(listaPvProduto);
+                AtualizarTotal();
+            }
+            else
+            {
+                MessageBox.Show(Controller.GetInstance().mensagem);
+            }
+        }
     }
 }
