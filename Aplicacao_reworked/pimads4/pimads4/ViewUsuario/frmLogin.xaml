@@ -18,41 +18,46 @@
         <Grid.RowDefinitions>
 
             <RowDefinition/>
-            <RowDefinition Height="162"/>
-            <RowDefinition Height="133"/>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="172"/>
+            <RowDefinition Height="98"/>
             <RowDefinition Height="51"/>
             <RowDefinition Height="44"/>
             <RowDefinition Height="55"/>
-            <RowDefinition Height="248"/>
+            <RowDefinition Height="215"/>
+            <RowDefinition Height="21*"/>
 
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="187*"/>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="187*"/>
             <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
 
-        <Grid HorizontalAlignment="Center" Width="484" Background="#FF171721" Grid.RowSpan="4" Grid.Row="3" Grid.Column="1" Margin="334,0">
+        <Grid Background="#FF171721" Grid.RowSpan="4" Grid.Row="4" Grid.Column="2" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="231*"/>
                 <RowDefinition Height="167*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnLogar" Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326" Click="Button_Click" Margin="76,0,82,104" Background="#FF2F506A" Grid.Row="1"/>
-            <Button x:Name="btnLogarAnonimo" Content="Modo Anonimo" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326"  Margin="76,0,82,57" Click="BtnLogarAnonimo_Click" Background="#FF2F506A" Grid.Row="1"/>
-            <Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326"  Margin="76,0,82,18" Click="BtnSair_Click" Height="28" RenderTransformOrigin="0.36,1.362" Background="#FF2F506A" Grid.Row="1" />
+            <Button x:Name="btnLogar" Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326" Click="Button_Click" Margin="86,0,91,108" Background="#FF2F506A" Grid.Row="1"/>
+            <Button x:Name="btnLogarAnonimo" Content="Modo Anonimo" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326"  Margin="86,0,91,61" Click="BtnLogarAnonimo_Click" Background="#FF2F506A" Grid.Row="1"/>
+            <Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326"  Margin="86,0,91,19" Click="BtnSair_Click" Height="28" RenderTransformOrigin="0.36,1.362" Background="#FF2F506A" Grid.Row="1" />
             <Label  x:Name="lblDs_Mensagem" VerticalAlignment="Bottom"  Height="40" Foreground="White" HorizontalAlignment="Center" Width="170" />
         </Grid>
 
-        <TextBox Text="{Binding Button_Click, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" x:Name="txtDs_Login" materialDesign:HintAssist.Hint="Usuario" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Height="34" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="326" FontSize="16" Foreground="White"/>
+        <TextBox Text="{Binding Button_Click, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" x:Name="txtDs_Login" materialDesign:HintAssist.Hint="Usuario" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" Height="34" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="326" FontSize="16" Foreground="White" Margin="43,0,33,0"/>
 
-        <PasswordBox x:Name="txtDs_Senha" materialDesign:HintAssist.Hint="Senha" Grid.Column="1" Height="34"  Grid.Row="5"  VerticalAlignment="Bottom" FontSize="16" Width="326" HorizontalAlignment="Center" Foreground="White"/>
+        <PasswordBox x:Name="txtDs_Senha" materialDesign:HintAssist.Hint="Senha" Grid.Column="2" Height="34"  Grid.Row="6"  VerticalAlignment="Bottom" FontSize="16" Width="326" HorizontalAlignment="Center" Foreground="White" Margin="43,0,33,0"/>
 
-        <TextBlock x:Name="lblDs_Login" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Silver" Text="LOGIN" VerticalAlignment="Bottom" FontSize="18" Height="30" Width="60" Grid.Row="2" RenderTransformOrigin="2.381,1.817" Grid.RowSpan="2" />
+        <TextBlock x:Name="lblDs_Login" Grid.Column="2" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Silver" Text="LOGIN" VerticalAlignment="Bottom" FontSize="18" Height="30" Width="60" Grid.Row="4" RenderTransformOrigin="2.381,1.817" Margin="175,0,167,0" />
 
-        <Image Source="img/fotoLogo.jpg" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="290" Height="180"/>
+        <Image Source="img/fotoLogo.jpg" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="290" Height="180" Margin="61,0,51,0" Grid.RowSpan="2"/>
 
-        <Label Foreground="White" Content="IMPERADOR" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Bottom" FontSize="55"  Height="83" Width="326" Margin="413,0" />
-        <Label Foreground="White" Content="Marmoraria, Churrasqueiras e Telhas" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" FontSize="13" Width="220" Height="27" Margin="468,0"/>
+        <Label Foreground="White" Content="IMPERADOR" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Bottom" FontSize="55"  Height="83" Width="326" Margin="43,0,33,0" />
+        <Label Foreground="White" Content="Marmoraria, Churrasqueiras e Telhas" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" FontSize="13" Width="220" Height="27" Margin="95,0,87,0"/>
+
     </Grid>
 </Window>
