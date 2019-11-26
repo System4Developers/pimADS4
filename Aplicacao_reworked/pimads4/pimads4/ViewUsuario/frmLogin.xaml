@@ -6,49 +6,53 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:pimads4.ViewUsuario"
         mc:Ignorable="d"
-        Title="frmLogin" Height="892" Width="1636" WindowState="Maximized" WindowStyle="None">
-    <Grid Margin="0,0,2,2">
+        Title="frmLogin" Height="720" Width="1280" WindowState="Maximized" WindowStyle="None">
+    <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="1.7,1" StartPoint="0.5,0">
+            <LinearGradientBrush EndPoint="1.7,1" StartPoint="1.6,0">
                 <GradientStop  Color="Black"  Offset="0"/>
-                <GradientStop Color="#7EC0EE" Offset="0.972"/>
+                <GradientStop Color="#7EC0EE" Offset="0.510"/>
             </LinearGradientBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="0*"/>
+            <RowDefinition/>
             <RowDefinition Height="162"/>
             <RowDefinition Height="133"/>
-            <RowDefinition Height="146"/>
+            <RowDefinition Height="51"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="248"/>
 
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="570"/>
-            <ColumnDefinition Width="0"/>
-            <ColumnDefinition Width="574"/>
-            <ColumnDefinition Width="482"/>
-            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
 
-        <Grid HorizontalAlignment="Right" Width="485" Background="White" Grid.RowSpan="2" Grid.Row="3" Margin="0,42,1,-30" Grid.Column="2">
-            <Button x:Name="btnLogar" Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="327" Click="Button_Click" Margin="76,0,82,104"/>
-            <Label x:Name="lblDs_Mensagem" HorizontalAlignment="Left" Margin="138,616,0,0" VerticalAlignment="Top" Width="230"/>
-            <Button x:Name="btnLogarAnonimo" Content="Modo Anonimo" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="327"  Margin="76,0,82,57" Click="BtnLogarAnonimo_Click"/>
-            <Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="327"  Margin="76,0,82,18" Click="BtnSair_Click" Height="28" RenderTransformOrigin="0.36,1.362" />
+        <Grid HorizontalAlignment="Center" Width="484" Background="#FF171721" Grid.RowSpan="4" Grid.Row="3" Grid.Column="1" Margin="334,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="231*"/>
+                <RowDefinition Height="167*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnLogar" Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326" Click="Button_Click" Margin="76,0,82,104" Background="#FF2F506A" Grid.Row="1"/>
+            <Button x:Name="btnLogarAnonimo" Content="Modo Anonimo" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326"  Margin="76,0,82,57" Click="BtnLogarAnonimo_Click" Background="#FF2F506A" Grid.Row="1"/>
+            <Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326"  Margin="76,0,82,18" Click="BtnSair_Click" Height="28" RenderTransformOrigin="0.36,1.362" Background="#FF2F506A" Grid.Row="1" />
+            <Label  x:Name="lblDs_Mensagem" VerticalAlignment="Bottom"  Height="40" Foreground="White" HorizontalAlignment="Center" Width="170" />
         </Grid>
 
-        <TextBox Text="{Binding Button_Click, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" x:Name="txtDs_Login" materialDesign:HintAssist.Hint="Usuario" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Height="34" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="326" Margin="0,0,80,10" FontSize="16"/>
+        <TextBox Text="{Binding Button_Click, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" x:Name="txtDs_Login" materialDesign:HintAssist.Hint="Usuario" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Height="34" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="326" FontSize="16" Foreground="White"/>
 
-        <PasswordBox x:Name="txtDs_Senha" materialDesign:HintAssist.Hint="Senha" Grid.Column="2" Height="36"  Grid.Row="4"  VerticalAlignment="Bottom"  Margin="168,0,80,192" FontSize="16" />
+        <PasswordBox x:Name="txtDs_Senha" materialDesign:HintAssist.Hint="Senha" Grid.Column="1" Height="34"  Grid.Row="5"  VerticalAlignment="Bottom" FontSize="16" Width="326" HorizontalAlignment="Center" Foreground="White"/>
 
-        <TextBlock x:Name="lblDs_Login" Grid.Column="2" HorizontalAlignment="Right" TextWrapping="Wrap" Foreground="Silver" Text="LOGIN" VerticalAlignment="Bottom" FontSize="18" Height="30" Width="80" Margin="0,0,184,44" Grid.Row="3" RenderTransformOrigin="2.381,1.817" />
+        <TextBlock x:Name="lblDs_Login" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="Silver" Text="LOGIN" VerticalAlignment="Bottom" FontSize="18" Height="30" Width="60" Grid.Row="2" RenderTransformOrigin="2.381,1.817" Grid.RowSpan="2" />
 
-        <Image Source="img/fotoLogo.jpg" Grid.RowSpan="3" Grid.Column="2" Margin="103,0,10,113"/>
+        <Image Source="img/fotoLogo.jpg" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="290" Height="180"/>
 
-        <Label Foreground="White" Content="IMPERADOR" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Bottom" FontSize="55" Margin="183,0,65,30" Height="83" Width="326" />
-        <Label Foreground="White" Content="Marmoraria, Churrasqueiras e Telhas" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" FontSize="13" Margin="221,104,136,0" Width="217" Height="27"/>
+        <Label Foreground="White" Content="IMPERADOR" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Bottom" FontSize="55"  Height="83" Width="326" Margin="413,0" />
+        <Label Foreground="White" Content="Marmoraria, Churrasqueiras e Telhas" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" FontSize="13" Width="220" Height="27" Margin="468,0"/>
     </Grid>
 </Window>
