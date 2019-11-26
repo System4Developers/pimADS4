@@ -18,9 +18,9 @@ namespace pimads4.ViewPV
     /// <summary>
     /// Interação lógica para ViewPVConsultar.xam
     /// </summary>
-    public partial class ViewPVConsultar : UserControl
+    public partial class frmConsultaPdv : UserControl
     {
-        public ViewPVConsultar()
+        public frmConsultaPdv()
         {
             InitializeComponent();
         }

@@ -1,4 +1,10 @@
-﻿using System;
+﻿using pimads4.ViewCEP;
+using pimads4.ViewPC;
+using pimads4.ViewPessoa;
+using pimads4.ViewProduto;
+using pimads4.ViewPV;
+using pimads4.ViewUsuario;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +43,49 @@ namespace pimads4
             try
             {
                 frmPrincipal.grdFormContentArea.Children.Clear();
-                frmPrincipal.grdFormContentArea.Children.Add(((SubItem)((ListView)sender).SelectedItem).Screen);
+                
+                switch (((SubItem)((ListView)sender).SelectedItem).MenuTela)
+                {
+                    case "novoPDV":
+                        frmPrincipal.grdFormContentArea.Children.Add( new frmManterPdv());
+                        break;
+                    case "consultarPDV":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmConsultaPdv());
+                        break;
+                    case "novoODC":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterOc());
+                        break;
+                    case "consultarODC":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmConsultaOc());
+                        break;
+                    case "manterPessoas":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterPessoas());
+                        break;
+                    case "manterUsuarios":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterUsuarios());
+                        break;
+                    case "estoqueProduto":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmProdutoEstoque());
+                        break;
+                    case "manterFabricantes":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterFabricantes());
+                        break;
+                    case "manterProdutos":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterProdutos());
+                        break;
+                    case "manterUnidades":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterUnidades());
+                        break;
+                    case "manterCidades":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterCidades());
+                        break;
+                    case "manterBairros":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmManterBairros());
+                        break;
+                }
+
+                
+
             }
             catch (Exception ex)
             {

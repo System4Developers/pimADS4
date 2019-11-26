@@ -18,9 +18,9 @@ namespace pimads4
     /// <summary>
     /// Interação lógica para frmVendaPdv.xam
     /// </summary>
-    public partial class frmVendaPdv : UserControl
+    public partial class frmManterPdv : UserControl
     {
-        public frmVendaPdv()
+        public frmManterPdv()
         {
             InitializeComponent();
             InicializarCampos();

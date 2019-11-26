@@ -4,18 +4,13 @@ namespace pimads4
 {
     public class SubItem
     {
-        public SubItem(string name, UserControl screen = null)
+        public SubItem(string name, string menuTela = "")
         {
             Name = name;
-            Screen = screen;
-            if (Screen!=null)
-            {
-                Screen.InvalidateVisual();
-            }
-            
+            MenuTela = menuTela;
         }
 
         public string Name { get; private set; }
-        public UserControl Screen { get; private set; }
+        public string MenuTela { get; private set; }
     }
 }

@@ -82,7 +82,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewPC\frmConsultaPdc.xaml">
+    <Page Include="ViewPC\frmConsultaOc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -90,7 +90,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewPV\frmVendaPdv.xaml">
+    <Page Include="ViewPV\frmManterPdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,14 +109,14 @@
     <Compile Include="ViewPC\frmManterOc.xaml.cs">
       <DependentUpon>frmManterOc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewPC\frmConsultaPdc.xaml.cs">
-      <DependentUpon>frmConsultaPdc.xaml</DependentUpon>
+    <Compile Include="ViewPC\frmConsultaOc.xaml.cs">
+      <DependentUpon>frmConsultaOc.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewProduto\frmProdutoEstoque.xaml.cs">
       <DependentUpon>frmProdutoEstoque.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewPV\frmVendaPdv.xaml.cs">
-      <DependentUpon>frmVendaPdv.xaml</DependentUpon>
+    <Compile Include="ViewPV\frmManterPdv.xaml.cs">
+      <DependentUpon>frmManterPdv.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewPrincipal\ItemMenu.cs" />
     <Compile Include="ViewPrincipal\SubItem.cs" />
@@ -151,7 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewPV\ViewPVConsultar.xaml">
+    <Page Include="ViewPV\frmConsultaPdv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,8 +183,8 @@
     <Compile Include="ViewProduto\frmManterUnidades.xaml.cs">
       <DependentUpon>frmManterUnidades.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewPV\ViewPVConsultar.xaml.cs">
-      <DependentUpon>ViewPVConsultar.xaml</DependentUpon>
+    <Compile Include="ViewPV\frmConsultaPdv.xaml.cs">
+      <DependentUpon>frmConsultaPdv.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewUsuario\frmLogin.xaml.cs">
       <DependentUpon>frmLogin.xaml</DependentUpon>

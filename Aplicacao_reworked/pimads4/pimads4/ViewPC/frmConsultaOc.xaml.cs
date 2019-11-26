@@ -20,9 +20,9 @@ namespace pimads4.ViewPC
     /// <summary>
     /// Interação lógica para frmConsultaPdc.xam
     /// </summary>
-    public partial class frmConsultaPdc : UserControl
+    public partial class frmConsultaOc : UserControl
     {
-        public frmConsultaPdc()
+        public frmConsultaOc()
         {
             InitializeComponent();
             InicializarCampos();

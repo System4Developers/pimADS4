@@ -65,27 +65,26 @@ namespace pimads4
             ItemMenu itemMenuEstoque = null;
             ItemMenu itemMenuEndereco = null;
 
-            menuPdv.Add(new SubItem("Novo", new frmVendaPdv()));
-            menuPdv.Add(new SubItem("Consultar", new ViewPVConsultar())); ;
+            menuPdv.Add(new SubItem("Novo", "novoPDV"));
+            menuPdv.Add(new SubItem("Consultar", "consultarPDV")); ;
             itemMenuPdv = new ItemMenu("PDV", menuPdv,PackIconKind.ViewDashboard);
 
-            menuPdc.Add(new SubItem("Novo", new frmManterOc()));
-            menuPdc.Add(new SubItem("Consultar", new frmConsultaPdc()));
+            menuPdc.Add(new SubItem("Novo", "novoODC"));
+            menuPdc.Add(new SubItem("Consultar","consultarODC"));
+            itemMenuPdc = new ItemMenu("ODC", menuPdc, PackIconKind.ViewDashboard);
 
-            itemMenuPdc = new ItemMenu("PDC", menuPdc, PackIconKind.ViewDashboard);
-
-            menuEntidade.Add(new SubItem("Pessoas" ,new frmManterPessoas()));
-            menuEntidade.Add(new SubItem("Usuarios" , new frmManterUsuarios() ));
+            menuEntidade.Add(new SubItem("Pessoas" ,"manterPessoas"));
+            menuEntidade.Add(new SubItem("Usuarios" ,"manterUsuarios"));
             itemMenuEntidade = new ItemMenu("Entidade", menuEntidade, PackIconKind.Register);
 
-            menuEstoque.Add(new SubItem("Estoque", new frmProdutoEstoque()));
-            menuEstoque.Add(new SubItem("Fabricante" , new frmManterFabricantes()));
-            menuEstoque.Add(new SubItem("Produto", new frmManterProdutos()));
-            menuEstoque.Add(new SubItem("Unidade" ,new frmManterUnidades()));
+            menuEstoque.Add(new SubItem("Estoque", "estoqueProduto"));
+            menuEstoque.Add(new SubItem("Fabricante" , "manterFabricantes"));
+            menuEstoque.Add(new SubItem("Produto", "manterProdutos"));
+            menuEstoque.Add(new SubItem("Unidade" , "manterUnidades"));
             itemMenuEstoque = new ItemMenu("Estoque", menuEstoque, PackIconKind.FileReport);
 
-            menuEndereco.Add(new SubItem("Cidade" , new frmManterCidades()));
-            menuEndereco.Add(new SubItem("Bairros", new frmManterBairros()));
+            menuEndereco.Add(new SubItem("Cidade" , "manterCidades"));
+            menuEndereco.Add(new SubItem("Bairros", "manterBairros"));
             itemMenuEndereco = new ItemMenu("Endereço", menuEndereco, PackIconKind.Earth);
 
             stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuPdc, this));
