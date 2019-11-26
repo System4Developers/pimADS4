@@ -34,5 +34,21 @@ namespace pimads4.ViewPC
             listaOrdemCompra = Controller.GetInstance().ConsultarOrdemCompraTodos();
             dtgOrdemCompra.ItemsSource = listaOrdemCompra;
         }
+
+        private void DtgOrdemCompra_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (dtgOrdemCompra.SelectedIndex>=0)
+            {
+                List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
+                listaOrdemCompra = dtgOrdemCompra.ItemsSource as List<OrdemCompraDTO>;
+
+                int id_OrdemCompra = listaOrdemCompra[dtgOrdemCompra.SelectedIndex].IdOrdemCompra;
+
+                List<OrdemCompraProdutoDTO> listaProdutoOc = new List<OrdemCompraProdutoDTO>();
+                listaProdutoOc = Controller.GetInstance().ConsultarProdutosPorIdOrdemCompra(id_OrdemCompra);
+                dtgProdutoOc.ItemsSource = listaProdutoOc;
+            }
+        }
     }
 }
+

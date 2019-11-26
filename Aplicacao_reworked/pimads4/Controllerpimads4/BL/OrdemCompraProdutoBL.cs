@@ -42,6 +42,15 @@ namespace Controllerpimads4.BL
             }
         }
 
+        internal List<OrdemCompraProdutoDTO> ConsultarProdutosPorIdOrdemCompra(int id_OrdemCompra)
+        {
+            this.mensagem = "";
+
+            List<OrdemCompraProdutoDTO> listaProdutosOc = new List<OrdemCompraProdutoDTO>();
+            listaProdutosOc = OrdemCompraProdutoDAO.GetInstance().ConsultarProdutosPorIdOrdemCompra(id_OrdemCompra);
+            return listaProdutosOc;
+        }
+
         internal void AdicionarQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc,int index)
         {
             this.mensagem = "";
@@ -116,6 +125,5 @@ namespace Controllerpimads4.BL
                 this.mensagem = OrdemCompraProdutoDAO.GetInstance().mensagem;
             }
         }
-
     }
 }
