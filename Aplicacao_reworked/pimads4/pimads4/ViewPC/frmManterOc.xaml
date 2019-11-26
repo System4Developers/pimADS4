@@ -86,11 +86,11 @@
 
         <DataGrid x:Name="dtgProdutos" Grid.Column="2" Grid.ColumnSpan="14" Grid.Row="3" Grid.RowSpan="8"  Margin="0,32,0,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="ID"/>
-                <DataGridTextColumn Binding="{Binding Produto.DsProduto}" Header="Produto" />
-                <DataGridTextColumn Binding="{Binding VlrUnit, ConverterCulture=pt-BR, StringFormat=C}" Header="Valor de Custo" />
-                <DataGridTextColumn Binding="{Binding Quantidade}" Header="Quantidade" />
-                <DataGridTextColumn Binding="{Binding SubTotal, ConverterCulture=pt-BR, StringFormat=C}" Header="SubTotal" />
+                <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="COD. PRODUTO"/>
+                <DataGridTextColumn Binding="{Binding Produto.DsProduto}" Header="PRODUTO" />
+                <DataGridTextColumn Binding="{Binding VlrUnit, ConverterCulture=pt-BR, StringFormat=C}" Header="VL. CUSTO" />
+                <DataGridTextColumn Binding="{Binding Quantidade}" Header="QUANTIDADE" />
+                <DataGridTextColumn Binding="{Binding SubTotal, ConverterCulture=pt-BR, StringFormat=C}" Header="SUBTOTAL" />
             </DataGrid.Columns>
         </DataGrid>
 

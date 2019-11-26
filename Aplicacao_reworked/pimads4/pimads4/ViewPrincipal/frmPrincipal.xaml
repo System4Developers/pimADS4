@@ -55,7 +55,7 @@
         </Grid.ColumnDefinitions>
 
 
-
+        <Label x:Name="lblNm_Form" Content="" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
         <Grid x:Name="grdFormContentArea" Grid.RowSpan="9" Grid.Row="1" Grid.Column="2" Margin="0,0,0,4">
             <Grid.Background>
@@ -82,6 +82,7 @@
             </ScrollViewer>
         </Grid>
         <Grid Grid.Column="3"  Grid.Row="1" Width="45" Background="#FF2196F3" Margin="0,0,0,4" Grid.RowSpan="9"/>
+        
     </Grid>
 
 

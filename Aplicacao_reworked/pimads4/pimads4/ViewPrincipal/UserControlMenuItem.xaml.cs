@@ -43,49 +43,59 @@ namespace pimads4
             try
             {
                 frmPrincipal.grdFormContentArea.Children.Clear();
+                frmPrincipal.lblNm_Form.Content = "";
                 
                 switch (((SubItem)((ListView)sender).SelectedItem).MenuTela)
                 {
                     case "novoPDV":
                         frmPrincipal.grdFormContentArea.Children.Add( new frmManterPdv());
+                        frmPrincipal.lblNm_Form.Content = "PEDIDO DE VENDA";
                         break;
                     case "consultarPDV":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmConsultaPdv());
+                        frmPrincipal.lblNm_Form.Content = "PEDIDOS DE VENDA EMITIDOS";
                         break;
                     case "novoODC":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterOc());
+                        frmPrincipal.lblNm_Form.Content = "ORDEM DE COMPRA";
                         break;
                     case "consultarODC":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmConsultaOc());
+                        frmPrincipal.lblNm_Form.Content = "ORDENS DE COMPRA EMITIDAS";
                         break;
                     case "manterPessoas":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterPessoas());
+                        frmPrincipal.lblNm_Form.Content = "CLIENTES/FORNECEDORES";
                         break;
                     case "manterUsuarios":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterUsuarios());
+                        frmPrincipal.lblNm_Form.Content = "USUÁRIOS";
                         break;
                     case "estoqueProduto":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmProdutoEstoque());
+                        frmPrincipal.lblNm_Form.Content = "ESTOQUE - PRODUTOS";
                         break;
                     case "manterFabricantes":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterFabricantes());
+                        frmPrincipal.lblNm_Form.Content = "FABRICANTES";
                         break;
                     case "manterProdutos":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterProdutos());
+                        frmPrincipal.lblNm_Form.Content = "PRODUTOS";
                         break;
                     case "manterUnidades":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterUnidades());
+                        frmPrincipal.lblNm_Form.Content = "UNIDADES";
                         break;
                     case "manterCidades":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterCidades());
+                        frmPrincipal.lblNm_Form.Content = "CIDADES";
                         break;
                     case "manterBairros":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterBairros());
+                        frmPrincipal.lblNm_Form.Content = "BAIRROS";
                         break;
                 }
-
-                
-
             }
             catch (Exception ex)
             {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,8 +31,26 @@ namespace pimads4
         private void InicializarCampos()
         {
             dtpDt_Digitacao.Text = DateTime.Today.ToString();
+            txtNr_Quantidade.Text = string.Empty;
+            txtVl_Unitario.Text = string.Empty;
 
+            cmbNm_Cliente.ItemsSource = Controller.GetInstance().ConsultarPessoa();
+            cmbNm_Cliente.SelectedValuePath = "IdPessoa";
+            cmbNm_Cliente.DisplayMemberPath = "NmPessoa";
 
+            cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos();
+            cmbDs_Produto.SelectedValuePath = "IdProduto";
+            cmbDs_Produto.DisplayMemberPath = "DsProduto";
+
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+            dtgPedidoVendaProduto.ItemsSource = listaPvProduto;
+
+        }
+
+        private void AtualizarDatagrid(List<PedidoVendaProdutoDTO> listaPvProduto)
+        {
+            dtgPedidoVendaProduto.ItemsSource = null;
+            dtgPedidoVendaProduto.ItemsSource = listaPvProduto;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
