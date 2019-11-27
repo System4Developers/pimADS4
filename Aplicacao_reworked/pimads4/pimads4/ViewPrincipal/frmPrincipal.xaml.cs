@@ -95,10 +95,19 @@ namespace pimads4
 
         }
 
-        private void BtnFechar_Click(object sender, RoutedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.ShowDialog();
+            
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-   
     }
 }
