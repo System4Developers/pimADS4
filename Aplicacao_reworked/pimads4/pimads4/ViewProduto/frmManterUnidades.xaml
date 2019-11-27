@@ -5,14 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.ViewProduto"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280">
+             d:DesignHeight="620" d:DesignWidth="1045">
     <Grid>
-        <DataGrid x:Name="dtgUnidades"  ColumnWidth="*" HorizontalAlignment="Left" Height="315" Margin="80,305,-295,-170" VerticalAlignment="Top" Width="1015"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="318*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dtgUnidades"  ColumnWidth="*" HorizontalAlignment="Left" Height="auto"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             FontSize="14"
-            IsReadOnly="True">
+            IsReadOnly="True" Grid.ColumnSpan="8" Grid.Column="1" Grid.Row="6">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdUnidade}" Header="ID" />
@@ -27,16 +49,15 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="lblId_Unidade" Content="ID:" HorizontalAlignment="Left" Margin="990,21,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtId_Unidade" Text="" HorizontalAlignment="Left" Height="24" Margin="990,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtId_Unidade" Text="" HorizontalAlignment="Left" Height="24" Margin="23,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14" Grid.Column="8" Visibility="Hidden"/>
 
-        <Label x:Name="lblDs_Unidade" Content="Unidade:" HorizontalAlignment="Left" Margin="80,41,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Unidade" Text="" HorizontalAlignment="Left" Height="24" Margin="80,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Unidade" Content="Unidade:" VerticalAlignment="Bottom" HorizontalAlignment="Center" Padding="0" FontSize="14" Grid.Column="3" Grid.Row="3"/>
+        <TextBox x:Name="txtDs_Unidade" Text="" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="216" Padding="0" FontSize="14" Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="2"/>
 
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="85,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="230,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="380,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click" />
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="525,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
+        <Button x:Name="btnSalvar" Content="Salvar" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="3" Grid.Row="4" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="14" Height="32" Click="BtnConsultar_Click" Grid.Column="4" Grid.Row="4" Width="95" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="32" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="5" Grid.Row="4" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" Height="32" FontSize="14" Click="BtnLimpar_Click" Grid.Column="6" Grid.Row="4" />
 
 
     </Grid>

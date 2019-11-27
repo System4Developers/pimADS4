@@ -73,7 +73,7 @@
         <Label x:Name="lblVl_Unitario" Content="Valor unitario" Grid.Column="20" Grid.Row="3" VerticalAlignment="Bottom" Height="26" />
         <TextBox x:Name="txtVl_Unitario" Grid.Column="19" HorizontalAlignment="Left" Height="22"  Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2" Grid.ColumnSpan="2"/>
 
-        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="18"  Grid.Row="7"  Height="Auto" Grid.ColumnSpan="3" Margin="0,20" />
+        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="18"  Grid.Row="7" Height="25" Grid.ColumnSpan="3" />
 
         <Grid Background="#FFE2E2E2" Grid.ColumnSpan="16" Grid.Column="1" Grid.Row="3" Grid.RowSpan="12" />
         

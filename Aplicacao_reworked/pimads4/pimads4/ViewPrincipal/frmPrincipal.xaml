@@ -22,9 +22,9 @@
     </Window.Resources>
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#F5F5DC" Offset="0"/>
-                <GradientStop Color="#7EC0EE" Offset="0.972"/>
+            <LinearGradientBrush EndPoint="0.3,1" StartPoint="0.4,0">
+                <GradientStop Color="#63B8FF" Offset="1"/>
+                <GradientStop Color="#4F94CD" Offset="0.990"/>
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -77,12 +77,15 @@
         </Grid>
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}" Grid.ColumnSpan="2" Grid.RowSpan="9" Margin="0,0,0,4">
 
-            <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10">
+            <ScrollViewer Background="#4F94CD" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="stpMenuLateral" Margin="10"/>
             </ScrollViewer>
         </Grid>
-        <Grid Grid.Column="3"  Grid.Row="1" Width="45" Background="#FF2196F3" Margin="0,0,0,4" Grid.RowSpan="9"/>
-        
+        <Grid Grid.Column="3"  Grid.Row="1" Width="45" Background="#4F94CD" Margin="0,0,0,4" Grid.RowSpan="9"/>
+        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Bottom" Width="90" Grid.ColumnSpan="2" Click="Button_Click"/>
+        <Button Content="Sair" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="74" Click="Button_Click_1"/>
+
+
     </Grid>
 
 
