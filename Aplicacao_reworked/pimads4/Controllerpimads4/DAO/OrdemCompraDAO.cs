@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,6 +69,7 @@ namespace Controllerpimads4.DAO
                     mObj = new OrdemCompraDTO();
                     mObj.IdOrdemCompra = Convert.ToInt32(dr["idOrdemCompra"]);
                     mObj.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
+                    //mObj.DtDigitacao = DateTime.Parse(dr["dtDigitacao"].ToString()).ToString("dd/MM/yyyy");
                     mObj.DtDigitacao = dr["dtDigitacao"].ToString();
                     mObj.TpStatus = dr["tpStatus"].ToString();
                     mObj.Pessoa.IdPessoa = Convert.ToInt32(dr["idPessoa"]);

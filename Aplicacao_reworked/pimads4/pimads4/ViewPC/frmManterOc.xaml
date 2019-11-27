@@ -58,7 +58,7 @@
         <Label x:Name="lblDt_Digitacao" Content="Data" Grid.Column="5" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
         <DatePicker x:Name="dtpDt_Digitacao" Grid.Column="7" VerticalAlignment="Bottom" Grid.ColumnSpan="5"/>
 
-        <Label x:Name="lblNm_Fornecedor" Content="Fornecedor" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Height="26" Grid.ColumnSpan="3"/>
+        <Label x:Name="lblNm_Fornecedor" Content="Fornecedor" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Height="26" Grid.ColumnSpan="8"/>
         <ComboBox x:Name="cmbNm_Fornecedor" Grid.Column="5" VerticalAlignment="Top" Grid.ColumnSpan="9"  Grid.Row="2" Height="28"/>
 
         <Label x:Name="lblDs_Produto"  Content="Produto" Grid.Column="15" VerticalAlignment="Bottom" Height="26" Grid.Row="1"/>
@@ -76,13 +76,13 @@
         <Label x:Name="lblQuantidade" Content="Quantidade" Grid.Column="2" FontWeight="Bold" VerticalAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="4"  Grid.Row="11" Grid.RowSpan="2" />
         <Button x:Name="btnRemover" Content="REMOVER" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="108" Height="24" Grid.Column="9" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="2" Click="BtnRemover_Click"  />
 
-        <Button x:Name="btnFinalizar" Content="Finalizar Ordem Compra" Grid.Column="15" Grid.Row="14" Height="Auto" Margin="0,11,0,10" Click="BtnFinalizar_Click" />
+        <Button x:Name="btnFinalizar" Content="Finalizar Ordem Compra" Grid.Column="15" Grid.Row="14" Height="24" Click="BtnFinalizar_Click" />
 
         <Button x:Name="btnQtdAdd" Content="+" Height="24" Grid.Column="2" Grid.Row="12" VerticalAlignment="Bottom" Grid.ColumnSpan="1" Grid.RowSpan="2" Click="BtnQtdAdd_Click"  />
 
         <Button x:Name="btnQtdRmv" Content="-"  Height="24" Grid.Column="4" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Click="BtnQtdRmv_Click"  />
 
-        <Button x:Name="btnAdicionar" Content="ADICIONAR" Grid.Column="18"  Grid.Row="6"  Height="Auto" Grid.ColumnSpan="3" Click="BtnAdicionar_Click"  />
+        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="18"  Grid.Row="6"  Height="Auto" Grid.ColumnSpan="3" Click="BtnAdicionar_Click"  />
 
         <DataGrid x:Name="dtgProdutos" Grid.Column="2" Grid.ColumnSpan="14" Grid.Row="3" Grid.RowSpan="8"  Margin="0,32,0,10" AutoGenerateColumns="False">
             <DataGrid.Columns>

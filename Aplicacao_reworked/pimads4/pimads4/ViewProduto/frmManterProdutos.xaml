@@ -5,16 +5,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.ViewProduto"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280" >
+             d:DesignHeight="620" d:DesignWidth="1045" >
     <Grid>
-        <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="124,305,0,0" VerticalAlignment="Top" Width="1015"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="318*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" HorizontalAlignment="Left" Height="auto"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             FontSize="14"
-            IsReadOnly="True">
+            IsReadOnly="True" Grid.ColumnSpan="8" Grid.Column="1" Grid.Row="6" Width="952"   >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IdProduto}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding IdProduto}" Width="90" Header="ID" />
                 <DataGridTextColumn Binding="{Binding DsProduto}" Header="Produto" />
                 <DataGridTextColumn Binding="{Binding ValorVenda}" Header="Valor de Venda" />
                 <DataGridTextColumn Binding="{Binding ValorCusto}" Header="Valor de Custo" />
@@ -31,36 +54,36 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="lblDs_Produto" Content="Descrição do Produto:" HorizontalAlignment="Left" Margin="131,86,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Produto" Text="" HorizontalAlignment="Left" Height="23" Margin="131,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Produto" Content="Descrição do Produto:" FontSize="14" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="29" />
+        <TextBox x:Name="txtDs_Produto" Text="" TextWrapping="Wrap" Padding="0" FontSize="14" Grid.ColumnSpan="6" Grid.Column="2" Grid.Row="2"  />
 
-        <Label x:Name="lblVl_Venda" Content="Valor de Venda:" HorizontalAlignment="Left" Margin="126,157,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVl_Venda" HorizontalAlignment="Left" Height="23" Margin="126,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-
-        <Label x:Name="lblVl_Custo" Content="Valor de Custo:" HorizontalAlignment="Left" Margin="300,157,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtVl_Custo" HorizontalAlignment="Left" Height="23" Margin="300,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-        <Label x:Name="lblDs_Unidade" Content="Unidade:" HorizontalAlignment="Left" Margin="476,152,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbDs_Unidade" HorizontalAlignment="Left" Margin="476,183,0,0" VerticalAlignment="Top" Width="78"/>
-
-        <Label x:Name="lblDs_Fabricante" Content="Fabricante:" HorizontalAlignment="Left" Margin="609,152,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbDs_Fabricante" HorizontalAlignment="Left" Margin="609,183,0,0" VerticalAlignment="Top" Width="149"/>
+        <Label x:Name="lblVl_Venda" Content="Valor de Venda:" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="3" Height="26" />
+        <TextBox x:Name="txtVl_Venda" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Grid.Column="2" Grid.Row="4"/>
 
 
-        <Label x:Name="lblId_Produto" Content="ID:" HorizontalAlignment="Left" Margin="1132,25,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtId_Produto" Text="" HorizontalAlignment="Left" Height="24" Margin="1132,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+        <Label x:Name="lblVl_Custo" Content="Valor de Custo:" Grid.Column="3" Grid.Row="3" VerticalAlignment="Bottom" Height="26"/>
+        <TextBox x:Name="txtVl_Custo" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Grid.Column="3" Grid.Row="4" Margin="1,0,0,0"/>
 
-        <Label x:Name="lblTp_Produto" Content="Tipo:" HorizontalAlignment="Left" Margin="782,154,0,0" VerticalAlignment="Top"/>
-        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Produto" HorizontalAlignment="Left" Margin="786,183,0,0" VerticalAlignment="Top" Width="105" FontSize="14">
+        <Label x:Name="lblDs_Unidade" Content="Unidade:" VerticalAlignment="Bottom" Grid.Column="4" Grid.Row="3" Height="26"/>
+        <ComboBox x:Name="cmbDs_Unidade" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Grid.Column="4" Height="30" Grid.Row="4"/>
+
+        <Label x:Name="lblDs_Fabricante" Content="Fabricante:" VerticalAlignment="Bottom" Grid.Column="5" Grid.Row="3" Height="26" />
+        <ComboBox x:Name="cmbDs_Fabricante" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Grid.ColumnSpan="2" Grid.Column="5" Height="30" Grid.Row="4"/>
+
+
+
+        <TextBox x:Name="txtId_Produto" Text="" HorizontalAlignment="Left" Height="24" Margin="23,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14" Grid.Column="8" Grid.Row="1" Visibility="Hidden"/>
+
+        <Label x:Name="lblTp_Produto" Content="Tipo:" VerticalAlignment="Bottom" Grid.Column="7" Grid.Row="3" Height="26" />
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Produto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" FontSize="14" Grid.Column="7" Grid.Row="4" Height="30">
             <ComboBoxItem IsSelected="True" Tag="V" Content="VENDA" />
             <ComboBoxItem Tag="C" Content="CONSUMO"/>
         </ComboBox>
 
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="130,253,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnSalvar_Click" />
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="280,253,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="435,253,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnExcluir_Click" />
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="585,255,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnLimpar_Click" />
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="3" Grid.Row="4" Height="32" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="4" Grid.Row="4" Height="32" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="5" Grid.Row="4" Height="32" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="6" Grid.Row="4" Height="32" />
 
 
 

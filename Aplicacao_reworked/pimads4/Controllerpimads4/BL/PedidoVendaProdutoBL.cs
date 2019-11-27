@@ -1,4 +1,5 @@
-﻿using Modelpimads4.DTO;
+﻿using Controllerpimads4.DAO;
+using Modelpimads4.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,6 +125,16 @@ namespace Controllerpimads4.BL
                 this.mensagem = "NENHUM PRODUTO P/ RETIRAR QUANTIDADE";
             }
 
+        }
+
+        internal void CadastrarProdutoPedidoVenda(List<PedidoVendaProdutoDTO> listaPvProduto, int id_PedidoVenda)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoDAO.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
+            if (PedidoVendaProdutoDAO.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaProdutoDAO.GetInstance().mensagem;
+            }
         }
     }
 }

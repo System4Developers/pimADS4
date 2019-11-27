@@ -356,7 +356,7 @@ namespace Controllerpimads4.Controller
             }
             else
             {
-                ProdutoBL.GetInstance().AtualizarProdutoQuantidade(listaProdutos);
+                ProdutoBL.GetInstance().AtualizarProdutoQuantidadeOc(listaProdutos);
                 if (ProdutoBL.GetInstance().mensagem != "")
                 {
                     this.mensagem = ProdutoBL.GetInstance().mensagem;
@@ -389,6 +389,7 @@ namespace Controllerpimads4.Controller
         #endregion
 
         #region Metodos Pedido de Venda
+
         public void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto)
         {
             this.mensagem = "";
@@ -429,6 +430,39 @@ namespace Controllerpimads4.Controller
             if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
             {
                 this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public int CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda)
+        {
+            this.mensagem = "";
+            int id_PedidoVenda = 0;
+
+            id_PedidoVenda = PedidoVendaBL.GetInstance().CadastrarPedidoVenda(pedidoVenda);
+            if (PedidoVendaBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaBL.GetInstance().mensagem;
+            }
+
+            return id_PedidoVenda;
+        }
+
+        public void CadastrarProdutoPedidoVenda(List<PedidoVendaProdutoDTO> listaPvProduto, int id_PedidoVenda)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoBL.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
+
+            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+            }
+            else
+            {
+                ProdutoBL.GetInstance().AtualizarProdutoQuantidadePv(listaPvProduto);
+                if (ProdutoBL.GetInstance().mensagem != "")
+                {
+                    this.mensagem = ProdutoBL.GetInstance().mensagem;
+                }
             }
         }
         #endregion

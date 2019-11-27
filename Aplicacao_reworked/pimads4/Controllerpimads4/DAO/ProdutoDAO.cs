@@ -171,7 +171,7 @@ namespace Controllerpimads4.DAO
 
         }
 
-        internal void AtualizarProdutoQuantidade(List<OrdemCompraProdutoDTO> listaProdutosOc)
+        internal void AtualizarProdutoQuantidadeOc(List<OrdemCompraProdutoDTO> listaProdutosOc)
         {
             this.mensagem = "";
             foreach (OrdemCompraProdutoDTO ocProduto in listaProdutosOc)
@@ -190,6 +190,30 @@ namespace Controllerpimads4.DAO
                 {
                     ConexaoDAO.GetInstance().Desconectar();
                     this.mensagem= ex.Message + " - " + cmd.CommandText + " " + ex;
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+
+        }
+
+        internal void AtualizarProdutoQuantidadePv(List<PedidoVendaProdutoDTO> listaPvProduto)
+        {
+            this.mensagem = "";
+            foreach (PedidoVendaProdutoDTO pvProduto in listaPvProduto)
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE Produtos SET quantidade = quantidade - @quantidade where idProduto = @idProduto", ConexaoDAO.GetInstance().Conexao());
+                cmd.Parameters.AddWithValue("@quantidade", pvProduto.Quantidade);
+                cmd.Parameters.AddWithValue("@idProduto", pvProduto.Produto.IdProduto);
+
+                try
+                {
+                    ConexaoDAO.GetInstance().Conectar();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    ConexaoDAO.GetInstance().Desconectar();
+                    this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
                 }
                 ConexaoDAO.GetInstance().Desconectar();
             }

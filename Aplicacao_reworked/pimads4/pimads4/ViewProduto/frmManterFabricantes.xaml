@@ -4,38 +4,58 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:pimads4.ViewProduto"
-             mc:Ignorable="d" Height="730" Width="1165">
-    <Grid Margin="20,0,-20,0">
-        <DataGrid x:Name="dtgFabricantes"  ColumnWidth="*" HorizontalAlignment="Left" Height="280" Margin="57,305,0,0" VerticalAlignment="Top" Width="1015"
+             mc:Ignorable="d" 
+             d:DesignHeight="620" d:DesignWidth="1045" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="318*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dtgFabricantes" ColumnWidth="*" HorizontalAlignment="Left" Height="auto"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             FontSize="14"
-            IsReadOnly="True">
+            IsReadOnly="True" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="8">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IdFabricante}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding IdFabricante}" Width="90" Header="ID" />
                 <DataGridTextColumn Binding="{Binding NmFabricante}" Header="Fabricante" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnEditar" Click="BtnEditar">Editar</Button>
+                            <Button x:Name="btnEditar" Height="25" Width="100" Click="BtnEditar">Editar</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="lblId_Fabricante" Content="ID:" HorizontalAlignment="Left" Margin="972,20,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtId_Fabricante" Text="" HorizontalAlignment="Left" Height="24" Margin="972,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
+        <TextBox x:Name="txtId_Fabricante" Text="" HorizontalAlignment="Left" Height="30" Margin="18,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14" Grid.Column="8" Visibility="Hidden" Grid.Row="1"/>
 
-        <Label x:Name="lblDs_Fabricante" Content="Nome do Fabricante:" HorizontalAlignment="Left" Margin="203,181,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Fabricante" Text="" HorizontalAlignment="Left" Height="24" Margin="376,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="595" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Fabricante" Content="Nome do Fabricante:" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="2" Height="19" Width="129" Grid.Row="1"/>
+        <TextBox x:Name="txtDs_Fabricante" Text="" Height="30"  TextWrapping="Wrap" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="5"/>
 
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="315,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnSalvar_Click" />
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="435,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="555,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnExcluir_Click" />
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="675,262,0,0" VerticalAlignment="Top" Width="95" FontSize="14" Click="BtnLimpar_Click" />
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="3" Grid.Row="2" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="4" Grid.Row="2" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="5" Grid.Row="2" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="6" Grid.Row="2" />
 
     </Grid>
 </UserControl>

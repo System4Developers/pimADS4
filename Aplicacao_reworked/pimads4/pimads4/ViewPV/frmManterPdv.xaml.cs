@@ -201,5 +201,67 @@ namespace pimads4
                 MessageBox.Show("NENHUM PRODUTO SELECIONADO");
             }
         }
+
+        private void BtnFinalizarVenda_Click(object sender, RoutedEventArgs e)
+        {
+            int id_PedidoVenda = 0;
+            PedidoVendaDTO pedido = new PedidoVendaDTO();
+
+            pedido.DtDigitacao = dtpDt_Digitacao.SelectedDate.ToString();
+            try
+            {
+                pedido.ValorTotal = Convert.ToDouble(txtVl_Total.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("VALOR TOTAL INVALIDO");
+                return;
+            }
+            try
+            {
+                pedido.ValorTotalDesconto = Convert.ToDouble(txtVl_TotalDesconto.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("VALOR DO DESCONTO INVALIDO");
+                return;
+            }
+            try
+            {
+                pedido.Pessoa.IdPessoa = Convert.ToInt32(cmbNm_Cliente.SelectedValue);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("CLIENTE NÃO INFORMADO");
+                return;
+            }
+            pedido.TpStatus = "F";
+            pedido.Usuario.IdUsuario = estPropriedades.Id_Usuario;
+            pedido.TpPagamento = cmbTp_Pagamento.Text;
+
+            id_PedidoVenda = Controller.GetInstance().CadastrarPedidoVenda(pedido);
+            if (Controller.GetInstance().mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().mensagem);
+            }
+            else
+            {
+                PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+                List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+                listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+
+                Controller.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
+                if (Controller.GetInstance().mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().mensagem);
+                }
+                else
+                {
+                    MessageBox.Show("VENDA DE PRODUTOS REGISTRADA");
+                }
+
+            }
+
+        }
     }
 }
