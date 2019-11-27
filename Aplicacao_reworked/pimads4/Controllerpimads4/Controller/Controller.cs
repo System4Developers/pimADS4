@@ -388,6 +388,50 @@ namespace Controllerpimads4.Controller
 
         #endregion
 
+        #region Metodos Pedido de Venda
+        public void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoBL.GetInstance().VerificarProdutoPv(pvProduto);
+            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public void PvProdCalcularValorTotal(List<PedidoVendaProdutoDTO> listaPvProduto,PedidoVendaDTO pedidoVenda)
+        {
+            this.mensagem = "";
+           
+            PedidoVendaProdutoBL.GetInstance().PvProdCalcularValorTotal(listaPvProduto, pedidoVenda);
+            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public void AdicionarQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoBL.GetInstance().AdicionarQuantidadeProdutoPv(listaPvProduto, index);
+
+            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+            }
+        }
+
+        public void RemoverQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoBL.GetInstance().RemoverQuantidadeProdutoPv(listaPvProduto, index);
+
+            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+            }
+        }
+        #endregion
 
     }
 }
