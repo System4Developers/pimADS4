@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controllerpimads4.Controller;
+using Modelpimads4.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,32 @@ namespace pimads4.ViewPV
         public frmConsultaPdv()
         {
             InitializeComponent();
+            InicializarCampos();
+        }
+
+        private void InicializarCampos()
+        {
+            List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
+            listaPedidoVenda = Controller.GetInstance().ConsultarPedidoVendaTodos();
+            dtgPedidoVenda.ItemsSource = listaPedidoVenda;
+        }
+
+       
+
+        private void DtgPedidoVenda_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (dtgPedidoVenda.SelectedIndex >= 0)
+            {
+                List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
+                listaPedidoVenda = dtgPedidoVenda.ItemsSource as List<PedidoVendaDTO>;
+
+                int id_PedidoVenda = listaPedidoVenda[dtgPedidoVenda.SelectedIndex].IdPedido;
+
+                List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+                listaPvProduto = Controller.GetInstance().ConsultarProdutosPorIdPedidoVenda(id_PedidoVenda);
+                dtgPedidoVendaProduto.ItemsSource = listaPvProduto;
+            }
+            
         }
     }
 }

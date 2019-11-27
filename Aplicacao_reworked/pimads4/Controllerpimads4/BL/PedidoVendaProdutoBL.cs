@@ -136,5 +136,15 @@ namespace Controllerpimads4.BL
                 this.mensagem = PedidoVendaProdutoDAO.GetInstance().mensagem;
             }
         }
+
+        internal List<PedidoVendaProdutoDTO> ConsultarPedidoPorIdPedidoVenda(int id_PedidoVenda)
+        {
+            this.mensagem = "";
+
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+            listaPvProduto = PedidoVendaProdutoDAO.GetInstance().ConsultarProdutosPorIdPedidoVenda(id_PedidoVenda);
+            return listaPvProduto;
+        }
+
     }
 }

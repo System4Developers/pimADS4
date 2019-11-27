@@ -55,7 +55,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Label x:Name="lblNm_Form" Content="" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblNm_Form" Content="" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16"/>
 
         <Grid x:Name="grdFormContentArea" Grid.RowSpan="9" Grid.Row="1" Grid.Column="2" Margin="0,0,0,4">
             <Grid.Background>
@@ -68,6 +68,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"></RowDefinition>
@@ -75,15 +76,20 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
+        
         <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}" Grid.ColumnSpan="2" Grid.RowSpan="9" Margin="0,0,0,4">
 
             <ScrollViewer Background="#4F94CD" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="stpMenuLateral" Margin="10"/>
             </ScrollViewer>
         </Grid>
+        
         <Grid Grid.Column="3"  Grid.Row="1" Width="45" Background="#4F94CD" Margin="0,0,0,4" Grid.RowSpan="9"/>
-        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Bottom" Width="90" Grid.ColumnSpan="2" Click="BtnLogout_Click"/>
-        <Button x:Name="btnSair" Content="Sair" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="74" Click="BtnSair_Click"/>
+
+               
+        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Left"  Grid.Row="10" Grid.Column="0" VerticalAlignment="top" Width="90" Grid.ColumnSpan="1" Click="BtnLogout_Click" Background="#FF2134F3"/>
+        
+        <Button x:Name="btnSair" Content="Sair" Grid.Column="2" HorizontalAlignment="Right" Grid.Row="0"  VerticalAlignment="center" Width="74" Click="BtnSair_Click" Background="#FF2151F3"/>
 
 
     </Grid>

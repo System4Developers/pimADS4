@@ -26,10 +26,12 @@ namespace Controllerpimads4.DAO
         }
 
 
-        internal List<PedidoVendaDTO> ConsultarPedidosTodos()
-        {
-            String sqlText = "SELECT * FROM PedidoVenda";
+        internal List<PedidoVendaDTO> ConsultarPedidoVendaTodos()
+        { 
+            String sqlText = "SELECT * FROM PedidoVenda JOIN Pessoas on Pessoas.idPessoa = PedidoVenda.fk_idPessoa_Pessoas";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+          
 
             List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
             PedidoVendaDTO pedido = null;
@@ -41,10 +43,11 @@ namespace Controllerpimads4.DAO
                 while (dr.Read())
                 {
                     pedido = new PedidoVendaDTO();
-                    pedido.IdPedido = Convert.ToInt32(dr["idPedido"]);
+                    pedido.IdPedido = Convert.ToInt32(dr["idPedidoVenda"]);
                     pedido.DtDigitacao = dr["dtDigitacao"].ToString();
                     pedido.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
-                    pedido.TpPagamento = dr["formaPagamento"].ToString();
+                    pedido.TpPagamento = dr["tpPagamento"].ToString();
+                    pedido.Pessoa.NmPessoa = dr["nmPessoa"].ToString();
 
                     lstPedidos.Add(pedido);
                 }
