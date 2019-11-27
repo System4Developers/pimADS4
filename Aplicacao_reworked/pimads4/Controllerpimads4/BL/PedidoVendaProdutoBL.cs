@@ -57,23 +57,73 @@ namespace Controllerpimads4.BL
 
         }
 
-        internal double PvProdCalcularValorTotal(List<PedidoVendaProdutoDTO> listaPvProduto)
+        internal void PvProdCalcularValorTotal(List<PedidoVendaProdutoDTO> listaPvProduto,PedidoVendaDTO pedidoVenda)
         {
             this.mensagem = "";
-            Double vlTotal = 0;
+            pedidoVenda.ValorTotal = 0;
+            pedidoVenda.ValorTotalDesconto = 0;
 
             try
             {
                 foreach (PedidoVendaProdutoDTO pvProduto in listaPvProduto)
                 {
-                    vlTotal += pvProduto.VlrSubTotal;
+                    pedidoVenda.ValorTotal += pvProduto.VlrSubTotal;
+                    pedidoVenda.ValorTotalDesconto += pvProduto.Desconto;
                 }
             }
             catch (Exception ex)
             {
                 this.mensagem = "NÃO FOI POSSÍVEL CALCULAR O VALOR TOTAL";
             }
-            return vlTotal;
+        }
+
+        internal void AdicionarQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+
+            if (listaPvProduto.Count < 1)
+            {
+                this.mensagem = "NENHUM PRODUTO P/ ACRESCENTAR QUANTIDADE";
+            }
+            else
+            {
+                pvProduto = listaPvProduto[index];
+                pvProduto.Quantidade += 1;
+                pvProduto.Desconto += pvProduto.Desconto;
+
+                pvProduto.VlrSubTotal = (pvProduto.Quantidade * pvProduto.VlrUnit)-pvProduto.Desconto;
+                listaPvProduto[index] = pvProduto;
+            }
+        }
+
+        internal void RemoverQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
+        {
+            this.mensagem = "";
+            PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+
+            if (listaPvProduto.Count > 0)
+            {
+                pvProduto = listaPvProduto[index];
+
+                if (pvProduto.Quantidade > 1)
+                {
+                    pvProduto.Quantidade += -1;
+                    pvProduto.Desconto = pvProduto.Desconto / 2;
+
+                    pvProduto.VlrSubTotal = (pvProduto.Quantidade * pvProduto.VlrUnit)-pvProduto.Desconto;
+                    listaPvProduto[index] = pvProduto;
+                }
+                else
+                {
+                    this.mensagem = "QUANTIDADE MINIMA ATINGIDA 1";
+                }
+            }
+            else
+            {
+                this.mensagem = "NENHUM PRODUTO P/ RETIRAR QUANTIDADE";
+            }
+
         }
     }
 }
