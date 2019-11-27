@@ -96,18 +96,29 @@ namespace pimads4
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("Deseja encerrar a sessão do usuário?", "Logout Usuário", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                
+            }
+            else
+            {
+                grdFormContentArea.Children.Clear();
+                estPropriedades.Bl_Logado = false;
 
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.ShowDialog();
-            
-
+                frmLogin frmLogin = new frmLogin();
+                frmLogin.ShowDialog();
+                if (!estPropriedades.Bl_Logado)
+                {
+                    this.Close();
+                }
+            }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnSair_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+           Application.Current.Shutdown();
         }
     }
 }

@@ -56,7 +56,8 @@ namespace pimads4.ViewUsuario
 
         private void BtnSair_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            estPropriedades.Bl_Logado = false;
+            this.Close();
         }
     }
 }

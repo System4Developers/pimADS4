@@ -82,8 +82,8 @@
             </ScrollViewer>
         </Grid>
         <Grid Grid.Column="3"  Grid.Row="1" Width="45" Background="#4F94CD" Margin="0,0,0,4" Grid.RowSpan="9"/>
-        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Bottom" Width="90" Grid.ColumnSpan="2" Click="Button_Click"/>
-        <Button Content="Sair" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="74" Click="Button_Click_1"/>
+        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Bottom" Width="90" Grid.ColumnSpan="2" Click="BtnLogout_Click"/>
+        <Button x:Name="btnSair" Content="Sair" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="74" Click="BtnSair_Click"/>
 
 
     </Grid>
