@@ -88,7 +88,7 @@ namespace pimads4.ViewPC
             }
             try
             {
-                ocProduto.VlrUnit = Convert.ToDouble(txtVlr_Custo.Text.Replace('.', ','));
+                ocProduto.VlrUnit = Convert.ToDouble(txtVlr_Custo.Text.Replace(',', '.'));
             }
             catch (Exception)
             {

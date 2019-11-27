@@ -51,11 +51,20 @@ namespace Controllerpimads4.BL
         {
             ProdutoDAO.GetInstance().ExlcuirProduto(idProduto);
         }
-        internal void AtualizarProdutoQuantidade(List<OrdemCompraProdutoDTO> listaProdutosOc)
+        internal void AtualizarProdutoQuantidadeOc(List<OrdemCompraProdutoDTO> listaProdutosOc)
         {
             this.mensagem = "";
-            ProdutoDAO.GetInstance().AtualizarProdutoQuantidade(listaProdutosOc);
+            ProdutoDAO.GetInstance().AtualizarProdutoQuantidadeOc(listaProdutosOc);
             if (ProdutoDAO.GetInstance().mensagem !="")
+            {
+                this.mensagem = ProdutoDAO.GetInstance().mensagem;
+            }
+        }
+        internal void AtualizarProdutoQuantidadePv(List<PedidoVendaProdutoDTO> listaPvProduto)
+        {
+            this.mensagem = "";
+            ProdutoDAO.GetInstance().AtualizarProdutoQuantidadePv(listaPvProduto);
+            if (ProdutoDAO.GetInstance().mensagem != "")
             {
                 this.mensagem = ProdutoDAO.GetInstance().mensagem;
             }

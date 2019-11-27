@@ -11,6 +11,7 @@ namespace Controllerpimads4.BL
     public class PedidoVendaBL
     {
         private static PedidoVendaBL instance;
+        public String mensagem;
 
         private PedidoVendaBL() { }
 
@@ -28,6 +29,20 @@ namespace Controllerpimads4.BL
             List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
             lstPedidos = PedidoVendaDAO.GetInstance().ConsultarPedidosTodos();
             return lstPedidos;
+        }
+
+        internal int CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda)
+        {
+            this.mensagem = "";
+            int id_PedidoVenda = 0;
+
+            id_PedidoVenda = PedidoVendaDAO.GetInstance().CadastrarPedidoVenda(pedidoVenda);
+            if (PedidoVendaDAO.GetInstance().mensagem != "")
+            {
+                this.mensagem = PedidoVendaDAO.GetInstance().mensagem;
+            }
+
+            return id_PedidoVenda;
         }
 
 
