@@ -62,7 +62,7 @@
         <ComboBox x:Name="cmbNm_Cliente"  Grid.Column="5" VerticalAlignment="Top" Grid.ColumnSpan="9"  Grid.Row="2" Height="28"/>
         
         <Label x:Name="lblDs_Produto"  Content="Produto" Grid.Column="15" VerticalAlignment="Bottom" Height="26" Grid.Row="1"/>
-        <ComboBox x:Name="cmbDs_Produto" VerticalAlignment="Top" Grid.Column="15" Grid.Row="2" Grid.ColumnSpan="6"  Height="28" />
+        <ComboBox x:Name="cmbDs_Produto" VerticalAlignment="Top" Grid.Column="15" Grid.Row="2" Grid.ColumnSpan="6"  Height="28" SelectionChanged="CmbDs_Produto_SelectionChanged" />
         
         <Label x:Name="lblNr_Quantidade" Content="Quantidade"  Grid.Column="18" Grid.Row="3" VerticalAlignment="Bottom" />
         <TextBox x:Name="txtNr_Quantidade" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Column="18" Grid.Row="4" Margin="0,3,18,2"/>
@@ -79,23 +79,23 @@
 
 
         <Label x:Name="lblVl_Unitario" Content="Valor unitario" Grid.Column="20" Grid.Row="3" VerticalAlignment="Bottom" Height="26" />
-        <TextBox x:Name="txtVl_Unitario" Grid.Column="19" HorizontalAlignment="Left" Height="22"  Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtVl_Unitario" Grid.Column="19" HorizontalAlignment="Left" Height="22"  Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="82" Margin="0,2" Grid.ColumnSpan="2" IsReadOnly="True" />
 
         <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="18"  Grid.Row="7"  Height="Auto" Grid.ColumnSpan="3" Margin="0,20" Click="BtnAdicionar_Click" />
 
         <Grid Background="#FFE2E2E2" Grid.ColumnSpan="16" Grid.Column="1" Grid.Row="3" Grid.RowSpan="12" />
         
         <Grid Background="White" Grid.Column="15" Grid.Row="11" Grid.RowSpan="2"/>
-        <TextBox x:Name="txtVl_Total" Grid.Column="15" Grid.Row="11" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBox x:Name="txtVl_Total" Grid.Column="15" Grid.Row="11" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" HorizontalContentAlignment="Center"/>
         
         <Grid  Background="White" Grid.Column="13" Grid.Row="11" Grid.RowSpan="2" />
-        <TextBox x:Name="txtVl_TotalDesconto" Grid.Column="13" Grid.Row="11" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBox x:Name="txtVl_TotalDesconto" Grid.Column="13" Grid.Row="11" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" HorizontalContentAlignment="Center"/>
 
         <Label Content="Quantidade" Grid.Column="2" FontWeight="Bold" VerticalAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="4"  Grid.Row="11" Grid.RowSpan="2" Height="26" />
-        <Button x:Name="btnQtdAdd" Content="+" Height="24" Grid.Column="2" Grid.Row="12" VerticalAlignment="Bottom" Grid.ColumnSpan="1" Grid.RowSpan="2"  />
-        <Button x:Name="btnQtdRmv" Content="-"  Height="24" Grid.Column="4" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom"  />
+        <Button x:Name="btnQtdAdd" Content="+" Height="24" Grid.Column="2" Grid.Row="12" VerticalAlignment="Bottom" Grid.ColumnSpan="1" Grid.RowSpan="2" Click="BtnQtdAdd_Click"  />
+        <Button x:Name="btnQtdRmv" Content="-"  Height="24" Grid.Column="4" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Click="BtnQtdRmv_Click"  />
 
-        <Button x:Name="btnExluir" Content="Excluir" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="108" Height="24" Grid.Column="9" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="2"  />
+        <Button x:Name="btnExluir" Content="Excluir" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="108" Height="24" Grid.Column="9" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="2" Click="BtnExluir_Click"  />
 
         <Button x:Name="btnFinalizarCompra" Content="Finalizar Venda" Grid.Column="15" Grid.Row="14" Height="Auto" Margin="0,11,0,10" />
         

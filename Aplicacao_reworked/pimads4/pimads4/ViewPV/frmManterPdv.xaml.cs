@@ -55,19 +55,30 @@ namespace pimads4
 
         private void AtualizarTotal()
         {
-
+            PedidoVendaDTO pedidoVenda = new PedidoVendaDTO();
             List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
-            listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
-            double vlTotal = Controller.GetInstance().PvProdCalcularValorTotal(listaPvProduto);
 
+            listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+
+            Controller.GetInstance().PvProdCalcularValorTotal(listaPvProduto, pedidoVenda);
             if (Controller.GetInstance().mensagem.Equals(""))
             {
-                txtVl_Total.Text = vlTotal.ToString();
+                txtVl_Total.Text = pedidoVenda.ValorTotal.ToString();
+                txtVl_TotalDesconto.Text = pedidoVenda.ValorTotalDesconto.ToString();
             }
             else
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
             }
+
+        }
+
+        private void CmbDs_Produto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            List<ProdutoDTO> listaProduto = new List<ProdutoDTO>();
+            listaProduto = cmbDs_Produto.ItemsSource as List<ProdutoDTO>;
+
+            txtVl_Unitario.Text = listaProduto[cmbDs_Produto.SelectedIndex].ValorVenda.ToString();
 
         }
 
@@ -117,6 +128,77 @@ namespace pimads4
             else
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
+            }
+        }
+
+        private void BtnQtdAdd_Click(object sender, RoutedEventArgs e)
+        {
+            PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+
+            if (dtgPedidoVendaProduto.SelectedIndex >=0)
+            {
+                int selIndex = dtgPedidoVendaProduto.SelectedIndex;
+                listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+
+                Controller.GetInstance().AdicionarQuantidadeProdutoPv(listaPvProduto, selIndex);
+                if (Controller.GetInstance().mensagem.Equals(""))
+                {
+                    AtualizarDatagrid(listaPvProduto);
+                    dtgPedidoVendaProduto.SelectedIndex = selIndex;
+                    AtualizarTotal();
+                }
+                else
+                {
+                    MessageBox.Show(Controller.GetInstance().mensagem);
+                }
+            }
+        }
+
+        private void BtnQtdRmv_Click(object sender, RoutedEventArgs e)
+        {
+            PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+            listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+
+            if (dtgPedidoVendaProduto.SelectedIndex >= 0)
+            {
+                int selIndex = dtgPedidoVendaProduto.SelectedIndex;
+                listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+
+                Controller.GetInstance().RemoverQuantidadeProdutoPv(listaPvProduto, selIndex);
+                if (Controller.GetInstance().mensagem.Equals(""))
+                {
+                    AtualizarDatagrid(listaPvProduto);
+                    dtgPedidoVendaProduto.SelectedIndex = selIndex;
+                    AtualizarTotal();
+                }
+                else
+                {
+                    MessageBox.Show(Controller.GetInstance().mensagem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
+            }
+        }
+
+        private void BtnExluir_Click(object sender, RoutedEventArgs e)
+        {
+            PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+
+            if (dtgPedidoVendaProduto.SelectedIndex >= 0)
+            {
+                listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+                listaPvProduto.RemoveAt(dtgPedidoVendaProduto.SelectedIndex);
+                AtualizarDatagrid(listaPvProduto);
+                AtualizarTotal();
+            }
+            else
+            {
+                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
             }
         }
     }

@@ -11,6 +11,7 @@ namespace Modelpimads4.DTO
         private int idPedido;
         private string dtDigitacao;
         private double valorTotal;
+        private double valorTotalDesconto;
         private string tpPagamento;
         private string tpStatus;
         private PessoaDTO pessoa;
@@ -23,6 +24,7 @@ namespace Modelpimads4.DTO
         public string TpStatus { get => tpStatus; set => tpStatus = value; }
         public PessoaDTO Pessoa { get => pessoa; set => pessoa = value; }
         public UsuarioDTO Usuario { get => usuario; set => usuario = value; }
+        public double ValorTotalDesconto { get => valorTotalDesconto; set => valorTotalDesconto = value; }
 
         public PedidoVendaDTO()
         {
