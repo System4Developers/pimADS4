@@ -37,16 +37,16 @@ namespace Controllerpimads4.BL
             }
 
             OrdemCompraProdutoDAO.GetInstance().CadastrarProdutoOrdemCompra(listaOcProduto, id_OrdemCompra);
-            if (OrdemCompraProdutoDAO.GetInstance().mensagem!="")
+            if (OrdemCompraProdutoDAO.GetInstance().Mensagem!="")
             {
-                this.mensagem = OrdemCompraProdutoDAO.GetInstance().mensagem;
+                this.mensagem = OrdemCompraProdutoDAO.GetInstance().Mensagem;
                 return;
             }
 
             ProdutoDAO.GetInstance().AtualizarProdutoQuantidadeOc(listaOcProduto);
-            if (ProdutoDAO.GetInstance().mensagem!="")
+            if (ProdutoDAO.GetInstance().Mensagem!="")
             {
-                this.mensagem = ProdutoDAO.GetInstance().mensagem;
+                this.mensagem = ProdutoDAO.GetInstance().Mensagem;
             }
         }
         

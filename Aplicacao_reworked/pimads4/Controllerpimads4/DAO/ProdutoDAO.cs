@@ -11,7 +11,9 @@ namespace Controllerpimads4.DAO
     public class ProdutoDAO
     {
         private static ProdutoDAO instance;
-        public string mensagem;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private ProdutoDAO() { }
 
@@ -26,6 +28,8 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarProduto(ProdutoDTO mObj)
         {
+            this.Mensagem = "";
+
             SqlCommand cmd = new SqlCommand("sp_CadastrarProduto", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -46,14 +50,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CADASTRAR PRODUTO";
             }
 
         }
 
         internal List<ProdutoDTO> ConsultarProdutoTodos()
         {
-            //String sqlText = "SELECT * FROM Produtos";
+            this.Mensagem = "";
+
             String sqlText = "select * from Produtos" +
                 " join Unidades on Unidades.idUnidade = Produtos.fk_idUnidade_Unidades" +
                 " join Fabricantes on Fabricantes.idFabricante = Produtos.fk_idFabricante_Fabricantes";
@@ -89,13 +94,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR PRODUTOS";
             }
             return lstObj;
         }
 
         internal ProdutoDTO ConsultarProdutoById(int idAtributo)
         {
+            this.Mensagem = "";
+
             SqlCommand cmd = new SqlCommand("sp_ConsultarProdutoById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -124,13 +131,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTA PRODUTO ID: " + idAtributo;
             }
             return mObj;
         }
 
         internal void AtualizarProduto(ProdutoDTO mObj)
         {
+            this.Mensagem = "";
+
             SqlCommand cmd = new SqlCommand("sp_AtualizarProduto", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -151,7 +160,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO ATUALIZAR DADOS DO PRODUTO";
             }
 
         }
@@ -172,14 +181,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO EXCLUIR PRODUTO ID: " + idAtributo;
             }
 
         }
 
         internal void AtualizarProdutoQuantidadeOc(List<OrdemCompraProdutoDTO> listaProdutosOc)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             foreach (OrdemCompraProdutoDTO ocProduto in listaProdutosOc)
             {
                 SqlCommand cmd = new SqlCommand("UPDATE Produtos SET quantidade = quantidade + @quantidade, valorCusto = @valorCusto where idProduto = @idProduto", ConexaoDAO.GetInstance().Conexao());
@@ -195,7 +204,7 @@ namespace Controllerpimads4.DAO
                 catch (Exception ex)
                 {
                     ConexaoDAO.GetInstance().Desconectar();
-                    this.mensagem= ex.Message + " - " + cmd.CommandText + " " + ex;
+                    this.Mensagem = "FALHA AO ATUALIZAR QUANTIDADE DOS PRODUTOS DE ENTRADA";
                 }
                 ConexaoDAO.GetInstance().Desconectar();
             }
@@ -204,7 +213,7 @@ namespace Controllerpimads4.DAO
 
         internal void AtualizarProdutoQuantidadePv(List<PedidoVendaProdutoDTO> listaPvProduto)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             foreach (PedidoVendaProdutoDTO pvProduto in listaPvProduto)
             {
                 SqlCommand cmd = new SqlCommand("UPDATE Produtos SET quantidade = quantidade - @quantidade where idProduto = @idProduto", ConexaoDAO.GetInstance().Conexao());
@@ -219,7 +228,7 @@ namespace Controllerpimads4.DAO
                 catch (Exception ex)
                 {
                     ConexaoDAO.GetInstance().Desconectar();
-                    this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                    this.Mensagem = "FALHA AO ATUALIZAR QUANTIDADE DO PRODUTO DE VENDA";
                 }
                 ConexaoDAO.GetInstance().Desconectar();
             }
@@ -228,7 +237,7 @@ namespace Controllerpimads4.DAO
 
         internal int ConsultarProdutoQuantidade(int Id_Produto)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             int quantidade=0;
 
             SqlCommand cmd = new SqlCommand("SELECT quantidade from Produtos where idProduto = @idProduto",ConexaoDAO.GetInstance().Conexao());
@@ -247,7 +256,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                this.Mensagem = "FALHA AO CONSULTAR QUANTIDADE DOS PRODUTOS";
             }
             return quantidade;
         }

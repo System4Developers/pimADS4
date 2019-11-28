@@ -11,7 +11,10 @@ namespace Controllerpimads4.DAO
     public class UnidadeDAO
     {
         private static UnidadeDAO instance;
-        
+        private String mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
+
         private UnidadeDAO() { }
 
         public static UnidadeDAO GetInstance()
@@ -26,6 +29,7 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarUnidade(UnidadeDTO mObj)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_CadastrarUnidade", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -41,13 +45,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CADASTRAR UNIDADE";
             }
 
         }
 
         internal List<UnidadeDTO> ConsultarUnidadeTodos()
         {
+            this.Mensagem = "";
             String sqlText = "SELECT * FROM Unidades";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
@@ -72,13 +77,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR UNIDADE";
             }
             return lstObj;
         }
 
         internal UnidadeDTO ConsultarUnidadeById(int idAtributo)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ConsultarUnidadeById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -102,13 +108,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR UNIDADE ID: " + idAtributo;
             }
             return mObj;
         }
 
         internal void AtualizarUnidade(UnidadeDTO mObj)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_AtualizarUnidade", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -124,13 +131,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO ATUALIZAR DADOS DA UNIDADE";
             }
 
         }
 
         internal void ExlcuirUnidade(int idAtributo)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ExcluirUnidade", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -145,7 +153,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO EXCLUIR UNIDADE";
             }
 
         }

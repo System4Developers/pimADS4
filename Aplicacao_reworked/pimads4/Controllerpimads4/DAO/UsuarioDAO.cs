@@ -12,7 +12,10 @@ namespace Controllerpimads4.DAO
     public class UsuarioDAO
     {
         private static UsuarioDAO instance;
-      
+        private String mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
+
         private UsuarioDAO() { }
 
         public static UsuarioDAO GetInstance()
@@ -27,6 +30,7 @@ namespace Controllerpimads4.DAO
         
         internal void CadastrarUsuario(UsuarioDTO usuario)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_CadastrarUsuario", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -46,13 +50,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CADASTRAR USUÁRIO";
             }
 
         }
 
         internal List<UsuarioDTO> ConsultarUsuarioTodos()
         {
+            this.Mensagem = "";
             String sqlText = "SELECT * FROM Usuarios";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
@@ -79,13 +84,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR USUÁRIOS";
             }
             return lstUsuarios;
         }
 
         internal UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ConsultarUsuarioById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -113,13 +119,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO OBTER DADOS DO USUARIO ID: " + idUsuario; 
             }
             return usuario;
         }
 
         internal void AtualizarUsuario(UsuarioDTO usuario)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_AtualizarUsuario", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -139,13 +146,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO ATUALIZAR DADOS DO USUARIO";
             }
 
         }
 
         internal void ExlcuirUsuario(int idUsuario)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ExcluirUsuario", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -160,16 +168,19 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO EXLCUIR USUÁRIO";
             }
 
         }
 
         internal void ValidarLoginUsuario(String Ds_Login,String Ds_Senha)
         {
+            this.Mensagem = "";
+
             String sqlText = "SELECT * FROM Usuarios WHERE " +
                 "dsLogin ="+ "'" + Ds_Login  +"'" + " AND " + 
-                "dsSenha =" + "'" + Ds_Senha + "'";
+                "dsSenha =" + "'" + Ds_Senha + "'" + "AND " +
+                "tpStatus='S'";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
             try
@@ -192,7 +203,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO VALIDADAR LOGIN DO USUÁRIO"; 
             }
         }
 

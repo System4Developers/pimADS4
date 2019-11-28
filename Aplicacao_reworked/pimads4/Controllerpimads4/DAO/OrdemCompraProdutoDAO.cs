@@ -11,7 +11,9 @@ namespace Controllerpimads4.DAO
     public class OrdemCompraProdutoDAO
     {
         public static OrdemCompraProdutoDAO instance;
-        public string mensagem;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private OrdemCompraProdutoDAO() { }
 
@@ -26,7 +28,7 @@ namespace Controllerpimads4.DAO
 
         internal List<OrdemCompraProdutoDTO> ConsultarProdutosPorIdOrdemCompra(int id_OrdemCompra)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
 
             String sqlText =string.Format("select * from OrdemCompraProduto join Produtos on produtos.idProduto = OrdemCompraProduto.fk_idProduto_Produtos " +
                 "where fk_idOrdemCompra_OrdemCompra = {0}",id_OrdemCompra);
@@ -57,7 +59,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                this.Mensagem = "FALHA AO CONSULTAR PRODUTOS DA ORDEM DE COMPRA";
             }
             return lstObj;
         }
@@ -65,7 +67,7 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarProdutoOrdemCompra(List<OrdemCompraProdutoDTO> listaProdutos, int id_OrdemCompra)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             foreach (OrdemCompraProdutoDTO ocProduto in listaProdutos)
             {
                 SqlCommand cmd = new SqlCommand("insert into OrdemCompraProduto (vlrUnit,quantidade,fk_idOrdemCompra_OrdemCompra,fk_idProduto_Produtos)" +
@@ -83,7 +85,7 @@ namespace Controllerpimads4.DAO
                 catch (Exception ex)
                 {
                     ConexaoDAO.GetInstance().Desconectar();
-                    this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                    this.Mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
                 }
             }
             ConexaoDAO.GetInstance().Desconectar();

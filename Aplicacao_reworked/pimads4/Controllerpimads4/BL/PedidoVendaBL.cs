@@ -37,16 +37,16 @@ namespace Controllerpimads4.BL
             int id_PedidoVenda = 0;
 
             id_PedidoVenda = PedidoVendaDAO.GetInstance().CadastrarPedidoVenda(pedidoVenda);
-            if (PedidoVendaDAO.GetInstance().mensagem != "")
+            if (PedidoVendaDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaDAO.GetInstance().mensagem;
+                this.mensagem = PedidoVendaDAO.GetInstance().Mensagem;
             }
             else
             {
                 PedidoVendaProdutoDAO.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
-                if (PedidoVendaProdutoDAO.GetInstance().mensagem!="")
+                if (PedidoVendaProdutoDAO.GetInstance().Mensagem!="")
                 {
-                    this.mensagem = PedidoVendaProdutoDAO.GetInstance().mensagem;
+                    this.mensagem = PedidoVendaProdutoDAO.GetInstance().Mensagem;
                 }
             }
 
