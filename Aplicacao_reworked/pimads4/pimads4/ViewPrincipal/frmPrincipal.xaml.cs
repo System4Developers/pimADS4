@@ -20,6 +20,7 @@ using Modelpimads4.DTO;
 using MaterialDesignThemes.Wpf;
 using pimads4.ViewPC;
 using pimads4.ViewPV;
+using pimads4.ViewPrincipal;
 
 namespace pimads4
 {
@@ -43,7 +44,7 @@ namespace pimads4
             {
                 this.Close();
             }
-            //lblNm_Usuario.Content ="Usuário: " + estPropriedades.Nm_Usuario;
+            lblNm_Usuario.Content ="Usuário: " + estPropriedades.Nm_Usuario + "    Logado em: " + DateTime.Now.ToString("dd/MM/yyyy - H:mm");
         }
 
         private void InicializarLogin()
@@ -59,11 +60,20 @@ namespace pimads4
             List<SubItem> menuEntidade = new List<SubItem>();
             List<SubItem> menuEstoque = new List<SubItem>();
             List<SubItem> menuEndereco = new List<SubItem>();
+            List<SubItem> menuInicio = new List<SubItem>();
+
+            ItemMenu itemMenuInicio = null;
             ItemMenu itemMenuPdv = null;
             ItemMenu itemMenuPdc = null;
             ItemMenu itemMenuEntidade = null;
             ItemMenu itemMenuEstoque = null;
             ItemMenu itemMenuEndereco = null;
+
+            grdFormContentArea.Children.Add(new frmPginaInicial());
+            lblNm_Form.Content = "Página Inicial";
+
+            menuInicio.Add(new SubItem("Pagina Inicial", "paginaInicial"));
+            itemMenuInicio = new ItemMenu("Home", menuInicio, PackIconKind.House);
 
             menuPdv.Add(new SubItem("Novo", "novoPDV"));
             menuPdv.Add(new SubItem("Consultar", "consultarPDV")); ;
@@ -87,6 +97,7 @@ namespace pimads4
             menuEndereco.Add(new SubItem("Bairros", "manterBairros"));
             itemMenuEndereco = new ItemMenu("Endereço", menuEndereco, PackIconKind.Earth);
 
+            stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuInicio, this));
             stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuPdc, this));
             stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuPdv,this));
             stpMenuLateral.Children.Add(new UserControlMenuItem(itemMenuEntidade,this));

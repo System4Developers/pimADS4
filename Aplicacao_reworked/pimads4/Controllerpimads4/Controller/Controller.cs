@@ -347,6 +347,7 @@ namespace Controllerpimads4.Controller
             {
                 this.mensagem = OrdemCompraBL.GetInstance().mensagem;
             }
+            
         }
 
         public List<OrdemCompraDTO> ConsultarOrdemCompraTodos()
@@ -418,28 +419,14 @@ namespace Controllerpimads4.Controller
             }
         }
 
-        public int CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda)
+        public void CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda, List<PedidoVendaProdutoDTO> listaPvProduto)
         {
             this.mensagem = "";
-            int id_PedidoVenda = 0;
 
-            id_PedidoVenda = PedidoVendaBL.GetInstance().CadastrarPedidoVenda(pedidoVenda);
+            PedidoVendaBL.GetInstance().CadastrarPedidoVenda(pedidoVenda, listaPvProduto);
             if (PedidoVendaBL.GetInstance().mensagem != "")
             {
                 this.mensagem = PedidoVendaBL.GetInstance().mensagem;
-            }
-
-            return id_PedidoVenda;
-        }
-
-        public void CadastrarProdutoPedidoVenda(List<PedidoVendaProdutoDTO> listaPvProduto, int id_PedidoVenda)
-        {
-            this.mensagem = "";
-            PedidoVendaProdutoBL.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
-
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
-            {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
             }
             else
             {

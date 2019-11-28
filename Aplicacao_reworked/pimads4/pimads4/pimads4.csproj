@@ -86,6 +86,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewPrincipal\frmPaginaInicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewProduto\frmProdutoEstoque.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +115,9 @@
     </Compile>
     <Compile Include="ViewPC\frmConsultaOc.xaml.cs">
       <DependentUpon>frmConsultaOc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPrincipal\frmPaginaInicial.xaml.cs">
+      <DependentUpon>frmPaginaInicial.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewProduto\frmProdutoEstoque.xaml.cs">
       <DependentUpon>frmProdutoEstoque.xaml</DependentUpon>

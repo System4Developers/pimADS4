@@ -31,7 +31,7 @@ namespace Controllerpimads4.BL
             return lstPedidos;
         }
 
-        internal int CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda)
+        internal void CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda, List<PedidoVendaProdutoDTO> listaPvProduto)
         {
             this.mensagem = "";
             int id_PedidoVenda = 0;
@@ -41,8 +41,15 @@ namespace Controllerpimads4.BL
             {
                 this.mensagem = PedidoVendaDAO.GetInstance().mensagem;
             }
+            else
+            {
+                PedidoVendaProdutoDAO.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
+                if (PedidoVendaProdutoDAO.GetInstance().mensagem!="")
+                {
+                    this.mensagem = PedidoVendaProdutoDAO.GetInstance().mensagem;
+                }
+            }
 
-            return id_PedidoVenda;
         }
 
 

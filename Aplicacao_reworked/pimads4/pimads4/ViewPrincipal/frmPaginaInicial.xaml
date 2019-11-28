@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="pimads4.ViewPrincipal.frmPginaInicial"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:pimads4.ViewPrincipal"
+             mc:Ignorable="d" 
+            d:DesignHeight="620" d:DesignWidth="1045">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="260"/>
+
+        </Grid.RowDefinitions>
+        <Label Content="Seja Bem Vindo ao Sistema de Gerenciamento PDV!" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch"  HorizontalContentAlignment="Center" Margin="0,86,0,0" FontSize="36" FontWeight="Bold" Height="58" />
+        <Label Content="Utilize os menus laterais para operação do sistema" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"  HorizontalContentAlignment="Center" Margin="0,276,0,16" FontSize="36" FontWeight="Bold" Height="58" />
+
+    </Grid>
+</UserControl>

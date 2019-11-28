@@ -1,6 +1,7 @@
 ﻿using pimads4.ViewCEP;
 using pimads4.ViewPC;
 using pimads4.ViewPessoa;
+using pimads4.ViewPrincipal;
 using pimads4.ViewProduto;
 using pimads4.ViewPV;
 using pimads4.ViewUsuario;
@@ -94,6 +95,10 @@ namespace pimads4
                     case "manterBairros":
                         frmPrincipal.grdFormContentArea.Children.Add(new frmManterBairros());
                         frmPrincipal.lblNm_Form.Content = "BAIRROS";
+                        break;
+                    case "paginaInicial":
+                        frmPrincipal.grdFormContentArea.Children.Add(new frmPginaInicial());
+                        frmPrincipal.lblNm_Form.Content = "Página Inicial";
                         break;
                 }
             }

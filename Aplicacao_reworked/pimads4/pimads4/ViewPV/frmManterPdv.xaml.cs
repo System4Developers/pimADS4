@@ -204,8 +204,9 @@ namespace pimads4
 
         private void BtnFinalizarVenda_Click(object sender, RoutedEventArgs e)
         {
-            int id_PedidoVenda = 0;
             PedidoVendaDTO pedido = new PedidoVendaDTO();
+            PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
 
             pedido.DtDigitacao = dtpDt_Digitacao.SelectedDate.ToString();
             try
@@ -239,27 +240,16 @@ namespace pimads4
             pedido.Usuario.IdUsuario = estPropriedades.Id_Usuario;
             pedido.TpPagamento = cmbTp_Pagamento.Text;
 
-            id_PedidoVenda = Controller.GetInstance().CadastrarPedidoVenda(pedido);
+            listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+
+            Controller.GetInstance().CadastrarPedidoVenda(pedido, listaPvProduto);
             if (Controller.GetInstance().mensagem != "")
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
             }
             else
             {
-                PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
-                List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
-                listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
-
-                Controller.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
-                if (Controller.GetInstance().mensagem != "")
-                {
-                    MessageBox.Show(Controller.GetInstance().mensagem);
-                }
-                else
-                {
-                    MessageBox.Show("VENDA DE PRODUTOS REGISTRADA");
-                }
-
+                MessageBox.Show("VENDA DE PRODUTOS REGISTRADA");
             }
 
         }
