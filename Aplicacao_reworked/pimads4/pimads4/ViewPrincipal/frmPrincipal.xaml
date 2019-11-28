@@ -7,7 +7,7 @@
         Title="Imperador das Telhas" 
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Height="720" Width="1280" WindowStyle="ThreeDBorderWindow"
+        Height="720" Width="1280" WindowStyle="None"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
