@@ -93,9 +93,9 @@ namespace Controllerpimads4.BL
             }
             
             quantidade = ProdutoDAO.GetInstance().ConsultarProdutoQuantidade(pvProduto.Produto.IdProduto);
-            if (ProdutoDAO.GetInstance().mensagem != "")
+            if (ProdutoDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = ProdutoDAO.GetInstance().mensagem;
+                this.mensagem = ProdutoDAO.GetInstance().Mensagem;
                 return;
             }
             
@@ -144,9 +144,9 @@ namespace Controllerpimads4.BL
         {
             this.mensagem = "";
             PedidoVendaProdutoDAO.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
-            if (PedidoVendaProdutoDAO.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoDAO.GetInstance().mensagem;
+                this.mensagem = PedidoVendaProdutoDAO.GetInstance().Mensagem;
             }
         }
 

@@ -11,6 +11,9 @@ namespace Controllerpimads4.BL
     public class UsuarioBL
     {
         private static UsuarioBL instance;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private UsuarioBL() { }
 
@@ -63,6 +66,10 @@ namespace Controllerpimads4.BL
             if (Ds_Login !="" && Ds_Senha !="")
             {
                 UsuarioDAO.GetInstance().ValidarLoginUsuario(Ds_Login, Ds_Senha);
+                if (UsuarioDAO.GetInstance().Mensagem!="")
+                {
+                    this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+                }
             }
         }
     }

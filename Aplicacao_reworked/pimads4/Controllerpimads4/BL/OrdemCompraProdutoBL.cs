@@ -120,9 +120,9 @@ namespace Controllerpimads4.BL
         {
             this.mensagem = "";
             OrdemCompraProdutoDAO.GetInstance().CadastrarProdutoOrdemCompra(listaProdutos, id_OrdemCompra);
-            if (OrdemCompraProdutoDAO.GetInstance().mensagem != "")
+            if (OrdemCompraProdutoDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = OrdemCompraProdutoDAO.GetInstance().mensagem;
+                this.mensagem = OrdemCompraProdutoDAO.GetInstance().Mensagem;
             }
         }
     }

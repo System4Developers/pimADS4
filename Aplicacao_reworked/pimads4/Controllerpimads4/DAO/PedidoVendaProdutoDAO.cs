@@ -11,9 +11,11 @@ namespace Controllerpimads4.DAO
     public class PedidoVendaProdutoDAO
     {
         private static PedidoVendaProdutoDAO instance;
-        public String mensagem;
+        private String mensagem;
 
         private PedidoVendaProdutoDAO() { }
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         public static PedidoVendaProdutoDAO GetInstance()
         {
@@ -26,7 +28,7 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarProdutoPedidoVenda(List<PedidoVendaProdutoDTO> listaPvProduto, int id_PedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             foreach (PedidoVendaProdutoDTO pvProduto in listaPvProduto)
             {
                 SqlCommand cmd = new SqlCommand("insert into PedidoVendaProduto (vlrUnit,quantidade,desconto,fk_idPedidoVenda_PedidoVenda,fk_idProduto_Produtos)" +
@@ -45,7 +47,7 @@ namespace Controllerpimads4.DAO
                 catch (Exception ex)
                 {
                     ConexaoDAO.GetInstance().Desconectar();
-                    this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                    this.Mensagem = "FALHA AO CADASTRAR PRODUTOS DO PEDIDO DE VENDA";
                 }
             }
             ConexaoDAO.GetInstance().Desconectar();
@@ -53,7 +55,7 @@ namespace Controllerpimads4.DAO
 
         internal List<PedidoVendaProdutoDTO> ConsultarProdutosPorIdPedidoVenda(int id_PedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
 
             String sqlText = string.Format("select * from PedidoVendaProduto join Produtos on produtos.idProduto = PedidoVendaProduto.fk_idProduto_Produtos " +
                 "where fk_idPedidoVenda_PedidoVenda = {0}", id_PedidoVenda);
@@ -84,7 +86,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                this.Mensagem = "FALHA AO CONSULTAR PRODUTOS DO PEDIDO ID: " + id_PedidoVenda;
             }
             return lstObj;
         }

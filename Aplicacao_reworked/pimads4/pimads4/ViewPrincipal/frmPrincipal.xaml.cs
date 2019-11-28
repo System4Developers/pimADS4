@@ -110,9 +110,7 @@ namespace pimads4
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja encerrar a sessão do usuário?", "Logout Usuário", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
-            {
-                
-            }
+            {}
             else
             {
                 grdFormContentArea.Children.Clear();
@@ -129,7 +127,13 @@ namespace pimads4
 
         private void BtnSair_Click(object sender, RoutedEventArgs e)
         {
-           Application.Current.Shutdown();
+            if (MessageBox.Show("Deseja encerrar a Aplicação", "Encerrar Aplicação", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {}
+            else
+            {
+                Application.Current.Shutdown();
+            }
+
         }
     }
 }

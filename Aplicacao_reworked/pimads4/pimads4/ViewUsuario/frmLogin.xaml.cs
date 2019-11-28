@@ -30,13 +30,13 @@ namespace pimads4.ViewUsuario
         {
             
             UsuarioDTO usuario = new UsuarioDTO();
+            estPropriedades.Bl_Logado = false;
 
             usuario.DsLogin = txtDs_Login.Text;
-            usuario.DsSenha = txtDs_Senha.Password ;
+            usuario.DsSenha = txtDs_Senha.Password;
 
-            estPropriedades.Bl_Logado = false;
+            
             Controller.GetInstance().ValidarLoginUsuario(usuario.DsLogin, usuario.DsSenha);
-
             if (!estPropriedades.Bl_Logado)
             {
                 lblDs_Mensagem.Content = "Login e/ou Senha Inválido(s)";
@@ -47,12 +47,6 @@ namespace pimads4.ViewUsuario
             }
         }
 
-        private void BtnLogarAnonimo_Click(object sender, RoutedEventArgs e)
-        {
-            estPropriedades.Bl_Logado = true;
-            estPropriedades.Nm_Usuario = "Anonimo - Teste";
-            this.Close();
-        }
 
         private void BtnSair_Click(object sender, RoutedEventArgs e)
         {

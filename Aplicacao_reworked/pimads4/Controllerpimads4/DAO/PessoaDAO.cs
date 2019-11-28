@@ -11,6 +11,9 @@ namespace Controllerpimads4.DAO
     public class PessoaDAO
     {
         private static PessoaDAO instance;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private PessoaDAO() { }
 
@@ -26,6 +29,7 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarPessoa(PessoaDTO mObj)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_CadastrarPessoa", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -51,13 +55,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CADASTRAR PESSOA";
             }
 
         }
 
         internal List<PessoaDTO> ConsultarPessoaTodos()
         {
+            this.Mensagem = "";
+
             String sqlText = "SELECT * FROM Pessoas";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
@@ -92,13 +98,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR DADOS PESSOA";
             }
             return lstObj;
         }
 
         internal PessoaDTO ConsultarPessoaById(int idAtributo)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ConsultarPessoaById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -134,13 +141,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR PESSOA ID: " + idAtributo;
             }
             return mObj;
         }
 
         internal List<PessoaDTO> ConsultarPessoaJuridica()
         {
+            this.Mensagem = "";
+
             SqlCommand cmd = new SqlCommand("Select * from Pessoas where tpPessoa='J'", ConexaoDAO.GetInstance().Conexao());
             List<PessoaDTO> listaPessoaJuridica = new List<PessoaDTO>();
             PessoaDTO pessoa = null;
@@ -162,7 +171,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
 
-                throw new Exception("Erro: " + ex);
+                this.Mensagem = "FALHA AO CONSULTAR PESSOAS POR TIPO";
             }
 
             return listaPessoaJuridica;
@@ -170,6 +179,7 @@ namespace Controllerpimads4.DAO
 
         internal void AtualizarPessoa(PessoaDTO mObj)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_AtualizarPessoa", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -195,13 +205,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO ATUALIZAR DADOS DE PESSOA";
             }
 
         }
 
         internal void ExlcuirPessoa(int idAtributo)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ExcluirPessoa", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -216,7 +227,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO EXLCUIR PESSOA";
             }
 
         }

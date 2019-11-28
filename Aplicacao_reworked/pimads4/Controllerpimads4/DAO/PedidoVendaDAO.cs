@@ -12,7 +12,9 @@ namespace Controllerpimads4.DAO
     public class PedidoVendaDAO
     {
         public static PedidoVendaDAO instance;
-        public string mensagem;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private PedidoVendaDAO() { }
 
@@ -27,11 +29,11 @@ namespace Controllerpimads4.DAO
 
 
         internal List<PedidoVendaDTO> ConsultarPedidoVendaTodos()
-        { 
-            String sqlText = "SELECT * FROM PedidoVenda JOIN Pessoas on Pessoas.idPessoa = PedidoVenda.fk_idPessoa_Pessoas";
-            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+        {
+            this.Mensagem = "";
 
-          
+            String sqlText = "SELECT * FROM PedidoVenda JOIN Pessoas on Pessoas.idPessoa = PedidoVenda.fk_idPessoa_Pessoas";
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());                
 
             List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
             PedidoVendaDTO pedido = null;
@@ -57,14 +59,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR PEDIDOS DE VENDA";
             }
             return lstPedidos;
         }
 
         internal int CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             int id_PedidoVenda = 0;
 
             string sqlText = string.Format("INSERT INTO PedidoVenda (valorTotal,dtDigitacao,tpPagamento,tpStatus,fk_idPessoa_Pessoas,fk_idUsuario_Usuarios)" +
@@ -82,7 +84,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                this.mensagem = ex.Message + " - " + "\n" + cmd.CommandText + "\n" + ex;
+                this.Mensagem = "FALHA AO CADASTRAR PEDIDO DE VENDA";
             }
 
             return id_PedidoVenda;
