@@ -220,5 +220,30 @@ namespace Controllerpimads4.DAO
 
         }
 
+        internal int ConsultarProdutoQuantidade(int Id_Produto)
+        {
+            this.mensagem = "";
+            int quantidade=0;
+
+            SqlCommand cmd = new SqlCommand("SELECT quantidade from Produtos where idProduto = @idProduto",ConexaoDAO.GetInstance().Conexao());
+            cmd.Parameters.AddWithValue("@idProduto", Id_Produto);
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    quantidade = Convert.ToInt32(dr["quantidade"]);
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+            }
+            return quantidade;
+        }
     }
 }

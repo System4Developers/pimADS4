@@ -24,18 +24,24 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
-        internal int CadastrarPedidoCompra(OrdemCompraDTO ordemCompra)
+        internal void CadastrarOrdemCompra(OrdemCompraDTO ordemCompra, List<OrdemCompraProdutoDTO> listaOcProduto)
         {
             this.mensagem = "";
             int id_OrdemCompra = 0;
 
-            id_OrdemCompra = OrdemCompraDAO.GetInstance().CadastrarPedidoCompra(ordemCompra);
+            id_OrdemCompra = OrdemCompraDAO.GetInstance().CadastrarOrdemCompra(ordemCompra);
             if (OrdemCompraDAO.GetInstance().mensagem != "")
             {
                 this.mensagem = OrdemCompraDAO.GetInstance().mensagem;
             }
-            
-            return id_OrdemCompra;
+            else
+            {
+                OrdemCompraProdutoDAO.GetInstance().CadastrarProdutoOrdemCompra(listaOcProduto, id_OrdemCompra);
+                if (OrdemCompraProdutoDAO.GetInstance().mensagem!="")
+                {
+                    this.mensagem = OrdemCompraProdutoDAO.GetInstance().mensagem;
+                }
+            }
         }
         
         internal List<OrdemCompraDTO> ConsultarOrdemCompraTodos()

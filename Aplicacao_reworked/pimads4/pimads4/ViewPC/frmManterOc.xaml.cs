@@ -199,8 +199,9 @@ namespace pimads4.ViewPC
 
         private void BtnFinalizar_Click(object sender, RoutedEventArgs e)
         {
-            int id_OrdemCompra = 0;
             OrdemCompraDTO ordemCompra = new OrdemCompraDTO();
+            OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
+            List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
 
             ordemCompra.DtDigitacao = dtpDt_Digitacao.SelectedDate.ToString();
             try
@@ -223,28 +224,16 @@ namespace pimads4.ViewPC
             }
             ordemCompra.TpStatus = "F";
             ordemCompra.Usuario.IdUsuario = estPropriedades.Id_Usuario;
+            listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
-            id_OrdemCompra = Controller.GetInstance().CadastrarPedidoCompra(ordemCompra);
+            Controller.GetInstance().CadastrarOrdemCompra(ordemCompra,listaOcProduto);
             if (Controller.GetInstance().mensagem != "")
             {
                 MessageBox.Show(Controller.GetInstance().mensagem);
             }
             else
             {
-                OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
-                List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
-                listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
-
-                Controller.GetInstance().CadastrarProdutoOrdemCompra(listaOcProduto, id_OrdemCompra);
-                if (Controller.GetInstance().mensagem != "")
-                {
-                    MessageBox.Show(Controller.GetInstance().mensagem);
-                }
-                else
-                {
-                    MessageBox.Show("ENTRADA DE PRODUTOS REGISTRADA");
-                }
-
+                MessageBox.Show("ENTRADA DE PRODUTOS REGISTRADA");
             }
 
         }

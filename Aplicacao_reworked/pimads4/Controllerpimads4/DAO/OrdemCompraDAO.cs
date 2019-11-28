@@ -25,7 +25,7 @@ namespace Controllerpimads4.DAO
             return instance;
         }
 
-        internal int CadastrarPedidoCompra(OrdemCompraDTO ordemCompra)
+        internal int CadastrarOrdemCompra(OrdemCompraDTO ordemCompra)
         {
             this.mensagem = "";
             int id_OrdemCompra=0;

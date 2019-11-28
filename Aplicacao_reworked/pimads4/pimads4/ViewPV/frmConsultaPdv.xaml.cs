@@ -35,8 +35,6 @@ namespace pimads4.ViewPV
             dtgPedidoVenda.ItemsSource = listaPedidoVenda;
         }
 
-       
-
         private void DtgPedidoVenda_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (dtgPedidoVenda.SelectedIndex >= 0)
