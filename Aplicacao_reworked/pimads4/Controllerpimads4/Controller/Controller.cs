@@ -12,7 +12,9 @@ namespace Controllerpimads4.Controller
     public class Controller
     {
         private static Controller instance;
-        public string mensagem;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private Controller() { }
 
@@ -29,67 +31,114 @@ namespace Controllerpimads4.Controller
         #region Metodos do Usuario
         public void CadastrarUsuario(UsuarioDTO usuario)
         {
+            this.Mensagem = "";
             UsuarioBL.GetInstance().CadastrarUsuario(usuario);
-            
+            if (UsuarioBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = UsuarioBL.GetInstance().Mensagem;
+            }
         }
 
         public List<UsuarioDTO> ConsultarUsuarios()
         {
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             lstUsuarios = UsuarioBL.GetInstance().ConsultarUsuarios();
+            if (UsuarioBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioBL.GetInstance().Mensagem;
+            }
             return lstUsuarios;
         }
 
         public UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
             UsuarioDTO usuario = UsuarioBL.GetInstance().ConsultarUsuarioById(idUsuario);
+            if (UsuarioBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioBL.GetInstance().Mensagem;
+            }
             return usuario;
         }
 
         public void AtualizarUsuario(UsuarioDTO usuario)
         {
             UsuarioBL.GetInstance().AtualizarUsuario(usuario);
+            if (UsuarioBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioBL.GetInstance().Mensagem;
+            }
         }
 
         public void ExcluirUsuario(int idUsuario)
         {
             UsuarioBL.GetInstance().ExcluirUsuario(idUsuario);
+            if (UsuarioBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioBL.GetInstance().Mensagem;
+            }
         }
         public void ValidarLoginUsuario(String Ds_Login, String Ds_Senha)
         {
             UsuarioBL.GetInstance().ValidarLoginUsuario(Ds_Login, Ds_Senha);
-            
+            if (UsuarioBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioBL.GetInstance().Mensagem;
+            }
         }
         #endregion
 
         #region Metodos Fabricante
         public void CadastrarFabricante(FabricanteDTO fabricante)
         {
+            this.Mensagem = "";
             FabricanteBL.GetInstance().CadastrarFabricante(fabricante);
-
+            if (FabricanteBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = FabricanteBL.GetInstance().Mensagem;
+            }
         }
         
         public List<FabricanteDTO> ConsultarFabricanteTodos()
         {
+            this.Mensagem = "";
             List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
             lstFabricantes = FabricanteBL.GetInstance().ConsultarFabricanteTodos();
+            if (FabricanteBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = FabricanteBL.GetInstance().Mensagem;
+            }
             return lstFabricantes;
         }
 
         public FabricanteDTO ConsultarFabricanteById(int idFabricante)
         {
+            this.Mensagem = "";
             FabricanteDTO fabricante = FabricanteBL.GetInstance().ConsultarFabricanteById(idFabricante);
+            if (FabricanteBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = FabricanteBL.GetInstance().Mensagem;
+            }
             return fabricante;
         }
 
         public void AtualizarFabricante(FabricanteDTO fabricante)
         {
+            this.Mensagem = "";
             FabricanteBL.GetInstance().AtualizarFabricante(fabricante);
+            if (FabricanteBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = FabricanteBL.GetInstance().Mensagem;
+            }
         }
 
         public void ExcluirFabricante(int idFabricante)
         {
+            this.Mensagem = "";
             FabricanteBL.GetInstance().ExcluirFabricante(idFabricante);
+            if (FabricanteBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = FabricanteBL.GetInstance().Mensagem;
+            }
         }
         #endregion
 
@@ -97,16 +146,25 @@ namespace Controllerpimads4.Controller
 
         public List<PedidoVendaDTO> ConsultarPedidoVendaTodos()
         {
+            this.Mensagem = "";
             List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
             lstPedidos = PedidoVendaBL.GetInstance().ConsultarPedidoVendaTodos();
+            if (PedidoVendaBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = PedidoVendaBL.GetInstance().Mensagem;
+            }
             return lstPedidos;
         }
 
         public List<PedidoVendaProdutoDTO> ConsultarProdutosPorIdPedidoVenda(int id_PedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
             listaPvProduto = PedidoVendaProdutoBL.GetInstance().ConsultarPedidoPorIdPedidoVenda(id_PedidoVenda);
+            if (PedidoVendaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PedidoVendaBL.GetInstance().Mensagem;
+            }
             return listaPvProduto;
         }
 
@@ -288,39 +346,39 @@ namespace Controllerpimads4.Controller
         #region Metodos Ordem de Compra
         public void VerificarProdutoOc(OrdemCompraProdutoDTO produtoOc)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             OrdemCompraProdutoBL.GetInstance().VerificarProdutoOc(produtoOc);
             if (OrdemCompraProdutoBL.GetInstance().mensagem !="")
             {
-                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+                this.Mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
             }
         }
 
         public void AdicionarQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc,int index)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             OrdemCompraProdutoBL.GetInstance().AdicionarQuantidadeProdutoOc(listaProdutosOc, index);
 
             if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
             {
-                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+                this.Mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
             }
         }
 
         public void RemoverQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc, int index)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             OrdemCompraProdutoBL.GetInstance().RemoverQuantidadeProdutoOc(listaProdutosOc, index);
 
             if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
             {
-                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+                this.Mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
             }
         }
 
         public double OcProdCalcularValorTotal(List<OrdemCompraProdutoDTO> listaProdutosOc)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             double vlTotal=0;
 
             try
@@ -328,12 +386,12 @@ namespace Controllerpimads4.Controller
                 vlTotal = OrdemCompraProdutoBL.GetInstance().OcProdCalcularValorTotal(listaProdutosOc);
                 if (OrdemCompraProdutoBL.GetInstance().mensagem != "")
                 {
-                    this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
+                    this.Mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
                 }
             }
             catch (Exception ex)
             {
-                this.mensagem = "NAO FOI POSSIVEL CALCULAR O VALOR TOTAL";
+                this.Mensagem = "NAO FOI POSSIVEL CALCULAR O VALOR TOTAL";
             }
 
             return vlTotal;
@@ -341,25 +399,25 @@ namespace Controllerpimads4.Controller
 
         public void CadastrarOrdemCompra(OrdemCompraDTO ordemCompra,List<OrdemCompraProdutoDTO> listaOcProduto)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
 
             OrdemCompraBL.GetInstance().CadastrarOrdemCompra(ordemCompra, listaOcProduto);
             if (OrdemCompraBL.GetInstance().mensagem != "")
             {
-                this.mensagem = OrdemCompraBL.GetInstance().mensagem;
+                this.Mensagem = OrdemCompraBL.GetInstance().mensagem;
             }
             
         }
 
         public List<OrdemCompraDTO> ConsultarOrdemCompraTodos()
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
 
             listaOrdemCompra = OrdemCompraBL.GetInstance().ConsultarOrdemCompraTodos();
             if (OrdemCompraBL.GetInstance().mensagem!="")
             {
-                this.mensagem = OrdemCompraBL.GetInstance().mensagem;
+                this.Mensagem = OrdemCompraBL.GetInstance().mensagem;
             }
 
             return listaOrdemCompra;
@@ -367,7 +425,7 @@ namespace Controllerpimads4.Controller
 
         public List<OrdemCompraProdutoDTO> ConsultarProdutosPorIdOrdemCompra(int id_OrdemCompra)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             List<OrdemCompraProdutoDTO> listaProdutoOc = new List<OrdemCompraProdutoDTO>();
             listaProdutoOc = OrdemCompraProdutoBL.GetInstance().ConsultarProdutosPorIdOrdemCompra(id_OrdemCompra);
             return listaProdutoOc;
@@ -379,62 +437,62 @@ namespace Controllerpimads4.Controller
 
         public void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             PedidoVendaProdutoBL.GetInstance().VerificarProdutoPv(pvProduto);
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.Mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
         public void PvProdCalcularValorTotal(List<PedidoVendaProdutoDTO> listaPvProduto,PedidoVendaDTO pedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
            
             PedidoVendaProdutoBL.GetInstance().PvProdCalcularValorTotal(listaPvProduto, pedidoVenda);
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.Mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
         public void AdicionarQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             PedidoVendaProdutoBL.GetInstance().AdicionarQuantidadeProdutoPv(listaPvProduto, index);
 
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.Mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
         public void RemoverQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             PedidoVendaProdutoBL.GetInstance().RemoverQuantidadeProdutoPv(listaPvProduto, index);
 
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.Mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
         public void CadastrarPedidoVenda(PedidoVendaDTO pedidoVenda, List<PedidoVendaProdutoDTO> listaPvProduto)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
 
             PedidoVendaBL.GetInstance().CadastrarPedidoVenda(pedidoVenda, listaPvProduto);
-            if (PedidoVendaBL.GetInstance().mensagem != "")
+            if (PedidoVendaBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaBL.GetInstance().mensagem;
+                this.Mensagem = PedidoVendaBL.GetInstance().Mensagem;
             }
             else
             {
                 ProdutoBL.GetInstance().AtualizarProdutoQuantidadePv(listaPvProduto);
-                if (ProdutoBL.GetInstance().mensagem != "")
+                if (ProdutoBL.GetInstance().Mensagem != "")
                 {
-                    this.mensagem = ProdutoBL.GetInstance().mensagem;
+                    this.Mensagem = ProdutoBL.GetInstance().Mensagem;
                 }
             }
         }

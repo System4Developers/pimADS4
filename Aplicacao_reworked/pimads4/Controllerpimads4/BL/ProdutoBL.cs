@@ -11,8 +11,10 @@ namespace Controllerpimads4.BL
     public class ProdutoBL
     {
         private static ProdutoBL instance;
-        public string mensagem;
-        
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
+
         private ProdutoBL() { }
 
         public static ProdutoBL GetInstance()
@@ -27,46 +29,71 @@ namespace Controllerpimads4.BL
 
         internal void CadastrarProduto(ProdutoDTO produto)
         {
+            this.Mensagem = "";
             if (produto.DsProduto !="")
             {
                 ProdutoDAO.GetInstance().CadastrarProduto(produto);
+                if (ProdutoDAO.GetInstance().Mensagem!="")
+                {
+                    this.Mensagem= ProdutoDAO.GetInstance().Mensagem;
+                }
             }
         }
         internal List<ProdutoDTO> ConsultarProdutos()
         {
+            this.Mensagem = "";
             List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
             lstProdutos = ProdutoDAO.GetInstance().ConsultarProdutoTodos();
+            if (ProdutoDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
+            }
             return lstProdutos;
         }
         internal ProdutoDTO ConsultarProdutoById(int idProduto)
         {
+            this.Mensagem = "";
             ProdutoDTO produto = ProdutoDAO.GetInstance().ConsultarProdutoById(idProduto);
+            if (ProdutoDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
+            }
             return produto;
         }
         internal void AtualizarProduto(ProdutoDTO produto)
         {
+            this.Mensagem = "";
             ProdutoDAO.GetInstance().AtualizarProduto(produto);
+            if (ProdutoDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
+            }
         }
         internal void ExcluirProduto(int idProduto)
         {
+            this.Mensagem = "";
             ProdutoDAO.GetInstance().ExlcuirProduto(idProduto);
+            if (ProdutoDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
+            }
         }
         internal void AtualizarProdutoQuantidadeOc(List<OrdemCompraProdutoDTO> listaProdutosOc)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             ProdutoDAO.GetInstance().AtualizarProdutoQuantidadeOc(listaProdutosOc);
             if (ProdutoDAO.GetInstance().Mensagem !="")
             {
-                this.mensagem = ProdutoDAO.GetInstance().Mensagem;
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
             }
         }
         internal void AtualizarProdutoQuantidadePv(List<PedidoVendaProdutoDTO> listaPvProduto)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             ProdutoDAO.GetInstance().AtualizarProdutoQuantidadePv(listaPvProduto);
             if (ProdutoDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = ProdutoDAO.GetInstance().Mensagem;
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
             }
         }
     }

@@ -29,16 +29,25 @@ namespace Controllerpimads4.BL
 
         internal void CadastrarUsuario(UsuarioDTO usuario)
         {
-
+            this.Mensagem = "";
             if (usuario.DsLogin !="" && usuario.DsSenha !="")
             {
                 UsuarioDAO.GetInstance().CadastrarUsuario(usuario);
+                if (UsuarioDAO.GetInstance().Mensagem!="")
+                {
+                    this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+                }
             }
 
         }
 
         internal List<UsuarioDTO> ConsultarUsuarios()
         {
+            this.Mensagem = "";
+            if (UnidadeDAO.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = UnidadeDAO.GetInstance().Mensagem;
+            }
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             lstUsuarios = UsuarioDAO.GetInstance().ConsultarUsuarioTodos();
             return lstUsuarios;
@@ -46,23 +55,39 @@ namespace Controllerpimads4.BL
 
         internal UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
+            this.Mensagem = "";
             UsuarioDTO usuario = UsuarioDAO.GetInstance().ConsultarUsuarioById(idUsuario);
+            if (UsuarioDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+            }
             return usuario;
         }
 
         internal void AtualizarUsuario(UsuarioDTO usuario)
         {
+            this.Mensagem = "";
             UsuarioDAO.GetInstance().AtualizarUsuario(usuario);
+            if (UsuarioDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+            }
 
         }
 
         internal void ExcluirUsuario(int idUsuario)
         {
+            this.Mensagem = "";
             UsuarioDAO.GetInstance().ExlcuirUsuario(idUsuario);
+            if (UsuarioDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+            }
         }
 
         internal void ValidarLoginUsuario(String Ds_Login, String Ds_Senha)
         {
+            this.Mensagem = "";
             if (Ds_Login !="" && Ds_Senha !="")
             {
                 UsuarioDAO.GetInstance().ValidarLoginUsuario(Ds_Login, Ds_Senha);

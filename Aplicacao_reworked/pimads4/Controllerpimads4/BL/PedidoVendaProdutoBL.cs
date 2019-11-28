@@ -11,7 +11,9 @@ namespace Controllerpimads4.BL
     public class PedidoVendaProdutoBL
     {
         private static PedidoVendaProdutoBL instance;
-        public string mensagem;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private PedidoVendaProdutoBL() { }
 
@@ -27,15 +29,15 @@ namespace Controllerpimads4.BL
 
         internal void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             if (pvProduto.Quantidade <= 0)
             {
-                this.mensagem += "QUANTIDADE DO PRODUTO NÃO PODE SER 0 OU MENOR";
+                this.Mensagem += "QUANTIDADE DO PRODUTO NÃO PODE SER 0 OU MENOR";
                 return;
             }
             if (pvProduto.VlrUnit <= 0)
             {
-                this.mensagem += "VALOR DO PRODUTO NÃO PODE SER 0 OU MENOR";
+                this.Mensagem += "VALOR DO PRODUTO NÃO PODE SER 0 OU MENOR";
                 return;
             }
 
@@ -52,7 +54,7 @@ namespace Controllerpimads4.BL
                 }
                 catch (Exception ex)
                 {
-                    this.mensagem += "NAO FOI POSSIVEL CALCULAR O VALOR DE DESCONTO";
+                    this.Mensagem += "NAO FOI POSSIVEL CALCULAR O VALOR DE DESCONTO";
                 }
             }
 
@@ -60,7 +62,7 @@ namespace Controllerpimads4.BL
 
         internal void PvProdCalcularValorTotal(List<PedidoVendaProdutoDTO> listaPvProduto,PedidoVendaDTO pedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             pedidoVenda.ValorTotal = 0;
             pedidoVenda.ValorTotalDesconto = 0;
 
@@ -74,13 +76,13 @@ namespace Controllerpimads4.BL
             }
             catch (Exception ex)
             {
-                this.mensagem = "NÃO FOI POSSÍVEL CALCULAR O VALOR TOTAL";
+                this.Mensagem = "NÃO FOI POSSÍVEL CALCULAR O VALOR TOTAL";
             }
         }
 
         internal void AdicionarQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             int quantidade = 0;
             PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
 
@@ -88,20 +90,20 @@ namespace Controllerpimads4.BL
 
             if (listaPvProduto.Count < 1)
             {
-                this.mensagem = "NENHUM PRODUTO P/ ACRESCENTAR QUANTIDADE";
+                this.Mensagem = "NENHUM PRODUTO P/ ACRESCENTAR QUANTIDADE";
                 return;
             }
             
             quantidade = ProdutoDAO.GetInstance().ConsultarProdutoQuantidade(pvProduto.Produto.IdProduto);
             if (ProdutoDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = ProdutoDAO.GetInstance().Mensagem;
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
                 return;
             }
             
             if (pvProduto.Quantidade >= quantidade)
             {
-                this.mensagem = "QUANTIDADE MAXIMA ANTIGIDA";
+                this.Mensagem = "QUANTIDADE MAXIMA ANTIGIDA";
                 return;
             }
 
@@ -113,7 +115,7 @@ namespace Controllerpimads4.BL
 
         internal void RemoverQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
 
             if (listaPvProduto.Count > 0)
@@ -130,32 +132,36 @@ namespace Controllerpimads4.BL
                 }
                 else
                 {
-                    this.mensagem = "QUANTIDADE MINIMA ATINGIDA 1";
+                    this.Mensagem = "QUANTIDADE MINIMA ATINGIDA 1";
                 }
             }
             else
             {
-                this.mensagem = "NENHUM PRODUTO P/ RETIRAR QUANTIDADE";
+                this.Mensagem = "NENHUM PRODUTO P/ RETIRAR QUANTIDADE";
             }
 
         }
 
         internal void CadastrarProdutoPedidoVenda(List<PedidoVendaProdutoDTO> listaPvProduto, int id_PedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             PedidoVendaProdutoDAO.GetInstance().CadastrarProdutoPedidoVenda(listaPvProduto, id_PedidoVenda);
             if (PedidoVendaProdutoDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoDAO.GetInstance().Mensagem;
+                this.Mensagem = PedidoVendaProdutoDAO.GetInstance().Mensagem;
             }
         }
 
         internal List<PedidoVendaProdutoDTO> ConsultarPedidoPorIdPedidoVenda(int id_PedidoVenda)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
 
             List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
             listaPvProduto = PedidoVendaProdutoDAO.GetInstance().ConsultarProdutosPorIdPedidoVenda(id_PedidoVenda);
+            if (PedidoVendaProdutoDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PedidoVendaProdutoDAO.GetInstance().Mensagem;
+            }
             return listaPvProduto;
         }
 
