@@ -61,14 +61,14 @@ namespace pimads4
             listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
 
             Controller.GetInstance().PvProdCalcularValorTotal(listaPvProduto, pedidoVenda);
-            if (Controller.GetInstance().mensagem.Equals(""))
+            if (Controller.GetInstance().Mensagem.Equals(""))
             {
                 txtVl_Total.Text = pedidoVenda.ValorTotal.ToString();
                 txtVl_TotalDesconto.Text = pedidoVenda.ValorTotalDesconto.ToString();
             }
             else
             {
-                MessageBox.Show(Controller.GetInstance().mensagem);
+                MessageBox.Show(Controller.GetInstance().Mensagem);
             }
 
         }
@@ -119,7 +119,7 @@ namespace pimads4
 
 
             Controller.GetInstance().VerificarProdutoPv(pvProduto);
-            if (Controller.GetInstance().mensagem.Equals(""))
+            if (Controller.GetInstance().Mensagem.Equals(""))
             {
                 listaPvProduto.Add(pvProduto);
                 AtualizarDatagrid(listaPvProduto);
@@ -127,7 +127,7 @@ namespace pimads4
             }
             else
             {
-                MessageBox.Show(Controller.GetInstance().mensagem);
+                MessageBox.Show(Controller.GetInstance().Mensagem);
             }
         }
 
@@ -142,7 +142,7 @@ namespace pimads4
                 listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
 
                 Controller.GetInstance().AdicionarQuantidadeProdutoPv(listaPvProduto, selIndex);
-                if (Controller.GetInstance().mensagem.Equals(""))
+                if (Controller.GetInstance().Mensagem.Equals(""))
                 {
                     AtualizarDatagrid(listaPvProduto);
                     dtgPedidoVendaProduto.SelectedIndex = selIndex;
@@ -150,7 +150,7 @@ namespace pimads4
                 }
                 else
                 {
-                    MessageBox.Show(Controller.GetInstance().mensagem);
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
                 }
             }
         }
@@ -167,7 +167,7 @@ namespace pimads4
                 listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
 
                 Controller.GetInstance().RemoverQuantidadeProdutoPv(listaPvProduto, selIndex);
-                if (Controller.GetInstance().mensagem.Equals(""))
+                if (Controller.GetInstance().Mensagem.Equals(""))
                 {
                     AtualizarDatagrid(listaPvProduto);
                     dtgPedidoVendaProduto.SelectedIndex = selIndex;
@@ -175,7 +175,7 @@ namespace pimads4
                 }
                 else
                 {
-                    MessageBox.Show(Controller.GetInstance().mensagem);
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
                 }
             }
             else
@@ -243,9 +243,9 @@ namespace pimads4
             listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
 
             Controller.GetInstance().CadastrarPedidoVenda(pedido, listaPvProduto);
-            if (Controller.GetInstance().mensagem != "")
+            if (Controller.GetInstance().Mensagem != "")
             {
-                MessageBox.Show(Controller.GetInstance().mensagem);
+                MessageBox.Show(Controller.GetInstance().Mensagem);
             }
             else
             {

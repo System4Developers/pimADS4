@@ -60,13 +60,13 @@ namespace pimads4.ViewPC
             listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
             double vlTotal = Controller.GetInstance().OcProdCalcularValorTotal(listaOcProduto);
 
-            if (Controller.GetInstance().mensagem.Equals(""))
+            if (Controller.GetInstance().Mensagem.Equals(""))
             {
                 txtVlr_Total.Text = vlTotal.ToString();
             }
             else
             {
-                MessageBox.Show(Controller.GetInstance().mensagem);
+                MessageBox.Show(Controller.GetInstance().Mensagem);
             }
 
         }
@@ -108,7 +108,7 @@ namespace pimads4.ViewPC
             ocProduto.Produto.DsProduto = cmbDs_Produto.Text;
 
             Controller.GetInstance().VerificarProdutoOc(ocProduto);
-            if (Controller.GetInstance().mensagem.Equals(""))
+            if (Controller.GetInstance().Mensagem.Equals(""))
             {
                 listaOcProduto.Add(ocProduto);
                 AtualizarDatagrid(listaOcProduto);
@@ -116,7 +116,7 @@ namespace pimads4.ViewPC
             }
             else
             {
-                MessageBox.Show(Controller.GetInstance().mensagem);
+                MessageBox.Show(Controller.GetInstance().Mensagem);
             }
 
         }
@@ -132,7 +132,7 @@ namespace pimads4.ViewPC
                 listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
                 Controller.GetInstance().AdicionarQuantidadeProdutoOc(listaOcProduto, dtgProdutos.SelectedIndex);
-                if (Controller.GetInstance().mensagem.Equals(""))
+                if (Controller.GetInstance().Mensagem.Equals(""))
                 {
                     AtualizarDatagrid(listaOcProduto);
                     dtgProdutos.SelectedIndex = selIndex;
@@ -140,7 +140,7 @@ namespace pimads4.ViewPC
                 }
                 else
                 {
-                    MessageBox.Show(Controller.GetInstance().mensagem);
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
                 }
             }
             else
@@ -161,7 +161,7 @@ namespace pimads4.ViewPC
                 listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
                 Controller.GetInstance().RemoverQuantidadeProdutoOc(listaOcProduto, dtgProdutos.SelectedIndex);
-                if (Controller.GetInstance().mensagem.Equals(""))
+                if (Controller.GetInstance().Mensagem.Equals(""))
                 {
                     AtualizarDatagrid(listaOcProduto);
                     dtgProdutos.SelectedIndex = selIndex;
@@ -169,7 +169,7 @@ namespace pimads4.ViewPC
                 }
                 else
                 {
-                    MessageBox.Show(Controller.GetInstance().mensagem);
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
                 }
             }
             else
@@ -227,9 +227,9 @@ namespace pimads4.ViewPC
             listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
             Controller.GetInstance().CadastrarOrdemCompra(ordemCompra,listaOcProduto);
-            if (Controller.GetInstance().mensagem != "")
+            if (Controller.GetInstance().Mensagem != "")
             {
-                MessageBox.Show(Controller.GetInstance().mensagem);
+                MessageBox.Show(Controller.GetInstance().Mensagem);
             }
             else
             {
