@@ -47,7 +47,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                ConexaoDAO.GetInstance().Desconectar();
-               this.Mensagem = ex.Message + " - " + "\n" + cmd.CommandText + "\n" + ex;
+                this.Mensagem = "FALHA AO CADASTRAR ORDEM DE COMPRA";
             }
 
             return id_OrdemCompra;
@@ -84,7 +84,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                this.Mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                this.Mensagem = "FALHA AO CONSULTAR ORDEM DE COMPRA";
             }
             return lstObj;
         }

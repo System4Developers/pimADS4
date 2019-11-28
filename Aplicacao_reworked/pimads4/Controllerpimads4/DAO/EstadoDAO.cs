@@ -12,8 +12,11 @@ namespace Controllerpimads4.DAO
     public class EstadoDAO
     {
         private static EstadoDAO instance;
+        private String mensagem;
 
         private EstadoDAO() { }
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         public static EstadoDAO GetInstance()
         {
@@ -26,6 +29,7 @@ namespace Controllerpimads4.DAO
 
         internal List<EstadoDTO> ConsultarEstadosTodos()
         {
+            this.Mensagem = "";
             String sqlText = "select * from Estados";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
@@ -53,7 +57,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR ESTADOS";
             }
 
             return lstObj;

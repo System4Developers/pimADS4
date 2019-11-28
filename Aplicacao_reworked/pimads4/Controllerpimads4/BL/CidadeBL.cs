@@ -11,6 +11,9 @@ namespace Controllerpimads4.BL
     public class CidadeBL
     {
         private static CidadeBL instance;
+        private string menasgem;
+
+        public string Menasgem { get => menasgem; set => menasgem = value; }
 
         private CidadeBL() { }
 
@@ -29,6 +32,10 @@ namespace Controllerpimads4.BL
             if (cidade.NmCidade != "")
             {
                 CidadeDAO.GetInstance().CadastrarCidade(cidade);
+                if (CidadeDAO.GetInstance().Mensagem!="")
+                {
+                    this.Menasgem = CidadeDAO.GetInstance().Mensagem;
+                }
             }
         }
 
@@ -36,6 +43,10 @@ namespace Controllerpimads4.BL
         {
             List<CidadeDTO> lstCidades = new List<CidadeDTO>();
             lstCidades = CidadeDAO.GetInstance().ConsultarCidadeTodos();
+            if (CidadeDAO.GetInstance().Mensagem != "")
+            {
+                this.Menasgem = CidadeDAO.GetInstance().Mensagem;
+            }
             return lstCidades;
         }
 
@@ -43,23 +54,39 @@ namespace Controllerpimads4.BL
         {
             List<CidadeDTO> lstCidades = new List<CidadeDTO>();
             lstCidades = CidadeDAO.GetInstance().ConsultarCidadesByEstado(idEstado);
+            if (CidadeDAO.GetInstance().Mensagem != "")
+            {
+                this.Menasgem = CidadeDAO.GetInstance().Mensagem;
+            }
             return lstCidades;
         }
         
         internal CidadeDTO ConsultarCidadeById(int idCidade)
         {
             CidadeDTO cidade = CidadeDAO.GetInstance().ConsultarCidadeById(idCidade);
+            if (CidadeDAO.GetInstance().Mensagem != "")
+            {
+                this.Menasgem = CidadeDAO.GetInstance().Mensagem;
+            }
             return cidade;
         }
 
         internal void AtualizarCidade(CidadeDTO cidade)
         {
             CidadeDAO.GetInstance().AtualizarCidade(cidade);
+            if (CidadeDAO.GetInstance().Mensagem != "")
+            {
+                this.Menasgem = CidadeDAO.GetInstance().Mensagem;
+            }
         }
 
         internal void ExcluirCidade(int idCidade)
         {
             CidadeDAO.GetInstance().ExlcuirCidade(idCidade);
+            if (CidadeDAO.GetInstance().Mensagem != "")
+            {
+                this.Menasgem = CidadeDAO.GetInstance().Mensagem;
+            }
         }
 
     }

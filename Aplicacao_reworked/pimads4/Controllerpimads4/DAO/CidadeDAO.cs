@@ -12,6 +12,9 @@ namespace Controllerpimads4.DAO
     public class CidadeDAO
     {
         private static CidadeDAO instance;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private CidadeDAO() { }
 
@@ -26,6 +29,8 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarCidade(CidadeDTO mObj)
         {
+            this.Mensagem = "";
+
             SqlCommand cmd = new SqlCommand("sp_CadastrarCidade", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -43,13 +48,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CADASTRAR CIDADE";
             }
 
         }
 
         internal List<CidadeDTO> ConsultarCidadeTodos()
         {
+            this.Mensagem = "";
             String sqlText = "SELECT * FROM Cidades JOIN Estados ON Cidades.fk_idEstado_Estados = Estados.idEstado";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
@@ -77,13 +83,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR CIDADES";
             }
             return lstObj;
         }
 
         internal CidadeDTO ConsultarCidadeById(int idAtributo)
         {
+            this.Mensagem = "";
+
             SqlCommand cmd = new SqlCommand("sp_ConsultarCidadeById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -109,13 +117,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR CIDADE ID: " + idAtributo;
             }
             return mObj;
         }
 
         internal List<CidadeDTO> ConsultarCidadesByEstado(int idAtributo)
         {
+            this.Mensagem = "";
+
             String sqlText = "SELECT * FROM Cidades JOIN Estados ON Cidades.fk_idEstado_Estados = Estados.idEstado" +
                 " WHERE idEstado=" + 
                 "'"+ idAtributo +"'";
@@ -141,7 +151,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR CIDADE POR ESTADO ID: " + idAtributo;
             }
             return lstObj;
         }
@@ -166,7 +176,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO ATUALIZAR DADOS DE CIDADE";
             }
 
         }
@@ -187,7 +197,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO EXLCUIR CIDADE";
             }
 
         }
