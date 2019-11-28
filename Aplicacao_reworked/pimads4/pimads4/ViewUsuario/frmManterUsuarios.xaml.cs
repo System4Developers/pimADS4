@@ -135,5 +135,15 @@ namespace pimads4.ViewUsuario
             btnLimpar.IsEnabled = true;
             btnExcluir.IsEnabled = true;
         }
+
+        private void CmbTpUsuario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CmbTpStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

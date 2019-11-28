@@ -50,7 +50,7 @@ namespace pimads4.ViewPessoa
             cmbCidade.SelectedValue = null;
             cmbDs_Bairro.SelectedValue = null;
             txtDs_Endereco.Text = string.Empty;
-            txtDs_Complemento.Text = string.Empty;
+            
             txtNr_Endereco.Text = string.Empty;
             txtDs_Observacao.Text = string.Empty;
 
@@ -146,7 +146,7 @@ namespace pimads4.ViewPessoa
             }
             pessoa.DsEmail = txtDs_Email.Text;
             pessoa.DsEndereco = txtDs_Endereco.Text;
-            pessoa.Complemento = txtDs_Complemento.Text;
+          
             pessoa.NumEnd = txtNr_Endereco.Text;
             pessoa.Observacao = txtDs_Observacao.Text;
             pessoa.Bairro.IdBairro = Convert.ToInt32(cmbDs_Bairro.SelectedValue);
@@ -207,7 +207,7 @@ namespace pimads4.ViewPessoa
             }
             txtDs_Email.Text = pessoa.DsEmail;
             txtDs_Endereco.Text = pessoa.DsEndereco;
-            txtDs_Complemento.Text = pessoa.Complemento;
+            
             txtNr_Endereco.Text = pessoa.NumEnd;
             txtDs_Observacao.Text = pessoa.Observacao;
 
