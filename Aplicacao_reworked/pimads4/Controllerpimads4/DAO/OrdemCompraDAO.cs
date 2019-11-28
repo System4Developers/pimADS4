@@ -12,9 +12,11 @@ namespace Controllerpimads4.DAO
     public class OrdemCompraDAO
     {
         public static OrdemCompraDAO instance;
-        public String mensagem;
+        private String mensagem;
 
         private OrdemCompraDAO() { }
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         public static OrdemCompraDAO GetInstance()
         {
@@ -27,7 +29,7 @@ namespace Controllerpimads4.DAO
 
         internal int CadastrarOrdemCompra(OrdemCompraDTO ordemCompra)
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             int id_OrdemCompra=0;
             
             string sqlText = string.Format("insert into OrdemCompra (valorTotal,dtDigitacao,tpStatus,fk_idUsuario_Usuarios,fk_idPessoa_Pessoas)" +
@@ -45,7 +47,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                ConexaoDAO.GetInstance().Desconectar();
-               this.mensagem = ex.Message + " - " + "\n" + cmd.CommandText + "\n" + ex;
+               this.Mensagem = ex.Message + " - " + "\n" + cmd.CommandText + "\n" + ex;
             }
 
             return id_OrdemCompra;
@@ -53,7 +55,7 @@ namespace Controllerpimads4.DAO
 
         internal List<OrdemCompraDTO> ConsultarOrdemCompraTodos()
         {
-            this.mensagem = "";
+            this.Mensagem = "";
             String sqlText = "SELECT * FROM OrdemCompra JOIN Pessoas on Pessoas.idPessoa = OrdemCompra.fk_idPessoa_Pessoas";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
@@ -82,7 +84,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                this.mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
+                this.Mensagem = ex.Message + " - " + cmd.CommandText + " " + ex;
             }
             return lstObj;
         }
