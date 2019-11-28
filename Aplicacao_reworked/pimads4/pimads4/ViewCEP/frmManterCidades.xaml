@@ -3,14 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Height="690" Width="1158">
-    <Grid Margin="10,0,10,10">
-        <DataGrid x:Name="dtgCidades"  ColumnWidth="*" HorizontalAlignment="Left" Height="315" Margin="80,305,-295,-170" VerticalAlignment="Top" Width="1015"
+              mc:Ignorable="d" 
+             d:DesignHeight="620" d:DesignWidth="1045" >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="318*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <DataGrid x:Name="dtgCidades"  ColumnWidth="*"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             FontSize="14"
-            IsReadOnly="True">
+            IsReadOnly="True" Grid.ColumnSpan="8" Grid.Column="1" Grid.Row="6">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdCidade}" Header="ID" />
@@ -20,31 +46,30 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnEditar" Click="BtnEditar">Editar</Button>
+                            <Button x:Name="btnEditar"  Height="25" Width="100" Click="BtnEditar">Editar</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="lblId_Cidade" Content="ID:" HorizontalAlignment="Left" Margin="990,21,-207,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtId_Cidade" Text="" HorizontalAlignment="Left" Height="24" Margin="990,41,-290,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14"/>
-        
-        <Label x:Name="lblDs_Estado" Content="Sigla do Estado" HorizontalAlignment="Left" Margin="86,46,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <ComboBox x:Name="cmbEstado" HorizontalAlignment="Left" Margin="86,70,0,0" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="txtId_Cidade" Text="" HorizontalAlignment="Left" Height="24" Margin="23,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14" Grid.Column="8" Visibility="Hidden"/>
 
-        <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left" Margin="213,50,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtDs_Cidade" Text="" HorizontalAlignment="Left" Height="24" Margin="211,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="344" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Estado" Content="Sigla do Estado" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="2" Grid.Row="2"/>
+        <ComboBox x:Name="cmbEstado" Height="24" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3"/>
 
-        <Label x:Name="lblCd_Ibge" Content="Código IBGE:" HorizontalAlignment="Left" Margin="572,51,0,0" VerticalAlignment="Top" Padding="0" FontSize="14"/>
-        <TextBox x:Name="txtCd_Ibge" Text="" HorizontalAlignment="Left" Height="24" Margin="570,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Padding="0" FontSize="14"/>
+        <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="132"/>
+        <TextBox x:Name="txtDs_Cidade" Text="" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" Padding="0" FontSize="14" Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="3"/>
 
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="85,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnSalvar_Click" />
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="230,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnConsultar_Click" />
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="380,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnExcluir_Click" />
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="525,262,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="BtnLimpar_Click" />
-        
-     
+        <Label x:Name="lblCd_Ibge" Content="Código IBGE:" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="7" Grid.Row="2" Grid.RowSpan="1" />
+        <TextBox x:Name="txtCd_Ibge" Text="" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Padding="0" FontSize="14" Grid.ColumnSpan="2" Grid.Column="7" Grid.Row="3"/>
+
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="3" Grid.Row="4" />
+        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="4" Grid.Row="4" />
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="5" Grid.Row="4" />
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="6" Grid.Row="4" />
+
+
 
     </Grid>
 </UserControl>

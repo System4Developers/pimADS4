@@ -7,25 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="620" d:DesignWidth="1045">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="318*"/>
+            <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" HorizontalAlignment="Stretch" Height="Auto"  VerticalAlignment="top"
+        <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" HorizontalAlignment="Stretch" Height="318"  VerticalAlignment="top"
             Grid.Column="1"
-            Grid.Row="1"
+            Grid.Row="6"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             FontSize="14"
-            IsReadOnly="True">
+            IsReadOnly="True" Grid.ColumnSpan="8">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdProduto}" Header="ID" />
                 <DataGridTextColumn Binding="{Binding DsProduto}" Header="Produto" />
@@ -36,6 +48,21 @@
                 <DataGridTextColumn Binding="{Binding TpProduto}" Header="Tipo de Produto" />
             </DataGrid.Columns>
         </DataGrid>
+
+
+
+
+        <Label x:Name="lblDs_Produto" Content="Produto:" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="3" Grid.Row="3"/>
+        <TextBox x:Name="txtDs_Unidade" Text="" Height="24" TextWrapping="Wrap" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="3"/>
+
+
+        <Button Content="Salvar" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Grid.Column="3" Grid.Row="4" />
+        <Button Content="Consultar" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="14" Height="32"  Grid.Column="4" Grid.Row="4" Width="95" />
+        <Button Content="Excluir" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="32" Width="95" FontSize="14"  Grid.Column="5" Grid.Row="4" />
+        <Button Content="Limpar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" Height="32" FontSize="14"  Grid.Column="6" Grid.Row="4" />
+        <Button Content="Pesquisar" Grid.Column="7" HorizontalAlignment="Right"  Grid.Row="3" VerticalAlignment="Bottom" Width="101"/>
+
+
 
     </Grid>
 </UserControl>

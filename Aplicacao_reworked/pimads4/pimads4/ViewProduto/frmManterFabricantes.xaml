@@ -36,11 +36,11 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdFabricante}" Width="90" Header="ID" />
-                <DataGridTextColumn Binding="{Binding NmFabricante}" Header="Fabricante" />
+                <DataGridTextColumn Binding="{Binding NmFabricante}" Width="810" Header="Fabricante" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnEditar" Height="25" Width="100" Click="BtnEditar">Editar</Button>
+                            <Button x:Name="btnEditar"  Height="25" Width="100" Click="BtnEditar">Editar</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

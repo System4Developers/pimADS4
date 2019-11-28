@@ -30,12 +30,12 @@
             <ColumnDefinition Width="45*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" HorizontalAlignment="Left" Height="auto"
+        <DataGrid x:Name="dtgProdutos"  ColumnWidth="*" Height="auto"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             FontSize="14"
-            IsReadOnly="True" Grid.ColumnSpan="8" Grid.Column="1" Grid.Row="6" Width="952"   >
+            IsReadOnly="True" Grid.ColumnSpan="8" Grid.Column="1" Grid.Row="6"   >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdProduto}" Width="90" Header="ID" />
                 <DataGridTextColumn Binding="{Binding DsProduto}" Header="Produto" />
@@ -47,7 +47,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnEditar" Click="BtnEditar">Editar</Button>
+                            <Button x:Name="btnEditar"  Height="25" Width="100" Click="BtnEditar">Editar</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
