@@ -381,9 +381,9 @@ namespace Controllerpimads4.Controller
         {
             this.mensagem = "";
             PedidoVendaProdutoBL.GetInstance().VerificarProdutoPv(pvProduto);
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
@@ -392,9 +392,9 @@ namespace Controllerpimads4.Controller
             this.mensagem = "";
            
             PedidoVendaProdutoBL.GetInstance().PvProdCalcularValorTotal(listaPvProduto, pedidoVenda);
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
@@ -403,9 +403,9 @@ namespace Controllerpimads4.Controller
             this.mensagem = "";
             PedidoVendaProdutoBL.GetInstance().AdicionarQuantidadeProdutoPv(listaPvProduto, index);
 
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
@@ -414,9 +414,9 @@ namespace Controllerpimads4.Controller
             this.mensagem = "";
             PedidoVendaProdutoBL.GetInstance().RemoverQuantidadeProdutoPv(listaPvProduto, index);
 
-            if (PedidoVendaProdutoBL.GetInstance().mensagem != "")
+            if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaProdutoBL.GetInstance().mensagem;
+                this.mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;
             }
         }
 
@@ -425,16 +425,16 @@ namespace Controllerpimads4.Controller
             this.mensagem = "";
 
             PedidoVendaBL.GetInstance().CadastrarPedidoVenda(pedidoVenda, listaPvProduto);
-            if (PedidoVendaBL.GetInstance().mensagem != "")
+            if (PedidoVendaBL.GetInstance().Mensagem != "")
             {
-                this.mensagem = PedidoVendaBL.GetInstance().mensagem;
+                this.mensagem = PedidoVendaBL.GetInstance().Mensagem;
             }
             else
             {
                 ProdutoBL.GetInstance().AtualizarProdutoQuantidadePv(listaPvProduto);
-                if (ProdutoBL.GetInstance().mensagem != "")
+                if (ProdutoBL.GetInstance().Mensagem != "")
                 {
-                    this.mensagem = ProdutoBL.GetInstance().mensagem;
+                    this.mensagem = ProdutoBL.GetInstance().Mensagem;
                 }
             }
         }

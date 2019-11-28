@@ -29,6 +29,7 @@ namespace Controllerpimads4.BL
 
         internal void CadastrarBairro(BairroDTO bairro)
         {
+            this.Mensagem = "";
             if (bairro.DsBairro != "")
             {
                 BairroDAO.GetInstance().CadastrarBairro(bairro);
@@ -41,6 +42,7 @@ namespace Controllerpimads4.BL
 
         internal List<BairroDTO> ConsultarBairros()
         {
+            this.Mensagem = "";
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros = BairroDAO.GetInstance().ConsultarBairrosTodos();
             if (BairroDAO.GetInstance().Mensagem != "")
@@ -52,6 +54,7 @@ namespace Controllerpimads4.BL
 
         internal BairroDTO ConsultarBairroById(int idBairro)
         {
+            this.Mensagem = "";
             BairroDTO bairro = BairroDAO.GetInstance().ConsultarBairroById(idBairro);
             if (BairroDAO.GetInstance().Mensagem != "")
             {
@@ -62,6 +65,7 @@ namespace Controllerpimads4.BL
 
         internal void AtualizarBairro(BairroDTO bairro)
         {
+            this.Mensagem = "";
             BairroDAO.GetInstance().AtualizarBairro(bairro);
             if (BairroDAO.GetInstance().Mensagem != "")
             {
@@ -71,6 +75,7 @@ namespace Controllerpimads4.BL
 
         internal void ExcluirBairro(int idBairro)
         {
+            this.Mensagem = "";
             BairroDAO.GetInstance().ExlcuirBairro(idBairro);
             if (BairroDAO.GetInstance().Mensagem != "")
             {
@@ -80,6 +85,7 @@ namespace Controllerpimads4.BL
         
         internal List<BairroDTO> ConsultarBairrosByCidade(int idCidade)
         {
+            this.Mensagem = "";
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros= BairroDAO.GetInstance().ConsultarBairrosByCidade(idCidade);
             if (BairroDAO.GetInstance().Mensagem != "")
