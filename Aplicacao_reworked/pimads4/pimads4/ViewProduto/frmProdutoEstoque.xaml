@@ -31,8 +31,8 @@
                 <DataGridTextColumn Binding="{Binding DsProduto}" Header="Produto" />
                 <DataGridTextColumn Binding="{Binding Quantidade}" Header="Quantidade" />
                 <DataGridTextColumn Binding="{Binding ValorVenda}" Header="Valor de Venda" />
-                <DataGridTextColumn Binding="{Binding Unidade.IdUnidade}" Header="Unidade" />
-                <DataGridTextColumn Binding="{Binding Fabricante.IdFabricante}" Header="Fabricante" />
+                <DataGridTextColumn Binding="{Binding Unidade.DsUnidade}" Header="Unidade" />
+                <DataGridTextColumn Binding="{Binding Fabricante.NmFabricante}" Header="Fabricante" />
                 <DataGridTextColumn Binding="{Binding TpProduto}" Header="Tipo de Produto" />
             </DataGrid.Columns>
         </DataGrid>

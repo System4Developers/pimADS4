@@ -33,14 +33,20 @@ namespace Controllerpimads4.BL
             if (OrdemCompraDAO.GetInstance().mensagem != "")
             {
                 this.mensagem = OrdemCompraDAO.GetInstance().mensagem;
+                return;
             }
-            else
+
+            OrdemCompraProdutoDAO.GetInstance().CadastrarProdutoOrdemCompra(listaOcProduto, id_OrdemCompra);
+            if (OrdemCompraProdutoDAO.GetInstance().mensagem!="")
             {
-                OrdemCompraProdutoDAO.GetInstance().CadastrarProdutoOrdemCompra(listaOcProduto, id_OrdemCompra);
-                if (OrdemCompraProdutoDAO.GetInstance().mensagem!="")
-                {
-                    this.mensagem = OrdemCompraProdutoDAO.GetInstance().mensagem;
-                }
+                this.mensagem = OrdemCompraProdutoDAO.GetInstance().mensagem;
+                return;
+            }
+
+            ProdutoDAO.GetInstance().AtualizarProdutoQuantidadeOc(listaOcProduto);
+            if (ProdutoDAO.GetInstance().mensagem!="")
+            {
+                this.mensagem = ProdutoDAO.GetInstance().mensagem;
             }
         }
         

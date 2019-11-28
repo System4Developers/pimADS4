@@ -53,7 +53,11 @@ namespace Controllerpimads4.DAO
 
         internal List<ProdutoDTO> ConsultarProdutoTodos()
         {
-            String sqlText = "SELECT * FROM Produtos";
+            //String sqlText = "SELECT * FROM Produtos";
+            String sqlText = "select * from Produtos" +
+                " join Unidades on Unidades.idUnidade = Produtos.fk_idUnidade_Unidades" +
+                " join Fabricantes on Fabricantes.idFabricante = Produtos.fk_idFabricante_Fabricantes";
+
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
             List<ProdutoDTO> lstObj = new List<ProdutoDTO>();
@@ -73,7 +77,9 @@ namespace Controllerpimads4.DAO
                     mObj.ValorCusto = Convert.ToDouble(dr["valorCusto"]);
                     mObj.TpProduto = dr["tpProduto"].ToString();
                     mObj.Unidade.IdUnidade = Convert.ToInt32(dr["fk_idUnidade_Unidades"]);
+                    mObj.Unidade.DsUnidade = dr["dsUnidade"].ToString();
                     mObj.Fabricante.IdFabricante = Convert.ToInt32(dr["fk_idFabricante_Fabricantes"]);
+                    mObj.Fabricante.NmFabricante = dr["nmFabricante"].ToString();
 
                     lstObj.Add(mObj);
                 }

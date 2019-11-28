@@ -82,8 +82,9 @@ namespace Controllerpimads4.BL
         {
             this.mensagem = "";
             int quantidade = 0;
-
             PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
+
+            pvProduto = listaPvProduto[index];
 
             if (listaPvProduto.Count < 1)
             {
@@ -97,14 +98,14 @@ namespace Controllerpimads4.BL
                 this.mensagem = ProdutoDAO.GetInstance().mensagem;
                 return;
             }
-            pvProduto = listaPvProduto[index];
-            pvProduto.Quantidade += 1;
-
-            if (pvProduto.Quantidade > quantidade)
+            
+            if (pvProduto.Quantidade >= quantidade)
             {
                 this.mensagem = "QUANTIDADE MAXIMA ANTIGIDA";
+                return;
             }
 
+            pvProduto.Quantidade += 1;
             pvProduto.Desconto += pvProduto.Desconto;
             pvProduto.VlrSubTotal = (pvProduto.Quantidade * pvProduto.VlrUnit) - pvProduto.Desconto;
             listaPvProduto[index] = pvProduto;
