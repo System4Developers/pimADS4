@@ -338,36 +338,14 @@ namespace Controllerpimads4.Controller
             return vlTotal;
         }
 
-        public int CadastrarPedidoCompra(OrdemCompraDTO ordemCompra)
+        public void CadastrarOrdemCompra(OrdemCompraDTO ordemCompra,List<OrdemCompraProdutoDTO> listaOcProduto)
         {
             this.mensagem = "";
-            int id_OrdemCompra = 0;
 
-            id_OrdemCompra = OrdemCompraBL.GetInstance().CadastrarPedidoCompra(ordemCompra);
+            OrdemCompraBL.GetInstance().CadastrarOrdemCompra(ordemCompra, listaOcProduto);
             if (OrdemCompraBL.GetInstance().mensagem != "")
             {
                 this.mensagem = OrdemCompraBL.GetInstance().mensagem;
-            }
-
-            return id_OrdemCompra;
-        }
-
-        public void CadastrarProdutoOrdemCompra(List<OrdemCompraProdutoDTO> listaProdutos, int id_OrdemCompra)
-        {
-            this.mensagem = "";
-            OrdemCompraProdutoBL.GetInstance().CadastrarProdutoOrdemCompra(listaProdutos, id_OrdemCompra);
-
-            if (OrdemCompraProdutoBL.GetInstance().mensagem!="")
-            {
-                this.mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
-            }
-            else
-            {
-                ProdutoBL.GetInstance().AtualizarProdutoQuantidadeOc(listaProdutos);
-                if (ProdutoBL.GetInstance().mensagem != "")
-                {
-                    this.mensagem = ProdutoBL.GetInstance().mensagem;
-                }
             }
         }
 

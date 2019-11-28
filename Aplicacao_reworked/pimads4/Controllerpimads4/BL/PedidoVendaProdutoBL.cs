@@ -81,21 +81,33 @@ namespace Controllerpimads4.BL
         internal void AdicionarQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
         {
             this.mensagem = "";
+            int quantidade = 0;
+
             PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
 
             if (listaPvProduto.Count < 1)
             {
                 this.mensagem = "NENHUM PRODUTO P/ ACRESCENTAR QUANTIDADE";
+                return;
             }
-            else
+            
+            quantidade = ProdutoDAO.GetInstance().ConsultarProdutoQuantidade(pvProduto.Produto.IdProduto);
+            if (ProdutoDAO.GetInstance().mensagem != "")
             {
-                pvProduto = listaPvProduto[index];
-                pvProduto.Quantidade += 1;
-                pvProduto.Desconto += pvProduto.Desconto;
-
-                pvProduto.VlrSubTotal = (pvProduto.Quantidade * pvProduto.VlrUnit)-pvProduto.Desconto;
-                listaPvProduto[index] = pvProduto;
+                this.mensagem = ProdutoDAO.GetInstance().mensagem;
+                return;
             }
+            pvProduto = listaPvProduto[index];
+            pvProduto.Quantidade += 1;
+
+            if (pvProduto.Quantidade > quantidade)
+            {
+                this.mensagem = "QUANTIDADE MAXIMA ANTIGIDA";
+            }
+
+            pvProduto.Desconto += pvProduto.Desconto;
+            pvProduto.VlrSubTotal = (pvProduto.Quantidade * pvProduto.VlrUnit) - pvProduto.Desconto;
+            listaPvProduto[index] = pvProduto;
         }
 
         internal void RemoverQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
