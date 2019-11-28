@@ -30,9 +30,9 @@ namespace Controllerpimads4.BL
             int id_OrdemCompra = 0;
 
             id_OrdemCompra = OrdemCompraDAO.GetInstance().CadastrarOrdemCompra(ordemCompra);
-            if (OrdemCompraDAO.GetInstance().mensagem != "")
+            if (OrdemCompraDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = OrdemCompraDAO.GetInstance().mensagem;
+                this.mensagem = OrdemCompraDAO.GetInstance().Mensagem;
                 return;
             }
 
@@ -56,9 +56,9 @@ namespace Controllerpimads4.BL
 
             List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
             listaOrdemCompra = OrdemCompraDAO.GetInstance().ConsultarOrdemCompraTodos();
-            if (OrdemCompraDAO.GetInstance().mensagem != "")
+            if (OrdemCompraDAO.GetInstance().Mensagem != "")
             {
-                this.mensagem = OrdemCompraDAO.GetInstance().mensagem;
+                this.mensagem = OrdemCompraDAO.GetInstance().Mensagem;
             }
             
             return listaOrdemCompra;
