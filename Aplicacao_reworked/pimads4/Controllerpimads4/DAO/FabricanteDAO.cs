@@ -12,6 +12,9 @@ namespace Controllerpimads4.DAO
     public class FabricanteDAO
     {
         private static FabricanteDAO instance;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private FabricanteDAO() { }
 
@@ -26,7 +29,7 @@ namespace Controllerpimads4.DAO
         
         internal void CadastrarFabricante(FabricanteDTO mObj)
         {
-
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_CadastrarFabricante", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -41,13 +44,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CADASTRAR FABRICANTE";
             }
 
         }
         
         internal List<FabricanteDTO> ConsultarFabricanteTodos()
         {
+            this.Mensagem = "";
             String sqlText = "SELECT * FROM Fabricantes";
             SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
 
@@ -72,13 +76,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR FABRICANTES";
             }
             return lstObj;
         }
         
         internal FabricanteDTO ConsultarFabricanteById(int idAtributo)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ConsultarFabricanteById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -102,7 +107,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR FABRICANTE ID: " + idAtributo;
 
             }
             return mObj;
@@ -110,7 +115,7 @@ namespace Controllerpimads4.DAO
         
         internal void AtualizarFabricante(FabricanteDTO mObj)
         {
-           
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_AtualizarFabricante", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -126,14 +131,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO ATUALIZAR FABRICANTE";
             }
 
         }
         
         internal void ExcluirFabricante(int idAtributo)
         {
-  
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ExcluirFabricante", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -148,7 +153,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             { 
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO EXLCUIR FABRICANTE";
             }
 
         }

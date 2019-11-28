@@ -12,6 +12,9 @@ namespace Controllerpimads4.DAO
     public class BairroDAO
     {
         private static BairroDAO instance;
+        private string mensagem;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
 
         private BairroDAO() { }
 
@@ -27,6 +30,7 @@ namespace Controllerpimads4.DAO
 
         internal void CadastrarBairro(BairroDTO mObj)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_CadastrarBairro", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -43,13 +47,15 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CADASTRAR BAIRRO";
             }
 
         }
         
         internal List<BairroDTO> ConsultarBairrosTodos()
         {
+            this.Mensagem = "";
+
             String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             String sqlText = "select * from Bairros join Cidades on Bairros.fk_idCidade_Cidades = Cidades.idCidade join Estados on Cidades.fk_idEstado_estados = Estados.idEstado";
@@ -81,13 +87,15 @@ namespace Controllerpimads4.DAO
                 {
                     conn.Close();
                 }
-                 throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR BAIRROS";
             }
             return lstBairros;
         }
 
         internal List<BairroDTO> ConsultarBairrosByCidade(int idAtributo)
         {
+            this.Mensagem = "";
+
             String connString = ConfigurationManager.ConnectionStrings["pimads4"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             String sqlText = "select * from Bairros Where fk_idCidade_Cidades ="+ "'" + idAtributo + "'";
@@ -117,13 +125,15 @@ namespace Controllerpimads4.DAO
                 {
                     conn.Close();
                 }
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR BAIRRO POR CIDADE ID: " + idAtributo;
             }
             return lstBairros;
         }
 
         internal BairroDTO ConsultarBairroById(int idAtributo)
         {
+            this.Mensagem = "";
+
             SqlCommand cmd = new SqlCommand("sp_ConsultarBairroById", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -149,13 +159,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO CONSULTAR BAIRRO POR ID: " + idAtributo;
             }
             return mObj;
         }
         
         internal void AtualizarBairro(BairroDTO mObj)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_AtualizarBairro", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -172,13 +183,14 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO ATUALIZAR BAIRRO";
             }
 
         }
         
         internal void ExlcuirBairro(int idAtributo)
         {
+            this.Mensagem = "";
             SqlCommand cmd = new SqlCommand("sp_ExcluirBairro", ConexaoDAO.GetInstance().Conexao());
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -193,7 +205,7 @@ namespace Controllerpimads4.DAO
             catch (Exception ex)
             {
                 ConexaoDAO.GetInstance().Desconectar();
-                throw new InvalidOperationException(ex.Message + " - " + cmd.CommandText, ex);
+                this.Mensagem = "FALHA AO EXCLUIR BAIRRO";
             }
 
         }
