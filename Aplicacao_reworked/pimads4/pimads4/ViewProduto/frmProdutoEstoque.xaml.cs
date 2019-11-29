@@ -32,6 +32,11 @@ namespace pimads4.ViewProduto
         {
             List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
             lstProdutos = Controller.GetInstance().ConsultarProdutos();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgProdutos.ItemsSource = lstProdutos;
 
         }

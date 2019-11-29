@@ -35,10 +35,20 @@ namespace pimads4
             txtVl_Unitario.Text = string.Empty;
 
             cmbNm_Cliente.ItemsSource = Controller.GetInstance().ConsultarPessoa();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             cmbNm_Cliente.SelectedValuePath = "IdPessoa";
             cmbNm_Cliente.DisplayMemberPath = "NmPessoa";
 
             cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             cmbDs_Produto.SelectedValuePath = "IdProduto";
             cmbDs_Produto.DisplayMemberPath = "DsProduto";
 

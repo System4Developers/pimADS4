@@ -32,6 +32,11 @@ namespace pimads4.ViewPC
         {
             List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
             listaOrdemCompra = Controller.GetInstance().ConsultarOrdemCompraTodos();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgOrdemCompra.ItemsSource = listaOrdemCompra;
         }
 
@@ -46,6 +51,11 @@ namespace pimads4.ViewPC
 
                 List<OrdemCompraProdutoDTO> listaProdutoOc = new List<OrdemCompraProdutoDTO>();
                 listaProdutoOc = Controller.GetInstance().ConsultarProdutosPorIdOrdemCompra(id_OrdemCompra);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 dtgProdutoOc.ItemsSource = listaProdutoOc;
             }
         }

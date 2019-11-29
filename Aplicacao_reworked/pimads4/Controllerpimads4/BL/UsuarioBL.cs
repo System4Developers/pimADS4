@@ -44,12 +44,12 @@ namespace Controllerpimads4.BL
         internal List<UsuarioDTO> ConsultarUsuarios()
         {
             this.Mensagem = "";
-            if (UnidadeDAO.GetInstance().Mensagem!="")
-            {
-                this.Mensagem = UnidadeDAO.GetInstance().Mensagem;
-            }
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             lstUsuarios = UsuarioDAO.GetInstance().ConsultarUsuarioTodos();
+            if (UsuarioDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+            }
             return lstUsuarios;
         }
 

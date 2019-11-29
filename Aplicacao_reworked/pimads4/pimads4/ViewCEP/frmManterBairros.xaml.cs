@@ -34,6 +34,11 @@ namespace pimads4.ViewCEP
         {
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros = Controller.GetInstance().ConsultarBairros();
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgBairro.ItemsSource = lstBairros;
         }
 
@@ -91,6 +96,11 @@ namespace pimads4.ViewCEP
                 bairro.Cidade.IdCidade = Convert.ToInt32(cmbCidade.SelectedValue);
 
                 Controller.GetInstance().CadastrarBairro(bairro);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarBotoes();
                 InicializarCampos();
                 InicializarDtg();
@@ -105,6 +115,11 @@ namespace pimads4.ViewCEP
                 bairro.Cidade.IdCidade = Convert.ToInt32(cmbCidade.SelectedValue);
 
                 Controller.GetInstance().AtualizarBairro(bairro);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarDtg();
 
             }
@@ -116,6 +131,11 @@ namespace pimads4.ViewCEP
             idBairro = Convert.ToInt32(txtId_Bairro.Text);
 
             Controller.GetInstance().ExcluirBairro(idBairro);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             InicializarBotoes();
             InicializarCampos();
             InicializarDtg();
@@ -133,6 +153,11 @@ namespace pimads4.ViewCEP
             BairroDTO bairroDtg = (BairroDTO)dtgBairro.SelectedItem;
 
             BairroDTO bairro = Controller.GetInstance().ConsultarBairroById(bairroDtg.IdBairro);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             txtDs_Bairro.Text = bairro.DsBairro.ToString();
             txtId_Bairro.Text = bairro.IdBairro.ToString();
