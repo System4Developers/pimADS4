@@ -37,6 +37,11 @@ namespace pimads4.ViewUsuario
 
             
             Controller.GetInstance().ValidarLoginUsuario(usuario.DsLogin, usuario.DsSenha);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             if (!estPropriedades.Bl_Logado)
             {
                 lblDs_Mensagem.Content = "Login e/ou Senha Inválido(s)";

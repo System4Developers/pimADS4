@@ -34,6 +34,11 @@ namespace pimads4.ViewProduto
         {
             List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
             lstFabricantes = Controller.GetInstance().ConsultarFabricanteTodos();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgFabricantes.ItemsSource = lstFabricantes;
 
         }
@@ -63,6 +68,11 @@ namespace pimads4.ViewProduto
                 fabricante.NmFabricante = txtDs_Fabricante.Text;
 
                 Controller.GetInstance().CadastrarFabricante(fabricante);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarBotoes();
                 InicializarCampos();
                 InicializarDtg();
@@ -76,6 +86,11 @@ namespace pimads4.ViewProduto
                 fabricante.IdFabricante = Convert.ToInt32(txtId_Fabricante.Text);
 
                 Controller.GetInstance().AtualizarFabricante(fabricante);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarDtg();
 
             }
@@ -93,6 +108,11 @@ namespace pimads4.ViewProduto
             idFabricante = Convert.ToInt32(txtId_Fabricante.Text);
 
             Controller.GetInstance().ExcluirFabricante(idFabricante);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             InicializarBotoes();
             InicializarCampos();
@@ -110,6 +130,11 @@ namespace pimads4.ViewProduto
             FabricanteDTO dtgFabricante = (FabricanteDTO)dtgFabricantes.SelectedItem;
 
             FabricanteDTO fabricante = Controller.GetInstance().ConsultarFabricanteById(dtgFabricante.IdFabricante);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             txtId_Fabricante.Text = fabricante.IdFabricante.ToString();
             txtDs_Fabricante.Text = fabricante.NmFabricante;

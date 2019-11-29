@@ -60,6 +60,7 @@ namespace pimads4.ViewPC
             listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
             double vlTotal = Controller.GetInstance().OcProdCalcularValorTotal(listaOcProduto);
 
+
             if (Controller.GetInstance().Mensagem.Equals(""))
             {
                 txtVlr_Total.Text = vlTotal.ToString();

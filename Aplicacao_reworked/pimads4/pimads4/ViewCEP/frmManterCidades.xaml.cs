@@ -34,6 +34,11 @@ namespace pimads4.ViewCEP
         {
             List<CidadeDTO> lstCidades = new List<CidadeDTO>();
             lstCidades = Controller.GetInstance().ConsultarCidades();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgCidades.ItemsSource = lstCidades;
 
         }
@@ -81,6 +86,11 @@ namespace pimads4.ViewCEP
                 cidade.Estado.IdEstado = Convert.ToInt32(cmbEstado.SelectedValue);
 
                 Controller.GetInstance().CadastrarCidade(cidade);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarBotoes();
                 InicializarCampos();
                 InicializarDtg();
@@ -96,6 +106,11 @@ namespace pimads4.ViewCEP
                 cidade.Estado.IdEstado = Convert.ToInt32(cmbEstado.SelectedValue);
 
                 Controller.GetInstance().AtualizarCidade(cidade);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarDtg();
 
             }
@@ -106,6 +121,11 @@ namespace pimads4.ViewCEP
             int idCidade = Convert.ToInt32(txtId_Cidade.Text);
 
             Controller.GetInstance().ExcluirCidade(idCidade);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             InicializarBotoes();
             InicializarCampos();
             InicializarDtg();
@@ -117,6 +137,11 @@ namespace pimads4.ViewCEP
             CidadeDTO cidadeDtg = (CidadeDTO)dtgCidades.SelectedItem;
 
             CidadeDTO cidade = Controller.GetInstance().ConsultarCidadeById(cidadeDtg.IdCidade);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             txtId_Cidade.Text = cidade.IdCidade.ToString();
             txtDs_Cidade.Text = cidade.NmCidade;

@@ -34,6 +34,11 @@ namespace pimads4.ViewProduto
         {
             List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
             lstProdutos = Controller.GetInstance().ConsultarProdutos();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgProdutos.ItemsSource = lstProdutos;
 
         }
@@ -41,10 +46,20 @@ namespace pimads4.ViewProduto
         private void InicializarCampos()
         {
             cmbDs_Fabricante.ItemsSource =Controller.GetInstance().ConsultarFabricanteTodos();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             cmbDs_Fabricante.SelectedValuePath = "IdFabricante";
             cmbDs_Fabricante.DisplayMemberPath = "NmFabricante";
 
             cmbDs_Unidade.ItemsSource =Controller.GetInstance().ConsultarUnidades();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             cmbDs_Unidade.SelectedValuePath = "IdUnidade";
             cmbDs_Unidade.DisplayMemberPath = "DsUnidade";
 
@@ -78,6 +93,11 @@ namespace pimads4.ViewProduto
                 produto.Fabricante.IdFabricante = Convert.ToInt32(cmbDs_Fabricante.SelectedValue.ToString());
 
                 Controller.GetInstance().CadastrarProduto(produto);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
 
                 InicializarBotoes();
                 InicializarCampos();
@@ -96,7 +116,12 @@ namespace pimads4.ViewProduto
                 produto.Fabricante.IdFabricante = Convert.ToInt32(cmbDs_Fabricante.SelectedValue.ToString());
 
                 Controller.GetInstance().AtualizarProduto(produto);
-    
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
+
                 InicializarDtg();
             }
 
@@ -111,6 +136,11 @@ namespace pimads4.ViewProduto
         {
             int idProduto = Convert.ToInt32(txtId_Produto.Text);
             Controller.GetInstance().ExcluirProduto(idProduto);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             InicializarBotoes();
             InicializarCampos();
@@ -128,6 +158,11 @@ namespace pimads4.ViewProduto
             ProdutoDTO produtoDtg = (ProdutoDTO)dtgProdutos.SelectedItem;
 
             ProdutoDTO produto = Controller.GetInstance().ConsultarProdutoById(produtoDtg.IdProduto);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             txtId_Produto.Text = produto.IdProduto.ToString();
             txtDs_Produto.Text = produto.DsProduto;

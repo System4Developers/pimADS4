@@ -32,6 +32,11 @@ namespace pimads4.ViewPV
         {
             List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
             listaPedidoVenda = Controller.GetInstance().ConsultarPedidoVendaTodos();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgPedidoVenda.ItemsSource = listaPedidoVenda;
         }
 
@@ -46,6 +51,11 @@ namespace pimads4.ViewPV
 
                 List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
                 listaPvProduto = Controller.GetInstance().ConsultarProdutosPorIdPedidoVenda(id_PedidoVenda);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 dtgPedidoVendaProduto.ItemsSource = listaPvProduto;
             }
             

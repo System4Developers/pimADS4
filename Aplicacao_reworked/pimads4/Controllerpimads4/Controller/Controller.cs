@@ -41,6 +41,7 @@ namespace Controllerpimads4.Controller
 
         public List<UsuarioDTO> ConsultarUsuarios()
         {
+            this.Mensagem = "";
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             lstUsuarios = UsuarioBL.GetInstance().ConsultarUsuarios();
             if (UsuarioBL.GetInstance().Mensagem != "")
@@ -52,6 +53,7 @@ namespace Controllerpimads4.Controller
 
         public UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
+            this.Mensagem = "";
             UsuarioDTO usuario = UsuarioBL.GetInstance().ConsultarUsuarioById(idUsuario);
             if (UsuarioBL.GetInstance().Mensagem != "")
             {
@@ -62,6 +64,7 @@ namespace Controllerpimads4.Controller
 
         public void AtualizarUsuario(UsuarioDTO usuario)
         {
+            this.Mensagem = "";
             UsuarioBL.GetInstance().AtualizarUsuario(usuario);
             if (UsuarioBL.GetInstance().Mensagem != "")
             {
@@ -71,6 +74,7 @@ namespace Controllerpimads4.Controller
 
         public void ExcluirUsuario(int idUsuario)
         {
+            this.Mensagem = "";
             UsuarioBL.GetInstance().ExcluirUsuario(idUsuario);
             if (UsuarioBL.GetInstance().Mensagem != "")
             {
@@ -79,6 +83,7 @@ namespace Controllerpimads4.Controller
         }
         public void ValidarLoginUsuario(String Ds_Login, String Ds_Senha)
         {
+            this.Mensagem = "";
             UsuarioBL.GetInstance().ValidarLoginUsuario(Ds_Login, Ds_Senha);
             if (UsuarioBL.GetInstance().Mensagem != "")
             {
@@ -174,8 +179,13 @@ namespace Controllerpimads4.Controller
 
         public List<EstadoDTO> ConsultarEstados()
         {
+            this.Mensagem = "";
             List<EstadoDTO> lstEstados = new List<EstadoDTO>();
             lstEstados = EstadoBL.GetInstance().ConsultarEstados();
+            if (EstadoBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = EstadoBL.GetInstance().Mensagem;
+            }
             return lstEstados;
         }
 
@@ -185,37 +195,67 @@ namespace Controllerpimads4.Controller
         //
         public void CadastrarCidade(CidadeDTO cidade)
         {
+            this.Mensagem = "";
             CidadeBL.GetInstance().CadastrarCidade(cidade);
+            if (CidadeBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = CidadeBL.GetInstance().Mensagem;
+            }
         }
 
         public List<CidadeDTO> ConsultarCidades()
         {
+            this.Mensagem = "";
             List<CidadeDTO> lstCidades = new List<CidadeDTO>();
             lstCidades = CidadeBL.GetInstance().ConsultarCidades();
+            if (CidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = CidadeBL.GetInstance().Mensagem;
+            }
             return lstCidades;
         }
 
         public List<CidadeDTO> ConsultarCidadesByEstado(int idEstado)
         {
+            this.Mensagem = "";
             List<CidadeDTO> lstCidades = new List<CidadeDTO>();
             lstCidades = CidadeBL.GetInstance().ConsultarCidadesByEstado(idEstado);
+            if (CidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = CidadeBL.GetInstance().Mensagem;
+            }
             return lstCidades;
         }
 
         public CidadeDTO ConsultarCidadeById(int idCidade)
         {
+            this.Mensagem = "";
             CidadeDTO cidade = CidadeBL.GetInstance().ConsultarCidadeById(idCidade);
+            if (CidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = CidadeBL.GetInstance().Mensagem;
+            }
             return cidade;
         }
 
         public void AtualizarCidade(CidadeDTO cidade)
         {
+            this.Mensagem = "";
             CidadeBL.GetInstance().AtualizarCidade(cidade);
+            if (CidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = CidadeBL.GetInstance().Mensagem;
+            }
         }
 
         public void ExcluirCidade(int idCidade)
         {
+            this.Mensagem = "";
             CidadeBL.GetInstance().ExcluirCidade(idCidade);
+            if (CidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = CidadeBL.GetInstance().Mensagem;
+            }
         }
 
         #endregion
@@ -224,31 +264,61 @@ namespace Controllerpimads4.Controller
 
         public void CadastrarBairro(BairroDTO bairro)
         {
+            this.Mensagem = "";
             BairroBL.GetInstance().CadastrarBairro(bairro);
+            if (BairroBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = BairroBL.GetInstance().Mensagem;
+            }
         }
         public List<BairroDTO> ConsultarBairros()
         {
+            this.Mensagem = "";
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros = BairroBL.GetInstance().ConsultarBairros();
+            if (BairroBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = BairroBL.GetInstance().Mensagem;
+            }
             return lstBairros;
         }
         public BairroDTO ConsultarBairroById(int idBairro)
         {
+            this.Mensagem = "";
             BairroDTO bairro = BairroBL.GetInstance().ConsultarBairroById(idBairro);
+            if (BairroBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = BairroBL.GetInstance().Mensagem;
+            }
             return bairro;
         }
         public void AtualizarBairro(BairroDTO bairro)
         {
+            this.Mensagem = "";
             BairroBL.GetInstance().AtualizarBairro(bairro);
+            if (BairroBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = BairroBL.GetInstance().Mensagem;
+            }
         }
         public void ExcluirBairro(int idBairro)
         {
+            this.Mensagem = "";
             BairroBL.GetInstance().ExcluirBairro(idBairro);
+            if (BairroBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = BairroBL.GetInstance().Mensagem;
+            }
         }
         public List<BairroDTO> ConsultarBairrosByCidade(int idCidade)
         {
+            this.Mensagem = "";
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros = BairroBL.GetInstance().ConsultarBairrosByCidade(idCidade);
+            if (BairroBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = BairroBL.GetInstance().Mensagem;
+            }
             return lstBairros;
         }
         #endregion
@@ -257,26 +327,51 @@ namespace Controllerpimads4.Controller
 
         public void CadastarUnidade(UnidadeDTO unidade)
         {
+            this.Mensagem = "";
             UnidadeBL.GetInstance().CadastrarUnidade(unidade);
+            if (UnidadeBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = UnidadeBL.GetInstance().Mensagem;
+            }
         }
         public List<UnidadeDTO> ConsultarUnidades()
         {
+            this.Mensagem = "";
             List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
             lstUnidades = UnidadeBL.GetInstance().ConsultarUnidades();
+            if (UnidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UnidadeBL.GetInstance().Mensagem;
+            }
             return lstUnidades;
         }
         public UnidadeDTO ConsultarUnidadeById(int idUnidade)
         {
+            this.Mensagem = "";
             UnidadeDTO unidade = UnidadeBL.GetInstance().ConsultarUnidadeById(idUnidade);
+            if (UnidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UnidadeBL.GetInstance().Mensagem;
+            }
             return unidade;
         }
         public void AtualizarUnidade(UnidadeDTO unidade)
         {
+            this.Mensagem = "";
             UnidadeBL.GetInstance().AtualizarUnidade(unidade);
+            if (UnidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UnidadeBL.GetInstance().Mensagem;
+            }
         }
         public void ExcluirUnidade(int idUnidade)
         {
+            this.Mensagem = "";
             UnidadeBL.GetInstance().ExcluirUnidade(idUnidade);
+            if (UnidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UnidadeBL.GetInstance().Mensagem;
+            }
         }
 
         #endregion
@@ -285,26 +380,51 @@ namespace Controllerpimads4.Controller
 
         public void CadastrarProduto(ProdutoDTO produto)
         {
+            this.Mensagem = "";
             ProdutoBL.GetInstance().CadastrarProduto(produto);
+            if (ProdutoBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = ProdutoBL.GetInstance().Mensagem;
+            }
         }
         public List<ProdutoDTO> ConsultarProdutos()
         {
+            this.Mensagem = "";
             List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
             lstProdutos = ProdutoBL.GetInstance().ConsultarProdutos();
+            if (ProdutoBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoBL.GetInstance().Mensagem;
+            }
             return lstProdutos;
         }
         public ProdutoDTO ConsultarProdutoById(int idUnidade)
         {
+            this.Mensagem = "";
             ProdutoDTO produto = ProdutoBL.GetInstance().ConsultarProdutoById(idUnidade);
+            if (ProdutoBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoBL.GetInstance().Mensagem;
+            }
             return produto;
         }
         public void AtualizarProduto(ProdutoDTO produto)
         {
+            this.Mensagem = "";
             ProdutoBL.GetInstance().AtualizarProduto(produto);
+            if (ProdutoBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoBL.GetInstance().Mensagem;
+            }
         }
         public void ExcluirProduto(int idProduto)
         {
+            this.Mensagem = "";
             ProdutoBL.GetInstance().ExcluirProduto(idProduto);
+            if (ProdutoBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoBL.GetInstance().Mensagem;
+            }
         }
 
         #endregion
@@ -313,32 +433,62 @@ namespace Controllerpimads4.Controller
 
         public void CadastrarPessoa(PessoaDTO pessoa)
         {
+            this.Mensagem = "";
             PessoaBL.GetInstance().CadastrarPessoa(pessoa);
+            if (PessoaBL.GetInstance().Mensagem!="")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
         }
         public List<PessoaDTO> ConsultarPessoa()
         {
+            this.Mensagem = "";
             List<PessoaDTO> lstPessoas = new List<PessoaDTO>();
             lstPessoas = PessoaBL.GetInstance().ConsultarPessoas();
+            if (PessoaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
             return lstPessoas;
         }
         public PessoaDTO ConsultarPessoaById(int idPessoa)
         {
+            this.Mensagem = "";
             PessoaDTO pessoa = PessoaBL.GetInstance().ConsultarPessoaById(idPessoa);
+            if (PessoaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
             return pessoa;
         }
         public List<PessoaDTO> ConsultarPessoaJuridica()
         {
+            this.Mensagem = "";
             List<PessoaDTO> listaPessoaJuridica = new List<PessoaDTO>();
             listaPessoaJuridica = PessoaBL.GetInstance().ConsultarPessoaJuridica();
+            if (PessoaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
             return listaPessoaJuridica;
         }
         public void AtualizarPessoa(PessoaDTO pessoa)
         {
+            this.Mensagem = "";
             PessoaBL.GetInstance().AtualizarPessoa(pessoa);
+            if (PessoaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
         }
         public void ExcluirPessoa(int idPessoa)
         {
+            this.Mensagem = "";
             PessoaBL.GetInstance().ExcluirPessoa(idPessoa);
+            if (PessoaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
         }
 
         #endregion

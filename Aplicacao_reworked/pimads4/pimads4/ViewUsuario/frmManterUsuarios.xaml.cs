@@ -35,6 +35,11 @@ namespace pimads4.ViewUsuario
         {
             List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
             lstUsuarios = Controller.GetInstance().ConsultarUsuarios();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgUsuarios.ItemsSource = lstUsuarios;
 
         }
@@ -84,6 +89,11 @@ namespace pimads4.ViewUsuario
                 usuario.NmUsuario = txtNome.Text;
 
                 Controller.GetInstance().CadastrarUsuario(usuario);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarBotoes();
                 InicializarCampos();
                 InicializarDtg();
@@ -101,6 +111,11 @@ namespace pimads4.ViewUsuario
                 usuario.IdUsuario = Convert.ToInt32(txtID.Text);
 
                 Controller.GetInstance().AtualizarUsuario(usuario);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarDtg();
 
             }
@@ -112,6 +127,11 @@ namespace pimads4.ViewUsuario
             idUsuario = Convert.ToInt32(txtID.Text);
 
             Controller.GetInstance().ExcluirUsuario(idUsuario);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             InicializarBotoes();
             InicializarCampos();
             InicializarDtg();
@@ -123,6 +143,11 @@ namespace pimads4.ViewUsuario
             UsuarioDTO usuarioDtg = (UsuarioDTO)dtgUsuarios.SelectedItem;
 
             UsuarioDTO usuario = Controller.GetInstance().ConsultarUsuarioById(usuarioDtg.IdUsuario);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             txtID.Text = usuario.IdUsuario.ToString();
             txtDsSenha.Password = usuario.DsSenha.ToString();
@@ -136,14 +161,6 @@ namespace pimads4.ViewUsuario
             btnExcluir.IsEnabled = true;
         }
 
-        private void CmbTpUsuario_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
-
-        private void CmbTpStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

@@ -34,6 +34,11 @@ namespace pimads4.ViewPessoa
         {
             List<PessoaDTO> lstPessoa = new List<PessoaDTO>();
             lstPessoa = Controller.GetInstance().ConsultarPessoa();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgPessoas.ItemsSource = lstPessoa;
         }
 
@@ -58,6 +63,11 @@ namespace pimads4.ViewPessoa
 
             cmbEstado.ItemsSource = null;
             cmbEstado.ItemsSource = Controller.GetInstance().ConsultarEstados();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             cmbEstado.SelectedValuePath = "IdEstado";
             cmbEstado.DisplayMemberPath = "DsSigla";
 
@@ -101,6 +111,11 @@ namespace pimads4.ViewPessoa
 
             cmbCidade.ItemsSource = null;
             cmbCidade.ItemsSource = Controller.GetInstance().ConsultarCidadesByEstado(idEstado);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             cmbCidade.SelectedValuePath = "IdCidade";
             cmbCidade.DisplayMemberPath = "NmCidade";
         }
@@ -111,6 +126,11 @@ namespace pimads4.ViewPessoa
 
             cmbDs_Bairro.ItemsSource = null;
             cmbDs_Bairro.ItemsSource = Controller.GetInstance().ConsultarBairrosByCidade(idCidade);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             cmbDs_Bairro.SelectedValuePath = "IdBairro";
             cmbDs_Bairro.DisplayMemberPath = "DsBairro";
         }
@@ -136,6 +156,11 @@ namespace pimads4.ViewPessoa
             PessoaDTO pessoa = new PessoaDTO();
 
             pessoa.IdPessoa = Convert.ToInt32("0"+txtId_Pessoa.Text);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             pessoa.NmPessoa = txtNm_Pessoa.Text;
             pessoa.TpPessoa = cmbTp_Pessoa.SelectedValue.ToString();
             pessoa.NumDocumento = txtNr_Documento.Text;
@@ -150,6 +175,7 @@ namespace pimads4.ViewPessoa
             pessoa.NumEnd = txtNr_Endereco.Text;
             pessoa.Observacao = txtDs_Observacao.Text;
             pessoa.Bairro.IdBairro = Convert.ToInt32(cmbDs_Bairro.SelectedValue);
+
 
             if (txtId_Pessoa.Text.Equals(""))
             {
@@ -178,6 +204,11 @@ namespace pimads4.ViewPessoa
         {
             int idPessoa = Convert.ToInt32(txtId_Pessoa.Text);
             Controller.GetInstance().ExcluirPessoa(idPessoa);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             InicializarBotoes();
             InicializarCampos();
@@ -195,6 +226,11 @@ namespace pimads4.ViewPessoa
             PessoaDTO pessoaDtg = (PessoaDTO)dtgPessoas.SelectedItem;
 
             PessoaDTO pessoa = Controller.GetInstance().ConsultarPessoaById(pessoaDtg.IdPessoa);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             txtId_Pessoa.Text = pessoa.IdPessoa.ToString();
             txtNm_Pessoa.Text = pessoa.NmPessoa;

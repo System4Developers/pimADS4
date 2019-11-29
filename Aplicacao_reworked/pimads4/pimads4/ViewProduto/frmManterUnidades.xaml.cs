@@ -34,6 +34,11 @@ namespace pimads4.ViewProduto
         {
             List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
             lstUnidades = Controller.GetInstance().ConsultarUnidades();
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
             dtgUnidades.ItemsSource = lstUnidades;
 
         }
@@ -59,6 +64,11 @@ namespace pimads4.ViewProduto
                 UnidadeDTO unidade = new UnidadeDTO();
                 unidade.DsUnidade = txtDs_Unidade.Text;
                 Controller.GetInstance().CadastarUnidade(unidade);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
 
                 InicializarBotoes();
                 InicializarCampos();
@@ -71,6 +81,11 @@ namespace pimads4.ViewProduto
                 unidade.DsUnidade = txtDs_Unidade.Text;
 
                 Controller.GetInstance().AtualizarUnidade(unidade);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
 
                 InicializarDtg();
             }
@@ -86,7 +101,12 @@ namespace pimads4.ViewProduto
         {
             int idUnidade = Convert.ToInt32(txtId_Unidade.Text);
             Controller.GetInstance().ExcluirUnidade(idUnidade);
-            
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
+
             InicializarBotoes();
             InicializarCampos();
             InicializarDtg();
@@ -103,6 +123,11 @@ namespace pimads4.ViewProduto
             UnidadeDTO unidadeDtg = (UnidadeDTO)dtgUnidades.SelectedItem;
 
             UnidadeDTO unidade = Controller.GetInstance().ConsultarUnidadeById(unidadeDtg.IdUnidade);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
 
             txtId_Unidade.Text = unidade.IdUnidade.ToString();
             txtDs_Unidade.Text = unidade.DsUnidade.ToString();
