@@ -33,17 +33,15 @@ namespace pimads4.ViewPC
             dtpDt_Digitacao.Text = DateTime.Today.ToString();
             txtNr_Quantidade.Text = string.Empty;
             txtVlr_Custo.Text = string.Empty;
+            txtVlr_Total.Text = "0,00";
 
-            cmbNm_Fornecedor.ItemsSource = Controller.GetInstance().ConsultarPessoaJuridica();
-            cmbNm_Fornecedor.SelectedValuePath = "IdPessoa";
-            cmbNm_Fornecedor.DisplayMemberPath = "NmPessoa";
+            CarregarListaFornecedores();
+            CarregarListaProdutos();
 
-            cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos();
-            cmbDs_Produto.SelectedValuePath = "IdProduto";
-            cmbDs_Produto.DisplayMemberPath = "DsProduto";
+            dtgProdutos.ItemsSource = null;
 
-            List<OrdemCompraProdutoDTO> listaOcProdutos = new List<OrdemCompraProdutoDTO>();
-            dtgProdutos.ItemsSource = listaOcProdutos;
+            //List<OrdemCompraProdutoDTO> listaOcProdutos = new List<OrdemCompraProdutoDTO>();
+            //dtgProdutos.ItemsSource = listaOcProdutos;
 
         }
 
@@ -63,7 +61,7 @@ namespace pimads4.ViewPC
 
             if (Controller.GetInstance().Mensagem.Equals(""))
             {
-                txtVlr_Total.Text = vlTotal.ToString();
+                txtVlr_Total.Text = vlTotal.ToString("#0.00");
             }
             else
             {
@@ -72,11 +70,44 @@ namespace pimads4.ViewPC
 
         }
 
+        private void CarregarListaFornecedores()
+        {
+            try
+            {
+                cmbNm_Fornecedor.ItemsSource = Controller.GetInstance().ConsultarPessoaJuridica();
+                cmbNm_Fornecedor.SelectedValuePath = "IdPessoa";
+                cmbNm_Fornecedor.DisplayMemberPath = "NmPessoa";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("NÃO FOI POSSÍVEL CARREGAR A LISTA DE FORNECEDORES");
+            }
+        }
+        
+        private void CarregarListaProdutos()
+        {
+            try
+            {
+                cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos();
+                cmbDs_Produto.SelectedValuePath = "IdProduto";
+                cmbDs_Produto.DisplayMemberPath = "DsProduto";
+            }   
+            catch (Exception)
+            {
+                MessageBox.Show("NÃO FOI POSSIVEL CARREGAR A LISTA DE PRODUTOS");
+            }
+        }
+
+
         private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
         {
             OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
             List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
-            listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
+
+            if (dtgProdutos.ItemsSource != null)
+            {
+                listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
+            }
 
             try
             {
@@ -89,7 +120,7 @@ namespace pimads4.ViewPC
             }
             try
             {
-                ocProduto.VlrUnit = Convert.ToDouble(txtVlr_Custo.Text.Replace(',', '.'));
+                ocProduto.VlrUnit = Convert.ToDouble(txtVlr_Custo.Text.Replace('.', ','));
             }
             catch (Exception)
             {

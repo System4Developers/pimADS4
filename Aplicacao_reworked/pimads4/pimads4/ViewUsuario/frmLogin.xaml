@@ -46,7 +46,7 @@
             <Button x:Name="btnLogar" Content="Acessar" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326" Click="Button_Click" Margin="86,0,91,90" Background="#FF2F506A" Grid.Row="1"/>
             
             <Button x:Name="btnSair" Content="Sair" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="326"  Margin="86,0,91,40" Click="BtnSair_Click" Height="28" RenderTransformOrigin="0.36,1.362" Background="#FF2F506A" Grid.Row="1" />
-            <Label  x:Name="lblDs_Mensagem" VerticalAlignment="Bottom"  Height="40" Foreground="White" HorizontalAlignment="Center" Width="170" />
+            <Label  x:Name="lblDs_Mensagem" VerticalAlignment="Bottom"  Height="40" Foreground="White" HorizontalAlignment="Center"  />
         </Grid>
 
         <TextBox Text="{Binding Button_Click, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" x:Name="txtDs_Login" materialDesign:HintAssist.Hint="Usuario" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" Height="34" TextWrapping="Wrap"  VerticalAlignment="Bottom" Width="326" FontSize="16" Foreground="White" Margin="43,0,33,0"/>

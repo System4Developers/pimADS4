@@ -97,7 +97,7 @@
         </DataGrid>
 
         <Grid Background="White" Grid.Column="15" Grid.Row="13" Grid.RowSpan="3" Grid.ColumnSpan="3" />
-        <TextBox x:Name="txtVlr_Total" Grid.Column="15" Grid.Row="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.RowSpan="3" Text="" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" IsReadOnly="True"  Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtVlr_Total" Grid.Column="15" Grid.Row="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="3" Text="" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" IsReadOnly="True"  Grid.ColumnSpan="3"/>
 
     </Grid>
 </UserControl>

@@ -29,26 +29,32 @@ namespace pimads4.ViewUsuario
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
-            UsuarioDTO usuario = new UsuarioDTO();
-            estPropriedades.Bl_Logado = false;
-
-            usuario.DsLogin = txtDs_Login.Text;
-            usuario.DsSenha = txtDs_Senha.Password;
-
-            
-            Controller.GetInstance().ValidarLoginUsuario(usuario.DsLogin, usuario.DsSenha);
-            if (Controller.GetInstance().Mensagem != "")
+            if (txtDs_Login.Text.Equals("") || txtDs_Senha.Password.Equals(""))
             {
-                MessageBox.Show(Controller.GetInstance().Mensagem);
-                return;
-            }
-            if (!estPropriedades.Bl_Logado)
-            {
-                lblDs_Mensagem.Content = "Login e/ou Senha Inválido(s)";
+                MessageBox.Show("DIGITE O USUÁRIO E SENHA");
             }
             else
             {
-                this.Close();
+                UsuarioDTO usuario = new UsuarioDTO();
+                estPropriedades.Bl_Logado = false;
+
+                usuario.DsLogin = txtDs_Login.Text;
+                usuario.DsSenha = txtDs_Senha.Password;
+
+                Controller.GetInstance().ValidarLoginUsuario(usuario.DsLogin, usuario.DsSenha);
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
+                if (!estPropriedades.Bl_Logado)
+                {
+                    lblDs_Mensagem.Content = "LOGIN E/OU SENHA INVÁLIDO(S)";
+                }
+                else
+                {
+                    this.Close();
+                }
             }
         }
 
