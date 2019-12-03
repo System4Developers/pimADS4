@@ -163,6 +163,10 @@ namespace pimads4
                     MessageBox.Show(Controller.GetInstance().Mensagem);
                 }
             }
+            else
+            {
+                MessageBox.Show("NENHUM PRODUTO SELECIONADO");
+            }
         }
 
         private void BtnQtdRmv_Click(object sender, RoutedEventArgs e)
@@ -261,6 +265,11 @@ namespace pimads4
             {
                 MessageBox.Show("VENDA DE PRODUTOS REGISTRADA");
             }
+
+        }
+
+        private void DtgPedidoVendaProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

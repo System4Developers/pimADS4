@@ -72,8 +72,8 @@ namespace pimads4
             grdFormContentArea.Children.Add(new frmPginaInicial());
             lblNm_Form.Content = "Página Inicial";
 
-            menuInicio.Add(new SubItem("Pagina Inicial", "paginaInicial"));
-            itemMenuInicio = new ItemMenu("Home", menuInicio, PackIconKind.House);
+            //menuInicio.Add(new SubItem("Pagina Inicial", "paginaInicial"));
+            itemMenuInicio = new ItemMenu("Home", new frmPginaInicial() , PackIconKind.Home);
 
             menuPdv.Add(new SubItem("Novo", "novoPDV"));
             menuPdv.Add(new SubItem("Consultar", "consultarPDV")); ;
