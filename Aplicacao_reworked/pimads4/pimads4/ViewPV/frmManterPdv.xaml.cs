@@ -33,6 +33,7 @@ namespace pimads4
             dtpDt_Digitacao.Text = DateTime.Today.ToString();
             txtNr_Quantidade.Text = string.Empty;
             txtVl_Unitario.Text = string.Empty;
+            txtVl_Total.Text = "0,00";
 
             cmbNm_Cliente.ItemsSource = Controller.GetInstance().ConsultarPessoa();
             if (Controller.GetInstance().Mensagem != "")
@@ -214,11 +215,17 @@ namespace pimads4
 
         private void BtnFinalizarVenda_Click(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("FINALIZAR PEDIDO DE VENDA?", "FINALIZAR PDV", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                return;
+            }
+           
             PedidoVendaDTO pedido = new PedidoVendaDTO();
             PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
             List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
 
             pedido.DtDigitacao = dtpDt_Digitacao.SelectedDate.ToString();
+
             try
             {
                 pedido.ValorTotal = Convert.ToDouble(txtVl_Total.Text);

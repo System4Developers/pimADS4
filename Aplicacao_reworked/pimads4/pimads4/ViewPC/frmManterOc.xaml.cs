@@ -163,7 +163,7 @@ namespace pimads4.ViewPC
                 int selIndex = dtgProdutos.SelectedIndex;
                 listaOcProduto = dtgProdutos.ItemsSource as List<OrdemCompraProdutoDTO>;
 
-                Controller.GetInstance().AdicionarQuantidadeProdutoOc(listaOcProduto, dtgProdutos.SelectedIndex);
+                Controller.GetInstance().AdicionarQuantidadeProdutoOc(listaOcProduto, selIndex);
                 if (Controller.GetInstance().Mensagem.Equals(""))
                 {
                     AtualizarDatagrid(listaOcProduto);
@@ -231,6 +231,11 @@ namespace pimads4.ViewPC
 
         private void BtnFinalizar_Click(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("FINALIZAR ORDEM DE COMPRA?", "FINALIZAR ODC", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                return;
+            }
+
             OrdemCompraDTO ordemCompra = new OrdemCompraDTO();
             OrdemCompraProdutoDTO ocProduto = new OrdemCompraProdutoDTO();
             List<OrdemCompraProdutoDTO> listaOcProduto = new List<OrdemCompraProdutoDTO>();
