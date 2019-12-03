@@ -30,6 +30,26 @@ namespace pimads4.ViewPC
 
         private void InicializarCampos()
         {
+            CarregarDataGridOrdemCompra();
+            CarregarListaFornecedores();
+        }
+
+        private void CarregarListaFornecedores()
+        {
+            try
+            {
+                cmbNm_Fornecedor.ItemsSource = Controller.GetInstance().ConsultarPessoaJuridica();
+                cmbNm_Fornecedor.SelectedValuePath = "IdPessoa";
+                cmbNm_Fornecedor.DisplayMemberPath = "NmPessoa";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("NÃO FOI POSSÍVEL CARREGAR A LISTA DE FORNECEDORES");
+            }
+        }
+
+        private void CarregarDataGridOrdemCompra()
+        {
             List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
             listaOrdemCompra = Controller.GetInstance().ConsultarOrdemCompraTodos();
             if (Controller.GetInstance().Mensagem != "")
@@ -39,6 +59,7 @@ namespace pimads4.ViewPC
             }
             dtgOrdemCompra.ItemsSource = listaOrdemCompra;
         }
+
 
         private void DtgOrdemCompra_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -57,6 +78,10 @@ namespace pimads4.ViewPC
                     return;
                 }
                 dtgProdutoOc.ItemsSource = listaProdutoOc;
+                txtDs_Fornecedor.Text = listaOrdemCompra[dtgOrdemCompra.SelectedIndex].Pessoa.NmPessoa;
+                txtDt_Emissao.Text = listaOrdemCompra[dtgOrdemCompra.SelectedIndex].DtDigitacao;
+                txtNr_OrdemCompra.Text = listaOrdemCompra[dtgOrdemCompra.SelectedIndex].IdOrdemCompra.ToString();
+
             }
         }
     }

@@ -86,7 +86,7 @@
 
         <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="15" Click="BtnAdicionar_Click" VerticalAlignment="Stretch"  Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,0,0,20" />
 
-        <DataGrid x:Name="dtgProdutos" Grid.Column="2" Grid.ColumnSpan="16" Grid.Row="4" Grid.RowSpan="8"  ColumnWidth="*" AutoGenerateColumns="False">
+        <DataGrid x:Name="dtgProdutos" Grid.Column="2" Grid.ColumnSpan="16" Grid.Row="4" Grid.RowSpan="8"  ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="COD. PRODUTO"/>
                 <DataGridTextColumn Binding="{Binding Produto.DsProduto}" Header="PRODUTO" />

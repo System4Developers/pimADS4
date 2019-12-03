@@ -59,15 +59,19 @@ namespace Controllerpimads4.BL
             if (listaProdutosOc.Count<1)
             {
                 this.mensagem = "NENHUM PRODUTO P/ ACRESCENTAR QUANTIDADE";
+                return;
             }
-            else
+            try
             {
                 ocProduto = listaProdutosOc[index];
                 ocProduto.Quantidade += 1;
                 ocProduto.SubTotal = ocProduto.Quantidade * ocProduto.VlrUnit;
                 listaProdutosOc[index] = ocProduto;
             }
-                        
+            catch (Exception ex)
+            {
+                this.mensagem = "NENHUM PRODUTO P/ ACRESCENTAR QUANTIDADE";
+            }   
         }
 
         internal void RemoverQuantidadeProdutoOc(List<OrdemCompraProdutoDTO> listaProdutosOc, int index)

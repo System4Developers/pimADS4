@@ -45,7 +45,7 @@ namespace pimads4
             {
                 frmPrincipal.grdFormContentArea.Children.Clear();
                 frmPrincipal.lblNm_Form.Content = "";
-                
+
                 switch (((SubItem)((ListView)sender).SelectedItem).MenuTela)
                 {
                     case "novoPDV":
