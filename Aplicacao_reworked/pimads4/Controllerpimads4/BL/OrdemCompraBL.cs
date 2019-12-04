@@ -64,6 +64,29 @@ namespace Controllerpimads4.BL
             return listaOrdemCompra;
         }
 
+        internal List<OrdemCompraDTO> ConsultarOrdemCompraEmitida(string mDt_Inicio, string mDt_Final, int idPessoa)
+        {
+            this.mensagem = "";
+            List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
+           
+            if (mDt_Inicio =="" && mDt_Final !="")
+            {
+                this.mensagem = "POR FAVOR INFORME UMA DATA INICIAL";
+            }
+            else
+            {
+                if (mDt_Inicio != "" && mDt_Final == "")
+                {
+                    mDt_Final = mDt_Inicio;
+                }
+                listaOrdemCompra = OrdemCompraDAO.GetInstance().ConsultarOrdemCompraEmitida(mDt_Inicio, mDt_Final, idPessoa);
+                if (OrdemCompraDAO.GetInstance().Mensagem != "")
+                {
+                    this.mensagem = OrdemCompraDAO.GetInstance().Mensagem;
+                }
+            }
 
+            return listaOrdemCompra;
+        }
     }
 }

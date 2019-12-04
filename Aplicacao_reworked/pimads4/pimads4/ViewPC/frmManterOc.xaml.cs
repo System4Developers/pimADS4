@@ -39,10 +39,6 @@ namespace pimads4.ViewPC
             CarregarListaProdutos();
 
             dtgProdutos.ItemsSource = null;
-
-            //List<OrdemCompraProdutoDTO> listaOcProdutos = new List<OrdemCompraProdutoDTO>();
-            //dtgProdutos.ItemsSource = listaOcProdutos;
-
         }
 
         private void AtualizarDatagrid(List<OrdemCompraProdutoDTO> listaOcProduto)

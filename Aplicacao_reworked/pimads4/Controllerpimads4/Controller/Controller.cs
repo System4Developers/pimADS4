@@ -573,6 +573,21 @@ namespace Controllerpimads4.Controller
             return listaOrdemCompra;
         }
 
+        public List<OrdemCompraDTO> ConsultarOrdemCompraEmitida(string mDt_Inicio, string mDt_Final, int idPessoa)
+        {
+            this.Mensagem = "";
+            List<OrdemCompraDTO> listaOrdemCompra = new List<OrdemCompraDTO>();
+
+            listaOrdemCompra = OrdemCompraBL.GetInstance().ConsultarOrdemCompraEmitida(mDt_Inicio, mDt_Final, idPessoa);
+            if (OrdemCompraBL.GetInstance().mensagem != "")
+            {
+                this.Mensagem = OrdemCompraBL.GetInstance().mensagem;
+            }
+
+            return listaOrdemCompra;
+        }
+
+
         public List<OrdemCompraProdutoDTO> ConsultarProdutosPorIdOrdemCompra(int id_OrdemCompra)
         {
             this.Mensagem = "";
