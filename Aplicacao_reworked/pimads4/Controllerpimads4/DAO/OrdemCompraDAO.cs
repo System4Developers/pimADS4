@@ -76,8 +76,7 @@ namespace Controllerpimads4.DAO
                     mObj = new OrdemCompraDTO();
                     mObj.IdOrdemCompra = Convert.ToInt32(dr["idOrdemCompra"]);
                     mObj.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
-                    //mObj.DtDigitacao = DateTime.Parse(dr["dtDigitacao"].ToString()).ToString("dd/MM/yyyy");
-                    mObj.DtDigitacao = dr["dtDigitacao"].ToString();
+                    mObj.DtDigitacao = DateTime.Parse(dr["dtDigitacao"].ToString()).ToString("dd/MM/yyyy");
                     mObj.TpStatus = dr["tpStatus"].ToString();
                     mObj.Pessoa.IdPessoa = Convert.ToInt32(dr["idPessoa"]);
                     mObj.Pessoa.NmPessoa = dr["nmPessoa"].ToString();
@@ -131,7 +130,7 @@ namespace Controllerpimads4.DAO
                     mObj = new OrdemCompraDTO();
                     mObj.IdOrdemCompra = Convert.ToInt32(dr["idOrdemCompra"]);
                     mObj.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
-                    mObj.DtDigitacao = dr["dtDigitacao"].ToString();
+                    mObj.DtDigitacao = DateTime.Parse(dr["dtDigitacao"].ToString()).ToString("dd/MM/yyyy");
                     mObj.TpStatus = dr["tpStatus"].ToString();
                     mObj.Pessoa.IdPessoa = Convert.ToInt32(dr["idPessoa"]);
                     mObj.Pessoa.NmPessoa = dr["nmPessoa"].ToString();

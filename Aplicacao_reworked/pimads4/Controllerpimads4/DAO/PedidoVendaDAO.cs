@@ -46,7 +46,7 @@ namespace Controllerpimads4.DAO
                 {
                     pedido = new PedidoVendaDTO();
                     pedido.IdPedido = Convert.ToInt32(dr["idPedidoVenda"]);
-                    pedido.DtDigitacao = dr["dtDigitacao"].ToString();
+                    pedido.DtDigitacao = DateTime.Parse(dr["dtDigitacao"].ToString()).ToString("dd/MM/yyyy");
                     pedido.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
                     pedido.TpPagamento = dr["tpPagamento"].ToString();
                     pedido.Pessoa.NmPessoa = dr["nmPessoa"].ToString();
@@ -88,6 +88,61 @@ namespace Controllerpimads4.DAO
             }
 
             return id_PedidoVenda;
+        }
+
+        internal List<PedidoVendaDTO> ConsultarPedidoVendaEmitido(string mDt_Inicio, string mDt_Final, int idPessoa)
+        {
+            this.Mensagem = "";
+            String sqlText = "SELECT * FROM PedidoVenda JOIN Pessoas on Pessoas.idPessoa = PedidoVenda.fk_idPessoa_Pessoas";
+
+            if (mDt_Inicio != "" && idPessoa > 0)
+            {
+                sqlText = sqlText + " WHERE(dtDigitacao BETWEEN " +
+                    "'" + mDt_Inicio + "' AND " +
+                    "'" + mDt_Final + "') AND " +
+                    "fk_idPessoa_Pessoas = " + idPessoa + "";
+            }
+            else if (mDt_Inicio == "" && idPessoa > 0)
+            {
+                sqlText = sqlText + " WHERE fk_idPessoa_Pessoas = " + idPessoa + "";
+            }
+            else if (mDt_Inicio != "" && idPessoa == 0)
+            {
+                sqlText = sqlText + " WHERE(dtDigitacao BETWEEN " +
+                    "'" + mDt_Inicio + "' AND " +
+                    "'" + mDt_Final + "' )";
+            }
+
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            List<PedidoVendaDTO> lstObj = new List<PedidoVendaDTO>();
+            PedidoVendaDTO mObj = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    mObj = new PedidoVendaDTO();
+                    mObj.IdPedido = Convert.ToInt32(dr["idPedidoVenda"]);
+                    mObj.ValorTotal = Convert.ToDouble(dr["valorTotal"]);
+                    mObj.DtDigitacao = DateTime.Parse(dr["dtDigitacao"].ToString()).ToString("dd/MM/yyyy");
+                    mObj.TpPagamento = dr["tpPagamento"].ToString();
+                    mObj.TpStatus = dr["tpStatus"].ToString();
+                    mObj.Pessoa.IdPessoa = Convert.ToInt32(dr["idPessoa"]);
+                    mObj.Pessoa.NmPessoa = dr["nmPessoa"].ToString();
+                    lstObj.Add(mObj);
+                }
+
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "FALHA AO CONSULTAR PEDIDO DE VENDA";
+            }
+            return lstObj;
         }
     }
 }

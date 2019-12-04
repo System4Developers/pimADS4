@@ -99,7 +99,7 @@ namespace pimads4.ViewPC
                 }
                 dtgProdutoOc.ItemsSource = listaProdutoOc;
                 txtDs_Fornecedor.Text = listaOrdemCompra[dtgOrdemCompra.SelectedIndex].Pessoa.NmPessoa;
-                txtDt_Emissao.Text = listaOrdemCompra[dtgOrdemCompra.SelectedIndex].DtDigitacao;
+                txtDt_Emissao.Text = DateTime.Parse(listaOrdemCompra[dtgOrdemCompra.SelectedIndex].DtDigitacao).ToString("dd/MM/yyyy");
                 txtNr_OrdemCompra.Text = listaOrdemCompra[dtgOrdemCompra.SelectedIndex].IdOrdemCompra.ToString();
             }
         }

@@ -38,18 +38,28 @@
             <RowDefinition Height="339*"/>
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Data Inicio"  VerticalAlignment="Bottom" Height="24"  Grid.Column="5" />
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Grid.Column="6" Grid.Row="0" Width="100" Grid.ColumnSpan="2"/>
-        <Label Content="Data Final"  VerticalAlignment="Bottom" Height="24"  Grid.Column="12"/>
-        <DatePicker Grid.Row="0" VerticalAlignment="Bottom" Height="25" Grid.Column="13" Width="100" HorizontalAlignment="Left"/>
-        <Label Content="Cliente"  VerticalAlignment="Bottom" Grid.Row="1" Height="24"  Grid.Column="3" Grid.ColumnSpan="2" />
-        <ComboBox  VerticalAlignment="Bottom" Grid.Row="1" Height="25" Grid.Column="4" Grid.ColumnSpan="11"/>
-        <Label Content="Data Emissão" Height="24" Grid.Row="3" Grid.Column="5" VerticalAlignment="Bottom"/>
-        <TextBox HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Bottom" Width="100" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2"/>
-        <Label Content="Pedido" VerticalAlignment="Bottom" Grid.Row="3" Height="24" Grid.Column="12" />
-        <TextBox Height="22" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="13" Width="100" />
-        <Label Content="Cliente" VerticalAlignment="Bottom" Grid.Row="4" Height="24" Grid.Column="3"  />
-        <TextBox Height="24" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="11"   />
+        
+        <Label x:Name="lblDt_Inicio" Grid.Row="0" Content="Data Inicio"  VerticalAlignment="Bottom" Height="24"  Grid.Column="5" />
+        <DatePicker x:Name="dtpDt_Inicial" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Grid.Column="6" Grid.Row="0" Width="100" Grid.ColumnSpan="2"/>
+        
+        <Label x:Name="lblDt_Final" Content="Data Final"  VerticalAlignment="Bottom" Height="24"  Grid.Column="12"/>
+        <DatePicker x:Name="dtpDt_Final" Grid.Row="0" VerticalAlignment="Bottom" Height="25" Grid.Column="13" Width="100" HorizontalAlignment="Left"/>
+        
+        <Label x:Name="lblNm_Cliente" Content="Cliente"  VerticalAlignment="Bottom" Grid.Row="1" Height="24"  Grid.Column="3" Grid.ColumnSpan="2" />
+        <ComboBox x:Name="cmbNm_Cliente" VerticalAlignment="Bottom" Grid.Row="1" Height="25" Grid.Column="4" Grid.ColumnSpan="11"/>
+
+        <Button x:Name="btnPesquisar" Grid.ColumnSpan="2" Content="Pesquisar" Grid.Column="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="103" Click="BtnPesquisar_Click"/>
+        
+        <Button x:Name="btnLimpar" Grid.ColumnSpan="2" Content="Limpar" Grid.Column="15" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Bottom" Width="103" Click="BtnLimpar_Click"/>
+
+        <Label x:Name="lblDt_Emissao" Content="Data Emissão" Height="24" Grid.Row="3" Grid.Column="5" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txtDt_Emissao" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="25"  TextWrapping="Wrap" VerticalAlignment="Bottom" Width="163" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" IsReadOnly="True"/>
+        
+        <Label x:Name="lblNr_PedidoVenda" Content="Pedido" VerticalAlignment="Bottom" Grid.Row="3" Height="24" Grid.Column="12" />
+        <TextBox x:Name="txtNr_PedidoVenda" Height="22" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Grid.Row="3" Grid.Column="13" Width="133" IsReadOnly="True" />
+        
+        <Label x:Name="lbl_Cliente" Content="Cliente" VerticalAlignment="Bottom" Grid.Row="4" Height="24" Grid.Column="3"  />
+        <TextBox x:Name="txt_Cliente" Height="24" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="11" IsReadOnly="True" HorizontalContentAlignment="Center"  />
 
         <Rectangle Fill="#FFF4F4F5" Height="1"  Stroke="Silver" VerticalAlignment="Bottom"  Grid.Row="2" Grid.ColumnSpan="18">
             <Rectangle.RenderTransform>
@@ -61,32 +71,31 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <DataGrid x:Name="dtgPedidoVenda" Grid.Column="2" Grid.Row="7"  Grid.ColumnSpan="6"  Grid.RowSpan="1" AutoGenerateColumns="False" MouseLeftButtonUp="DtgPedidoVenda_MouseLeftButtonUp" ColumnWidth="*">
+
+        <Label x:Name="lblDtg_OrdemCompra" Content="PEDIDOS DE VENDA EMITIDOS" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch" Grid.ColumnSpan="6" Width="490" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Margin="2,0" />
+
+        <DataGrid x:Name="dtgPedidoVenda" Grid.Column="2" Grid.Row="7"  Grid.ColumnSpan="6"  Grid.RowSpan="1" AutoGenerateColumns="False" MouseLeftButtonUp="DtgPedidoVenda_MouseLeftButtonUp" ColumnWidth="*" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IdPedido}" Header="Nº PV"  Width="auto"/>
+                <DataGridTextColumn Binding="{Binding IdPedido}" Header="Nº PV" Width="AUTO" />
                 <DataGridTextColumn Binding="{Binding Pessoa.NmPessoa}" Header="CLIENTE" Width="auto"/>
-                <DataGridTextColumn Binding="{Binding DtDigitacao}" Header="DATA" Width="auto"/>
-                <DataGridTextColumn Binding="{Binding ValorTotal, ConverterCulture=pt-BR, StringFormat=C}" Header="VLR. TOTAL" Width="auto" />
-                <DataGridTemplateColumn>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding DtDigitacao}" Header="DATA"/>
+                <DataGridTextColumn Binding="{Binding ValorTotal, ConverterCulture=pt-BR, StringFormat=C}" Header="VLR. TOTAL" />
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="dtgPedidoVendaProduto" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="5" Grid.RowSpan="1"  AutoGenerateColumns="False" ColumnWidth="*">
+
+        <Label x:Name="lblDtg_OrdemCompra_Copy" Content="ITENS DO PEDIDO DE VENDA" Grid.Column="11" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" />
+        
+        <DataGrid x:Name="dtgPedidoVendaProduto" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="5" Grid.RowSpan="1"  AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdPedItem}" Header="ID" Width="auto"/>
-                <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="COD. PRODUTO" Width="auto"/>
+                <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="COD. PRODUTO" />
                 <DataGridTextColumn Binding="{Binding Produto.DsProduto}" Header="DESCRIÇÃO" Width="auto" />
-                <DataGridTextColumn Binding="{Binding Quantidade}" Header="QTD" Width="auto"/>
-                <DataGridTextColumn Binding="{Binding VlrUnit, ConverterCulture=pt-BR, StringFormat=C}" Header="VALOR UNIT" Width="auto"/>
-                <DataGridTemplateColumn>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Quantidade}" Header="QTD"/>
+                <DataGridTextColumn Binding="{Binding VlrUnit, ConverterCulture=pt-BR, StringFormat=C}" Header="VALOR UNIT"  />
+                
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.ColumnSpan="2" Content="Pesquisar" Grid.Column="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="103"/>
-        <Button Grid.ColumnSpan="2" Content="Limpar" Grid.Column="15" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Bottom" Width="103"/>
-        <Label x:Name="lblDtg_OrdemCompra" Content="PEDIDOS DE VENDA EMITIDOS" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch" Grid.ColumnSpan="6" Width="490" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Margin="2,0" />
-        <Label x:Name="lblDtg_OrdemCompra_Copy" Content="ITENS DO PEDIDO DE VENDA" Grid.Column="11" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" />
-
+        
     </Grid>
 </UserControl>

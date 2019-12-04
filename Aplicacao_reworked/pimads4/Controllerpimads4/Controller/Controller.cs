@@ -661,6 +661,21 @@ namespace Controllerpimads4.Controller
                 }
             }
         }
+
+        public List<PedidoVendaDTO> ConsultarPedidoVendaEmitido(string mDt_Inicio, string mDt_Final, int idPessoa)
+        {
+            this.Mensagem = "";
+            List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
+
+            listaPedidoVenda = PedidoVendaBL.GetInstance().ConsultarPedidoVendaEmitido(mDt_Inicio, mDt_Final, idPessoa);
+            if (PedidoVendaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PedidoVendaBL.GetInstance().Mensagem;
+            }
+
+            return listaPedidoVenda;
+        }
+
         #endregion
 
     }

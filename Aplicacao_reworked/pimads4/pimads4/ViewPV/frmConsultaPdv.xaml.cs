@@ -30,6 +30,28 @@ namespace pimads4.ViewPV
 
         private void InicializarCampos()
         {
+            CarregarDataGridPedidoVenda();
+            CarregarListaClientes();
+            LimparCampos();
+        }
+
+        private void CarregarListaClientes()
+        {
+            try
+            {
+                cmbNm_Cliente.ItemsSource = Controller.GetInstance().ConsultarPessoa();
+                cmbNm_Cliente.SelectedValuePath = "IdPessoa";
+                cmbNm_Cliente.DisplayMemberPath = "NmPessoa";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("NÃO FOI POSSÍVEL CARREGAR A LISTA DE CLIENTES");
+            }
+
+        }
+
+        private void CarregarDataGridPedidoVenda()
+        {
             List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
             listaPedidoVenda = Controller.GetInstance().ConsultarPedidoVendaTodos();
             if (Controller.GetInstance().Mensagem != "")
@@ -40,16 +62,36 @@ namespace pimads4.ViewPV
             dtgPedidoVenda.ItemsSource = listaPedidoVenda;
         }
 
+        private void LimparCampos()
+        {
+            dtpDt_Inicial.Text = string.Empty;
+            dtpDt_Final.Text = string.Empty;
+            cmbNm_Cliente.SelectedValue = null;
+            txt_Cliente.Text = string.Empty;
+            txtDt_Emissao.Text = string.Empty;
+            txtNr_PedidoVenda.Text = string.Empty;
+        }
+
+
         private void DtgPedidoVenda_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            int id_PedidoVenda = 0;
+            List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
+            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+
+
             if (dtgPedidoVenda.SelectedIndex >= 0)
             {
-                List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
+                
                 listaPedidoVenda = dtgPedidoVenda.ItemsSource as List<PedidoVendaDTO>;
-
-                int id_PedidoVenda = listaPedidoVenda[dtgPedidoVenda.SelectedIndex].IdPedido;
-
-                List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
+                try
+                {
+                    id_PedidoVenda = listaPedidoVenda[dtgPedidoVenda.SelectedIndex].IdPedido;
+                }
+                catch (Exception)
+                {
+                    return;
+                }
                 listaPvProduto = Controller.GetInstance().ConsultarProdutosPorIdPedidoVenda(id_PedidoVenda);
                 if (Controller.GetInstance().Mensagem != "")
                 {
@@ -57,8 +99,47 @@ namespace pimads4.ViewPV
                     return;
                 }
                 dtgPedidoVendaProduto.ItemsSource = listaPvProduto;
+                txt_Cliente.Text = listaPedidoVenda[dtgPedidoVenda.SelectedIndex].Pessoa.NmPessoa;
+                txtDt_Emissao.Text = listaPedidoVenda[dtgPedidoVenda.SelectedIndex].DtDigitacao;
+                txtNr_PedidoVenda.Text = listaPedidoVenda[dtgPedidoVenda.SelectedIndex].IdPedido.ToString();
             }
+  
+        }
+
+        private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
             
+            int idPessoa=0;
+            try
+            {
+                idPessoa = Convert.ToInt32("0" + cmbNm_Cliente.SelectedValue);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("FORNECEDOR NÃO SELECIONADO");
+            }
+
+            List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
+            listaPedidoVenda =  Controller.GetInstance().ConsultarPedidoVendaEmitido(dtpDt_Inicial.Text, dtpDt_Final.Text, idPessoa);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+            }
+            else
+            {
+                dtgPedidoVenda.ItemsSource = listaPedidoVenda;
+                dtgPedidoVendaProduto.ItemsSource = null;
+                txt_Cliente.Text = string.Empty;
+                txtDt_Emissao.Text = string.Empty;
+                txtNr_PedidoVenda.Text = string.Empty;
+
+            }
+
+        }
+
+        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            LimparCampos();
         }
     }
 }

@@ -58,5 +58,30 @@ namespace Controllerpimads4.BL
             }
 
         }
+
+       internal List<PedidoVendaDTO> ConsultarPedidoVendaEmitido(string mDt_Inicio, string mDt_Final, int idPessoa)
+        {
+            this.mensagem = "";
+            List<PedidoVendaDTO> listaPedidoVenda = new List<PedidoVendaDTO>();
+
+            if (mDt_Inicio == "" && mDt_Final != "")
+            {
+                this.mensagem = "POR FAVOR INFORME UMA DATA INICIAL";
+            }
+            else
+            {
+                if (mDt_Inicio != "" && mDt_Final == "")
+                {
+                    mDt_Final = mDt_Inicio;
+                }
+                listaPedidoVenda = PedidoVendaDAO.GetInstance().ConsultarPedidoVendaEmitido(mDt_Inicio, mDt_Final, idPessoa);
+                if (PedidoVendaDAO.GetInstance().Mensagem != "")
+                {
+                    this.mensagem = PedidoVendaDAO.GetInstance().Mensagem;
+                }
+            }
+
+            return listaPedidoVenda;
+        }
     }
 }
