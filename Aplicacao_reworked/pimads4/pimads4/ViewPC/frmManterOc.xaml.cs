@@ -135,7 +135,7 @@ namespace pimads4.ViewPC
 
             ocProduto.Produto.DsProduto = cmbDs_Produto.Text;
 
-            Controller.GetInstance().VerificarProdutoOc(ocProduto);
+            Controller.GetInstance().VerificarProdutoOc(ocProduto, listaOcProduto);
             if (Controller.GetInstance().Mensagem.Equals(""))
             {
                 listaOcProduto.Add(ocProduto);
@@ -267,6 +267,7 @@ namespace pimads4.ViewPC
             else
             {
                 MessageBox.Show("ENTRADA DE PRODUTOS REGISTRADA");
+                InicializarCampos();
             }
 
         }

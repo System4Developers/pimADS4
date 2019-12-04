@@ -494,10 +494,10 @@ namespace Controllerpimads4.Controller
         #endregion
 
         #region Metodos Ordem de Compra
-        public void VerificarProdutoOc(OrdemCompraProdutoDTO produtoOc)
+        public void VerificarProdutoOc(OrdemCompraProdutoDTO produtoOc,List<OrdemCompraProdutoDTO> listaOcProduto)
         {
             this.Mensagem = "";
-            OrdemCompraProdutoBL.GetInstance().VerificarProdutoOc(produtoOc);
+            OrdemCompraProdutoBL.GetInstance().VerificarProdutoOc(produtoOc,listaOcProduto);
             if (OrdemCompraProdutoBL.GetInstance().mensagem !="")
             {
                 this.Mensagem = OrdemCompraProdutoBL.GetInstance().mensagem;
@@ -600,10 +600,10 @@ namespace Controllerpimads4.Controller
 
         #region Metodos Pedido de Venda
 
-        public void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto)
+        public void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto, List<PedidoVendaProdutoDTO> listaPvProduto)
         {
             this.Mensagem = "";
-            PedidoVendaProdutoBL.GetInstance().VerificarProdutoPv(pvProduto);
+            PedidoVendaProdutoBL.GetInstance().VerificarProdutoPv(pvProduto,listaPvProduto);
             if (PedidoVendaProdutoBL.GetInstance().Mensagem != "")
             {
                 this.Mensagem = PedidoVendaProdutoBL.GetInstance().Mensagem;

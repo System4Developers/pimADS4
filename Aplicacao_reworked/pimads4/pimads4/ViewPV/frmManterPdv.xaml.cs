@@ -34,28 +34,12 @@ namespace pimads4
             txtNr_Quantidade.Text = string.Empty;
             txtVl_Unitario.Text = string.Empty;
             txtVl_Total.Text = "0,00";
+            txtVl_TotalDesconto.Text = "0,00";
 
-            cmbNm_Cliente.ItemsSource = Controller.GetInstance().ConsultarPessoa();
-            if (Controller.GetInstance().Mensagem != "")
-            {
-                MessageBox.Show(Controller.GetInstance().Mensagem);
-                return;
-            }
-            cmbNm_Cliente.SelectedValuePath = "IdPessoa";
-            cmbNm_Cliente.DisplayMemberPath = "NmPessoa";
+            CarregarListaClientes();
+            CarregarListaProdutos();
 
-            cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos();
-            if (Controller.GetInstance().Mensagem != "")
-            {
-                MessageBox.Show(Controller.GetInstance().Mensagem);
-                return;
-            }
-            cmbDs_Produto.SelectedValuePath = "IdProduto";
-            cmbDs_Produto.DisplayMemberPath = "DsProduto";
-
-            List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
-            dtgPedidoVendaProduto.ItemsSource = listaPvProduto;
-
+            dtgPedidoVendaProduto.ItemsSource = null;
         }
 
         private void AtualizarDatagrid(List<PedidoVendaProdutoDTO> listaPvProduto)
@@ -74,14 +58,43 @@ namespace pimads4
             Controller.GetInstance().PvProdCalcularValorTotal(listaPvProduto, pedidoVenda);
             if (Controller.GetInstance().Mensagem.Equals(""))
             {
-                txtVl_Total.Text = pedidoVenda.ValorTotal.ToString();
-                txtVl_TotalDesconto.Text = pedidoVenda.ValorTotalDesconto.ToString();
+                txtVl_Total.Text = pedidoVenda.ValorTotal.ToString("#0.00");
+                txtVl_TotalDesconto.Text = pedidoVenda.ValorTotalDesconto.ToString("#0.00");
             }
             else
             {
                 MessageBox.Show(Controller.GetInstance().Mensagem);
             }
 
+        }
+
+        private void CarregarListaClientes()
+        {
+            try
+            {
+                cmbNm_Cliente.ItemsSource = Controller.GetInstance().ConsultarPessoa();
+                cmbNm_Cliente.SelectedValuePath = "IdPessoa";
+                cmbNm_Cliente.DisplayMemberPath = "NmPessoa";
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("NÃO FOI POSSÍVEL CARREGAR A LISTA DE CLIENTES");
+            }
+        }
+
+        private void CarregarListaProdutos()
+        {
+            try
+            {
+                cmbDs_Produto.ItemsSource = Controller.GetInstance().ConsultarProdutos();
+                cmbDs_Produto.SelectedValuePath = "IdProduto";
+                cmbDs_Produto.DisplayMemberPath = "DsProduto";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+            }
         }
 
         private void CmbDs_Produto_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,12 +110,18 @@ namespace pimads4
         {
             PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
             List<PedidoVendaProdutoDTO> listaPvProduto = new List<PedidoVendaProdutoDTO>();
-            listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+            List<ProdutoDTO> listaProduto = new List<ProdutoDTO>();
+
+            if (dtgPedidoVendaProduto.ItemsSource != null)
+            {
+                listaPvProduto = dtgPedidoVendaProduto.ItemsSource as List<PedidoVendaProdutoDTO>;
+            }
+                       
             try
             {
                 pvProduto.Produto.IdProduto = Convert.ToInt32(cmbDs_Produto.SelectedValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("PRODUTO NÃO SELECIONADO");
                 return;
@@ -125,16 +144,23 @@ namespace pimads4
                 MessageBox.Show("VALOR DE QUANTIDADE INVALIDO");
                 return;
             }
+
             pvProduto.Produto.DsProduto = cmbDs_Produto.Text;
             pvProduto.VlrDesconto = cmbVl_Desconto.SelectedValue.ToString();
 
+            listaProduto = cmbDs_Produto.ItemsSource as List<ProdutoDTO>;
+            pvProduto.Produto.Quantidade = listaProduto[cmbDs_Produto.SelectedIndex].Quantidade;
 
-            Controller.GetInstance().VerificarProdutoPv(pvProduto);
+            Controller.GetInstance().VerificarProdutoPv(pvProduto,listaPvProduto);
             if (Controller.GetInstance().Mensagem.Equals(""))
             {
                 listaPvProduto.Add(pvProduto);
                 AtualizarDatagrid(listaPvProduto);
                 AtualizarTotal();
+                if (pvProduto.Quantidade != Convert.ToInt32(txtNr_Quantidade.Text))
+                {
+                    MessageBox.Show("QUANTIDADE AJUSTADA DE " + txtNr_Quantidade.Text + " PARA " + pvProduto.Quantidade + "");
+                }
             }
             else
             {
@@ -271,12 +297,8 @@ namespace pimads4
             else
             {
                 MessageBox.Show("VENDA DE PRODUTOS REGISTRADA");
+                InicializarCampos();
             }
-
-        }
-
-        private void DtgPedidoVendaProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
     }

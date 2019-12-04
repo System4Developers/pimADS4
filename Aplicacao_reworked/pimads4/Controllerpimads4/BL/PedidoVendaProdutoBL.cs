@@ -27,18 +27,37 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
-        internal void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto)
+        internal void VerificarProdutoPv(PedidoVendaProdutoDTO pvProduto, List<PedidoVendaProdutoDTO> listaPvProduto)
         {
             this.Mensagem = "";
+
+            foreach (PedidoVendaProdutoDTO pvProd in listaPvProduto)
+            {
+                if (pvProd.Produto.IdProduto == pvProduto.Produto.IdProduto)
+                {
+                    this.Mensagem = "PRODUTO ID: " + pvProd.Produto.IdProduto + "\nJÁ ADICIONADO AO PEDIDO DE VENDA";
+                    return;
+                }
+            }
+
             if (pvProduto.Quantidade <= 0)
             {
                 this.Mensagem += "QUANTIDADE DO PRODUTO NÃO PODE SER 0 OU MENOR";
+                return;
+            }
+            if (pvProduto.Produto.Quantidade<= 0)
+            {
+                this.Mensagem += "QUANTIDADE DO PRODUTO NÃO DISPONÍVEL PARA VENDA \nDISPONIVEL: " + pvProduto.Produto.Quantidade + "";
                 return;
             }
             if (pvProduto.VlrUnit <= 0)
             {
                 this.Mensagem += "VALOR DO PRODUTO NÃO PODE SER 0 OU MENOR";
                 return;
+            }
+            if (pvProduto.Quantidade > pvProduto.Produto.Quantidade)
+            {
+                pvProduto.Quantidade = pvProduto.Produto.Quantidade;
             }
 
             pvProduto.VlrSubTotal = pvProduto.Quantidade * pvProduto.VlrUnit;
@@ -52,7 +71,7 @@ namespace Controllerpimads4.BL
                     pvProduto.Desconto = pvProduto.VlrSubTotal * vlDesconto;
                     pvProduto.VlrSubTotal = pvProduto.VlrSubTotal - pvProduto.Desconto;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     this.Mensagem += "NAO FOI POSSIVEL CALCULAR O VALOR DE DESCONTO";
                 }
@@ -83,7 +102,6 @@ namespace Controllerpimads4.BL
         internal void AdicionarQuantidadeProdutoPv(List<PedidoVendaProdutoDTO> listaPvProduto, int index)
         {
             this.Mensagem = "";
-            int quantidade = 0;
             PedidoVendaProdutoDTO pvProduto = new PedidoVendaProdutoDTO();
 
             pvProduto = listaPvProduto[index];
@@ -93,15 +111,7 @@ namespace Controllerpimads4.BL
                 this.Mensagem = "NENHUM PRODUTO P/ ACRESCENTAR QUANTIDADE";
                 return;
             }
-            
-            quantidade = ProdutoDAO.GetInstance().ConsultarProdutoQuantidade(pvProduto.Produto.IdProduto);
-            if (ProdutoDAO.GetInstance().Mensagem != "")
-            {
-                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
-                return;
-            }
-            
-            if (pvProduto.Quantidade >= quantidade)
+            if (pvProduto.Quantidade >= pvProduto.Produto.Quantidade)
             {
                 this.Mensagem = "QUANTIDADE MAXIMA ANTIGIDA";
                 return;

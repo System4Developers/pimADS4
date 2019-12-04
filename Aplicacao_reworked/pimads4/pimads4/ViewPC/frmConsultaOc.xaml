@@ -94,7 +94,7 @@
         </DataGrid>
         <Button x:Name="btnOc_Consultar" Content="Pesquisar" Grid.Column="15" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="103" Grid.ColumnSpan="2" Click="BtnOc_Consultar_Click"/>
         <Button x:Name="btnLimpar" Content="Limpar" Grid.Column="15" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="103" Grid.ColumnSpan="2" Grid.Row="1" Click="BtnLimpar_Click"/>
-        <Label x:Name="lblDtg_OrdemCompra_Copy" Content="ITENS DA ORDEM DE COMPRA" Grid.Column="11" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" />
+        <Label x:Name="lblDtg_OrdemCompra_Copy" Content="ITENS DA ORDEM DE COMPRA" Grid.Column="11" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" />
 
 
     </Grid>

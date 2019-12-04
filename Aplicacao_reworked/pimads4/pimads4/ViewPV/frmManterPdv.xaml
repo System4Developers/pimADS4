@@ -38,20 +38,21 @@
             <ColumnDefinition Width="19"/>
             <ColumnDefinition Width="44"/>
             <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="50*"/>
             <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="40*"/>
             <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="48*"/>
-            <ColumnDefinition Width="112*"/>
+            <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="49*"/>
-            <ColumnDefinition Width="113*"/>
-            <ColumnDefinition Width="73*"/>
-            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="110*"/>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="115*"/>
             <ColumnDefinition Width="21*"/>
             <ColumnDefinition Width="26*"/>
 
@@ -60,17 +61,17 @@
         <Label x:Name="lblDt_Digitacao" Content="Data" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="0"  VerticalAlignment="Top" Height="26" Width="79" Grid.ColumnSpan="3"/>
         <DatePicker x:Name="dtpDt_Digitacao" Grid.Column="2" VerticalAlignment="Bottom" Grid.ColumnSpan="4" Height="25" />
 
-        <Label x:Name="lblNm_Cliente" Content="Cliente" Grid.Row="0" Grid.Column="7" VerticalAlignment="Top" HorizontalContentAlignment="Left" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" Height="26" />
-        <ComboBox x:Name="cmbNm_Cliente"  Grid.Column="7" VerticalAlignment="Bottom" Grid.ColumnSpan="8"  Grid.Row="0" HorizontalAlignment="Stretch" Height="28" />
+        <Label x:Name="lblNm_Cliente" Content="Cliente" Grid.Row="0" Grid.Column="7" VerticalAlignment="Top" HorizontalContentAlignment="Left" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" Height="26" />
+        <ComboBox x:Name="cmbNm_Cliente"  Grid.Column="7" VerticalAlignment="Bottom" Grid.ColumnSpan="9"  Grid.Row="0" HorizontalAlignment="Stretch" Height="28" />
 
         <Label x:Name="lblDs_Produto"  Content="Produto" Grid.Column="2" VerticalAlignment="Bottom" Height="26" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <ComboBox x:Name="cmbDs_Produto" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="6"  Height="28" SelectionChanged="CmbDs_Produto_SelectionChanged" />
+        <ComboBox x:Name="cmbDs_Produto" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="7"  Height="28" SelectionChanged="CmbDs_Produto_SelectionChanged" />
 
-        <Label x:Name="lblNr_Quantidade" Content="Quantidade"  Grid.Column="11" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="26" />
-        <TextBox x:Name="txtNr_Quantidade" Height="26" TextWrapping="Wrap"  VerticalAlignment="top" Grid.Column="11" Grid.Row="2" Margin="0,3,0,0"/>
+        <Label x:Name="lblNr_Quantidade" Content="Quantidade"  Grid.Column="12" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="26" />
+        <TextBox x:Name="txtNr_Quantidade" Height="26" TextWrapping="Wrap"  VerticalAlignment="top" Grid.Column="12" Grid.Row="2" Margin="0,3,0,0"/>
 
-        <Label x:Name="lblVl_Desconto" Content="Valor Desconto" Grid.Column="13"  Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="26"/>
-        <ComboBox SelectedValuePath="Tag" x:Name="cmbVl_Desconto" Grid.Column="13" HorizontalAlignment="Stretch" Height="27"  Grid.Row="2" VerticalAlignment="top"  Margin="0,2,0,0" FontSize="12" HorizontalContentAlignment="Center" >
+        <Label x:Name="lblVl_Desconto" Content="Valor Desconto" Grid.Column="14"  Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="26"/>
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbVl_Desconto" Grid.Column="14" HorizontalAlignment="Stretch" Height="27"  Grid.Row="2" VerticalAlignment="top"  Margin="0,2,0,0" FontSize="12" HorizontalContentAlignment="Center" >
             <ComboBoxItem IsSelected="True" Tag="0" Content="" />
             <ComboBoxItem Tag="5" Content="5 %"/>
             <ComboBoxItem Tag="10" Content="10 %"/>
@@ -79,46 +80,46 @@
             <ComboBoxItem Tag="25" Content="25 %"/>
         </ComboBox>
 
-        <Label x:Name="lblTp_Pagamento" Content="Forma de Pagamento" Grid.Column="15" Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Row="1" Height="26"/>
-        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Pagamento" Grid.Column="15" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="27" VerticalAlignment="top" Width="120" Margin="1,2,0,0" FontSize="12" HorizontalContentAlignment="Center" Grid.Row="2" >
+        <Label x:Name="lblTp_Pagamento" Content="Forma de Pagamento" Grid.Column="16" Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Row="1" Height="26"/>
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Pagamento" Grid.Column="16" HorizontalAlignment="Stretch" Height="27" VerticalAlignment="top" FontSize="12" HorizontalContentAlignment="Center" Grid.Row="2" Margin="0,0,13,0" >
             <ComboBoxItem Tag="CARTAO" Content="CARTAO"/>
             <ComboBoxItem IsSelected="True" Tag="DINHEIRO" Content="DINHEIRO"/>
         </ComboBox>
 
 
-        <Label x:Name="lblVl_Unitario" Content="Valor unitario" Grid.Column="9" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="26" Grid.ColumnSpan="2" Margin="0,0,10,0"  />
-        <TextBox x:Name="txtVl_Unitario" Grid.Column="9" HorizontalAlignment="Stretch" Height="27"  Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" />
+        <Label x:Name="lblVl_Unitario" Content="Valor unitario" Grid.Column="10" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="26" Grid.ColumnSpan="2" Margin="0,0,10,0"  />
+        <TextBox x:Name="txtVl_Unitario" Grid.Column="10" HorizontalAlignment="Stretch" Height="27"  Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" />
 
-        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="17" Grid.Row="2" Click="BtnAdicionar_Click" Grid.ColumnSpan="2" Margin="16,0,0,25" Height="26" />
+        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="17" Grid.Row="2" Click="BtnAdicionar_Click" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="auto"  />
 
 
-        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="18" Grid.Column="1" Grid.Row="3" Grid.RowSpan="16"  >
+        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="20" Grid.Column="1" Grid.Row="3" Grid.RowSpan="15" Margin="4,3,22,2"  >
 
 
         </Grid>
 
-        <Grid Background="White" Grid.Column="15" Grid.Row="13" Grid.RowSpan="3" Grid.ColumnSpan="3">
-            <Label Content="R$" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="25" Height="42" />
+        <Grid Background="White" Grid.Column="16" Grid.Row="13" Grid.RowSpan="3" Grid.ColumnSpan="3">
+            <Label Content="R$" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Stretch" FontSize="25" Height="44" />
         </Grid>
-        <TextBox x:Name="txtVl_Total" Grid.Column="15" IsReadOnly="True" Grid.Row="13" Grid.RowSpan="3" VerticalAlignment="Center" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" HorizontalContentAlignment="Left" Grid.ColumnSpan="3" Height="45" Margin="50,0,0,0"/>
+        <TextBox x:Name="txtVl_Total" Grid.Column="16" IsReadOnly="True" Grid.Row="13" Grid.RowSpan="3" VerticalAlignment="Center" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" Height="46" Margin="50,0,0,0"/>
 
-        <Grid  Background="White" Grid.Column="12" Grid.Row="13" Grid.RowSpan="3" Grid.ColumnSpan="2" />
-        <TextBox x:Name="txtVl_TotalDesconto" IsReadOnly="True" Grid.Column="13" Grid.Row="13" Grid.RowSpan="3" VerticalAlignment="Center" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" HorizontalContentAlignment="Left" Height="46" />
+        <Grid  Background="White" Grid.Column="13" Grid.Row="13" Grid.RowSpan="3" Grid.ColumnSpan="2" />
+        <TextBox x:Name="txtVl_TotalDesconto" IsReadOnly="True" Grid.Column="14" Grid.Row="13" Grid.RowSpan="3" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" HorizontalContentAlignment="Center" Height="46" />
 
-        <Label Content="Quantidade" Grid.Column="6" FontWeight="Bold" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2"  Grid.Row="12" Grid.RowSpan="2" Height="29" Margin="11,0,10,0" />
+        <Label Content="Quantidade" Grid.Column="6" FontWeight="Bold" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3"  Grid.Row="12" Grid.RowSpan="2" Height="29" Margin="11,0,10,0" Width="76" />
 
-        <Button x:Name="btnQtdAdd" Content="+" Grid.Column="6" Grid.Row="14" VerticalAlignment="Stretch" Grid.RowSpan="2"  Height="Auto" Click="BtnQtdAdd_Click" Width="44" Margin="0,5,7,0"  />
+        <Button x:Name="btnQtdAdd" Content="+" Grid.Column="6" Grid.Row="14" VerticalAlignment="Stretch" Grid.RowSpan="2" HorizontalAlignment="Stretch"  Click="BtnQtdAdd_Click"/>
 
-        <Button x:Name="btnQtdRmv" Content="-" Grid.Column="7" Grid.Row="14" Grid.RowSpan="2"  VerticalAlignment="Stretch" Click="BtnQtdRmv_Click" Height="Auto" Width="44" Margin="2,5,0,0"  />
+        <Button x:Name="btnQtdRmv" Content="-" Grid.Column="8" Grid.Row="14" Grid.RowSpan="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="BtnQtdRmv_Click"  />
 
-        <Button x:Name="btnExluir" Content="EXCLUIR" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="6" Grid.Row="17" Grid.ColumnSpan="2" Click="BtnExluir_Click" Height="24" Margin="0,0,0,15"   />
+        <Button x:Name="btnExluir" Content="EXCLUIR" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="6" Grid.Row="17" Grid.ColumnSpan="3" Click="BtnExluir_Click" Height="26" Margin="0,0,0,15"   />
 
-        <Button x:Name="btnFinalizarVenda" Content="Finalizar Venda" Grid.Column="15" Grid.Row="17" Height="26"  Click="BtnFinalizarVenda_Click" VerticalAlignment="Top" Grid.ColumnSpan="3"  />
+        <Button x:Name="btnFinalizarVenda" Content="Finalizar Venda" Grid.Column="16" Grid.Row="17" Height="26"  Click="BtnFinalizarVenda_Click" VerticalAlignment="Top" Grid.ColumnSpan="3"  />
 
-        <Label Content="Total Desconto" Grid.Column="12" VerticalContentAlignment="Top" Grid.Row="12" FontWeight="Bold" FontSize="11"   HorizontalContentAlignment="Center" Grid.ColumnSpan="2"  />
+        <Label Content="Total Desconto" Grid.Column="13" VerticalContentAlignment="Top" Grid.Row="12" FontWeight="Bold" FontSize="11"   HorizontalContentAlignment="Center" Grid.ColumnSpan="2"  />
 
 
-        <DataGrid x:Name="dtgPedidoVendaProduto" Grid.Column="2" Grid.ColumnSpan="16" Grid.Row="4" Grid.RowSpan="8"  ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="dtgPedidoVendaProduto" Grid.Column="2" Grid.ColumnSpan="17" Grid.Row="4" Grid.RowSpan="8"  ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="COD. PRODUTO"/>
                 <DataGridTextColumn Binding="{Binding Produto.DsProduto}" Header="PRODUTO" />
@@ -128,8 +129,8 @@
                 <DataGridTextColumn Binding="{Binding VlrSubTotal, ConverterCulture=pt-BR, StringFormat=C}" Header="SUBTOTAL"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="R$" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="25" Height="42" RenderTransformOrigin="1.679,1.04" Grid.Column="12" Grid.Row="13" Grid.RowSpan="3" Width="40"/>
-        <Label Content="Total Venda" Grid.Column="15" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="12" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="23" FontSize="11" Width="225" Grid.ColumnSpan="3" FontWeight="Bold"/>
+        <Label Content="R$" HorizontalAlignment="Left" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="25" RenderTransformOrigin="1.679,1.04" Grid.Column="13" Grid.Row="13" Grid.RowSpan="3" Width="40" Margin="0,1"/>
+        <Label Content="Total Venda" Grid.Column="16" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="12" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="23" FontSize="11" Width="225" Grid.ColumnSpan="3" FontWeight="Bold"/>
 
 
 

@@ -25,21 +25,30 @@ namespace Controllerpimads4.BL
             return instance;
         }
 
-        internal void VerificarProdutoOc(OrdemCompraProdutoDTO produtoOc)
+        internal void VerificarProdutoOc(OrdemCompraProdutoDTO produtoOc, List<OrdemCompraProdutoDTO> listaOcProduto)
         {
             this.mensagem = "";
             if (produtoOc.Quantidade <= 0)
             {
-                this.mensagem += "QUANTIDADE DO PRODUTO NÃO PODE SER 0 OU MENOR \n";
+                this.mensagem = "QUANTIDADE DO PRODUTO NÃO PODE SER 0 OU MENOR \n";
+                return;
             }
             if (produtoOc.VlrUnit <=0)
             {
-                this.mensagem += "VALOR DO PRODUTO NÃO PODE SER 0 OU MENOR";
+                this.mensagem = "VALOR DO PRODUTO NÃO PODE SER 0 OU MENOR";
+                return;
             }
-            else
+
+            foreach (OrdemCompraProdutoDTO ocProd in listaOcProduto)
             {
-                produtoOc.SubTotal = produtoOc.Quantidade * produtoOc.VlrUnit;
+                if (produtoOc.Produto.IdProduto == ocProd.Produto.IdProduto)
+                {
+                    this.mensagem = "PRODUTO CÓDIGO: " + ocProd.Produto.IdProduto + "\nJÁ ADICIONADO A ORDEM DE COMPRA";
+                    return;
+                }
             }
+
+            produtoOc.SubTotal = produtoOc.Quantidade * produtoOc.VlrUnit;
         }
 
         internal List<OrdemCompraProdutoDTO> ConsultarProdutosPorIdOrdemCompra(int id_OrdemCompra)
