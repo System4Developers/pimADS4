@@ -67,8 +67,8 @@ namespace pimads4.ViewProduto
 
             txtId_Produto.Text = string.Empty;
             txtDs_Produto.Text = string.Empty;
-            txtVl_Venda.Text = string.Empty;
-            txtVl_Custo.Text = string.Empty;
+            txtVl_Venda.Text = "0,00";
+            txtVl_Custo.Text = "0,00";
         }
 
         private void InicializarBotoes()
@@ -89,8 +89,22 @@ namespace pimads4.ViewProduto
                 produto.ValorVenda = Convert.ToDouble(txtVl_Venda.Text);
                 produto.ValorCusto = Convert.ToDouble(txtVl_Custo.Text);
                 produto.TpProduto = cmbTp_Produto.SelectedValue.ToString();
-                produto.Unidade.IdUnidade = Convert.ToInt32(cmbDs_Unidade.SelectedValue.ToString());
-                produto.Fabricante.IdFabricante = Convert.ToInt32(cmbDs_Fabricante.SelectedValue.ToString());
+                try
+                {
+                    produto.Unidade.IdUnidade = Convert.ToInt32(cmbDs_Unidade.SelectedValue.ToString());
+                }
+                catch (Exception)
+                {
+                    produto.Unidade.IdUnidade = 0;
+                }
+                try
+                {
+                    produto.Fabricante.IdFabricante = Convert.ToInt32(cmbDs_Fabricante.SelectedValue.ToString());
+                }
+                catch (Exception)
+                {
+                    produto.Fabricante.IdFabricante = 0;
+                }
 
                 Controller.GetInstance().CadastrarProduto(produto);
                 if (Controller.GetInstance().Mensagem != "")
@@ -129,7 +143,14 @@ namespace pimads4.ViewProduto
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            lstProdutos = Controller.GetInstance().ConsultarProdutoByDs(txtDs_Produto.Text);
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
+            dtgProdutos.ItemsSource = lstProdutos;
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)

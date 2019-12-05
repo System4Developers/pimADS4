@@ -30,15 +30,27 @@ namespace Controllerpimads4.BL
         internal void CadastrarUsuario(UsuarioDTO usuario)
         {
             this.Mensagem = "";
-            if (usuario.DsLogin !="" && usuario.DsSenha !="")
-            {
-                UsuarioDAO.GetInstance().CadastrarUsuario(usuario);
-                if (UsuarioDAO.GetInstance().Mensagem!="")
-                {
-                    this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
-                }
-            }
 
+            if (usuario.NmUsuario.Equals(""))
+            {
+                this.Mensagem = "NOME DO USUARIO NAO INFORMADO";
+                return;
+            }
+            if (usuario.DsLogin.Equals(""))
+            {
+                this.Mensagem = "LOGIN DO USUARIO NAO INFORMADO";
+                return;
+            }
+            if (usuario.DsSenha.Equals(""))
+            {
+                this.mensagem = "SENHA DO USUARIO NAO INFORMADA";
+                return;
+            }
+            UsuarioDAO.GetInstance().CadastrarUsuario(usuario);
+            if (UsuarioDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+            }
         }
 
         internal List<UsuarioDTO> ConsultarUsuarios()
@@ -67,6 +79,22 @@ namespace Controllerpimads4.BL
         internal void AtualizarUsuario(UsuarioDTO usuario)
         {
             this.Mensagem = "";
+
+            if (usuario.NmUsuario.Equals(""))
+            {
+                this.Mensagem = "NOME DO USUARIO NAO INFORMADO";
+                return;
+            }
+            if (usuario.DsLogin.Equals(""))
+            {
+                this.Mensagem = "LOGIN DO USUARIO NAO INFORMADO";
+                return;
+            }
+            if (usuario.DsSenha.Equals(""))
+            {
+                this.mensagem = "SENHA DO USUARIO NAO INFORMADA";
+                return;
+            }
             UsuarioDAO.GetInstance().AtualizarUsuario(usuario);
             if (UsuarioDAO.GetInstance().Mensagem != "")
             {
@@ -88,14 +116,26 @@ namespace Controllerpimads4.BL
         internal void ValidarLoginUsuario(String Ds_Login, String Ds_Senha)
         {
             this.Mensagem = "";
-            if (Ds_Login !="" && Ds_Senha !="")
+            if (Ds_Login != "" && Ds_Senha != "")
             {
                 UsuarioDAO.GetInstance().ValidarLoginUsuario(Ds_Login, Ds_Senha);
-                if (UsuarioDAO.GetInstance().Mensagem!="")
+                if (UsuarioDAO.GetInstance().Mensagem != "")
                 {
                     this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
                 }
             }
+        }
+
+        internal List<UsuarioDTO> ConsultarUsuarioByNmLogin(string nmUsuario, string dsLogin)
+        {
+            this.Mensagem = "";
+            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
+            lstUsuarios = UsuarioDAO.GetInstance().ConsultarUsuarioByNmLogin(nmUsuario, dsLogin);
+            if (UsuarioDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioDAO.GetInstance().Mensagem;
+            }
+            return lstUsuarios;
         }
     }
 }

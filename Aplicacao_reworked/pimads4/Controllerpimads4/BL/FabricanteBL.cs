@@ -38,6 +38,10 @@ namespace Controllerpimads4.BL
                     this.Mensagem = FabricanteDAO.GetInstance().Mensagem;
                 }
             }
+            else
+            {
+                this.Mensagem = "NOME DO FABRICANTE NAO INFORMADO";
+            }
         }
         
         internal List<FabricanteDTO> ConsultarFabricanteTodos()
@@ -66,6 +70,11 @@ namespace Controllerpimads4.BL
         internal void AtualizarFabricante(FabricanteDTO fabricante)
         {
             this.Mensagem = "";
+            if (fabricante.NmFabricante=="")
+            {
+                this.Mensagem = "NOME DO FABRICANTE NAO INFORMADO";
+                return;
+            }
             FabricanteDAO.GetInstance().AtualizarFabricante(fabricante);
             if (FabricanteDAO.GetInstance().Mensagem != "")
             {
@@ -83,6 +92,16 @@ namespace Controllerpimads4.BL
                 this.Mensagem = FabricanteDAO.GetInstance().Mensagem;
             }
         }
-
+        internal List<FabricanteDTO> ConsultarFabricanteByNm(string nmFabricante)
+        {
+            this.Mensagem = "";
+            List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
+            lstFabricantes = FabricanteDAO.GetInstance().ConsultarFabricanteByNm(nmFabricante);
+            if (FabricanteDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = FabricanteDAO.GetInstance().Mensagem;
+            }
+            return lstFabricantes;
+        }
     }
 }

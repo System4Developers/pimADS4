@@ -30,14 +30,34 @@ namespace Controllerpimads4.BL
         internal void CadastrarProduto(ProdutoDTO produto)
         {
             this.Mensagem = "";
-            if (produto.DsProduto !="")
+
+            if (produto.DsProduto == "")
             {
-                ProdutoDAO.GetInstance().CadastrarProduto(produto);
-                if (ProdutoDAO.GetInstance().Mensagem!="")
-                {
-                    this.Mensagem= ProdutoDAO.GetInstance().Mensagem;
-                }
+                this.Mensagem = "DESCRICAO DO PRODUTO NAO INFORMADA";
+                return;
             }
+            if (produto.TpProduto == "")
+            {
+                this.Mensagem = "TIPO DO PRODUTO NAO INFORMADO";
+                return;
+            }
+            if (produto.Fabricante.IdFabricante <= 0)
+            {
+                this.Mensagem = "FABRICANTE DO PRODUTO NAO INFORMADO";
+                return;
+            }
+            if (produto.Unidade.IdUnidade <=0)
+            {
+                this.Mensagem = "UNIDADADE DO PRODUTO NAO INFORMADA";
+                return;
+            }
+
+            ProdutoDAO.GetInstance().CadastrarProduto(produto);
+            if (ProdutoDAO.GetInstance().Mensagem!="")
+            {
+                this.Mensagem= ProdutoDAO.GetInstance().Mensagem;
+            }
+            
         }
         internal List<ProdutoDTO> ConsultarProdutos()
         {
@@ -50,6 +70,18 @@ namespace Controllerpimads4.BL
             }
             return lstProdutos;
         }
+        internal List<ProdutoDTO> ConsultarProdutoByDs(string dsProduto)
+        {
+            this.Mensagem = "";
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            lstProdutos = ProdutoDAO.GetInstance().ConsultarProdutoByDs(dsProduto);
+            if (ProdutoDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoDAO.GetInstance().Mensagem;
+            }
+            return lstProdutos;
+        }
+
         internal ProdutoDTO ConsultarProdutoById(int idProduto)
         {
             this.Mensagem = "";
@@ -63,6 +95,27 @@ namespace Controllerpimads4.BL
         internal void AtualizarProduto(ProdutoDTO produto)
         {
             this.Mensagem = "";
+            if (produto.DsProduto == "")
+            {
+                this.Mensagem = "DESCRICAO DO PRODUTO NAO INFORMADA";
+                return;
+            }
+            if (produto.TpProduto == "")
+            {
+                this.Mensagem = "TIPO DO PRODUTO NAO INFORMADO";
+                return;
+            }
+            if (produto.Fabricante.IdFabricante <= 0)
+            {
+                this.Mensagem = "FABRICANTE DO PRODUTO NAO INFORMADO";
+                return;
+            }
+            if (produto.Unidade.IdUnidade <= 0)
+            {
+                this.Mensagem = "UNIDADADE DO PRODUTO NAO INFORMADA";
+                return;
+            }
+
             ProdutoDAO.GetInstance().AtualizarProduto(produto);
             if (ProdutoDAO.GetInstance().Mensagem != "")
             {

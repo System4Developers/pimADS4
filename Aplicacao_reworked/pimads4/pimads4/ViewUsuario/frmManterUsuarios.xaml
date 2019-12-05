@@ -79,7 +79,7 @@
             <ComboBoxItem Tag="N" Content="Desativado"/>
         </ComboBox>
 
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="3" Grid.Row="4" />
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="3" Grid.Row="4" Margin="0,45,0,0" Height="30" />
         <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="4" Grid.Row="4" />
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="5" Grid.Row="4" />
         <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="6" Grid.Row="4" />

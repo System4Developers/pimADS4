@@ -36,7 +36,10 @@ namespace Controllerpimads4.BL
             {
                 UnidadeDAO.GetInstance().CadastrarUnidade(unidade);
             }
-
+            else
+            {
+                this.Mensagem = "UNIDADE NAO INFORMADA";
+            }
         }
 
         internal List<UnidadeDTO> ConsultarUnidades()
@@ -65,6 +68,12 @@ namespace Controllerpimads4.BL
         internal void AtualizarUnidade(UnidadeDTO unidade)
         {
             this.Mensagem = "";
+            
+            if (unidade.DsUnidade == "")
+            {
+                this.Mensagem = "UNIDADE NAO INFORMADA";
+                return;
+            }
             UnidadeDAO.GetInstance().AtualizarUnidade(unidade);
             if (UnidadeDAO.GetInstance().Mensagem != "")
             {
@@ -81,6 +90,18 @@ namespace Controllerpimads4.BL
                 this.Mensagem = UnidadeDAO.GetInstance().Mensagem;
             }
         }
- 
+        internal List<UnidadeDTO> ConsultarUnidadeByDs(string dsUnidade)
+        {
+            this.Mensagem = "";
+            List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
+            lstUnidades = UnidadeDAO.GetInstance().ConsultarUnidadeByDs(dsUnidade);
+            if (UnidadeDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UnidadeDAO.GetInstance().Mensagem;
+            }
+            return lstUnidades;
+        }
+
+
     }
 }

@@ -80,7 +80,43 @@ namespace Controllerpimads4.DAO
             }
             return lstObj;
         }
-        
+
+        internal List<FabricanteDTO> ConsultarFabricanteByNm(string nmFabricante)
+        {
+            this.Mensagem = "";
+            String sqlText = "SELECT * FROM Fabricantes";
+            if (nmFabricante!="")
+            {
+                sqlText += " Where nmFabricante like '%" + nmFabricante + "%'";
+            }
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            List<FabricanteDTO> lstObj = new List<FabricanteDTO>();
+            FabricanteDTO mObj = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    mObj = new FabricanteDTO();
+                    mObj.IdFabricante = Convert.ToInt32(dr["idFabricante"]);
+                    mObj.NmFabricante = dr["nmFabricante"].ToString();
+
+                    lstObj.Add(mObj);
+                }
+
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "FALHA AO CONSULTAR FABRICANTE";
+            }
+            return lstObj;
+        }
+
         internal FabricanteDTO ConsultarFabricanteById(int idAtributo)
         {
             this.Mensagem = "";

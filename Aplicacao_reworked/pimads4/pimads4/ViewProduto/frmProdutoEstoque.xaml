@@ -49,14 +49,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-
-
-
         <Label x:Name="lblDs_Produto" Content="Produto:" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="2" Grid.Row="3" Height="19"/>
-        <TextBox x:Name="txtDs_Unidade" Text="" Height="24" TextWrapping="Wrap" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4"/>
-        <Button Content="Pesquisar" Grid.Column="7" HorizontalAlignment="Right"  Grid.Row="3" VerticalAlignment="Bottom" Width="101"/>
-
-
+        <TextBox x:Name="txtDs_Produto" Text="" Height="24" TextWrapping="Wrap" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="4"/>
+        <Button x:Name="btnPesquisar" Content="Pesquisar" Grid.Column="7" HorizontalAlignment="Right"  Grid.Row="3" VerticalAlignment="Bottom" Width="101" Click="BtnPesquisar_Click"/>
 
     </Grid>
 </UserControl>

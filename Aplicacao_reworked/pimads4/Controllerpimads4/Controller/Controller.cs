@@ -51,6 +51,18 @@ namespace Controllerpimads4.Controller
             return lstUsuarios;
         }
 
+        public List<UsuarioDTO> ConsultarUsuarioByNmLogin(string nmUsuario, string dsLogin)
+        {
+            this.Mensagem = "";
+            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
+            lstUsuarios = UsuarioBL.GetInstance().ConsultarUsuarioByNmLogin(nmUsuario, dsLogin);
+            if (UsuarioBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UsuarioBL.GetInstance().Mensagem;
+            }
+            return lstUsuarios;
+        }
+
         public UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
             this.Mensagem = "";
@@ -145,11 +157,23 @@ namespace Controllerpimads4.Controller
                 this.Mensagem = FabricanteBL.GetInstance().Mensagem;
             }
         }
-        #endregion
+
+        public List<FabricanteDTO> ConsultarFabricanteByNm(string nmFabricante)
+        {
+            this.Mensagem = "";
+            List<FabricanteDTO> lstFabricantes = new List<FabricanteDTO>();
+            lstFabricantes = FabricanteBL.GetInstance().ConsultarFabricanteByNm(nmFabricante);
+            if (FabricanteBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = FabricanteBL.GetInstance().Mensagem;
+            }
+            return lstFabricantes;
+        }
+            #endregion
 
         #region Metodos Pedido
 
-        public List<PedidoVendaDTO> ConsultarPedidoVendaTodos()
+            public List<PedidoVendaDTO> ConsultarPedidoVendaTodos()
         {
             this.Mensagem = "";
             List<PedidoVendaDTO> lstPedidos = new List<PedidoVendaDTO>();
@@ -345,6 +369,19 @@ namespace Controllerpimads4.Controller
             }
             return lstUnidades;
         }
+
+        public List<UnidadeDTO> ConsultarUnidadeByDs(string dsUnidade)
+        {
+            this.Mensagem = "";
+            List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
+            lstUnidades = UnidadeBL.GetInstance().ConsultarUnidadeByDs(dsUnidade);
+            if (UnidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = UnidadeBL.GetInstance().Mensagem;
+            }
+            return lstUnidades;
+        }
+
         public UnidadeDTO ConsultarUnidadeById(int idUnidade)
         {
             this.Mensagem = "";
@@ -392,6 +429,17 @@ namespace Controllerpimads4.Controller
             this.Mensagem = "";
             List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
             lstProdutos = ProdutoBL.GetInstance().ConsultarProdutos();
+            if (ProdutoBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = ProdutoBL.GetInstance().Mensagem;
+            }
+            return lstProdutos;
+        }
+        public List<ProdutoDTO> ConsultarProdutoByDs(string dsProduto)
+        {
+            this.Mensagem = "";
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            lstProdutos = ProdutoBL.GetInstance().ConsultarProdutoByDs(dsProduto);
             if (ProdutoBL.GetInstance().Mensagem != "")
             {
                 this.Mensagem = ProdutoBL.GetInstance().Mensagem;

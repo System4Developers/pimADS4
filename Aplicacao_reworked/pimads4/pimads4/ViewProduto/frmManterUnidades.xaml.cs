@@ -94,7 +94,14 @@ namespace pimads4.ViewProduto
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            
+            List<UnidadeDTO> lstUnidades = new List<UnidadeDTO>();
+            lstUnidades = Controller.GetInstance().ConsultarUnidadeByDs(txtDs_Unidade.Text);
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
+            dtgUnidades.ItemsSource = lstUnidades;
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)

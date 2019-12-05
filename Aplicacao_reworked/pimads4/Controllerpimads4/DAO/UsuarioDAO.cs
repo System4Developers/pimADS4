@@ -89,6 +89,54 @@ namespace Controllerpimads4.DAO
             return lstUsuarios;
         }
 
+        internal List<UsuarioDTO> ConsultarUsuarioByNmLogin(string nmUsuario, string dsLogin)
+        {
+            this.Mensagem = "";
+
+            String sqlText = "SELECT * FROM Usuarios";
+            if (nmUsuario !=""  && dsLogin=="")
+            {
+                sqlText += " WHERE nmUsuario like '%"+ nmUsuario +"%'";
+            }
+            if (nmUsuario =="" && dsLogin !="")
+            {
+                sqlText += " WHERE dsLogin like '%" + dsLogin + "%'";
+            }
+            if (nmUsuario != "" && dsLogin != "")
+            {
+                sqlText += " WHERE dsLogin like '%" + dsLogin + "%' AND nmUsuario like '%" + nmUsuario + "%'";
+            }
+            UsuarioDTO usuario = null;
+            List<UsuarioDTO> listaUsuario = new List<UsuarioDTO>();
+
+            SqlCommand cmd  = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    usuario = new UsuarioDTO();
+                    usuario.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+                    usuario.DsLogin = dr["dsLogin"].ToString();
+                    usuario.DsSenha = dr["dsSenha"].ToString();
+                    usuario.TpStatus = dr["tpStatus"].ToString();
+                    usuario.NmUsuario = dr["nmUsuario"].ToString();
+                    usuario.TpUsuario = dr["tpUsuario"].ToString();
+
+                    listaUsuario.Add(usuario);
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "NAO FOI POSSIVEL CONSULTAR USUARIO";
+            }
+            return listaUsuario;
+        }
+
         internal UsuarioDTO ConsultarUsuarioById(int idUsuario)
         {
             this.Mensagem = "";

@@ -60,7 +60,6 @@ namespace pimads4.ViewProduto
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
 
-
             if (txtId_Fabricante.Text.Equals(""))
             {
                 FabricanteDTO fabricante = new FabricanteDTO();
@@ -98,7 +97,16 @@ namespace pimads4.ViewProduto
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            
+            List<FabricanteDTO> lstFabricante = new List<FabricanteDTO>();
+            lstFabricante = Controller.GetInstance().ConsultarFabricanteByNm(txtDs_Fabricante.Text);
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
+            dtgFabricantes.ItemsSource = lstFabricante;
+
+
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)

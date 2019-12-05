@@ -40,5 +40,17 @@ namespace pimads4.ViewProduto
             dtgProdutos.ItemsSource = lstProdutos;
 
         }
+
+        private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            lstProdutos = Controller.GetInstance().ConsultarProdutoByDs(txtDs_Produto.Text);
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
+            dtgProdutos.ItemsSource = lstProdutos;
+        }
     }
 }

@@ -63,9 +63,13 @@ namespace pimads4.ViewUsuario
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-              
-            
-
+            List<UsuarioDTO> lstUsuarios = new List<UsuarioDTO>();
+            lstUsuarios = Controller.GetInstance().ConsultarUsuarioByNmLogin(txtNome.Text, txtDsLogin.Text);
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+            }
+            dtgUsuarios.ItemsSource = lstUsuarios;
         }
 
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)

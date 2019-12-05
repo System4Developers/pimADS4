@@ -82,6 +82,44 @@ namespace Controllerpimads4.DAO
             return lstObj;
         }
 
+        internal List<UnidadeDTO> ConsultarUnidadeByDs(string dsUnidade)
+        {
+            this.Mensagem = "";
+            String sqlText = "SELECT * FROM Unidades";
+
+            if (dsUnidade!="")
+            {
+                sqlText += " WHERE dsUnidade like '%" + dsUnidade + "%'";
+            }
+
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            List<UnidadeDTO> lstObj = new List<UnidadeDTO>();
+            UnidadeDTO mObj = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    mObj = new UnidadeDTO();
+                    mObj.IdUnidade = Convert.ToInt32(dr["idUnidade"]);
+                    mObj.DsUnidade = dr["dsUnidade"].ToString();
+
+                    lstObj.Add(mObj);
+                }
+
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "FALHA AO CONSULTAR UNIDADE";
+            }
+            return lstObj;
+        }
+
         internal UnidadeDTO ConsultarUnidadeById(int idAtributo)
         {
             this.Mensagem = "";

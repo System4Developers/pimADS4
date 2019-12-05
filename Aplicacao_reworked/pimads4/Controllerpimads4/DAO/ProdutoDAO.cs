@@ -99,6 +99,54 @@ namespace Controllerpimads4.DAO
             return lstObj;
         }
 
+        internal List<ProdutoDTO> ConsultarProdutoByDs(string dsProduto)
+        {
+            this.Mensagem = "";
+            String sqlText = "select * from Produtos" +
+                 " join Unidades on Unidades.idUnidade = Produtos.fk_idUnidade_Unidades" +
+                 " join Fabricantes on Fabricantes.idFabricante = Produtos.fk_idFabricante_Fabricantes";
+            if (dsProduto != "")
+            {
+                sqlText += " Where dsProduto like '%" + dsProduto + "%'";
+            }
+
+
+            SqlCommand cmd = new SqlCommand(sqlText,ConexaoDAO.GetInstance().Conexao());
+            List<ProdutoDTO> lstProdutos = new List<ProdutoDTO>();
+            ProdutoDTO produto = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    produto = new ProdutoDTO();
+                    produto.IdProduto = Convert.ToInt32(dr["idProduto"]);
+                    produto.DsProduto = dr["dsProduto"].ToString();
+                    produto.Quantidade = Convert.ToInt32(dr["quantidade"]);
+                    produto.ValorVenda = Convert.ToDouble(dr["valorVenda"]);
+                    produto.ValorCusto = Convert.ToDouble(dr["valorCusto"]);
+                    produto.TpProduto = dr["tpProduto"].ToString();
+                    produto.Unidade.IdUnidade = Convert.ToInt32(dr["fk_idUnidade_Unidades"]);
+                    produto.Unidade.DsUnidade = dr["dsUnidade"].ToString();
+                    produto.Fabricante.IdFabricante = Convert.ToInt32(dr["fk_idFabricante_Fabricantes"]);
+                    produto.Fabricante.NmFabricante = dr["nmFabricante"].ToString();
+
+                    lstProdutos.Add(produto);
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "FALHA AO CONSULTAR PRODUTOS";
+            }
+
+            return lstProdutos;
+        }
+
         internal ProdutoDTO ConsultarProdutoById(int idAtributo)
         {
             this.Mensagem = "";
