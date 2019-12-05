@@ -27,20 +27,10 @@ namespace pimads4.ViewPessoa
             InitializeComponent();
             InicializarCampos();
             InicializarBotoes();
-            InicializarDtg();
+           
         }
 
-        private void InicializarDtg()
-        {
-            List<PessoaDTO> lstPessoa = new List<PessoaDTO>();
-            lstPessoa = Controller.GetInstance().ConsultarPessoa();
-            if (Controller.GetInstance().Mensagem != "")
-            {
-                MessageBox.Show(Controller.GetInstance().Mensagem);
-                return;
-            }
-            dtgPessoas.ItemsSource = lstPessoa;
-        }
+       
 
         private void InicializarCampos()
         {
@@ -60,17 +50,32 @@ namespace pimads4.ViewPessoa
             txtDs_Observacao.Text = string.Empty;
 
             VerificarTipoPessoa();
+            InicializarDtg();
 
             cmbEstado.ItemsSource = null;
-            cmbEstado.ItemsSource = Controller.GetInstance().ConsultarEstados();
+            try
+            {
+                cmbEstado.ItemsSource = Controller.GetInstance().ConsultarEstados();
+                cmbEstado.SelectedValuePath = "IdEstado";
+                cmbEstado.DisplayMemberPath = "DsSigla";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
+        }
+
+        private void InicializarDtg()
+        {
+            List<PessoaDTO> lstPessoa = new List<PessoaDTO>();
+            lstPessoa = Controller.GetInstance().ConsultarPessoa();
             if (Controller.GetInstance().Mensagem != "")
             {
                 MessageBox.Show(Controller.GetInstance().Mensagem);
                 return;
             }
-            cmbEstado.SelectedValuePath = "IdEstado";
-            cmbEstado.DisplayMemberPath = "DsSigla";
-
+            dtgPessoas.ItemsSource = lstPessoa;
         }
 
         private void InicializarBotoes()
@@ -157,8 +162,8 @@ namespace pimads4.ViewPessoa
         {
 
             PessoaDTO pessoa = new PessoaDTO();
-            
-            pessoa.IdPessoa = Convert.ToInt32("0"+txtId_Pessoa.Text);
+
+            pessoa.IdPessoa = Convert.ToInt32("0" + txtId_Pessoa.Text);
             pessoa.NmPessoa = txtNm_Pessoa.Text;
             pessoa.TpPessoa = cmbTp_Pessoa.SelectedValue.ToString();
             pessoa.NumDocumento = txtNr_Documento.Text;
@@ -166,6 +171,11 @@ namespace pimads4.ViewPessoa
             {
                 pessoa.DtNascimento = dtpDt_Nascimento.Text;
                 pessoa.NumRG = txtNr_RG.Text;
+            }
+            else
+            {
+                pessoa.DtNascimento = "";
+                pessoa.NumRG = "";
             }
             pessoa.DsEmail = txtDs_Email.Text;
             pessoa.DsEndereco = txtDs_Endereco.Text;

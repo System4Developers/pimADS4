@@ -70,6 +70,43 @@ namespace Controllerpimads4.BL
                 return;
             }
         }
+        internal void AtualizarPessoa(PessoaDTO pessoa)
+        {
+            this.Mensagem = "";
+
+            if (pessoa.TpPessoa == "F")
+            {
+                if (!IsCpf(pessoa.NumDocumento))
+                {
+                    this.mensagem = "CPF INFORMADO INVÁLIDO";
+                    return;
+                }
+            }
+            if (pessoa.TpPessoa == "J")
+            {
+                if (!IsCnpj(pessoa.NumDocumento))
+                {
+                    this.Mensagem = "CNPJ INFORMADO INVÁLIDO";
+                    return;
+                }
+            }
+            if (pessoa.NmPessoa == "")
+            {
+                this.Mensagem = "CAMPO NOME NÃO PREENCHIDO";
+                return;
+            }
+            if (pessoa.Bairro.IdBairro <= 0)
+            {
+                this.Mensagem = "BAIRRO NÃO INFORMADO";
+                return;
+            }
+            PessoaDAO.GetInstance().AtualizarPessoa(pessoa);
+            if (PessoaDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaDAO.GetInstance().Mensagem;
+            }
+        }
+
 
         internal List<PessoaDTO> ConsultarPessoas()
         {
@@ -106,16 +143,7 @@ namespace Controllerpimads4.BL
             return pessoa;
         }
 
-        internal void AtualizarPessoa(PessoaDTO pessoa)
-        {
-            this.Mensagem = "";
-            PessoaDAO.GetInstance().AtualizarPessoa(pessoa);
-            if (PessoaDAO.GetInstance().Mensagem != "")
-            {
-                this.Mensagem = PessoaDAO.GetInstance().Mensagem;
-            }
-        }
-
+       
         internal void ExcluirPessoa(int idPessoa)
         {
             this.Mensagem = "";

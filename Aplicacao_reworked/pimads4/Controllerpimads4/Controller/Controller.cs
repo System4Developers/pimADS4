@@ -440,6 +440,15 @@ namespace Controllerpimads4.Controller
                 this.Mensagem = PessoaBL.GetInstance().Mensagem;
             }
         }
+        public void AtualizarPessoa(PessoaDTO pessoa)
+        {
+            this.Mensagem = "";
+            PessoaBL.GetInstance().AtualizarPessoa(pessoa);
+            if (PessoaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
+        }
         public List<PessoaDTO> ConsultarPessoa()
         {
             this.Mensagem = "";
@@ -485,15 +494,7 @@ namespace Controllerpimads4.Controller
             }
             return listaPessoaJuridica;
         }
-        public void AtualizarPessoa(PessoaDTO pessoa)
-        {
-            this.Mensagem = "";
-            PessoaBL.GetInstance().AtualizarPessoa(pessoa);
-            if (PessoaBL.GetInstance().Mensagem != "")
-            {
-                this.Mensagem = PessoaBL.GetInstance().Mensagem;
-            }
-        }
+       
         public void ExcluirPessoa(int idPessoa)
         {
             this.Mensagem = "";
