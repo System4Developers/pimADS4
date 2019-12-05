@@ -103,6 +103,62 @@ namespace Controllerpimads4.DAO
             return lstObj;
         }
 
+        internal List<PessoaDTO> ConsultarPessoaByNmDoc(string NmPessoa, string NumDoc)
+        {
+            this.Mensagem = "";
+
+            String sqlText = "SELECT * FROM Pessoas";
+            if (NmPessoa =="" && NumDoc !="")
+            {
+                sqlText = sqlText + " WHERE numDocumento like '%" + NumDoc +"%'";
+            }
+            if (NmPessoa != "" && NumDoc == "")
+            {
+                sqlText = sqlText + " WHERE nmPessoa like '%" + NmPessoa + "%'";
+            }
+            if (NmPessoa != "" && NumDoc != "")
+            {
+                sqlText = sqlText + " WHERE nmPessoa like '%" + NmPessoa + "%' AND numDocumento like '%" + NumDoc + "%'";
+            }
+
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            List<PessoaDTO> lstObj = new List<PessoaDTO>();
+            PessoaDTO mObj = null;
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    mObj = new PessoaDTO();
+                    mObj.IdPessoa = Convert.ToInt32(dr["idPessoa"]);
+                    mObj.TpPessoa = dr["tpPessoa"].ToString();
+                    mObj.NmPessoa = dr["nmPessoa"].ToString();
+                    mObj.NumDocumento = dr["numDocumento"].ToString();
+                    mObj.NumRG = dr["numRG"].ToString();
+                    mObj.DtNascimento = dr["dtNascimento"].ToString();
+                    mObj.DsEmail = dr["dsEmail"].ToString();
+                    mObj.DsEndereco = dr["dsEndereco"].ToString();
+                    mObj.Complemento = dr["complemento"].ToString();
+                    mObj.NumEnd = dr["numEnd"].ToString();
+                    mObj.Observacao = dr["observacao"].ToString();
+                    mObj.Bairro.IdBairro = Convert.ToInt32(dr["fk_idBairro_Bairros"]);
+
+                    lstObj.Add(mObj);
+                }
+
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "FALHA AO CONSULTAR DADOS PESSOA";
+            }
+            return lstObj;
+        }
+
         internal PessoaDTO ConsultarPessoaById(int idAtributo)
         {
             this.Mensagem = "";
@@ -144,6 +200,34 @@ namespace Controllerpimads4.DAO
                 this.Mensagem = "FALHA AO CONSULTAR PESSOA ID: " + idAtributo;
             }
             return mObj;
+        }
+
+        internal bool ConsultarPessoaByDoc(string mNr_Documento)
+        {
+            
+            this.Mensagem = "";
+            bool objPessoa = false;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Pessoas WHERE numDocumento = @numDoc" , ConexaoDAO.GetInstance().Conexao());
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@numDoc", mNr_Documento);
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    objPessoa = true;
+                }
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "FALHA AO CONSULTAR PESSOA POR DOCUMENTO: " + mNr_Documento;
+            }
+            return objPessoa;
         }
 
         internal List<PessoaDTO> ConsultarPessoaJuridica()

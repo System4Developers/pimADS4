@@ -451,6 +451,19 @@ namespace Controllerpimads4.Controller
             }
             return lstPessoas;
         }
+
+        public List<PessoaDTO> ConsultarPessoaByNmDoc(string NmPessoa, string NumDoc)
+        {
+            this.Mensagem = "";
+            List<PessoaDTO> lstPessoas = new List<PessoaDTO>();
+            lstPessoas = PessoaBL.GetInstance().ConsultarPessoaByNmDoc(NmPessoa, NumDoc);
+            if (PessoaBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = PessoaBL.GetInstance().Mensagem;
+            }
+            return lstPessoas;
+        }
+
         public PessoaDTO ConsultarPessoaById(int idPessoa)
         {
             this.Mensagem = "";

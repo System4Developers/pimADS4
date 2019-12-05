@@ -97,11 +97,14 @@ namespace pimads4.ViewPessoa
             if (tipo != "" && tipo == "J")
             {
                 dtpDt_Nascimento.Text = "";
+                txtNr_RG.Text = "";
                 dtpDt_Nascimento.IsEnabled = false;
+                txtNr_RG.IsEnabled = false;
             }
             if (tipo != "" && tipo == "F")
             {
                 dtpDt_Nascimento.IsEnabled = true;
+                txtNr_RG.IsEnabled = true;
             }
         }
 
@@ -154,33 +157,31 @@ namespace pimads4.ViewPessoa
         {
 
             PessoaDTO pessoa = new PessoaDTO();
-
+            
             pessoa.IdPessoa = Convert.ToInt32("0"+txtId_Pessoa.Text);
-            if (Controller.GetInstance().Mensagem != "")
-            {
-                MessageBox.Show(Controller.GetInstance().Mensagem);
-                return;
-            }
             pessoa.NmPessoa = txtNm_Pessoa.Text;
             pessoa.TpPessoa = cmbTp_Pessoa.SelectedValue.ToString();
             pessoa.NumDocumento = txtNr_Documento.Text;
-            pessoa.NumRG = txtNr_RG.Text;
             if (cmbTp_Pessoa.SelectedValue.ToString() == "F")
             {
                 pessoa.DtNascimento = dtpDt_Nascimento.Text;
+                pessoa.NumRG = txtNr_RG.Text;
             }
             pessoa.DsEmail = txtDs_Email.Text;
             pessoa.DsEndereco = txtDs_Endereco.Text;
-          
+            pessoa.Complemento = txtDs_Observacao.Text;
             pessoa.NumEnd = txtNr_Endereco.Text;
             pessoa.Observacao = txtDs_Observacao.Text;
             pessoa.Bairro.IdBairro = Convert.ToInt32(cmbDs_Bairro.SelectedValue);
 
-
             if (txtId_Pessoa.Text.Equals(""))
             {
                 Controller.GetInstance().CadastrarPessoa(pessoa);
-
+                if (Controller.GetInstance().Mensagem!="")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarBotoes();
                 InicializarCampos();
                 InicializarDtg();
@@ -189,7 +190,11 @@ namespace pimads4.ViewPessoa
             {
                 pessoa.IdPessoa = Convert.ToInt32(txtId_Pessoa.Text);
                 Controller.GetInstance().AtualizarPessoa(pessoa);
-
+                if (Controller.GetInstance().Mensagem != "")
+                {
+                    MessageBox.Show(Controller.GetInstance().Mensagem);
+                    return;
+                }
                 InicializarDtg();
             }
 
@@ -197,7 +202,14 @@ namespace pimads4.ViewPessoa
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            
+            List<PessoaDTO> lstPessoa = new List<PessoaDTO>();
+            lstPessoa = Controller.GetInstance().ConsultarPessoaByNmDoc(txtNm_Pessoa.Text, txtNr_Documento.Text);
+            if (Controller.GetInstance().Mensagem != "")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+                return;
+            }
+            dtgPessoas.ItemsSource = lstPessoa;
         }
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)

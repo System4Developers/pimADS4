@@ -65,7 +65,7 @@
         <Label x:Name="lblDt_Nascimento" Content="Dt. de Nascimento:" FontSize="14" VerticalAlignment="Bottom" Height="26" Margin="2,0,0,1" Grid.Column="1" Grid.Row="4" />
         <DatePicker x:Name="dtpDt_Nascimento" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Grid.Column="1" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="1,0,0,0"/>
 
-        <Label x:Name="lblDs_Email" Content="Email:" VerticalAlignment="Bottom" Grid.Row="4" Height="26" RenderTransformOrigin="0.221,0.538" Margin="1,0" Grid.ColumnSpan="2" Grid.Column="3"/>
+        <Label x:Name="lblDs_Email" Content="Email:" VerticalAlignment="Bottom" Grid.Row="4" Height="26" RenderTransformOrigin="0.221,0.538" Margin="1,0" Grid.ColumnSpan="2" Grid.Column="3" FontSize="14"/>
         <TextBox x:Name="txtDs_Email"  TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="3"/>
 
         <Label x:Name="lblDs_Endereco" Content="Endereço:" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="10"   Grid.ColumnSpan="3" Grid.Row="7"  />
@@ -99,9 +99,9 @@
         <TextBox x:Name="txtNr_Endereco"  TextWrapping="Wrap" Grid.Column="14" Grid.Row="8" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="25" />
 
         <Button x:Name="btnSalvar" Content="Salvar" Height="28" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="4" Grid.Row="10"  />
-        <Button x:Name="btnConsultar" Content="Consultar" Height="27"  HorizontalAlignment="Right" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="5" Grid.Row="10" Grid.ColumnSpan="3" Margin="0,0,13,0" VerticalAlignment="Bottom"  />
-        <Button x:Name="btnExcluir" Content="Excluir" Height="26"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="8" Grid.Row="10"  />
-        <Button x:Name="btnLimpar" Content="Limpar" Height="26"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="9" Grid.Row="10" Grid.ColumnSpan="2" />
+        <Button x:Name="btnConsultar" Content="Consultar" Height="28"  HorizontalAlignment="Right" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="5" Grid.Row="10" Grid.ColumnSpan="3" Margin="0,0,13,0" VerticalAlignment="Bottom"  />
+        <Button x:Name="btnExcluir" Content="Excluir" Height="29"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="8" Grid.Row="10"  />
+        <Button x:Name="btnLimpar" Content="Limpar" Height="29"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="9" Grid.Row="10" Grid.ColumnSpan="2" />
 
         <DataGrid x:Name="dtgPessoas"  ColumnWidth="*" Height="auto"
             CanUserReorderColumns="True"                  
