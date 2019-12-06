@@ -88,6 +88,46 @@ namespace Controllerpimads4.DAO
             return lstObj;
         }
 
+        internal List<CidadeDTO> ConsultarCidadeByNm(string nmCidade)
+        {
+            this.Mensagem = "";
+            List<CidadeDTO> lstObj = new List<CidadeDTO>();
+            CidadeDTO mObj = null;
+
+            String sqlText = "SELECT * FROM Cidades JOIN Estados ON Cidades.fk_idEstado_Estados = Estados.idEstado";
+            if (nmCidade !="")
+            {
+                sqlText += " WHERE nmCidade like '%" + nmCidade + "%'";
+            }
+
+            SqlCommand cmd = new SqlCommand(sqlText, ConexaoDAO.GetInstance().Conexao());
+
+            try
+            {
+                ConexaoDAO.GetInstance().Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    mObj = new CidadeDTO();
+                    mObj.IdCidade = Convert.ToInt32(dr["idCidade"]);
+                    mObj.NmCidade = dr["nmCidade"].ToString();
+                    mObj.CodIbge = dr["codIBGE"].ToString();
+                    mObj.Estado.IdEstado = Convert.ToInt32(dr["fk_idEstado_Estados"]);
+                    mObj.Estado.DsSigla = dr["dsSigla"].ToString();
+
+                    lstObj.Add(mObj);
+                }
+
+                ConexaoDAO.GetInstance().Desconectar();
+            }
+            catch (Exception ex)
+            {
+                ConexaoDAO.GetInstance().Desconectar();
+                this.Mensagem = "FALHA AO CONSULTAR CIDADES";
+            }
+            return lstObj;
+        }
+
         internal CidadeDTO ConsultarCidadeById(int idAtributo)
         {
             this.Mensagem = "";

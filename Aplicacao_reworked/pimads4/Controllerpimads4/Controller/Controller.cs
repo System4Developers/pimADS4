@@ -239,6 +239,18 @@ namespace Controllerpimads4.Controller
             return lstCidades;
         }
 
+        public List<CidadeDTO> ConsultarCidadeByNm(string nmCidade)
+        {
+            this.Mensagem = "";
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = CidadeBL.GetInstance().ConsultarCidadeByNm(nmCidade);
+            if (CidadeBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = CidadeBL.GetInstance().Mensagem;
+            }
+            return lstCidades;
+        }
+
         public List<CidadeDTO> ConsultarCidadesByEstado(int idEstado)
         {
             this.Mensagem = "";
@@ -339,6 +351,18 @@ namespace Controllerpimads4.Controller
             this.Mensagem = "";
             List<BairroDTO> lstBairros = new List<BairroDTO>();
             lstBairros = BairroBL.GetInstance().ConsultarBairrosByCidade(idCidade);
+            if (BairroBL.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = BairroBL.GetInstance().Mensagem;
+            }
+            return lstBairros;
+        }
+
+        public List<BairroDTO> ConsultarBairrosByDs(string dsBairro)
+        {
+            this.Mensagem = "";
+            List<BairroDTO> lstBairros = new List<BairroDTO>();
+            lstBairros = BairroBL.GetInstance().ConsultarBairrosByDs(dsBairro);
             if (BairroBL.GetInstance().Mensagem != "")
             {
                 this.Mensagem = BairroBL.GetInstance().Mensagem;
