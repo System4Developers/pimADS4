@@ -55,13 +55,13 @@
 
         <TextBox x:Name="txtId_Cidade" Text="" HorizontalAlignment="Left" Height="24" Margin="23,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14" Grid.Column="8" Visibility="Hidden"/>
 
-        <Label x:Name="lblDs_Estado" Content="Sigla do Estado" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="2" Grid.Row="2"/>
+        <Label x:Name="lblDs_Estado" Content="Sigla do Estado" VerticalContentAlignment="Center" VerticalAlignment="Stretch" Padding="0" FontSize="14" Grid.Column="2" Grid.Row="2"/>
         <ComboBox x:Name="cmbEstado" Height="24" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3"/>
 
-        <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="132"/>
+        <Label x:Name="lblDs_Cidade" Content="Nome da Cidade:" HorizontalAlignment="Stretch"  VerticalContentAlignment="Center"  VerticalAlignment="Stretch" Padding="0" FontSize="14" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" />
         <TextBox x:Name="txtDs_Cidade" Text="" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="279" Padding="0" FontSize="14" Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="3"/>
 
-        <Label x:Name="lblCd_Ibge" Content="Código IBGE:" VerticalAlignment="Bottom" Padding="0" FontSize="14" Grid.Column="7" Grid.Row="2" Grid.RowSpan="1" />
+        <Label x:Name="lblCd_Ibge" Content="Código IBGE:" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Padding="0" FontSize="14" Grid.Column="7" Grid.Row="2" Grid.RowSpan="1" />
         <TextBox x:Name="txtCd_Ibge" Text="" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Padding="0" FontSize="14" Grid.ColumnSpan="2" Grid.Column="7" Grid.Row="3"/>
 
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="3" Grid.Row="4" />

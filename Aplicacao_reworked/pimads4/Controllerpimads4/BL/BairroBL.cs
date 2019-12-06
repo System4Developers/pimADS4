@@ -95,5 +95,16 @@ namespace Controllerpimads4.BL
             return lstBairros;
         }
 
+        internal List<BairroDTO> ConsultarBairrosByDs(string dsBairro)
+        {
+            this.Mensagem = "";
+            List<BairroDTO> lstBairros = new List<BairroDTO>();
+            lstBairros = BairroDAO.GetInstance().ConsultarBairrosByDs(dsBairro);
+            if (BairroDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = BairroDAO.GetInstance().Mensagem;
+            }
+            return lstBairros;
+        }
     }
 }

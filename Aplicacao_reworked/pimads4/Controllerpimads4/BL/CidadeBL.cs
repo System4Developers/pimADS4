@@ -38,6 +38,10 @@ namespace Controllerpimads4.BL
                     this.Mensagem = CidadeDAO.GetInstance().Mensagem;
                 }
             }
+            else
+            {
+                this.Mensagem = "NOME DA CIDADE NÃO INFORMADO";
+            }
         }
 
         internal List<CidadeDTO> ConsultarCidades()
@@ -83,6 +87,10 @@ namespace Controllerpimads4.BL
             {
                 this.Mensagem = CidadeDAO.GetInstance().Mensagem;
             }
+            else
+            {
+                this.Mensagem = "NOME DA CIDADE NÃO INFORMADO";
+            }
         }
 
         internal void ExcluirCidade(int idCidade)
@@ -93,6 +101,18 @@ namespace Controllerpimads4.BL
             {
                 this.Mensagem = CidadeDAO.GetInstance().Mensagem;
             }
+        }
+
+        internal List<CidadeDTO> ConsultarCidadeByNm(string nmCidade)
+        {
+            this.Mensagem = "";
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = CidadeDAO.GetInstance().ConsultarCidadeByNm(nmCidade);
+            if (CidadeDAO.GetInstance().Mensagem != "")
+            {
+                this.Mensagem = CidadeDAO.GetInstance().Mensagem;
+            }
+            return lstCidades;
         }
 
     }

@@ -63,9 +63,13 @@ namespace pimads4.ViewCEP
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-
-           
-
+            List<CidadeDTO> lstCidades = new List<CidadeDTO>();
+            lstCidades = Controller.GetInstance().ConsultarCidadeByNm(txtDs_Cidade.Text);
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+            }
+            dtgCidades.ItemsSource = lstCidades;
         }
 
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
@@ -76,15 +80,21 @@ namespace pimads4.ViewCEP
 
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
+            CidadeDTO cidade = new CidadeDTO();
+            try
+            {
+                cidade.Estado.IdEstado = Convert.ToInt32(cmbEstado.SelectedValue);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ESTADO NÃO SELECIONADO PARA A CIDADE INFORMADA");
+                return;
+            }
+            cidade.NmCidade = txtDs_Cidade.Text;
+            cidade.CodIbge = txtCd_Ibge.Text;
 
             if (txtId_Cidade.Text.Equals(""))
             {
-                CidadeDTO cidade = new CidadeDTO();
-
-                cidade.NmCidade = txtDs_Cidade.Text;
-                cidade.CodIbge = txtCd_Ibge.Text;
-                cidade.Estado.IdEstado = Convert.ToInt32(cmbEstado.SelectedValue);
-
                 Controller.GetInstance().CadastrarCidade(cidade);
                 if (Controller.GetInstance().Mensagem != "")
                 {
@@ -94,17 +104,18 @@ namespace pimads4.ViewCEP
                 InicializarBotoes();
                 InicializarCampos();
                 InicializarDtg();
-
             }
             else
             {
-                CidadeDTO cidade = new CidadeDTO();
-
-                cidade.IdCidade = Convert.ToInt32(txtId_Cidade.Text);
-                cidade.NmCidade = txtDs_Cidade.Text;
-                cidade.CodIbge = txtCd_Ibge.Text;
-                cidade.Estado.IdEstado = Convert.ToInt32(cmbEstado.SelectedValue);
-
+                try
+                {
+                    cidade.IdCidade = Convert.ToInt32(txtId_Cidade.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("NENHUMA CIDADE SELECIONADA PARA EDITAR");
+                    return;
+                }
                 Controller.GetInstance().AtualizarCidade(cidade);
                 if (Controller.GetInstance().Mensagem != "")
                 {
@@ -112,7 +123,6 @@ namespace pimads4.ViewCEP
                     return;
                 }
                 InicializarDtg();
-
             }
         }
 

@@ -74,8 +74,13 @@ namespace pimads4.ViewCEP
         }
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-
-
+            List<BairroDTO> lstBairros = new List<BairroDTO>();
+            lstBairros = Controller.GetInstance().ConsultarBairrosByDs(txtDs_Bairro.Text);
+            if (Controller.GetInstance().Mensagem!="")
+            {
+                MessageBox.Show(Controller.GetInstance().Mensagem);
+            }
+            dtgBairro.ItemsSource = lstBairros;
         }
 
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
