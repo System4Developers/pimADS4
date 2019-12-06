@@ -8,77 +8,70 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="27*"/>
+            <RowDefinition Height="43*"/>
             <RowDefinition Height="28*"/>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="27*"/>
-            <RowDefinition Height="29*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="27*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="43*"/>
             <RowDefinition Height="31*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="35*"/>
+            <RowDefinition Height="75*"/>
             <RowDefinition Height="11*"/>
             <RowDefinition Height="318*"/>
             <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="134*"/>
-            <ColumnDefinition Width="34*"/>
-            <ColumnDefinition Width="78*"/>
-            <ColumnDefinition Width="102*"/>
-            <ColumnDefinition Width="36*"/>
-            <ColumnDefinition Width="64*"/>
-            <ColumnDefinition Width="35*"/>
-            <ColumnDefinition Width="103*"/>
-            <ColumnDefinition Width="36*"/>
-            <ColumnDefinition Width="75*"/>
-            <ColumnDefinition Width="36*"/>
-            <ColumnDefinition Width="110*"/>
-            <ColumnDefinition Width="24*"/>
-            <ColumnDefinition Width="93*"/>
-            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="47*"/>
         </Grid.ColumnDefinitions>
 
 
 
 
-        <TextBox x:Name="txtId_Pessoa" Text="" HorizontalAlignment="Left" Height="24" Margin="1,7,-56,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14" Grid.Column="15" Visibility="Hidden" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtId_Pessoa" Text="" HorizontalAlignment="Left" Height="24" Margin="1,7,-54,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Padding="0" FontSize="14" Grid.Column="13" Visibility="Hidden"/>
 
-        <Label x:Name="lblTp_Pessoa" Content="Tipo de Pessoa:"  VerticalAlignment="Stretch" Padding="0" FontSize="14" Grid.Column="1"  VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Grid.Row="1" />
-        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Pessoa" VerticalAlignment="Stretch" FontSize="14" SelectionChanged="CmbTp_Pessoa_SelectionChanged"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
+        <Label x:Name="lblTp_Pessoa" Content="Tipo de Pessoa:"  VerticalAlignment="Bottom"  FontSize="14" Grid.Column="1"  VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Height="29"  />
+        <ComboBox SelectedValuePath="Tag" x:Name="cmbTp_Pessoa" VerticalAlignment="Stretch" FontSize="14" SelectionChanged="CmbTp_Pessoa_SelectionChanged"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
             <ComboBoxItem IsSelected="True" Tag="F" Content="FISICA" />
             <ComboBoxItem Tag="J" Content="JURIDICA"/>
         </ComboBox>
 
-        <Label x:Name="lblNm_Pessoa" Content="Nome / Razao Social:" FontSize="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" Grid.ColumnSpan="4"  Grid.Row="1" />
-        <TextBox x:Name="txtNm_Pessoa" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" Grid.ColumnSpan="4" Grid.Column="3"  Grid.Row="2" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  />
+        <Label x:Name="lblNm_Pessoa" Content="Nome / Razao Social:" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="3" Grid.ColumnSpan="2" Width="150" Height="29"/>
+        <TextBox x:Name="txtNm_Pessoa" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" Grid.ColumnSpan="5" Grid.Column="3"  Grid.Row="1" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  />
 
-        <Label x:Name="lblNr_Documento" Content="CPF / CNPJ:"  Grid.ColumnSpan="3" Grid.Column="8" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-        <TextBox x:Name="txtNr_Documento"  TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Column="8" Grid.Row="2" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  />
+        <Label x:Name="lblNr_Documento" Content="CPF / CNPJ:" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="26" Width="71" />
+        <TextBox x:Name="txtNr_Documento"  TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="1" FontSize="14" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.ColumnSpan="2"  />
 
-        <Label x:Name="lblNr_RG" Content="RG:" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="12"  Grid.ColumnSpan="3" Grid.Row="1" />
-        <TextBox x:Name="txtNr_RG" VerticalAlignment="Stretch" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Column="12"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Grid.Row="2"/>
+        <Label x:Name="lblNr_RG" Content="RG:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="12"  Height="28" Width="28" />
+        <TextBox x:Name="txtNr_RG" VerticalAlignment="Stretch" TextWrapping="Wrap" Grid.Column="12"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  Grid.Row="1" Width="123" HorizontalAlignment="Left"/>
 
-        <Label x:Name="lblDt_Nascimento" Content="Dt. de Nascimento:" FontSize="14" VerticalAlignment="Bottom" Height="26" Margin="2,0,0,1" Grid.Column="1" Grid.Row="4" />
-        <DatePicker x:Name="dtpDt_Nascimento" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Grid.Column="1" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="1,0,0,0"/>
+        <Label x:Name="lblDt_Nascimento" Content="Dt. de Nascimento:" FontSize="14" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom"  HorizontalAlignment="Left" Height="26" Width="140" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"  />
+        <DatePicker x:Name="dtpDt_Nascimento" VerticalAlignment="Top" HorizontalAlignment="Stretch"  Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" Height="28"  />
 
-        <Label x:Name="lblDs_Email" Content="Email:" VerticalAlignment="Bottom" Grid.Row="4" Height="26" RenderTransformOrigin="0.221,0.538" Margin="1,0" Grid.ColumnSpan="2" Grid.Column="3" FontSize="14"/>
-        <TextBox x:Name="txtDs_Email"  TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="3"/>
+        <Label x:Name="lblDs_Email" Content="Email:" VerticalAlignment="Bottom" Grid.Row="2" Height="26" RenderTransformOrigin="0.221,0.538" Margin="0,0,5,0" Grid.ColumnSpan="2" Grid.Column="3" FontSize="14"/>
+        <TextBox x:Name="txtDs_Email"  TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="3" Height="28" />
 
-        <Label x:Name="lblDs_Endereco" Content="Endereço:" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="10"   Grid.ColumnSpan="3" Grid.Row="7"  />
-        <TextBox x:Name="txtDs_Endereco"   TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="10"  Grid.ColumnSpan="3" Grid.Row="8" Height="25"/>
+        <Label x:Name="lblDs_Endereco" Content="Endereço:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="9" Grid.Row="4" Height="26" Grid.ColumnSpan="2" Width="193"  />
+        <TextBox x:Name="txtDs_Endereco"   TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="9" Grid.Row="5" Height="28" Grid.ColumnSpan="2"/>
 
-        <Label x:Name="lblDs_Observacao" Content="Dados Complementares:" FontSize="14" Grid.Column="6" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="txtDs_Observacao"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="5" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblDs_Observacao" Height="26" Content="Dados Complementares:" FontSize="14" Grid.Column="6" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtDs_Observacao" Height="28" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="5" VerticalContentAlignment="Center" />
 
-        <Label x:Name="lblDs_Estado" Content="Estado" Margin="2,0,1,0" VerticalAlignment="Top" FontSize="14" Grid.Column="1" Grid.Row="7" Height="28" Grid.RowSpan="2"/>
-        <ComboBox x:Name="cmbEstado"  VerticalAlignment="Top" SelectionChanged="CmbEstado_SelectionChanged" Grid.Column="1" Grid.Row="8" Height="28" />
+        <Label x:Name="lblDs_Estado" Content="Estado"  VerticalAlignment="Bottom" FontSize="14" Grid.Column="1" Grid.Row="4" Height="26"/>
+        <ComboBox x:Name="cmbEstado"  VerticalAlignment="Top" SelectionChanged="CmbEstado_SelectionChanged" Grid.Column="1" Grid.Row="5" Height="28" />
 
-        <Label x:Name="lblDs_Cidade"  Content="Cidade:" FontSize="14" Grid.Column="3"  VerticalAlignment="Stretch" Grid.Row="7"  Grid.ColumnSpan="2"  />
-        <ComboBox x:Name="cmbCidade" VerticalAlignment="Top" SelectionChanged="CmbCidade_SelectionChanged" Grid.Column="3"  Grid.Row="8"  Grid.ColumnSpan="2" Height="28">
+        <Label x:Name="lblDs_Cidade"  Content="Cidade:" FontSize="14" Grid.Column="3"  VerticalAlignment="Bottom" Grid.Row="4"  Grid.ColumnSpan="3" Height="26"  />
+        <ComboBox x:Name="cmbCidade" VerticalAlignment="Top" SelectionChanged="CmbCidade_SelectionChanged" Grid.Column="3"  Grid.Row="5"  Grid.ColumnSpan="2" Height="28">
             <ComboBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel />
@@ -86,8 +79,8 @@
             </ComboBox.ItemsPanel>
         </ComboBox>
 
-        <Label x:Name="lblDs_Bairro" Content="Bairro:" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  FontSize="14" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="3" />
-        <ComboBox x:Name="cmbDs_Bairro" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Grid.Column="6" Grid.Row="8" Grid.ColumnSpan="3" Height="28">
+        <Label x:Name="lblDs_Bairro" Height="26" Content="Bairro:" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom"  FontSize="14" Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="2" />
+        <ComboBox x:Name="cmbDs_Bairro" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="2" Height="28">
             <ComboBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel />
@@ -95,20 +88,20 @@
             </ComboBox.ItemsPanel>
         </ComboBox>
 
-        <Label x:Name="lblNr_Endereco" Content="Número:" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="14" Grid.Row="7"/>
-        <TextBox x:Name="txtNr_Endereco"  TextWrapping="Wrap" Grid.Column="14" Grid.Row="8" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="25" />
+        <Label x:Name="lblNr_Endereco" Content="Número:" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Column="12" Grid.Row="4" Height="26"/>
+        <TextBox x:Name="txtNr_Endereco"  TextWrapping="Wrap" Grid.Column="12" Grid.Row="5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="28" Grid.RowSpan="2" />
 
-        <Button x:Name="btnSalvar" Content="Salvar" Height="28" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="4" Grid.Row="10"  />
-        <Button x:Name="btnConsultar" Content="Consultar" Height="28"  HorizontalAlignment="Right" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="5" Grid.Row="10" Grid.ColumnSpan="3" Margin="0,0,13,0" VerticalAlignment="Bottom"  />
-        <Button x:Name="btnExcluir" Content="Excluir" Height="29"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="8" Grid.Row="10"  />
-        <Button x:Name="btnLimpar" Content="Limpar" Height="29"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="9" Grid.Row="10" Grid.ColumnSpan="2" />
+        <Button x:Name="btnSalvar" Content="Salvar" Height="30" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnSalvar_Click" Grid.Column="4" Grid.Row="5"  />
+        <Button x:Name="btnConsultar" Content="Consultar" Height="30"  HorizontalAlignment="Right" Width="95" FontSize="14" Click="BtnConsultar_Click" Grid.Column="5" Grid.Row="5" VerticalAlignment="Bottom" Grid.ColumnSpan="2"  />
+        <Button x:Name="btnExcluir" Content="Excluir" Height="30"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnExcluir_Click" Grid.Column="7" Grid.Row="4" Grid.RowSpan="2"  />
+        <Button x:Name="btnLimpar" Content="Limpar" Height="30"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="95" FontSize="14" Click="BtnLimpar_Click" Grid.Column="8" Grid.Row="5" Grid.ColumnSpan="2" />
 
-        <DataGrid x:Name="dtgPessoas"  ColumnWidth="*" Height="auto"
+        <DataGrid x:Name="dtgPessoas"  ColumnWidth="*"
             CanUserReorderColumns="True"                  
             CanUserResizeColumns="True"
             AutoGenerateColumns="False" 
             FontSize="14"
-            IsReadOnly="True" Grid.ColumnSpan="14" Grid.Row="12" Grid.Column="1">
+            IsReadOnly="True" Grid.ColumnSpan="12" Grid.Row="7" Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdPessoa}" Width="90" Header="ID" />
                 <DataGridTextColumn Binding="{Binding NmPessoa}" Header="Pessoa" />
