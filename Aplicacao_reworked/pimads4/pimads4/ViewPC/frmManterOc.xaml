@@ -21,7 +21,7 @@
             <RowDefinition Height="56*"/>
             <RowDefinition Height="55*"/>
             <RowDefinition Height="37*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="24*"/>
             <RowDefinition Height="17*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="17*"/>
@@ -34,59 +34,62 @@
         <Grid.ColumnDefinitions>
 
 
+
             <ColumnDefinition Width="26"/>
             <ColumnDefinition Width="19"/>
             <ColumnDefinition Width="44"/>
             <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="50*"/>
             <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="40*"/>
             <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="48*"/>
-            <ColumnDefinition Width="112*"/>
+            <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="49*"/>
-            <ColumnDefinition Width="113*"/>
-            <ColumnDefinition Width="73*"/>
-            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="110*"/>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="115*"/>
             <ColumnDefinition Width="21*"/>
             <ColumnDefinition Width="26*"/>
 
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="lblDt_Digitacao" Content="Data" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.ColumnSpan="3" Width="88"/>
-        <DatePicker x:Name="dtpDt_Digitacao" Grid.Column="2" VerticalAlignment="Bottom" Grid.ColumnSpan="4" Margin="0,0,1,0" />
+        <Label x:Name="lblDt_Digitacao" Content="Data" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.ColumnSpan="3" Width="88" Height="26"/>
+        <DatePicker x:Name="dtpDt_Digitacao" Grid.Column="2" VerticalAlignment="Bottom" Grid.ColumnSpan="4" Height="25" />
 
-        <Label x:Name="lblNm_Fornecedor" Content="Fornecedor" Grid.Column="7" VerticalAlignment="top" HorizontalContentAlignment="Left"  Grid.ColumnSpan="3" />
-        <ComboBox x:Name="cmbNm_Fornecedor" Grid.Column="7" VerticalAlignment="Bottom" Grid.ColumnSpan="6" />
+        <Label x:Name="lblNm_Fornecedor" Content="Fornecedor" Grid.Column="7" VerticalAlignment="top" HorizontalContentAlignment="Left"  Grid.ColumnSpan="3" Height="26" />
+        <ComboBox x:Name="cmbNm_Fornecedor" Grid.Column="7" VerticalAlignment="Bottom" Grid.ColumnSpan="6" Height="25" />
 
-        <Label x:Name="lblDs_Produto"  Content="Produto" Grid.Column="2" VerticalAlignment="Bottom" Height="25" Grid.Row="1" Grid.ColumnSpan="5" Margin="0,0,1,0"/>
-        <ComboBox x:Name="cmbDs_Produto"  VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="8"  Height="25"  />
+        <Label x:Name="lblDs_Produto"  Content="Produto" Grid.Column="2" VerticalAlignment="Bottom" Height="26" Grid.Row="1" Grid.ColumnSpan="5" Margin="0,0,1,0"/>
+        <ComboBox x:Name="cmbDs_Produto"  VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="8"  Height="28"  />
 
-        <Label x:Name="lblNr_Quantidade" Content="Quantidade"  Grid.Column="11" Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />
-        <TextBox x:Name="txtNr_Quantidade" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="11" Grid.Row="2" />
+        <Label x:Name="lblNr_Quantidade" Content="Quantidade"  Grid.Column="11" Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="26" />
+        <TextBox x:Name="txtNr_Quantidade" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="11" Grid.Row="2" Height="28" Width="106" Grid.ColumnSpan="2" />
 
-        <Label x:Name="lblVlr_Custo" Content="Valor Custo" Grid.Column="13"  Grid.Row="1" VerticalAlignment="Bottom"  />
-        <TextBox x:Name="txtVlr_Custo" Grid.Column="13" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Grid.Row="2" TextWrapping="Wrap"/>
+        <Label x:Name="lblVlr_Custo" Content="Valor Custo" Grid.Column="13"  Grid.Row="1" VerticalAlignment="Bottom" Height="26" Grid.ColumnSpan="2"  />
+        <TextBox x:Name="txtVlr_Custo" Grid.Column="13" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Row="2" TextWrapping="Wrap" Height="28" Width="106" Grid.ColumnSpan="2"/>
 
-        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="18" Grid.Column="1" Grid.Row="3" Grid.RowSpan="15" Margin="0,0,0,3"/>
+        <Grid Background="#FFE2E2E2" Grid.ColumnSpan="19" Grid.Column="1" Grid.Row="3" Grid.RowSpan="15"/>
+        <Label Content="Total Compra" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="11" VerticalAlignment="Top" FontWeight="Bold"  Grid.ColumnSpan="3" Grid.Column="16" Grid.Row="12"/>
 
 
-        <Label x:Name="lblQuantidade" Content="Quantidade" Grid.Column="2" FontWeight="Bold" VerticalAlignment="Top" Grid.ColumnSpan="3"  Grid.Row="13" Grid.RowSpan="3" Height="30" Margin="0,3,0,0" />
-        <Button x:Name="btnRemover" Content="EXCLUIR" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Height="24" Grid.Column="6" Grid.Row="15" Grid.ColumnSpan="2" Grid.RowSpan="2" Click="BtnRemover_Click" />
+        <Label x:Name="lblQuantidade" Content="Quantidade" Grid.Column="6" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="3"  Grid.Row="12" Height="26" Grid.RowSpan="2"  />
+        <Button x:Name="btnRemover" Content="EXCLUIR"  HorizontalAlignment="Stretch"  VerticalAlignment="Top" Height="26" Grid.Column="6" Grid.Row="17" Grid.ColumnSpan="3" Click="BtnRemover_Click" />
 
-        <Button x:Name="btnFinalizar" Content="Finalizar Ordem Compra" Grid.Column="15" Grid.Row="17" Height="26" Click="BtnFinalizar_Click" VerticalAlignment="Top" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <Button x:Name="btnFinalizar" Content="Finalizar Ordem Compra" Grid.Column="16" Grid.Row="17" Height="26" Click="BtnFinalizar_Click" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
 
-        <Button x:Name="btnQtdAdd" Content="+"  Grid.Column="2" Grid.Row="15" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Click="BtnQtdAdd_Click" Height="Auto" Width="44" />
+        <Button x:Name="btnQtdAdd" Content="+"  Grid.Column="6" Grid.Row="14" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Click="BtnQtdAdd_Click" Height="Auto" />
 
-        <Button x:Name="btnQtdRmv" Content="-"   Grid.Column="4" Grid.Row="15" Grid.RowSpan="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Click="BtnQtdRmv_Click" Height="Auto" Width="44"/>
+        <Button x:Name="btnQtdRmv" Content="-"   Grid.Column="8" Grid.Row="14" Grid.RowSpan="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Click="BtnQtdRmv_Click" Height="Auto"/>
 
-        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="15" Click="BtnAdicionar_Click" VerticalAlignment="Stretch"  Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,0,0,20" />
+        <Button x:Name="btnAdicionar" Content="Adicionar" Grid.Column="15" Click="BtnAdicionar_Click" VerticalAlignment="Top" Width="106"  Grid.Row="2" HorizontalAlignment="Left"  Height="28" Grid.ColumnSpan="2" />
 
-        <DataGrid x:Name="dtgProdutos" Grid.Column="2" Grid.ColumnSpan="16" Grid.Row="4" Grid.RowSpan="8"  ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="dtgProdutos" Grid.Column="2" Grid.ColumnSpan="17" Grid.Row="4" Grid.RowSpan="8"  ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Produto.IdProduto}" Header="COD. PRODUTO"/>
                 <DataGridTextColumn Binding="{Binding Produto.DsProduto}" Header="PRODUTO" />
@@ -96,8 +99,11 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Background="White" Grid.Column="15" Grid.Row="13" Grid.RowSpan="3" Grid.ColumnSpan="3" />
-        <TextBox x:Name="txtVlr_Total" Grid.Column="15" Grid.Row="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="3" Text="" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" IsReadOnly="True"  Grid.ColumnSpan="3"/>
+        <Grid Background="White" Grid.Column="16" Grid.Row="13" Grid.RowSpan="3" Grid.ColumnSpan="3">
+            <Label Content="R$" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Stretch" FontSize="25" Height="44" />
+
+        </Grid>
+        <TextBox x:Name="txtVlr_Total"  Grid.Column="16" IsReadOnly="True" Grid.Row="13" Grid.RowSpan="3" VerticalAlignment="Center" FontSize="25" BorderBrush="#89FBF8F8" Foreground="#FF7E7C7C" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" Height="46" Margin="50,0,0,0"/>
 
     </Grid>
 </UserControl>

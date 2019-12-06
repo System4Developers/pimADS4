@@ -33,6 +33,7 @@ namespace pimads4.ViewPC
             CarregarDataGridOrdemCompra();
             CarregarListaFornecedores();
             LimparCampos();
+            LimparCampos2();
         }
 
         private void CarregarListaFornecedores()
@@ -67,9 +68,15 @@ namespace pimads4.ViewPC
             dtpDt_Inicial.Text = string.Empty;
             dtpDt_Final.Text = string.Empty;
             cmbNm_Fornecedor.SelectedValue = null;
+           
+        }
+
+        private void LimparCampos2()
+        {
             txtDs_Fornecedor.Text = string.Empty;
             txtDt_Emissao.Text = string.Empty;
             txtNr_OrdemCompra.Text = string.Empty;
+
         }
 
         private void DtgOrdemCompra_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -136,6 +143,11 @@ namespace pimads4.ViewPC
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
         {
             LimparCampos();
+        }
+
+        private void BtnLimpar2_Click(object sender, RoutedEventArgs e)
+        {
+            LimparCampos2();
         }
     }
 }

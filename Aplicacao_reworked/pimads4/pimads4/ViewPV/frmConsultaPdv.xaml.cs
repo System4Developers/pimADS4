@@ -33,6 +33,7 @@ namespace pimads4.ViewPV
             CarregarDataGridPedidoVenda();
             CarregarListaClientes();
             LimparCampos();
+            LimparCampos2();
         }
 
         private void CarregarListaClientes()
@@ -67,9 +68,16 @@ namespace pimads4.ViewPV
             dtpDt_Inicial.Text = string.Empty;
             dtpDt_Final.Text = string.Empty;
             cmbNm_Cliente.SelectedValue = null;
-            txt_Cliente.Text = string.Empty;
+          
+        }
+
+        private void LimparCampos2()
+        {
             txtDt_Emissao.Text = string.Empty;
             txtNr_PedidoVenda.Text = string.Empty;
+            cmbNm_Cliente.SelectedValue = null;
+            txt_Cliente.Text = string.Empty;
+          
         }
 
 
@@ -140,6 +148,16 @@ namespace pimads4.ViewPV
         private void BtnLimpar_Click(object sender, RoutedEventArgs e)
         {
             LimparCampos();
+        }
+
+        private void Txt_Cliente_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnLimpar2_Click(object sender, RoutedEventArgs e)
+        {
+            LimparCampos2();
         }
     }
 }
